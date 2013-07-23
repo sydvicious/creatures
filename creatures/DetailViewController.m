@@ -24,6 +24,7 @@
         
         // Update the view.
         [self configureView];
+        self.title = self.creature.characterName;
     }
 
     if (self.masterPopoverController != nil) {
@@ -56,9 +57,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.title = NSLocalizedString(@"Detail", @"Detail");
-    }
     return self;
 }
 							
@@ -66,7 +64,7 @@
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
-    barButtonItem.title = NSLocalizedString(@"Master", @"Master");
+    barButtonItem.title = NSLocalizedString(@"Characters", @"Characters");
     [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
     self.masterPopoverController = popoverController;
 }

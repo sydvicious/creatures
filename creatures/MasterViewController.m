@@ -24,7 +24,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Master", @"Master");
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
@@ -42,6 +41,7 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    self.title = NSLocalizedString(@"Characters", @"Characters");
 }
 
 - (void)didReceiveMemoryWarning
