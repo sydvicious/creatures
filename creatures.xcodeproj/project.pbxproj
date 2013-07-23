@@ -206,6 +206,7 @@
 		62C3C28517640824000AAE72 = {
 			isa = PBXGroup;
 			children = (
+				62D9EE97179ECC620030FF0F /* Common Files */,
 				62C3C29717640824000AAE72 /* creatures */,
 				62C3C2C717640824000AAE72 /* creaturesTests */,
 				622CD63B179F13BA00F332F7 /* creatures-mac */,
@@ -242,7 +243,6 @@
 		62C3C29717640824000AAE72 /* creatures */ = {
 			isa = PBXGroup;
 			children = (
-				62D9EE97179ECC620030FF0F /* Common Files */,
 				62D9EE96179ECC3F0030FF0F /* Resources */,
 				62C3C2A017640824000AAE72 /* AppDelegate.h */,
 				62C3C2A117640824000AAE72 /* AppDelegate.m */,
@@ -306,7 +306,6 @@
 				62D9EE99179ECCB00030FF0F /* Creature.m */,
 			);
 			name = "Common Files";
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -842,6 +841,7 @@
 				622CD664179F13BB00F332F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		622CD668179F13BB00F332F7 /* Build configuration list for PBXNativeTarget "creatures-macTests" */ = {
 			isa = XCConfigurationList;
@@ -850,6 +850,7 @@
 				622CD666179F13BB00F332F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62C3C28917640824000AAE72 /* Build configuration list for PBXProject "creatures" */ = {
 			isa = XCConfigurationList;
