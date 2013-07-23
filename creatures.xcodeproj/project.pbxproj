@@ -27,6 +27,7 @@
 		62C3C2C417640824000AAE72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29317640824000AAE72 /* Foundation.framework */; };
 		62C3C2CC17640824000AAE72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C2CA17640824000AAE72 /* InfoPlist.strings */; };
 		62C3C2CF17640824000AAE72 /* creaturesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C3C2CE17640824000AAE72 /* creaturesTests.m */; };
+		62D9EE9A179ECCB00030FF0F /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D9EE99179ECCB00030FF0F /* Creature.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		62C3C2CB17640824000AAE72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		62C3C2CD17640824000AAE72 /* creaturesTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = creaturesTests.h; sourceTree = "<group>"; };
 		62C3C2CE17640824000AAE72 /* creaturesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = creaturesTests.m; sourceTree = "<group>"; };
+		62D9EE98179ECCAF0030FF0F /* Creature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Creature.h; path = common/Creature.h; sourceTree = "<group>"; };
+		62D9EE99179ECCB00030FF0F /* Creature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Creature.m; path = common/Creature.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,16 +129,14 @@
 		62C3C29717640824000AAE72 /* creatures */ = {
 			isa = PBXGroup;
 			children = (
+				62D9EE97179ECC620030FF0F /* Common Files */,
+				62D9EE96179ECC3F0030FF0F /* Resources */,
 				62C3C2A017640824000AAE72 /* AppDelegate.h */,
 				62C3C2A117640824000AAE72 /* AppDelegate.m */,
 				62C3C2A917640824000AAE72 /* MasterViewController.h */,
 				62C3C2AA17640824000AAE72 /* MasterViewController.m */,
 				62C3C2AC17640824000AAE72 /* DetailViewController.h */,
 				62C3C2AD17640824000AAE72 /* DetailViewController.m */,
-				62C3C2AF17640824000AAE72 /* MasterViewController_iPhone.xib */,
-				62C3C2B217640824000AAE72 /* MasterViewController_iPad.xib */,
-				62C3C2B517640824000AAE72 /* DetailViewController_iPhone.xib */,
-				62C3C2B817640824000AAE72 /* DetailViewController_iPad.xib */,
 				62C3C29817640824000AAE72 /* Supporting Files */,
 			);
 			path = creatures;
@@ -172,6 +173,27 @@
 				62C3C2CA17640824000AAE72 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		62D9EE96179ECC3F0030FF0F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				62C3C2AF17640824000AAE72 /* MasterViewController_iPhone.xib */,
+				62C3C2B217640824000AAE72 /* MasterViewController_iPad.xib */,
+				62C3C2B517640824000AAE72 /* DetailViewController_iPhone.xib */,
+				62C3C2B817640824000AAE72 /* DetailViewController_iPad.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		62D9EE97179ECC620030FF0F /* Common Files */ = {
+			isa = PBXGroup;
+			children = (
+				62D9EE98179ECCAF0030FF0F /* Creature.h */,
+				62D9EE99179ECCB00030FF0F /* Creature.m */,
+			);
+			name = "Common Files";
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +313,7 @@
 				62C3C2A217640824000AAE72 /* AppDelegate.m in Sources */,
 				62C3C2AB17640824000AAE72 /* MasterViewController.m in Sources */,
 				62C3C2AE17640824000AAE72 /* DetailViewController.m in Sources */,
+				62D9EE9A179ECCB00030FF0F /* Creature.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +522,7 @@
 				62C3C2D417640824000AAE72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62C3C2D517640824000AAE72 /* Build configuration list for PBXNativeTarget "creaturesTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +531,7 @@
 				62C3C2D717640824000AAE72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

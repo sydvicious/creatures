@@ -12,8 +12,8 @@
 
 
 @interface MasterViewController () {
-    NSMutableArray *_objects;
 }
+@property (nonatomic, strong) NSMutableArray *creatures;
 @end
 
 @implementation MasterViewController
@@ -52,17 +52,18 @@
 
 - (void)insertNewObject:(id)sender
 {
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
     NSString *title = @"untitled";
     if (self.untitledCount != 0) {
         NSString *tempTitle = [title stringByAppendingFormat:@"%i", self.untitledCount];
         title = tempTitle;
     }
     self.untitledCount++;
+    Creature *creature = [[Creature alloc] initWithCharacterName:title];
+    if (!self.creatures) {
+        self.creatures = [[NSMutableArray alloc] init];
+    }
     
-    [_objects insertObject:title atIndex:0];
+    [self.creatures insertObject:creature atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -76,7 +77,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    if (!self.creatures) {
+        self.creatures = [[NSMutableArray alloc] init];
+    }
+    return self.creatures.count;
 }
 
 // Customize the appearance of table view cells.
@@ -92,9 +96,8 @@
         }
     }
 
-
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    Creature *creature = self.creatures[indexPath.row];
+    cell.textLabel.text = creature.characterName;
     return cell;
 }
 
@@ -107,7 +110,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
+        [self.creatures removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -132,15 +135,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDate *object = _objects[indexPath.row];
+    Creature *creature = self.creatures[indexPath.row];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
 	    if (!self.detailViewController) {
 	        self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone" bundle:nil];
 	    }
-	    self.detailViewController.detailItem = object;
+	    self.detailViewController.creature = creature;
         [self.navigationController pushViewController:self.detailViewController animated:YES];
     } else {
-        self.detailViewController.detailItem = object;
+        self.detailViewController.creature = creature;
     }
 }
 
