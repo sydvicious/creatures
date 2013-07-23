@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		622CD636179F13BA00F332F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622CD635179F13BA00F332F7 /* Cocoa.framework */; };
+		622CD640179F13BA00F332F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 622CD63E179F13BA00F332F7 /* InfoPlist.strings */; };
+		622CD642179F13BA00F332F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 622CD641179F13BA00F332F7 /* main.m */; };
+		622CD646179F13BA00F332F7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 622CD644179F13BA00F332F7 /* Credits.rtf */; };
+		622CD649179F13BA00F332F7 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 622CD648179F13BA00F332F7 /* Document.m */; };
+		622CD64C179F13BA00F332F7 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 622CD64A179F13BA00F332F7 /* Document.xib */; };
+		622CD64F179F13BA00F332F7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 622CD64D179F13BA00F332F7 /* MainMenu.xib */; };
+		622CD656179F13BB00F332F7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C2C117640824000AAE72 /* SenTestingKit.framework */; };
+		622CD657179F13BB00F332F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622CD635179F13BA00F332F7 /* Cocoa.framework */; };
+		622CD65F179F13BB00F332F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 622CD65D179F13BB00F332F7 /* InfoPlist.strings */; };
+		622CD662179F13BB00F332F7 /* creatures_macTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 622CD661179F13BB00F332F7 /* creatures_macTests.m */; };
 		62C3C29217640824000AAE72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29117640824000AAE72 /* UIKit.framework */; };
 		62C3C29417640824000AAE72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29317640824000AAE72 /* Foundation.framework */; };
 		62C3C29617640824000AAE72 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29517640824000AAE72 /* CoreGraphics.framework */; };
@@ -31,6 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		622CD658179F13BB00F332F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62C3C28617640824000AAE72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 622CD633179F13BA00F332F7;
+			remoteInfo = "creatures-mac";
+		};
 		62C3C2C517640824000AAE72 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 62C3C28617640824000AAE72 /* Project object */;
@@ -41,6 +59,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		622CD634179F13BA00F332F7 /* creatures-mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "creatures-mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		622CD635179F13BA00F332F7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		622CD638179F13BA00F332F7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		622CD639179F13BA00F332F7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		622CD63A179F13BA00F332F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		622CD63D179F13BA00F332F7 /* creatures-mac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "creatures-mac-Info.plist"; sourceTree = "<group>"; };
+		622CD63F179F13BA00F332F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		622CD641179F13BA00F332F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		622CD643179F13BA00F332F7 /* creatures-mac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "creatures-mac-Prefix.pch"; sourceTree = "<group>"; };
+		622CD645179F13BA00F332F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		622CD647179F13BA00F332F7 /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
+		622CD648179F13BA00F332F7 /* Document.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
+		622CD64B179F13BA00F332F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Document.xib; sourceTree = "<group>"; };
+		622CD64E179F13BA00F332F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		622CD655179F13BB00F332F7 /* creatures-macTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "creatures-macTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		622CD65C179F13BB00F332F7 /* creatures-macTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "creatures-macTests-Info.plist"; sourceTree = "<group>"; };
+		622CD65E179F13BB00F332F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		622CD660179F13BB00F332F7 /* creatures_macTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = creatures_macTests.h; sourceTree = "<group>"; };
+		622CD661179F13BB00F332F7 /* creatures_macTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = creatures_macTests.m; sourceTree = "<group>"; };
 		62C3C28E17640824000AAE72 /* creatures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = creatures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C3C29117640824000AAE72 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		62C3C29317640824000AAE72 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,6 +110,23 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		622CD631179F13BA00F332F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622CD636179F13BA00F332F7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		622CD651179F13BB00F332F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622CD656179F13BB00F332F7 /* SenTestingKit.framework in Frameworks */,
+				622CD657179F13BB00F332F7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62C3C28B17640824000AAE72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -96,11 +150,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		622CD637179F13BA00F332F7 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				622CD638179F13BA00F332F7 /* AppKit.framework */,
+				622CD639179F13BA00F332F7 /* CoreData.framework */,
+				622CD63A179F13BA00F332F7 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		622CD63B179F13BA00F332F7 /* creatures-mac */ = {
+			isa = PBXGroup;
+			children = (
+				622CD647179F13BA00F332F7 /* Document.h */,
+				622CD648179F13BA00F332F7 /* Document.m */,
+				622CD64A179F13BA00F332F7 /* Document.xib */,
+				622CD64D179F13BA00F332F7 /* MainMenu.xib */,
+				622CD63C179F13BA00F332F7 /* Supporting Files */,
+			);
+			path = "creatures-mac";
+			sourceTree = "<group>";
+		};
+		622CD63C179F13BA00F332F7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				622CD63D179F13BA00F332F7 /* creatures-mac-Info.plist */,
+				622CD63E179F13BA00F332F7 /* InfoPlist.strings */,
+				622CD641179F13BA00F332F7 /* main.m */,
+				622CD643179F13BA00F332F7 /* creatures-mac-Prefix.pch */,
+				622CD644179F13BA00F332F7 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		622CD65A179F13BB00F332F7 /* creatures-macTests */ = {
+			isa = PBXGroup;
+			children = (
+				622CD660179F13BB00F332F7 /* creatures_macTests.h */,
+				622CD661179F13BB00F332F7 /* creatures_macTests.m */,
+				622CD65B179F13BB00F332F7 /* Supporting Files */,
+			);
+			path = "creatures-macTests";
+			sourceTree = "<group>";
+		};
+		622CD65B179F13BB00F332F7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				622CD65C179F13BB00F332F7 /* creatures-macTests-Info.plist */,
+				622CD65D179F13BB00F332F7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		62C3C28517640824000AAE72 = {
 			isa = PBXGroup;
 			children = (
 				62C3C29717640824000AAE72 /* creatures */,
 				62C3C2C717640824000AAE72 /* creaturesTests */,
+				622CD63B179F13BA00F332F7 /* creatures-mac */,
+				622CD65A179F13BB00F332F7 /* creatures-macTests */,
 				62C3C29017640824000AAE72 /* Frameworks */,
 				62C3C28F17640824000AAE72 /* Products */,
 			);
@@ -111,6 +220,8 @@
 			children = (
 				62C3C28E17640824000AAE72 /* creatures.app */,
 				62C3C2C017640824000AAE72 /* creaturesTests.octest */,
+				622CD634179F13BA00F332F7 /* creatures-mac.app */,
+				622CD655179F13BB00F332F7 /* creatures-macTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,6 +233,8 @@
 				62C3C29317640824000AAE72 /* Foundation.framework */,
 				62C3C29517640824000AAE72 /* CoreGraphics.framework */,
 				62C3C2C117640824000AAE72 /* SenTestingKit.framework */,
+				622CD635179F13BA00F332F7 /* Cocoa.framework */,
+				622CD637179F13BA00F332F7 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -199,6 +312,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		622CD633179F13BA00F332F7 /* creatures-mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 622CD667179F13BB00F332F7 /* Build configuration list for PBXNativeTarget "creatures-mac" */;
+			buildPhases = (
+				622CD630179F13BA00F332F7 /* Sources */,
+				622CD631179F13BA00F332F7 /* Frameworks */,
+				622CD632179F13BA00F332F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "creatures-mac";
+			productName = "creatures-mac";
+			productReference = 622CD634179F13BA00F332F7 /* creatures-mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		622CD654179F13BB00F332F7 /* creatures-macTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 622CD668179F13BB00F332F7 /* Build configuration list for PBXNativeTarget "creatures-macTests" */;
+			buildPhases = (
+				622CD650179F13BB00F332F7 /* Sources */,
+				622CD651179F13BB00F332F7 /* Frameworks */,
+				622CD652179F13BB00F332F7 /* Resources */,
+				622CD653179F13BB00F332F7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				622CD659179F13BB00F332F7 /* PBXTargetDependency */,
+			);
+			name = "creatures-macTests";
+			productName = "creatures-macTests";
+			productReference = 622CD655179F13BB00F332F7 /* creatures-macTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		62C3C28D17640824000AAE72 /* creatures */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62C3C2D217640824000AAE72 /* Build configuration list for PBXNativeTarget "creatures" */;
@@ -258,11 +407,32 @@
 			targets = (
 				62C3C28D17640824000AAE72 /* creatures */,
 				62C3C2BF17640824000AAE72 /* creaturesTests */,
+				622CD633179F13BA00F332F7 /* creatures-mac */,
+				622CD654179F13BB00F332F7 /* creatures-macTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		622CD632179F13BA00F332F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622CD640179F13BA00F332F7 /* InfoPlist.strings in Resources */,
+				622CD646179F13BA00F332F7 /* Credits.rtf in Resources */,
+				622CD64C179F13BA00F332F7 /* Document.xib in Resources */,
+				622CD64F179F13BA00F332F7 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		622CD652179F13BB00F332F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622CD65F179F13BB00F332F7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62C3C28C17640824000AAE72 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,6 +459,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		622CD653179F13BB00F332F7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		62C3C2BE17640824000AAE72 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -305,6 +488,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		622CD630179F13BA00F332F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622CD642179F13BA00F332F7 /* main.m in Sources */,
+				622CD649179F13BA00F332F7 /* Document.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		622CD650179F13BB00F332F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622CD662179F13BB00F332F7 /* creatures_macTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62C3C28A17640824000AAE72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -328,6 +528,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		622CD659179F13BB00F332F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 622CD633179F13BA00F332F7 /* creatures-mac */;
+			targetProxy = 622CD658179F13BB00F332F7 /* PBXContainerItemProxy */;
+		};
 		62C3C2C617640824000AAE72 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 62C3C28D17640824000AAE72 /* creatures */;
@@ -336,6 +541,46 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		622CD63E179F13BA00F332F7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				622CD63F179F13BA00F332F7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		622CD644179F13BA00F332F7 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				622CD645179F13BA00F332F7 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		622CD64A179F13BA00F332F7 /* Document.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				622CD64B179F13BA00F332F7 /* en */,
+			);
+			name = Document.xib;
+			sourceTree = "<group>";
+		};
+		622CD64D179F13BA00F332F7 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				622CD64E179F13BA00F332F7 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		622CD65D179F13BB00F332F7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				622CD65E179F13BB00F332F7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		62C3C29A17640824000AAE72 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -387,6 +632,90 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		622CD663179F13BB00F332F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "creatures-mac/creatures-mac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "creatures-mac/creatures-mac-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		622CD664179F13BB00F332F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "creatures-mac/creatures-mac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "creatures-mac/creatures-mac-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		622CD665179F13BB00F332F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/creatures-mac.app/Contents/MacOS/creatures-mac";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "creatures-mac/creatures-mac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "creatures-macTests/creatures-macTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		622CD666179F13BB00F332F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/creatures-mac.app/Contents/MacOS/creatures-mac";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "creatures-mac/creatures-mac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "creatures-macTests/creatures-macTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		62C3C2D017640824000AAE72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -506,6 +835,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		622CD667179F13BB00F332F7 /* Build configuration list for PBXNativeTarget "creatures-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				622CD663179F13BB00F332F7 /* Debug */,
+				622CD664179F13BB00F332F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		622CD668179F13BB00F332F7 /* Build configuration list for PBXNativeTarget "creatures-macTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				622CD665179F13BB00F332F7 /* Debug */,
+				622CD666179F13BB00F332F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		62C3C28917640824000AAE72 /* Build configuration list for PBXProject "creatures" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
