@@ -13,7 +13,7 @@
 
 @interface MasterViewController () {
 }
-@property (nonatomic, strong) NSMutableArray *creatures;
+@property (nonatomic, strong) NSMutableOrderedSet *creatures;
 @end
 
 @implementation MasterViewController
@@ -42,6 +42,8 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.title = NSLocalizedString(@"Characters", @"Characters");
+    self.creatures = [[NSMutableOrderedSet alloc] init];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,9 +61,6 @@
     }
     self.untitledCount++;
     Creature *creature = [[Creature alloc] initWithCharacterName:title];
-    if (!self.creatures) {
-        self.creatures = [[NSMutableArray alloc] init];
-    }
     
     [self.creatures insertObject:creature atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -77,9 +76,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (!self.creatures) {
-        self.creatures = [[NSMutableArray alloc] init];
-    }
     return self.creatures.count;
 }
 
