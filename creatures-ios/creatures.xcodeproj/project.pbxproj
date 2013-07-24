@@ -426,8 +426,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "creatures/creatures-Prefix.pch";
-				INFOPLIST_FILE = "creatures/creatures-Info.plist";
+				GCC_PREFIX_HEADER = "creatures-ios/creatures-Prefix.pch";
+				INFOPLIST_FILE = "creatures-ios/creatures-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -437,8 +437,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "creatures/creatures-Prefix.pch";
-				INFOPLIST_FILE = "creatures/creatures-Info.plist";
+				GCC_PREFIX_HEADER = "creatures-ios/creatures-Prefix.pch";
+				INFOPLIST_FILE = "creatures-ios/creatures-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -453,7 +453,7 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "creatures/creatures-Prefix.pch";
+				GCC_PREFIX_HEADER = "creatures-ios/creatures-Prefix.pch";
 				INFOPLIST_FILE = "creaturesTests/creaturesTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -470,7 +470,7 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "creatures/creatures-Prefix.pch";
+				GCC_PREFIX_HEADER = "creatures-ios/creatures-Prefix.pch";
 				INFOPLIST_FILE = "creaturesTests/creaturesTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
