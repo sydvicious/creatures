@@ -20,6 +20,12 @@
 - (void)setCreature:(id)newCreature
 {
     if (_creature != newCreature) {
+        if (_creature) {
+            _creature.characterName = _characterNameField.text;
+            _creature.playerName = _playerNameField.text;
+            _creature.campaignName = _campaignNameField.text;
+        }
+        
         _creature = newCreature;
         
         // Update the view.
