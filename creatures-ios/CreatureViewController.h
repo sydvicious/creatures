@@ -13,4 +13,8 @@
 
 @property (strong, nonatomic) Creature *creature;
 
+@property (nonatomic, weak) IBOutlet NSString *characterNameField;
+@property (nonatomic, weak) IBOutlet NSString *playerNameField;
+@property (nonatomic, weak) IBOutlet NSString *campaignNameField;
+
 @end

@@ -252,8 +252,7 @@
 				62C3C2AD17640824000AAE72 /* CreatureViewController.m */,
 				62C3C29817640824000AAE72 /* Supporting Files */,
 			);
-			name = "creatures-ios";
-			path = creatures;
+			path = "creatures-ios";
 			sourceTree = "<group>";
 		};
 		62C3C29817640824000AAE72 /* Supporting Files */ = {
@@ -294,8 +293,8 @@
 			children = (
 				62C3C2AF17640824000AAE72 /* CreatureListViewController_iPhone.xib */,
 				62C3C2B217640824000AAE72 /* CreatureListViewController_iPad.xib */,
-				62C3C2B517640824000AAE72 /* CreatureViewController_iPhone.xib */,
 				62C3C2B817640824000AAE72 /* CreatureViewController_iPad.xib */,
+				62C3C2B517640824000AAE72 /* CreatureViewController_iPhone.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
