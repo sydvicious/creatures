@@ -1,24 +1,22 @@
 //
-//  MasterViewController.m
+//  CreatureListViewController.m
 //  creatures
 //
 //  Created by Syd Polk on 6/8/13.
 //  Copyright (c) 2013 Bone Jarring Games and Software. All rights reserved.
 //
 
-#import "MasterViewController.h"
+#import "CreatureListViewController.h"
 
-#import "DetailViewController.h"
+#import "CreatureViewController.h"
 
 
-@interface MasterViewController () {
+@interface CreatureListViewController () {
 }
-@property (nonatomic, strong) NSMutableOrderedSet *creatures;
+@property (nonatomic, strong) NSMutableArray *creatures;
 @end
 
-@implementation MasterViewController
-
-@synthesize untitledCount = _untitledCount;
+@implementation CreatureListViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +27,7 @@
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
         }
     }
-    self.untitledCount = 0;
+    _untitledCount = 0;
     return self;
 }
 							
@@ -42,7 +40,7 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.title = NSLocalizedString(@"Characters", @"Characters");
-    self.creatures = [[NSMutableOrderedSet alloc] init];
+    self.creatures = [[NSMutableArray alloc] init];
 
 }
 
@@ -54,7 +52,7 @@
 
 - (void)insertNewObject:(id)sender
 {
-    NSString *title = @"untitled";
+    NSString *title = @"Unnamed";
     if (self.untitledCount != 0) {
         NSString *tempTitle = [title stringByAppendingFormat:@"%i", self.untitledCount];
         title = tempTitle;
@@ -133,13 +131,13 @@
 {
     Creature *creature = self.creatures[indexPath.row];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-	    if (!self.detailViewController) {
-	        self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone" bundle:nil];
+	    if (!self.creatureViewController) {
+	        self.creatureViewController = [[CreatureViewController alloc] initWithNibName:@"CreatureViewController_iPhone" bundle:nil];
 	    }
-	    self.detailViewController.creature = creature;
-        [self.navigationController pushViewController:self.detailViewController animated:YES];
+	    self.creatureViewController.creature = creature;
+        [self.navigationController pushViewController:self.creatureViewController animated:YES];
     } else {
-        self.detailViewController.creature = creature;
+        self.creatureViewController.creature = creature;
     }
 }
 

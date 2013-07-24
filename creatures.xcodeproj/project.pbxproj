@@ -18,8 +18,6 @@
 		622CD657179F13BB00F332F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622CD635179F13BA00F332F7 /* Cocoa.framework */; };
 		622CD65F179F13BB00F332F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 622CD65D179F13BB00F332F7 /* InfoPlist.strings */; };
 		622CD662179F13BB00F332F7 /* creatures_macTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 622CD661179F13BB00F332F7 /* creatures_macTests.m */; };
-		6270969A179F247100D33490 /* CreatureDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62709698179F247100D33490 /* CreatureDataViewController.m */; };
-		6270969B179F247100D33490 /* CreatureDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62709699179F247100D33490 /* CreatureDataViewController.xib */; };
 		62C3C29217640824000AAE72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29117640824000AAE72 /* UIKit.framework */; };
 		62C3C29417640824000AAE72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29317640824000AAE72 /* Foundation.framework */; };
 		62C3C29617640824000AAE72 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29517640824000AAE72 /* CoreGraphics.framework */; };
@@ -29,12 +27,12 @@
 		62C3C2A417640824000AAE72 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C2A317640824000AAE72 /* Default.png */; };
 		62C3C2A617640824000AAE72 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C2A517640824000AAE72 /* Default@2x.png */; };
 		62C3C2A817640824000AAE72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C2A717640824000AAE72 /* Default-568h@2x.png */; };
-		62C3C2AB17640824000AAE72 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C3C2AA17640824000AAE72 /* MasterViewController.m */; };
-		62C3C2AE17640824000AAE72 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C3C2AD17640824000AAE72 /* DetailViewController.m */; };
-		62C3C2B117640824000AAE72 /* MasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C2AF17640824000AAE72 /* MasterViewController_iPhone.xib */; };
-		62C3C2B417640824000AAE72 /* MasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C2B217640824000AAE72 /* MasterViewController_iPad.xib */; };
-		62C3C2B717640824000AAE72 /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C2B517640824000AAE72 /* DetailViewController_iPhone.xib */; };
-		62C3C2BA17640824000AAE72 /* DetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C2B817640824000AAE72 /* DetailViewController_iPad.xib */; };
+		62C3C2AB17640824000AAE72 /* CreatureListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C3C2AA17640824000AAE72 /* CreatureListViewController.m */; };
+		62C3C2AE17640824000AAE72 /* CreatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C3C2AD17640824000AAE72 /* CreatureViewController.m */; };
+		62C3C2B117640824000AAE72 /* CreatureListViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C2AF17640824000AAE72 /* CreatureListViewController_iPhone.xib */; };
+		62C3C2B417640824000AAE72 /* CreatureListViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C2B217640824000AAE72 /* CreatureListViewController_iPad.xib */; };
+		62C3C2B717640824000AAE72 /* CreatureViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C2B517640824000AAE72 /* CreatureViewController_iPhone.xib */; };
+		62C3C2BA17640824000AAE72 /* CreatureViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C2B817640824000AAE72 /* CreatureViewController_iPad.xib */; };
 		62C3C2C217640824000AAE72 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C2C117640824000AAE72 /* SenTestingKit.framework */; };
 		62C3C2C317640824000AAE72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29117640824000AAE72 /* UIKit.framework */; };
 		62C3C2C417640824000AAE72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29317640824000AAE72 /* Foundation.framework */; };
@@ -80,9 +78,6 @@
 		622CD65E179F13BB00F332F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		622CD660179F13BB00F332F7 /* creatures_macTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = creatures_macTests.h; sourceTree = "<group>"; };
 		622CD661179F13BB00F332F7 /* creatures_macTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = creatures_macTests.m; sourceTree = "<group>"; };
-		62709697179F247100D33490 /* CreatureDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatureDataViewController.h; path = creatures/CreatureDataViewController.h; sourceTree = "<group>"; };
-		62709698179F247100D33490 /* CreatureDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreatureDataViewController.m; path = creatures/CreatureDataViewController.m; sourceTree = "<group>"; };
-		62709699179F247100D33490 /* CreatureDataViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreatureDataViewController.xib; path = creatures/CreatureDataViewController.xib; sourceTree = "<group>"; };
 		62C3C28E17640824000AAE72 /* creatures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = creatures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C3C29117640824000AAE72 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		62C3C29317640824000AAE72 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,14 +91,14 @@
 		62C3C2A317640824000AAE72 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		62C3C2A517640824000AAE72 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		62C3C2A717640824000AAE72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		62C3C2A917640824000AAE72 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		62C3C2AA17640824000AAE72 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		62C3C2AC17640824000AAE72 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		62C3C2AD17640824000AAE72 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		62C3C2B017640824000AAE72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPhone.xib; sourceTree = "<group>"; };
-		62C3C2B317640824000AAE72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPad.xib; sourceTree = "<group>"; };
-		62C3C2B617640824000AAE72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPhone.xib; sourceTree = "<group>"; };
-		62C3C2B917640824000AAE72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPad.xib; sourceTree = "<group>"; };
+		62C3C2A917640824000AAE72 /* CreatureListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreatureListViewController.h; sourceTree = "<group>"; };
+		62C3C2AA17640824000AAE72 /* CreatureListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreatureListViewController.m; sourceTree = "<group>"; };
+		62C3C2AC17640824000AAE72 /* CreatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreatureViewController.h; sourceTree = "<group>"; };
+		62C3C2AD17640824000AAE72 /* CreatureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreatureViewController.m; sourceTree = "<group>"; };
+		62C3C2B017640824000AAE72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreatureListViewController_iPhone.xib; sourceTree = "<group>"; };
+		62C3C2B317640824000AAE72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreatureListViewController_iPad.xib; sourceTree = "<group>"; };
+		62C3C2B617640824000AAE72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreatureViewController_iPhone.xib; sourceTree = "<group>"; };
+		62C3C2B917640824000AAE72 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreatureViewController_iPad.xib; sourceTree = "<group>"; };
 		62C3C2C017640824000AAE72 /* creaturesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = creaturesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C3C2C117640824000AAE72 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		62C3C2C917640824000AAE72 /* creaturesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "creaturesTests-Info.plist"; sourceTree = "<group>"; };
@@ -212,7 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				62D9EE97179ECC620030FF0F /* Common Files */,
-				62C3C29717640824000AAE72 /* creatures */,
+				62C3C29717640824000AAE72 /* creatures-ios */,
 				62C3C2C717640824000AAE72 /* creaturesTests */,
 				622CD63B179F13BA00F332F7 /* creatures-mac */,
 				622CD65A179F13BB00F332F7 /* creatures-macTests */,
@@ -245,20 +240,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		62C3C29717640824000AAE72 /* creatures */ = {
+		62C3C29717640824000AAE72 /* creatures-ios */ = {
 			isa = PBXGroup;
 			children = (
 				62D9EE96179ECC3F0030FF0F /* Resources */,
 				62C3C2A017640824000AAE72 /* AppDelegate.h */,
 				62C3C2A117640824000AAE72 /* AppDelegate.m */,
-				62C3C2A917640824000AAE72 /* MasterViewController.h */,
-				62C3C2AA17640824000AAE72 /* MasterViewController.m */,
-				62709697179F247100D33490 /* CreatureDataViewController.h */,
-				62709698179F247100D33490 /* CreatureDataViewController.m */,
-				62C3C2AC17640824000AAE72 /* DetailViewController.h */,
-				62C3C2AD17640824000AAE72 /* DetailViewController.m */,
+				62C3C2A917640824000AAE72 /* CreatureListViewController.h */,
+				62C3C2AA17640824000AAE72 /* CreatureListViewController.m */,
+				62C3C2AC17640824000AAE72 /* CreatureViewController.h */,
+				62C3C2AD17640824000AAE72 /* CreatureViewController.m */,
 				62C3C29817640824000AAE72 /* Supporting Files */,
 			);
+			name = "creatures-ios";
 			path = creatures;
 			sourceTree = "<group>";
 		};
@@ -298,11 +292,10 @@
 		62D9EE96179ECC3F0030FF0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				62C3C2AF17640824000AAE72 /* MasterViewController_iPhone.xib */,
-				62C3C2B217640824000AAE72 /* MasterViewController_iPad.xib */,
-				62C3C2B517640824000AAE72 /* DetailViewController_iPhone.xib */,
-				62C3C2B817640824000AAE72 /* DetailViewController_iPad.xib */,
-				62709699179F247100D33490 /* CreatureDataViewController.xib */,
+				62C3C2AF17640824000AAE72 /* CreatureListViewController_iPhone.xib */,
+				62C3C2B217640824000AAE72 /* CreatureListViewController_iPad.xib */,
+				62C3C2B517640824000AAE72 /* CreatureViewController_iPhone.xib */,
+				62C3C2B817640824000AAE72 /* CreatureViewController_iPad.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -448,11 +441,10 @@
 				62C3C2A417640824000AAE72 /* Default.png in Resources */,
 				62C3C2A617640824000AAE72 /* Default@2x.png in Resources */,
 				62C3C2A817640824000AAE72 /* Default-568h@2x.png in Resources */,
-				62C3C2B117640824000AAE72 /* MasterViewController_iPhone.xib in Resources */,
-				62C3C2B417640824000AAE72 /* MasterViewController_iPad.xib in Resources */,
-				62C3C2B717640824000AAE72 /* DetailViewController_iPhone.xib in Resources */,
-				62C3C2BA17640824000AAE72 /* DetailViewController_iPad.xib in Resources */,
-				6270969B179F247100D33490 /* CreatureDataViewController.xib in Resources */,
+				62C3C2B117640824000AAE72 /* CreatureListViewController_iPhone.xib in Resources */,
+				62C3C2B417640824000AAE72 /* CreatureListViewController_iPad.xib in Resources */,
+				62C3C2B717640824000AAE72 /* CreatureViewController_iPhone.xib in Resources */,
+				62C3C2BA17640824000AAE72 /* CreatureViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,10 +511,9 @@
 			files = (
 				62C3C29E17640824000AAE72 /* main.m in Sources */,
 				62C3C2A217640824000AAE72 /* AppDelegate.m in Sources */,
-				62C3C2AB17640824000AAE72 /* MasterViewController.m in Sources */,
-				62C3C2AE17640824000AAE72 /* DetailViewController.m in Sources */,
+				62C3C2AB17640824000AAE72 /* CreatureListViewController.m in Sources */,
+				62C3C2AE17640824000AAE72 /* CreatureViewController.m in Sources */,
 				62D9EE9A179ECCB00030FF0F /* Creature.m in Sources */,
-				6270969A179F247100D33490 /* CreatureDataViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,36 +589,36 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		62C3C2AF17640824000AAE72 /* MasterViewController_iPhone.xib */ = {
+		62C3C2AF17640824000AAE72 /* CreatureListViewController_iPhone.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				62C3C2B017640824000AAE72 /* en */,
 			);
-			name = MasterViewController_iPhone.xib;
+			name = CreatureListViewController_iPhone.xib;
 			sourceTree = "<group>";
 		};
-		62C3C2B217640824000AAE72 /* MasterViewController_iPad.xib */ = {
+		62C3C2B217640824000AAE72 /* CreatureListViewController_iPad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				62C3C2B317640824000AAE72 /* en */,
 			);
-			name = MasterViewController_iPad.xib;
+			name = CreatureListViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
-		62C3C2B517640824000AAE72 /* DetailViewController_iPhone.xib */ = {
+		62C3C2B517640824000AAE72 /* CreatureViewController_iPhone.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				62C3C2B617640824000AAE72 /* en */,
 			);
-			name = DetailViewController_iPhone.xib;
+			name = CreatureViewController_iPhone.xib;
 			sourceTree = "<group>";
 		};
-		62C3C2B817640824000AAE72 /* DetailViewController_iPad.xib */ = {
+		62C3C2B817640824000AAE72 /* CreatureViewController_iPad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				62C3C2B917640824000AAE72 /* en */,
 			);
-			name = DetailViewController_iPad.xib;
+			name = CreatureViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 		62C3C2CA17640824000AAE72 /* InfoPlist.strings */ = {

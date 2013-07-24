@@ -13,8 +13,8 @@
 @property (nonatomic, strong) NSString *characterName;
 @property (nonatomic, strong) NSString *playerName;
 @property (nonatomic, strong) NSString *campaignName;
-@property (nonatomic, strong) NSString *boneJarringSerial;
 
 - (id) initWithCharacterName:(NSString *) name;
+- (id) initWithCharacterName:(NSString *) characterName playerName:(NSString *)playerName campaignName:(NSString *)campaignName;
 
 @end

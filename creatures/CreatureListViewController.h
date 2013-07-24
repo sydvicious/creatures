@@ -1,5 +1,5 @@
 //
-//  MasterViewController.h
+//  CreatureListViewController.h
 //  creatures
 //
 //  Created by Syd Polk on 6/8/13.
@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class DetailViewController;
+@class CreatureViewController;
 
-@interface MasterViewController : UITableViewController
+@interface CreatureListViewController : UITableViewController
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
+@property (strong, nonatomic) CreatureViewController *creatureViewController;
 
 @property (atomic, assign) int untitledCount;
 

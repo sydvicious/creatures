@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  CreatureViewController.h
 //  creatures
 //
 //  Created by Syd Polk on 6/8/13.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Creature.h"
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface CreatureViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) Creature *creature;
 

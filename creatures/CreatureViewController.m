@@ -1,19 +1,19 @@
 //
-//  DetailViewController.m
+//  CreatureViewController.m
 //  creatures
 //
 //  Created by Syd Polk on 6/8/13.
 //  Copyright (c) 2013 Bone Jarring Games and Software. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "CreatureViewController.h"
 
-@interface DetailViewController ()
+@interface CreatureViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
 @end
 
-@implementation DetailViewController
+@implementation CreatureViewController
 
 #pragma mark - Managing the detail item
 
