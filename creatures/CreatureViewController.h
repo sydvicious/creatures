@@ -13,5 +13,4 @@
 
 @property (strong, nonatomic) Creature *creature;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

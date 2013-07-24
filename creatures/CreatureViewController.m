@@ -36,9 +36,6 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.creature) {
-        self.detailDescriptionLabel.text = self.creature.characterName;
-    }
 }
 
 - (void)viewDidLoad
