@@ -10,7 +10,7 @@
 
 @class CreatureViewController;
 
-@interface CreatureListViewController : UITableViewController
+@interface CreatureListViewController : UITableViewController <UITableViewDelegate>
 
 @property (strong, nonatomic) CreatureViewController *creatureViewController;
 

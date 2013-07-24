@@ -23,8 +23,17 @@
         _creature = newCreature;
         
         // Update the view.
-        [self configureView];
-        self.title = self.creature.characterName;
+        if (_creature) {
+            _characterNameField.text = [_creature characterName];
+            _playerNameField.text = [_creature playerName];
+            _campaignNameField.text = [_creature campaignName];
+            self.title = [_creature characterName];
+        } else {
+            _characterNameField.text = @"";
+            _playerNameField.text = @"";
+            _campaignNameField.text = @"";
+            self.title = @"";
+        }
     }
 
     if (self.masterPopoverController != nil) {
@@ -34,8 +43,20 @@
 
 - (void)configureView
 {
+    Creature *creature = self.creature;
+    
     // Update the user interface for the detail item.
-
+    if (creature) {
+        creature.characterName = self.characterNameField.text;
+        creature.playerName = self.playerNameField.text;
+        creature.campaignName = self.campaignNameField.text;
+        self.title = self.creature.characterName;
+    } else {
+        self.title = @"";
+        self.characterNameField.text = @"";
+        self.playerNameField.text = @"";
+        self.campaignNameField.text = @"";
+    }
 }
 
 - (void)viewDidLoad
@@ -71,6 +92,11 @@
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
+}
+
+#pragma mark - UITextViewDelegate
+- (void)textViewDidChange:(UITextView *)textView{
+    [self configureView];
 }
 
 @end

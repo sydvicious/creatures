@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Creature.h"
 
-@interface CreatureViewController : UIViewController <UISplitViewControllerDelegate>
+@interface CreatureViewController : UIViewController <UISplitViewControllerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) Creature *creature;
 
-@property (nonatomic, weak) IBOutlet NSString *characterNameField;
-@property (nonatomic, weak) IBOutlet NSString *playerNameField;
-@property (nonatomic, weak) IBOutlet NSString *campaignNameField;
+@property (weak, nonatomic) IBOutlet UITextField *characterNameField;
+@property (weak, nonatomic) IBOutlet UITextField *playerNameField;
+@property (weak, nonatomic) IBOutlet UITextField *campaignNameField;
+
 
 @end

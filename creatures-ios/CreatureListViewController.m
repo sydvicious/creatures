@@ -101,6 +101,12 @@
     return YES;
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    self.creatureViewController.creature = nil;
+    [super setEditing:editing animated:animated];
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
