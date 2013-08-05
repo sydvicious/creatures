@@ -166,17 +166,20 @@
     } else {
         self.creatureViewController.creature = creature;
     }
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    cell.textLabel.text = creature.characterName;
 }
 
-/*
+
 - (NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Creature *creature = self.creatures[indexPath.row];
     // The title is set as a side effect. That should probably be fixed.
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self.creatureViewController updateFields];
     cell.textLabel.text = creature.characterName;
     return indexPath;
 }
- */
+
 
 @end
