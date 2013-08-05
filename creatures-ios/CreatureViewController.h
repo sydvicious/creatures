@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Creature.h"
 
-@interface CreatureViewController : UIViewController <UISplitViewControllerDelegate, UITextFieldDelegate>
+@interface CreatureViewController : UIViewController <UISplitViewControllerDelegate, UITextFieldDelegate, UINavigationBarDelegate>
 
 @property (strong, nonatomic) Creature *creature;
 

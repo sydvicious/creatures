@@ -53,9 +53,9 @@
     
     // Update the user interface for the detail item.
     if (creature) {
-        creature.characterName = self.characterNameField.text;
-        creature.playerName = self.playerNameField.text;
-        creature.campaignName = self.campaignNameField.text;
+        self.characterNameField.text = creature.characterName;
+        self.playerNameField.text = creature.playerName;
+        self.campaignNameField.text = creature.campaignName;
         self.title = self.creature.characterName;
     } else {
         self.title = @"";
@@ -65,12 +65,29 @@
     }
 }
 
+- (void)updateFields
+{
+    Creature *creature = self.creature;
+    creature.characterName = self.characterNameField.text;
+    creature.playerName = self.playerNameField.text;
+    creature.campaignName = self.campaignNameField.text;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"characterNameChanged" object:_creature];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }
+
+/*
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self configureView];
+}
+ */
 
 - (void)didReceiveMemoryWarning
 {
@@ -100,9 +117,29 @@
     self.masterPopoverController = nil;
 }
 
-#pragma mark - UITextViewDelegate
-- (void)textViewDidChange:(UITextView *)textView{
+#pragma mark - UITextFieldDelegate
+/*
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
     [self configureView];
+}
+*/
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self updateFields];
+}
+
+
+
+- (void)navigationBar:(UINavigationBar *)navigationBar didPushItem:(UINavigationItem *)item
+{
+    NSLog(@"In CreatureView");
+}
+
+- (void)navigationBar:(UINavigationBar *)navigationBar didPopItem:(UINavigationItem *)item
+{
+    NSLog(@"In CreatureView");
 }
 
 @end

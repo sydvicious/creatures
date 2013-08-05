@@ -14,6 +14,7 @@
 @interface CreatureListViewController () {
 }
 @property (nonatomic, strong) NSMutableArray *creatures;
+@property (nonatomic, strong) id observer;
 @end
 
 @implementation CreatureListViewController
@@ -30,7 +31,7 @@
     _untitledCount = 0;
     return self;
 }
-							
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,7 +42,27 @@
     self.navigationItem.rightBarButtonItem = addButton;
     self.title = NSLocalizedString(@"Characters", @"Characters");
     self.creatures = [[NSMutableArray alloc] init];
+    __weak CreatureListViewController *weakSelf = self;
+    self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:@"characterNameChanged" object:nil queue:nil usingBlock:^(NSNotification *notification) {
+        CreatureListViewController *strongSelf = weakSelf;
+        if (strongSelf) {
+            Creature *creature = [notification object];
+            NSUInteger index = [strongSelf.creatures indexOfObjectIdenticalTo:creature];
+            if (index != NSNotFound) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+                if (indexPath) {
+                    UITableViewCell *cell = [strongSelf.tableView cellForRowAtIndexPath:indexPath];
+                    if (cell) {
+                        cell.textLabel.text = creature.characterName;
+                    }
+                }
+            }
+        }
+    }];
+}
 
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self.observer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,10 +109,10 @@
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
+        Creature *creature = self.creatures[indexPath.row];
+        cell.textLabel.text = creature.characterName;
     }
 
-    Creature *creature = self.creatures[indexPath.row];
-    cell.textLabel.text = creature.characterName;
     return cell;
 }
 
@@ -137,14 +158,25 @@
 {
     Creature *creature = self.creatures[indexPath.row];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-	    if (!self.creatureViewController) {
-	        self.creatureViewController = [[CreatureViewController alloc] initWithNibName:@"CreatureViewController_iPhone" bundle:nil];
-	    }
-	    self.creatureViewController.creature = creature;
+        if (!self.creatureViewController) {
+            self.creatureViewController = [[CreatureViewController alloc] initWithNibName:@"CreatureViewController_iPhone" bundle:nil];
+        }
+        self.creatureViewController.creature = creature;
         [self.navigationController pushViewController:self.creatureViewController animated:YES];
     } else {
         self.creatureViewController.creature = creature;
     }
 }
+
+/*
+- (NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Creature *creature = self.creatures[indexPath.row];
+    // The title is set as a side effect. That should probably be fixed.
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.textLabel.text = creature.characterName;
+    return indexPath;
+}
+ */
 
 @end
