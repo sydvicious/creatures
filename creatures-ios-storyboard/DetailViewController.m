@@ -17,10 +17,10 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setCreature:(Creature *)newCreature
+- (void)setDocument:(CreatureDocument *)newDocument
 {
-    if (_creature != newCreature) {
-        _creature = newCreature;
+    if (_document != newDocument) {
+        _document = newDocument;
         
         // Update the view.
         [self configureView];
@@ -31,13 +31,23 @@
     }        
 }
 
+- (void)clearDocument
+{
+    if (_document != nil) {
+        _document = nil;
+        [self configureView];
+    }
+}
+
 - (void)configureView
 {
     // Update the user interface for the detail item.
 
-    if (self.creature) {
-        Creature *creature = self.creature;
+    if (self.document && self.document.creature) {
+        Creature *creature = self.document.creature;
         self.detailDescriptionLabel.text = creature.characterName;
+    } else {
+        self.detailDescriptionLabel.text = @"";
     }
 }
 

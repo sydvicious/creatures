@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Creature.h"
+#import "CreatureDocument.h"
 
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
 
-@property (strong, nonatomic) Creature *creature;
+- (void) clearDocument;
+
+@property (strong, nonatomic) CreatureDocument *document;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

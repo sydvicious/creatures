@@ -160,7 +160,7 @@
                 int position = [self.urls indexOfObject:url];
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:position inSection:0];
                 [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-                self.detailViewController.creature = creatureDoc.creature;
+                self.detailViewController.document = creatureDoc;
             } else {
                 [self performSegueWithIdentifier:@"showDetail" sender:url];
             }
@@ -204,6 +204,9 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSURL *url = [self.urls objectAtIndex:indexPath.row];
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            [self.detailViewController clearDocument];
+        }
         NSError *error = nil;
         if ([[NSFileManager defaultManager] removeItemAtURL:url error:&error]) {
             [self.urls removeObjectAtIndex:indexPath.row];
@@ -237,7 +240,7 @@
 {
     NSURL *url = [self.urls objectAtIndex:indexPath.row];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.detailViewController.creature = [self creatureFromURL:url];
+        self.detailViewController.document = [self.documents objectForKey:url];
     } else {
         [self performSegueWithIdentifier:@"showDetail" sender:url];
     }
