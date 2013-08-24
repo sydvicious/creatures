@@ -18,6 +18,22 @@
 		622CD657179F13BB00F332F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622CD635179F13BA00F332F7 /* Cocoa.framework */; };
 		622CD65F179F13BB00F332F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 622CD65D179F13BB00F332F7 /* InfoPlist.strings */; };
 		622CD662179F13BB00F332F7 /* creatures_macTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 622CD661179F13BB00F332F7 /* creatures_macTests.m */; };
+		623A4F5A17B42C5F00A03DD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29117640824000AAE72 /* UIKit.framework */; };
+		623A4F5B17B42C5F00A03DD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29317640824000AAE72 /* Foundation.framework */; };
+		623A4F5C17B42C5F00A03DD3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29517640824000AAE72 /* CoreGraphics.framework */; };
+		623A4F6217B42C5F00A03DD3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F6017B42C5F00A03DD3 /* InfoPlist.strings */; };
+		623A4F6417B42C5F00A03DD3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F6317B42C5F00A03DD3 /* main.m */; };
+		623A4F6817B42C5F00A03DD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F6717B42C5F00A03DD3 /* AppDelegate.m */; };
+		623A4F6A17B42C5F00A03DD3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F6917B42C5F00A03DD3 /* Default.png */; };
+		623A4F6C17B42C5F00A03DD3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F6B17B42C5F00A03DD3 /* Default@2x.png */; };
+		623A4F6E17B42C5F00A03DD3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F6D17B42C5F00A03DD3 /* Default-568h@2x.png */; };
+		623A4F7117B42C5F00A03DD3 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F6F17B42C5F00A03DD3 /* MainStoryboard_iPhone.storyboard */; };
+		623A4F7417B42C5F00A03DD3 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F7217B42C5F00A03DD3 /* MainStoryboard_iPad.storyboard */; };
+		623A4F7717B42C5F00A03DD3 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F7617B42C5F00A03DD3 /* MasterViewController.m */; };
+		623A4F7A17B42C5F00A03DD3 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F7917B42C5F00A03DD3 /* DetailViewController.m */; };
+		623A4FB317B4312800A03DD3 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D9EE99179ECCB00030FF0F /* Creature.m */; };
+		623A4FB417B4312A00A03DD3 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D9EE99179ECCB00030FF0F /* Creature.m */; };
+		623A4FB717B4343200A03DD3 /* CreatureDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4FB617B4343200A03DD3 /* CreatureDocument.m */; };
 		62C3C29217640824000AAE72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29117640824000AAE72 /* UIKit.framework */; };
 		62C3C29417640824000AAE72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29317640824000AAE72 /* Foundation.framework */; };
 		62C3C29617640824000AAE72 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29517640824000AAE72 /* CoreGraphics.framework */; };
@@ -78,6 +94,24 @@
 		622CD65E179F13BB00F332F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		622CD660179F13BB00F332F7 /* creatures_macTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = creatures_macTests.h; sourceTree = "<group>"; };
 		622CD661179F13BB00F332F7 /* creatures_macTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = creatures_macTests.m; sourceTree = "<group>"; };
+		623A4F5917B42C5F00A03DD3 /* creatures-ios-storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "creatures-ios-storyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		623A4F5F17B42C5F00A03DD3 /* creatures-ios-storyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "creatures-ios-storyboard-Info.plist"; sourceTree = "<group>"; };
+		623A4F6117B42C5F00A03DD3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		623A4F6317B42C5F00A03DD3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		623A4F6517B42C5F00A03DD3 /* creatures-ios-storyboard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "creatures-ios-storyboard-Prefix.pch"; sourceTree = "<group>"; };
+		623A4F6617B42C5F00A03DD3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		623A4F6717B42C5F00A03DD3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		623A4F6917B42C5F00A03DD3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		623A4F6B17B42C5F00A03DD3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		623A4F6D17B42C5F00A03DD3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		623A4F7017B42C5F00A03DD3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		623A4F7317B42C5F00A03DD3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		623A4F7517B42C5F00A03DD3 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		623A4F7617B42C5F00A03DD3 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		623A4F7817B42C5F00A03DD3 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		623A4F7917B42C5F00A03DD3 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		623A4FB517B4343200A03DD3 /* CreatureDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatureDocument.h; sourceTree = "<group>"; };
+		623A4FB617B4343200A03DD3 /* CreatureDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatureDocument.m; sourceTree = "<group>"; };
 		62C3C28E17640824000AAE72 /* creatures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = creatures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C3C29117640824000AAE72 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		62C3C29317640824000AAE72 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,6 +158,16 @@
 			files = (
 				622CD656179F13BB00F332F7 /* SenTestingKit.framework in Frameworks */,
 				622CD657179F13BB00F332F7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		623A4F5617B42C5F00A03DD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				623A4F5A17B42C5F00A03DD3 /* UIKit.framework in Frameworks */,
+				623A4F5B17B42C5F00A03DD3 /* Foundation.framework in Frameworks */,
+				623A4F5C17B42C5F00A03DD3 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +247,38 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		623A4F5D17B42C5F00A03DD3 /* creatures-ios-storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				623A4FB517B4343200A03DD3 /* CreatureDocument.h */,
+				623A4FB617B4343200A03DD3 /* CreatureDocument.m */,
+				623A4F6617B42C5F00A03DD3 /* AppDelegate.h */,
+				623A4F6717B42C5F00A03DD3 /* AppDelegate.m */,
+				623A4F6F17B42C5F00A03DD3 /* MainStoryboard_iPhone.storyboard */,
+				623A4F7217B42C5F00A03DD3 /* MainStoryboard_iPad.storyboard */,
+				623A4F7517B42C5F00A03DD3 /* MasterViewController.h */,
+				623A4F7617B42C5F00A03DD3 /* MasterViewController.m */,
+				623A4F7817B42C5F00A03DD3 /* DetailViewController.h */,
+				623A4F7917B42C5F00A03DD3 /* DetailViewController.m */,
+				623A4F5E17B42C5F00A03DD3 /* Supporting Files */,
+			);
+			path = "creatures-ios-storyboard";
+			sourceTree = "<group>";
+		};
+		623A4F5E17B42C5F00A03DD3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				623A4F5F17B42C5F00A03DD3 /* creatures-ios-storyboard-Info.plist */,
+				623A4F6017B42C5F00A03DD3 /* InfoPlist.strings */,
+				623A4F6317B42C5F00A03DD3 /* main.m */,
+				623A4F6517B42C5F00A03DD3 /* creatures-ios-storyboard-Prefix.pch */,
+				623A4F6917B42C5F00A03DD3 /* Default.png */,
+				623A4F6B17B42C5F00A03DD3 /* Default@2x.png */,
+				623A4F6D17B42C5F00A03DD3 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		62C3C28517640824000AAE72 = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +287,7 @@
 				62C3C2C717640824000AAE72 /* creaturesTests */,
 				622CD63B179F13BA00F332F7 /* creatures-mac */,
 				622CD65A179F13BB00F332F7 /* creatures-macTests */,
+				623A4F5D17B42C5F00A03DD3 /* creatures-ios-storyboard */,
 				62C3C29017640824000AAE72 /* Frameworks */,
 				62C3C28F17640824000AAE72 /* Products */,
 			);
@@ -223,6 +300,7 @@
 				62C3C2C017640824000AAE72 /* creaturesTests.octest */,
 				622CD634179F13BA00F332F7 /* creatures-mac.app */,
 				622CD655179F13BB00F332F7 /* creatures-macTests.octest */,
+				623A4F5917B42C5F00A03DD3 /* creatures-ios-storyboard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -347,6 +425,23 @@
 			productReference = 622CD655179F13BB00F332F7 /* creatures-macTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		623A4F5817B42C5F00A03DD3 /* creatures-ios-storyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 623A4F7D17B42C5F00A03DD3 /* Build configuration list for PBXNativeTarget "creatures-ios-storyboard" */;
+			buildPhases = (
+				623A4F5517B42C5F00A03DD3 /* Sources */,
+				623A4F5617B42C5F00A03DD3 /* Frameworks */,
+				623A4F5717B42C5F00A03DD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "creatures-ios-storyboard";
+			productName = "creatures-ios-storyboard";
+			productReference = 623A4F5917B42C5F00A03DD3 /* creatures-ios-storyboard.app */;
+			productType = "com.apple.product-type.application";
+		};
 		62C3C28D17640824000AAE72 /* creatures */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62C3C2D217640824000AAE72 /* Build configuration list for PBXNativeTarget "creatures" */;
@@ -408,6 +503,7 @@
 				62C3C2BF17640824000AAE72 /* creaturesTests */,
 				622CD633179F13BA00F332F7 /* creatures-mac */,
 				622CD654179F13BB00F332F7 /* creatures-macTests */,
+				623A4F5817B42C5F00A03DD3 /* creatures-ios-storyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -429,6 +525,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				622CD65F179F13BB00F332F7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		623A4F5717B42C5F00A03DD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				623A4F6217B42C5F00A03DD3 /* InfoPlist.strings in Resources */,
+				623A4F6A17B42C5F00A03DD3 /* Default.png in Resources */,
+				623A4F6C17B42C5F00A03DD3 /* Default@2x.png in Resources */,
+				623A4F6E17B42C5F00A03DD3 /* Default-568h@2x.png in Resources */,
+				623A4F7117B42C5F00A03DD3 /* MainStoryboard_iPhone.storyboard in Resources */,
+				623A4F7417B42C5F00A03DD3 /* MainStoryboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +602,7 @@
 			files = (
 				622CD642179F13BA00F332F7 /* main.m in Sources */,
 				622CD649179F13BA00F332F7 /* Document.m in Sources */,
+				623A4FB417B4312A00A03DD3 /* Creature.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +611,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				622CD662179F13BB00F332F7 /* creatures_macTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		623A4F5517B42C5F00A03DD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				623A4F6417B42C5F00A03DD3 /* main.m in Sources */,
+				623A4F6817B42C5F00A03DD3 /* AppDelegate.m in Sources */,
+				623A4F7717B42C5F00A03DD3 /* MasterViewController.m in Sources */,
+				623A4F7A17B42C5F00A03DD3 /* DetailViewController.m in Sources */,
+				623A4FB317B4312800A03DD3 /* Creature.m in Sources */,
+				623A4FB717B4343200A03DD3 /* CreatureDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +701,30 @@
 				622CD65E179F13BB00F332F7 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		623A4F6017B42C5F00A03DD3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				623A4F6117B42C5F00A03DD3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		623A4F6F17B42C5F00A03DD3 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				623A4F7017B42C5F00A03DD3 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		623A4F7217B42C5F00A03DD3 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				623A4F7317B42C5F00A03DD3 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		62C3C29A17640824000AAE72 /* InfoPlist.strings */ = {
@@ -715,6 +862,30 @@
 			};
 			name = Release;
 		};
+		623A4F7B17B42C5F00A03DD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "creatures-ios-storyboard/creatures-ios-storyboard-Prefix.pch";
+				INFOPLIST_FILE = "creatures-ios-storyboard/creatures-ios-storyboard-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		623A4F7C17B42C5F00A03DD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "creatures-ios-storyboard/creatures-ios-storyboard-Prefix.pch";
+				INFOPLIST_FILE = "creatures-ios-storyboard/creatures-ios-storyboard-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		62C3C2D017640824000AAE72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -848,6 +1019,15 @@
 			buildConfigurations = (
 				622CD665179F13BB00F332F7 /* Debug */,
 				622CD666179F13BB00F332F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		623A4F7D17B42C5F00A03DD3 /* Build configuration list for PBXNativeTarget "creatures-ios-storyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				623A4F7B17B42C5F00A03DD3 /* Debug */,
+				623A4F7C17B42C5F00A03DD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

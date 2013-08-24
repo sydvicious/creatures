@@ -16,7 +16,7 @@
 
 - (id) initWithCharacterName:(NSString *)name
 {
-    self = [self init];
+    self = [super init];
     if (self) {
         _characterName = name;
         NSDate *date = [NSDate date];
@@ -25,6 +25,8 @@
         [formatter setDateStyle:NSDateFormatterShortStyle];
         NSString *dateString = [formatter stringFromDate:date];
         _boneJarringSerial = [NSString stringWithFormat:@"BoneJarring%@", dateString];
+        _playerName = @"";
+        _campaignName = @"";
     }
     return self;
 }
@@ -38,4 +40,34 @@
     }
     return self;
 }
+
+- (id) initWithCharacterName:(NSString *)characterName playerName:(NSString *)playerName campaignName:(NSString *)campaignName boneJarringSerial:boneJarringSerial
+{
+    self = [self initWithCharacterName:characterName playerName:playerName campaignName:campaignName];
+    if (self) {
+        _boneJarringSerial = boneJarringSerial;
+    }
+    return self;
+}
+
+
+- (NSDictionary *) createDictionary
+{
+    NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                self.characterName, @"characterName",
+                                self.playerName, @"playerName",
+                                self.campaignName, @"campaignName",
+                                self.boneJarringSerial, @"boneJarringSerial", nil];
+    return dictionary;
+    
+}
+
+- (void) populateFromDictionary:(NSDictionary *)dictionary {
+    self.characterName = [dictionary objectForKey:@"characterName"];
+    self.playerName = [dictionary objectForKey:@"playerName"];
+    self.campaignName = [dictionary objectForKey:@"campaignName"];
+    self.boneJarringSerial = [dictionary objectForKey:@"boneJarringSerial"];
+}
+
+
 @end

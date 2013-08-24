@@ -17,4 +17,7 @@
 - (id) initWithCharacterName:(NSString *) name;
 - (id) initWithCharacterName:(NSString *) characterName playerName:(NSString *)playerName campaignName:(NSString *)campaignName;
 
+- (NSDictionary *) createDictionary;
+- (void) populateFromDictionary:(NSDictionary *)dictionary;
+
 @end

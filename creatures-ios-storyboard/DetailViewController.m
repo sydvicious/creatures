@@ -1,8 +1,8 @@
 //
 //  DetailViewController.m
-//  creatures
+//  creatures-ios-storyboard
 //
-//  Created by Syd Polk on 6/8/13.
+//  Created by Syd Polk on 8/8/13.
 //  Copyright (c) 2013 Bone Jarring Games and Software. All rights reserved.
 //
 
@@ -17,10 +17,10 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setCreature:(Creature *)newCreature
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+    if (_creature != newCreature) {
+        _creature = newCreature;
         
         // Update the view.
         [self configureView];
@@ -35,8 +35,9 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+    if (self.creature) {
+        Creature *creature = self.creature;
+        self.detailDescriptionLabel.text = creature.characterName;
     }
 }
 
@@ -53,15 +54,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.title = NSLocalizedString(@"Detail", @"Detail");
-    }
-    return self;
-}
-							
 #pragma mark - Split view
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
