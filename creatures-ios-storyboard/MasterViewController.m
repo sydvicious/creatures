@@ -197,14 +197,21 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return NO;
+    return YES;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.urls removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        NSURL *url = [self.urls objectAtIndex:indexPath.row];
+        NSError *error = nil;
+        if ([[NSFileManager defaultManager] removeItemAtURL:url error:&error]) {
+            [self.urls removeObjectAtIndex:indexPath.row];
+            [self.documents removeObjectForKey:url];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        } else {
+            NSLog(@"%s: Error: %@", __PRETTY_FUNCTION__, [error localizedDescription]);
+        }
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
