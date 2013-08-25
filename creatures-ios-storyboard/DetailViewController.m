@@ -92,7 +92,7 @@
         // See http://www.learningipadprogramming.com/2012/04/03/how-to-ignore-performselector-leak-warning/
         #pragma clang diagnostic push
         #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [self.navigationItem.leftBarButtonItem.target performSelector:self.navigationItem.leftBarButtonItem.action withObject:self.navigationItem];
+        [self.navigationItem.leftBarButtonItem.target performSelector:self.navigationItem.leftBarButtonItem.action withObject:self.navigationItem afterDelay:0];
         #pragma clang diagnostic pop
     }
 }
@@ -129,5 +129,14 @@
     }];
 
 }
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if (self.document) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 
 @end
