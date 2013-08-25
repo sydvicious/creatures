@@ -120,17 +120,7 @@
     self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:@"characterNameChanged" object:nil queue:nil usingBlock:^(NSNotification *notification) {
         MasterViewController *strongSelf = weakSelf;
         if (strongSelf) {
-            Creature *creature = [notification object];
-            NSUInteger index = [strongSelf.urls indexOfObjectIdenticalTo:creature];
-            if (index != NSNotFound) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
-                if (indexPath) {
-                    UITableViewCell *cell = [strongSelf.tableView cellForRowAtIndexPath:indexPath];
-                    if (cell) {
-                        cell.textLabel.text = creature.characterName;
-                    }
-                }
-            }
+            [self updateFileList];
         }
     }];
 }
@@ -250,9 +240,9 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSURL *url = sender;
-        Creature *creature = [self creatureFromURL:url];
-        if (creature) {
-            [[segue destinationViewController] setCreature:creature];
+        CreatureDocument *document = [self.documents objectForKey:url];
+        if (document) {
+            [[segue destinationViewController] setDocument:document];
         }
     }
 }

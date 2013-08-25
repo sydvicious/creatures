@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "CreatureDocument.h"
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface DetailViewController : UIViewController <UISplitViewControllerDelegate, UITextFieldDelegate>
 
 - (void) clearDocument;
+- (IBAction)done:(id)sender;
 
 @property (strong, nonatomic) CreatureDocument *document;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UITextField *characterNameField;
 @end
