@@ -165,6 +165,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6206782917C9C05900740E4A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				623A4F6F17B42C5F00A03DD3 /* MainStoryboard_iPhone.storyboard */,
+				623A4F7217B42C5F00A03DD3 /* MainStoryboard_iPad.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		622CD637179F13BA00F332F7 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,12 +230,11 @@
 		623A4F5D17B42C5F00A03DD3 /* creatures-ios-storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				6206782917C9C05900740E4A /* Resources */,
 				623A4FB517B4343200A03DD3 /* CreatureDocument.h */,
 				623A4FB617B4343200A03DD3 /* CreatureDocument.m */,
 				623A4F6617B42C5F00A03DD3 /* AppDelegate.h */,
 				623A4F6717B42C5F00A03DD3 /* AppDelegate.m */,
-				623A4F6F17B42C5F00A03DD3 /* MainStoryboard_iPhone.storyboard */,
-				623A4F7217B42C5F00A03DD3 /* MainStoryboard_iPad.storyboard */,
 				623A4F7517B42C5F00A03DD3 /* MasterViewController.h */,
 				623A4F7617B42C5F00A03DD3 /* MasterViewController.m */,
 				623A4F7817B42C5F00A03DD3 /* DetailViewController.h */,
@@ -255,9 +263,9 @@
 			children = (
 				62D9EE97179ECC620030FF0F /* Common Files */,
 				62C3C2C717640824000AAE72 /* creaturesTests */,
+				623A4F5D17B42C5F00A03DD3 /* creatures-ios-storyboard */,
 				622CD63B179F13BA00F332F7 /* creatures-mac */,
 				622CD65A179F13BB00F332F7 /* creatures-macTests */,
-				623A4F5D17B42C5F00A03DD3 /* creatures-ios-storyboard */,
 				62C3C29017640824000AAE72 /* Frameworks */,
 				62C3C28F17640824000AAE72 /* Products */,
 			);
@@ -355,9 +363,9 @@
 			productReference = 622CD655179F13BB00F332F7 /* creatures-macTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		623A4F5817B42C5F00A03DD3 /* creatures-ios-storyboard */ = {
+		623A4F5817B42C5F00A03DD3 /* characters-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 623A4F7D17B42C5F00A03DD3 /* Build configuration list for PBXNativeTarget "creatures-ios-storyboard" */;
+			buildConfigurationList = 623A4F7D17B42C5F00A03DD3 /* Build configuration list for PBXNativeTarget "characters-ios" */;
 			buildPhases = (
 				623A4F5517B42C5F00A03DD3 /* Sources */,
 				623A4F5617B42C5F00A03DD3 /* Frameworks */,
@@ -367,7 +375,7 @@
 			);
 			dependencies = (
 			);
-			name = "creatures-ios-storyboard";
+			name = "characters-ios";
 			productName = "creatures-ios-storyboard";
 			productReference = 623A4F5917B42C5F00A03DD3 /* creatures-ios-storyboard.app */;
 			productType = "com.apple.product-type.application";
@@ -433,7 +441,7 @@
 				62C3C2BF17640824000AAE72 /* creaturesTests */,
 				622CD633179F13BA00F332F7 /* creatures-mac */,
 				622CD654179F13BB00F332F7 /* creatures-macTests */,
-				623A4F5817B42C5F00A03DD3 /* creatures-ios-storyboard */,
+				623A4F5817B42C5F00A03DD3 /* characters-ios */,
 			);
 		};
 /* End PBXProject section */
@@ -901,7 +909,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		623A4F7D17B42C5F00A03DD3 /* Build configuration list for PBXNativeTarget "creatures-ios-storyboard" */ = {
+		623A4F7D17B42C5F00A03DD3 /* Build configuration list for PBXNativeTarget "characters-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				623A4F7B17B42C5F00A03DD3 /* Debug */,
