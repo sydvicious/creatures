@@ -84,6 +84,7 @@
     Creature *creature = document.creature;
 
     creature.characterName = self.characterNameField.text;
+    [self configureView];
 }
 
 
