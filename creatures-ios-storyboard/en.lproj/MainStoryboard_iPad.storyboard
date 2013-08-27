@@ -40,6 +40,7 @@
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="characterNameChanged:" destination="4" eventType="editingChanged" id="ZvN-6f-2o6"/>
                                     <outlet property="delegate" destination="4" id="R1e-kq-KYX"/>
                                 </connections>
                             </textField>

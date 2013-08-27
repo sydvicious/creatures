@@ -58,6 +58,7 @@
     }];
 }
 
+
 - (void)configureView
 {
     // Update the user interface for the detail item.
@@ -66,9 +67,15 @@
         Creature *creature = self.document.creature;
         self.detailDescriptionLabel.text = creature.characterName;
         self.characterNameField.text = creature.characterName;
+        if (creature.characterName && !([creature.characterName isEqualToString:@""])) {
+            self.title = creature.characterName;
+        } else {
+            self.title = @"Character";
+        }
     } else {
         self.detailDescriptionLabel.text = @"";
         self.characterNameField.text = @"";
+        self.title = @"Character";
     }
 }
 
@@ -87,12 +94,12 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     //If in portrait mode, display the master view
-    if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad && UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
         // See http://stackoverflow.com/questions/10426622/uisplitviewcontroller-how-force-to-show-master-popover-in-app-launch-portrait
         // See http://www.learningipadprogramming.com/2012/04/03/how-to-ignore-performselector-leak-warning/
         #pragma clang diagnostic push
         #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [self.navigationItem.leftBarButtonItem.target performSelector:self.navigationItem.leftBarButtonItem.action withObject:self.navigationItem afterDelay:0];
+        [self.navigationItem.leftBarButtonItem.target performSelector:self.navigationItem.leftBarButtonItem.action withObject:self.navigationItem afterDelay:0.1];
         #pragma clang diagnostic pop
     }
 }
@@ -107,7 +114,7 @@
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
-    barButtonItem.title = NSLocalizedString(@"Master", @"Master");
+    barButtonItem.title = NSLocalizedString(@"Characters", @"Characters");
     [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
     self.masterPopoverController = popoverController;
 }
@@ -138,5 +145,17 @@
     }
 }
 
+- (IBAction)characterNameChanged:(id)sender {
+    [self updateFields];
+    CreatureDocument *document = self.document;
+    Creature *creature = document.creature;
+    self.detailDescriptionLabel.text = creature.characterName;
+    self.characterNameField.text = creature.characterName;
+    if (creature.characterName && !([creature.characterName isEqualToString:@""])) {
+        self.title = creature.characterName;
+    } else {
+        self.title = @"Character";
+    }
+}
 
 @end

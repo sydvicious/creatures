@@ -81,6 +81,7 @@
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="characterNameChanged:" destination="21" eventType="editingDidEnd" id="k9h-1X-a6V"/>
                                     <outlet property="delegate" destination="21" id="AlI-vF-laq"/>
                                 </connections>
                             </textField>
@@ -112,22 +113,6 @@
             <point key="canvasLocation" x="902" y="64"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="characterNameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

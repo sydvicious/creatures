@@ -82,7 +82,7 @@
 		622CD65E179F13BB00F332F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		622CD660179F13BB00F332F7 /* creatures_macTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = creatures_macTests.h; sourceTree = "<group>"; };
 		622CD661179F13BB00F332F7 /* creatures_macTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = creatures_macTests.m; sourceTree = "<group>"; };
-		623A4F5917B42C5F00A03DD3 /* creatures-ios-storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "creatures-ios-storyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		623A4F5917B42C5F00A03DD3 /* Pathfinder Characters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pathfinder Characters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		623A4F5F17B42C5F00A03DD3 /* creatures-ios-storyboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "creatures-ios-storyboard-Info.plist"; sourceTree = "<group>"; };
 		623A4F6117B42C5F00A03DD3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		623A4F6317B42C5F00A03DD3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 				62C3C2C017640824000AAE72 /* creaturesTests.octest */,
 				622CD634179F13BA00F332F7 /* creatures-mac.app */,
 				622CD655179F13BB00F332F7 /* creatures-macTests.octest */,
-				623A4F5917B42C5F00A03DD3 /* creatures-ios-storyboard.app */,
+				623A4F5917B42C5F00A03DD3 /* Pathfinder Characters.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -369,7 +369,7 @@
 			);
 			name = "creatures-ios-storyboard";
 			productName = "creatures-ios-storyboard";
-			productReference = 623A4F5917B42C5F00A03DD3 /* creatures-ios-storyboard.app */;
+			productReference = 623A4F5917B42C5F00A03DD3 /* Pathfinder Characters.app */;
 			productType = "com.apple.product-type.application";
 		};
 		62C3C28D17640824000AAE72 /* creatures */ = {
@@ -747,7 +747,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "creatures-ios-storyboard/creatures-ios-storyboard-Prefix.pch";
 				INFOPLIST_FILE = "creatures-ios-storyboard/creatures-ios-storyboard-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pathfinder Characters";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -759,7 +759,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "creatures-ios-storyboard/creatures-ios-storyboard-Prefix.pch";
 				INFOPLIST_FILE = "creatures-ios-storyboard/creatures-ios-storyboard-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pathfinder Characters";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
