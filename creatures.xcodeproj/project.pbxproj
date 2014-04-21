@@ -34,6 +34,21 @@
 		623A4FB317B4312800A03DD3 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D9EE99179ECCB00030FF0F /* Creature.m */; };
 		623A4FB417B4312A00A03DD3 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D9EE99179ECCB00030FF0F /* Creature.m */; };
 		623A4FB717B4343200A03DD3 /* CreatureDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4FB617B4343200A03DD3 /* CreatureDocument.m */; };
+		624B71321904B4CF00586811 /* CreatureDocument.h in Sources */ = {isa = PBXBuildFile; fileRef = 623A4FB517B4343200A03DD3 /* CreatureDocument.h */; };
+		624B71331904B4CF00586811 /* CreatureDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4FB617B4343200A03DD3 /* CreatureDocument.m */; };
+		624B71341904B4CF00586811 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F6617B42C5F00A03DD3 /* AppDelegate.h */; };
+		624B71351904B4CF00586811 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F6717B42C5F00A03DD3 /* AppDelegate.m */; };
+		624B71361904B4CF00586811 /* MasterViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F7517B42C5F00A03DD3 /* MasterViewController.h */; };
+		624B71371904B4CF00586811 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F7617B42C5F00A03DD3 /* MasterViewController.m */; };
+		624B71381904B4CF00586811 /* DetailViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F7817B42C5F00A03DD3 /* DetailViewController.h */; };
+		624B71391904B4CF00586811 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F7917B42C5F00A03DD3 /* DetailViewController.m */; };
+		624B713A1904B4D600586811 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F6317B42C5F00A03DD3 /* main.m */; };
+		624B713B1904B4E400586811 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F6F17B42C5F00A03DD3 /* MainStoryboard_iPhone.storyboard */; };
+		624B713C1904B4E400586811 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F7217B42C5F00A03DD3 /* MainStoryboard_iPad.storyboard */; };
+		624B713D1904B4F000586811 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F6017B42C5F00A03DD3 /* InfoPlist.strings */; };
+		624B713E1904B4F000586811 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F6917B42C5F00A03DD3 /* Default.png */; };
+		624B713F1904B4F000586811 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F6B17B42C5F00A03DD3 /* Default@2x.png */; };
+		624B71401904B4F000586811 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F6D17B42C5F00A03DD3 /* Default-568h@2x.png */; };
 		62C3C29217640824000AAE72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29117640824000AAE72 /* UIKit.framework */; };
 		62C3C29417640824000AAE72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29317640824000AAE72 /* Foundation.framework */; };
 		62C3C29617640824000AAE72 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C3C29517640824000AAE72 /* CoreGraphics.framework */; };
@@ -422,8 +437,13 @@
 		62C3C28617640824000AAE72 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Bone Jarring Games and Software";
+				TargetAttributes = {
+					62C3C28D17640824000AAE72 = {
+						DevelopmentTeam = R5PQPZARC5;
+					};
+				};
 			};
 			buildConfigurationList = 62C3C28917640824000AAE72 /* Build configuration list for PBXProject "creatures" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -483,6 +503,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				624B713D1904B4F000586811 /* InfoPlist.strings in Resources */,
+				624B713E1904B4F000586811 /* Default.png in Resources */,
+				624B713F1904B4F000586811 /* Default@2x.png in Resources */,
+				624B71401904B4F000586811 /* Default-568h@2x.png in Resources */,
+				624B713B1904B4E400586811 /* MainStoryboard_iPhone.storyboard in Resources */,
+				624B713C1904B4E400586811 /* MainStoryboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +587,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				624B713A1904B4D600586811 /* main.m in Sources */,
+				624B71321904B4CF00586811 /* CreatureDocument.h in Sources */,
+				624B71331904B4CF00586811 /* CreatureDocument.m in Sources */,
+				624B71341904B4CF00586811 /* AppDelegate.h in Sources */,
+				624B71351904B4CF00586811 /* AppDelegate.m in Sources */,
+				624B71361904B4CF00586811 /* MasterViewController.h in Sources */,
+				624B71371904B4CF00586811 /* MasterViewController.m in Sources */,
+				624B71381904B4CF00586811 /* DetailViewController.h in Sources */,
+				624B71391904B4CF00586811 /* DetailViewController.m in Sources */,
 				62D9EE9A179ECCB00030FF0F /* Creature.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -667,7 +702,6 @@
 		622CD663179F13BB00F332F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -688,7 +722,6 @@
 		622CD664179F13BB00F332F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -710,7 +743,6 @@
 		622CD665179F13BB00F332F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/creatures-mac.app/Contents/MacOS/creatures-mac";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
@@ -730,7 +762,6 @@
 		622CD666179F13BB00F332F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/creatures-mac.app/Contents/MacOS/creatures-mac";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -833,11 +864,14 @@
 		62C3C2D317640824000AAE72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "creatures-ios/creatures-Prefix.pch";
-				INFOPLIST_FILE = "creatures-ios/creatures-Info.plist";
+				GCC_PREFIX_HEADER = "creatures-ios-storyboard/creatures-ios-storyboard-Prefix.pch";
+				INFOPLIST_FILE = "creatures-ios-storyboard/creatures-ios-storyboard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -845,11 +879,14 @@
 		62C3C2D417640824000AAE72 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "creatures-ios/creatures-Prefix.pch";
-				INFOPLIST_FILE = "creatures-ios/creatures-Info.plist";
+				GCC_PREFIX_HEADER = "creatures-ios-storyboard/creatures-ios-storyboard-Prefix.pch";
+				INFOPLIST_FILE = "creatures-ios-storyboard/creatures-ios-storyboard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
