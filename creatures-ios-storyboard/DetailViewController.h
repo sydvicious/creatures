@@ -13,6 +13,7 @@
 
 - (void) clearDocument;
 - (IBAction)done:(id)sender;
+- (IBAction)characterNameChanged:(id)sender;
 
 @property (strong, nonatomic) CreatureDocument *document;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
