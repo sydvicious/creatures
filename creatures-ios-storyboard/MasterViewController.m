@@ -147,7 +147,7 @@
         if (success) {
             [self updateFileList];
             if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-                int position = [self.urls indexOfObject:url];
+                unsigned long position = [self.urls indexOfObject:url];
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:position inSection:0];
                 [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
                 self.detailViewController.document = creatureDoc;

@@ -34,13 +34,9 @@
 		623A4FB317B4312800A03DD3 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D9EE99179ECCB00030FF0F /* Creature.m */; };
 		623A4FB417B4312A00A03DD3 /* Creature.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D9EE99179ECCB00030FF0F /* Creature.m */; };
 		623A4FB717B4343200A03DD3 /* CreatureDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4FB617B4343200A03DD3 /* CreatureDocument.m */; };
-		624B71321904B4CF00586811 /* CreatureDocument.h in Sources */ = {isa = PBXBuildFile; fileRef = 623A4FB517B4343200A03DD3 /* CreatureDocument.h */; };
 		624B71331904B4CF00586811 /* CreatureDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4FB617B4343200A03DD3 /* CreatureDocument.m */; };
-		624B71341904B4CF00586811 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F6617B42C5F00A03DD3 /* AppDelegate.h */; };
 		624B71351904B4CF00586811 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F6717B42C5F00A03DD3 /* AppDelegate.m */; };
-		624B71361904B4CF00586811 /* MasterViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F7517B42C5F00A03DD3 /* MasterViewController.h */; };
 		624B71371904B4CF00586811 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F7617B42C5F00A03DD3 /* MasterViewController.m */; };
-		624B71381904B4CF00586811 /* DetailViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F7817B42C5F00A03DD3 /* DetailViewController.h */; };
 		624B71391904B4CF00586811 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F7917B42C5F00A03DD3 /* DetailViewController.m */; };
 		624B713A1904B4D600586811 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 623A4F6317B42C5F00A03DD3 /* main.m */; };
 		624B713B1904B4E400586811 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623A4F6F17B42C5F00A03DD3 /* MainStoryboard_iPhone.storyboard */; };
@@ -588,13 +584,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				624B713A1904B4D600586811 /* main.m in Sources */,
-				624B71321904B4CF00586811 /* CreatureDocument.h in Sources */,
 				624B71331904B4CF00586811 /* CreatureDocument.m in Sources */,
-				624B71341904B4CF00586811 /* AppDelegate.h in Sources */,
 				624B71351904B4CF00586811 /* AppDelegate.m in Sources */,
-				624B71361904B4CF00586811 /* MasterViewController.h in Sources */,
 				624B71371904B4CF00586811 /* MasterViewController.m in Sources */,
-				624B71381904B4CF00586811 /* DetailViewController.h in Sources */,
 				624B71391904B4CF00586811 /* DetailViewController.m in Sources */,
 				62D9EE9A179ECCB00030FF0F /* Creature.m in Sources */,
 			);
@@ -869,7 +861,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "creatures-ios-storyboard/creatures-ios-storyboard-Prefix.pch";
 				INFOPLIST_FILE = "creatures-ios-storyboard/creatures-ios-storyboard-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -884,7 +876,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "creatures-ios-storyboard/creatures-ios-storyboard-Prefix.pch";
 				INFOPLIST_FILE = "creatures-ios-storyboard/creatures-ios-storyboard-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
