@@ -58,6 +58,20 @@
     }];
 }
 
+- (void)setDetailItem:(id)newDetailItem
+{
+    if (self.document != newDetailItem) {
+        self.document = newDetailItem;
+        
+        // Update the view.
+        [self configureView];
+    }
+
+    if (self.masterPopoverController != nil) {
+        [self.masterPopoverController dismissPopoverAnimated:YES];
+    }        
+}
+
 - (void)configureView
 {
     // Update the user interface for the detail item.
@@ -93,15 +107,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
-    //If in portrait mode, display the master view
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad && UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
-        // See http://stackoverflow.com/questions/10426622/uisplitviewcontroller-how-force-to-show-master-popover-in-app-launch-portrait
-        // See http://www.learningipadprogramming.com/2012/04/03/how-to-ignore-performselector-leak-warning/
-        #pragma clang diagnostic push
-        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [self.navigationItem.leftBarButtonItem.target performSelector:self.navigationItem.leftBarButtonItem.action withObject:self.navigationItem afterDelay:0.1];
-        #pragma clang diagnostic pop
-    }
 }
 
 - (void)didReceiveMemoryWarning

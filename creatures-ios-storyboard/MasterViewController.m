@@ -90,7 +90,7 @@
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         self.clearsSelectionOnViewWillAppear = NO;
-        self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+        self.preferredContentSize = CGSizeMake(320.0, 600.0);
     }
     [super awakeFromNib];
     self.documents = [[NSMutableDictionary alloc] init];
@@ -146,14 +146,6 @@
     [creatureDoc saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
         if (success) {
             [self updateFileList];
-            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-                unsigned long position = [self.urls indexOfObject:url];
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:position inSection:0];
-                [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-                self.detailViewController.document = creatureDoc;
-            } else {
-                [self performSegueWithIdentifier:@"showDetail" sender:url];
-            }
         }
         else {
             NSLog(@"Could not save %@ in %s", fileName, __PRETTY_FUNCTION__);
@@ -194,9 +186,6 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSURL *url = [self.urls objectAtIndex:indexPath.row];
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            [self.detailViewController clearDocument];
-        }
         NSError *error = nil;
         if ([[NSFileManager defaultManager] removeItemAtURL:url error:&error]) {
             [self.urls removeObjectAtIndex:indexPath.row];
@@ -228,11 +217,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSURL *url = [self.urls objectAtIndex:indexPath.row];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+	    NSURL *url = [self.urls objectAtIndex:indexPath.row];
         self.detailViewController.document = [self.documents objectForKey:url];
-    } else {
-        [self performSegueWithIdentifier:@"showDetail" sender:url];
     }
 }
 
