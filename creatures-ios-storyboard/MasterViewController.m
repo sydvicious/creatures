@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *urls;
 @property (nonatomic, strong) id observer;
 @property (nonatomic, strong) NSMutableDictionary *documents;
+@property (nonatomic, strong) CreatureDocument *currentCreature;
 
 @end
 
@@ -51,6 +52,16 @@
 }
 
 - (void) updateFileList {
+    // Save currently selected document.
+    NSIndexPath *indexPath;
+    NSURL *selectedUrl = nil;
+    if ([self.urls count] > 0) {
+        indexPath = [self.tableView indexPathForSelectedRow];
+        if (indexPath) {
+            selectedUrl = [self.urls objectAtIndex:indexPath.row];
+        }
+    }
+
     NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[self URLforDocuments] includingPropertiesForKeys:nil options:0 error:nil];
     self.urls = [[NSMutableArray alloc] init];
     if (files) {
@@ -69,6 +80,12 @@
         return [file1 caseInsensitiveCompare:file2];
     }];
     [self.tableView reloadData];
+    // Now, find table cell matching previous selection.
+    if (selectedUrl) {
+        int row = [self.urls indexOfObject:selectedUrl];
+        indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+    }
 }
 
 - (void) setCreatureFromURL:(NSURL *)url
@@ -146,6 +163,13 @@
     [creatureDoc saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
         if (success) {
             [self updateFileList];
+            int row = [self.urls indexOfObject:url];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+            [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+            [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+                [self performSegueWithIdentifier:@"showDetail" sender:[self.tableView cellForRowAtIndexPath:indexPath]];
+            }
         }
         else {
             NSLog(@"Could not save %@ in %s", fileName, __PRETTY_FUNCTION__);
@@ -218,7 +242,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSURL *url = [self.urls objectAtIndex:indexPath.row];
-    self.detailViewController.document = [self.documents objectForKey:url];
+    self.currentCreature = [self.documents objectForKey:url];
+    self.detailViewController.document = self.currentCreature;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
