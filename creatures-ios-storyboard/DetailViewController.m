@@ -126,18 +126,22 @@
 {
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    [self saveDocument];
     self.masterPopoverController = nil;
+}
+
+- (void) saveDocument {
+    [self updateFields];
+    [self.document saveToURL:self.document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"characterNameChanged" object:_document];
+    }];
 }
 
 #pragma mark - UITextFieldDelegate
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    [self updateFields];
-    [self.document saveToURL:self.document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"characterNameChanged" object:_document];
-    }];
-
+    [self saveDocument];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
@@ -158,6 +162,11 @@
     } else {
         self.title = @"Character";
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self saveDocument];
+    [super viewWillDisappear:animated];
 }
 
 @end

@@ -217,16 +217,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-	    NSURL *url = [self.urls objectAtIndex:indexPath.row];
-        self.detailViewController.document = [self.documents objectForKey:url];
-    }
+    NSURL *url = [self.urls objectAtIndex:indexPath.row];
+    self.detailViewController.document = [self.documents objectForKey:url];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSURL *url = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        NSURL *url = [self.urls objectAtIndex:indexPath.row];
         CreatureDocument *document = [self.documents objectForKey:url];
         if (document) {
             [[segue destinationViewController] setDocument:document];
