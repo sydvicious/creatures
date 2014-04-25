@@ -78,7 +78,6 @@
 
     if (self.document && self.document.creature) {
         Creature *creature = self.document.creature;
-        self.detailDescriptionLabel.text = creature.characterName;
         self.characterNameField.text = creature.characterName;
         if (creature.characterName && !([creature.characterName isEqualToString:@""])) {
             self.title = creature.characterName;
@@ -86,7 +85,6 @@
             self.title = @"Character";
         }
     } else {
-        self.detailDescriptionLabel.text = @"";
         self.characterNameField.text = @"";
         self.title = @"Character";
     }
@@ -154,7 +152,6 @@
     [self updateFields];
     CreatureDocument *document = self.document;
     Creature *creature = document.creature;
-    self.detailDescriptionLabel.text = creature.characterName;
     self.characterNameField.text = creature.characterName;
     if (creature.characterName && !([creature.characterName isEqualToString:@""])) {
         self.title = creature.characterName;

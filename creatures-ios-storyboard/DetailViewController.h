@@ -16,6 +16,9 @@
 - (IBAction)characterNameChanged:(id)sender;
 
 @property (strong, nonatomic) CreatureDocument *document;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
 @property (weak, nonatomic) IBOutlet UITextField *characterNameField;
+@property (weak, nonatomic) IBOutlet UITextField *playerNameField;
+@property (weak, nonatomic) IBOutlet UITextField *campaignNameField;
+
 @end
