@@ -52,6 +52,9 @@
 }
 
 - (void) updateFileList {
+#ifdef DEBUG
+    NSLog(@"updateFileList");
+#endif
     // Save currently selected document.
     NSIndexPath *indexPath;
     NSURL *selectedUrl = nil;
@@ -63,7 +66,7 @@
     }
 
     NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[self URLforDocuments] includingPropertiesForKeys:nil options:0 error:nil];
-    self.urls = [[NSMutableArray alloc] init];
+    [self.urls removeAllObjects];
     if (files) {
         for (NSURL *url in files) {
             NSString *filename = [url lastPathComponent];
@@ -82,7 +85,7 @@
     [self.tableView reloadData];
     // Now, find table cell matching previous selection.
     if (selectedUrl) {
-        int row = [self.urls indexOfObject:selectedUrl];
+        unsigned long row = [self.urls indexOfObject:selectedUrl];
         indexPath = [NSIndexPath indexPathForRow:row inSection:0];
         [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
     }
@@ -95,16 +98,25 @@
         document = [[CreatureDocument alloc] initWithFileURL:url];
         [self.documents setObject:document forKey:url];
     }
+    __weak MasterViewController *weakSelf = self;
+
     if (!document.creature) {
+        
         [document openWithCompletionHandler:^(BOOL success) {
             // TODO: Do this on a background queue.
-            [self updateFileList];
+            MasterViewController *strongSelf = weakSelf;
+            if (strongSelf) {
+//                [self updateFileList];
+            }
         }];
     }
 }
 
 - (void)awakeFromNib
 {
+#ifdef DEBUG
+    NSLog(@"awakeFromNib");
+#endif
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         self.clearsSelectionOnViewWillAppear = NO;
         self.preferredContentSize = CGSizeMake(320.0, 600.0);
@@ -115,6 +127,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+#ifdef DEBUG
+    NSLog(@"viewWillAppear");
+#endif
     [super viewWillAppear:animated];
     [self updateFileList];
 }
@@ -122,6 +137,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+#ifdef DEBUG
+    NSLog(@"viewDidLoad");
+#endif
 
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -135,6 +153,10 @@
 
     __weak MasterViewController *weakSelf = self;
     self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:@"characterNameChanged" object:nil queue:nil usingBlock:^(NSNotification *notification) {
+#ifdef DEBUG
+        NSLog(@"characterNameChanged");
+#endif
+
         MasterViewController *strongSelf = weakSelf;
         if (strongSelf) {
             [self updateFileList];
@@ -144,31 +166,39 @@
 
 - (void)didReceiveMemoryWarning
 {
+#ifdef DEBUG
+    NSLog(@"didReceiveMemoryWarning");
+#endif
+
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (void)insertNewObject:(id)sender
 {
-    NSURL *url = nil;
+#ifdef DEBUG
+    NSLog(@"insertNewObject");
+#endif
+
     CreatureDocument *creatureDoc = nil;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ssZZZ"];
     __block NSString *fileName = [NSString stringWithFormat:@"%@.character", [formatter stringFromDate:[NSDate date]]];
 
-    url = [[self  URLforDocuments] URLByAppendingPathComponent:fileName];
+    __block NSURL *url = [[self  URLforDocuments] URLByAppendingPathComponent:fileName];
     creatureDoc = [[CreatureDocument alloc] initWithFileURL:url];
     [self.documents setObject:creatureDoc forKey:url];
+    __weak MasterViewController *weakSelf = self;
+
     [creatureDoc saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
         if (success) {
-            [self updateFileList];
-            int row = [self.urls indexOfObject:url];
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-            [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
-            [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
-            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-                [self performSegueWithIdentifier:@"showDetail" sender:[self.tableView cellForRowAtIndexPath:indexPath]];
+            MasterViewController *strongSelf = weakSelf;
+            if (strongSelf) {
+                [self updateFileList];
+                unsigned long row = [self.urls indexOfObject:url];
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+                [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
             }
         }
         else {
@@ -192,6 +222,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+#ifdef DEBUG
+    NSLog(@"tableView:cellForRowAtIndexPath:");
+#endif
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     NSURL *url = [self.urls objectAtIndex:indexPath.row];
@@ -208,6 +242,9 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+#ifdef DEBUG
+    NSLog(@"tableView:commitEditingSytle:forRowAtIndexPath:");
+#endif
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSURL *url = [self.urls objectAtIndex:indexPath.row];
         NSError *error = nil;
@@ -241,6 +278,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+#ifdef DEBUG
+    NSLog(@"tableView:didSelectRowAtIndexPath:");
+#endif
+
     NSURL *url = [self.urls objectAtIndex:indexPath.row];
     self.currentCreature = [self.documents objectForKey:url];
     self.detailViewController.document = self.currentCreature;
@@ -248,6 +289,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+#ifdef DEBUG
+    NSLog(@"prepareForSegue:sender:");
+#endif
+
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         NSURL *url = [self.urls objectAtIndex:indexPath.row];
