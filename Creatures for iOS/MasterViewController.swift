@@ -3,7 +3,7 @@
 //  Creatures for iOS
 //
 //  Created by Syd Polk on 7/18/14.
-//
+//  Copyright (c) 2014 Bone Jarring Games and Software. All rights reserved.
 //
 
 import UIKit
@@ -32,7 +32,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = controllers[controllers.endIndex-1].topViewController as? DetailViewController
+            self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
     }
 
@@ -60,24 +60,28 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
     }
 
-    // #pragma mark - Segues
+    // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            let indexPath = self.tableView.indexPathForSelectedRow()
+            if let indexPath = self.tableView.indexPathForSelectedRow() {
             let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-            ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).detailItem = object
+                let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
+                controller.detailItem = object
+                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
         }
     }
 
-    // #pragma mark - Table View
+    // MARK: - Table View
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.fetchedResultsController.sections.count
+        return self.fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = self.fetchedResultsController.sections[section] as NSFetchedResultsSectionInfo
+        let sectionInfo = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
         return sectionInfo.numberOfObjects
     }
 
@@ -101,25 +105,18 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             if !context.save(&error) {
                 // Replace this implementation with code to handle the error appropriately.
                 // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                //println("Unresolved error \(error), \(error.userInfo)")
+                println("Unresolved error \(error), \(error!.userInfo)")
                 abort()
             }
         }
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-            self.detailViewController!.detailItem = object
-        }
-    }
-
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-        cell.textLabel.text = object.valueForKey("name").description
+        cell.textLabel?.text = object.valueForKey("name")!.description
     }
 
-    // #pragma mark - Fetched results controller
+    // MARK: - Fetched results controller
 
     var fetchedResultsController: NSFetchedResultsController {
         if _fetchedResultsController != nil {
@@ -128,34 +125,38 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         let fetchRequest = NSFetchRequest()
         // Edit the entity name as appropriate.
-        let entity = NSEntityDescription.entityForName("Creature", inManagedObjectContext: self.managedObjectContext)
+        let entity = NSEntityDescription.entityForName("Creature", inManagedObjectContext: self.managedObjectContext!)
         fetchRequest.entity = entity
         
         // Set the batch size to a suitable number.
         fetchRequest.fetchBatchSize = 20
         
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
-        let sortDescriptors = [sortDescriptor]
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: "caseInsensitiveCompare:")
         
+        // Evidently, fetchRequest.sortDescriptors releases the array. So you have to have another reference to it or things crash.
+        //let sortDescriptors = [sortDescriptor]
+            
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
-        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: "Master")
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: "Master")
         aFetchedResultsController.delegate = self
         _fetchedResultsController = aFetchedResultsController
         
+        // And in the above case, the below if does not actually catch the NSException throw. Perhaps using swift is premature?
     	var error: NSError? = nil
     	if !_fetchedResultsController!.performFetch(&error) {
     	     // Replace this implementation with code to handle the error appropriately.
     	     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-             //println("Unresolved error \(error), \(error.userInfo)")
+             println("Unresolved error \(error), \(error!.userInfo)")
     	     abort()
     	}
         
         return _fetchedResultsController!
-    }    
+    }
+    
     var _fetchedResultsController: NSFetchedResultsController? = nil
 
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
@@ -164,9 +165,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {
-            case NSFetchedResultsChangeInsert:
+            case .Insert:
                 self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-            case NSFetchedResultsChangeDelete:
+            case .Delete:
                 self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
             default:
                 return
@@ -175,13 +176,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath) {
         switch type {
-            case NSFetchedResultsChangeInsert:
+            case .Insert:
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
-            case NSFetchedResultsChangeDelete:
+            case .Delete:
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            case NSFetchedResultsChangeUpdate:
-                self.configureCell(tableView.cellForRowAtIndexPath(indexPath), atIndexPath: indexPath)
-            case NSFetchedResultsChangeMove:
+            case .Update:
+                self.configureCell(tableView.cellForRowAtIndexPath(indexPath)!, atIndexPath: indexPath)
+            case .Move:
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
             default:
