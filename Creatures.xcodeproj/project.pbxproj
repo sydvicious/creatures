@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		621FAD8E19CBE2AE0007B54E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 621FAD8C19CBE2AE0007B54E /* LaunchScreen.xib */; };
 		6228505D1978ECB000DE985E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228505C1978ECB000DE985E /* AppDelegate.swift */; };
 		622850621978ECB000DE985E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622850611978ECB000DE985E /* MasterViewController.swift */; };
 		622850641978ECB000DE985E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622850631978ECB000DE985E /* DetailViewController.swift */; };
@@ -21,6 +20,7 @@
 		6228509F1978ED1B00DE985E /* Creatures_for_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228509E1978ED1B00DE985E /* Creatures_for_MacTests.swift */; };
 		622850AE1978EF3300DE985E /* Creatures.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 622850AC1978EF3300DE985E /* Creatures.xcdatamodeld */; };
 		622850AF1978EF3300DE985E /* Creatures.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 622850AC1978EF3300DE985E /* Creatures.xcdatamodeld */; };
+		626A3D7C19CBE59300B3222D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626A3D7B19CBE59300B3222D /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		621FAD8D19CBE2AE0007B54E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../../../samples/Apple/MasterDetailSwift/MasterDetailSwift/Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		622850571978ECB000DE985E /* Creatures for iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Creatures for iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6228505B1978ECB000DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6228505C1978ECB000DE985E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		6228509D1978ED1B00DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6228509E1978ED1B00DE985E /* Creatures_for_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatures_for_MacTests.swift; sourceTree = "<group>"; };
 		622850AD1978EF3300DE985E /* Creatures.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Creatures.xcdatamodel; sourceTree = "<group>"; };
+		626A3D7B19CBE59300B3222D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,12 +150,10 @@
 		622850591978ECB000DE985E /* Creatures for iOS */ = {
 			isa = PBXGroup;
 			children = (
-				621FAD8C19CBE2AE0007B54E /* LaunchScreen.xib */,
+				626A3D7D19CBE5AF00B3222D /* Resources */,
 				6228505C1978ECB000DE985E /* AppDelegate.swift */,
 				622850611978ECB000DE985E /* MasterViewController.swift */,
 				622850631978ECB000DE985E /* DetailViewController.swift */,
-				622850651978ECB000DE985E /* Main.storyboard */,
-				622850681978ECB000DE985E /* Images.xcassets */,
 				6228505A1978ECB000DE985E /* Supporting Files */,
 			);
 			path = "Creatures for iOS";
@@ -230,6 +228,16 @@
 			);
 			path = "Common Files";
 			sourceTree = SOURCE_ROOT;
+		};
+		626A3D7D19CBE5AF00B3222D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				626A3D7B19CBE59300B3222D /* LaunchScreen.xib */,
+				622850651978ECB000DE985E /* Main.storyboard */,
+				622850681978ECB000DE985E /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -360,7 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				622850671978ECB000DE985E /* Main.storyboard in Resources */,
-				621FAD8E19CBE2AE0007B54E /* LaunchScreen.xib in Resources */,
+				626A3D7C19CBE59300B3222D /* LaunchScreen.xib in Resources */,
 				622850691978ECB000DE985E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,14 +472,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		621FAD8C19CBE2AE0007B54E /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				621FAD8D19CBE2AE0007B54E /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 		622850651978ECB000DE985E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -541,7 +541,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Creatures for iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -584,7 +584,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Creatures for iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
