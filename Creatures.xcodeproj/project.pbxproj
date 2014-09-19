@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		621FAD8E19CBE2AE0007B54E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 621FAD8C19CBE2AE0007B54E /* LaunchScreen.xib */; };
 		6228505D1978ECB000DE985E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228505C1978ECB000DE985E /* AppDelegate.swift */; };
 		622850621978ECB000DE985E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622850611978ECB000DE985E /* MasterViewController.swift */; };
 		622850641978ECB000DE985E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622850631978ECB000DE985E /* DetailViewController.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		621FAD8D19CBE2AE0007B54E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../../../samples/Apple/MasterDetailSwift/MasterDetailSwift/Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		622850571978ECB000DE985E /* Creatures for iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Creatures for iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6228505B1978ECB000DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6228505C1978ECB000DE985E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		622850591978ECB000DE985E /* Creatures for iOS */ = {
 			isa = PBXGroup;
 			children = (
+				621FAD8C19CBE2AE0007B54E /* LaunchScreen.xib */,
 				6228505C1978ECB000DE985E /* AppDelegate.swift */,
 				622850611978ECB000DE985E /* MasterViewController.swift */,
 				622850631978ECB000DE985E /* DetailViewController.swift */,
@@ -357,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				622850671978ECB000DE985E /* Main.storyboard in Resources */,
+				621FAD8E19CBE2AE0007B54E /* LaunchScreen.xib in Resources */,
 				622850691978ECB000DE985E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +464,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		621FAD8C19CBE2AE0007B54E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				621FAD8D19CBE2AE0007B54E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
 		622850651978ECB000DE985E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -876,6 +888,7 @@
 				622850781978ECB000DE985E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		622850791978ECB000DE985E /* Build configuration list for PBXNativeTarget "Creatures for iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -884,6 +897,7 @@
 				6228507B1978ECB000DE985E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		622850A01978ED1B00DE985E /* Build configuration list for PBXNativeTarget "Creatures for Mac" */ = {
 			isa = XCConfigurationList;
@@ -892,6 +906,7 @@
 				622850A21978ED1B00DE985E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		622850A31978ED1B00DE985E /* Build configuration list for PBXNativeTarget "Creatures for MacTests" */ = {
 			isa = XCConfigurationList;
@@ -900,6 +915,7 @@
 				622850A51978ED1B00DE985E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

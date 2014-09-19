@@ -5,12 +5,11 @@
 //  Created by Syd Polk on 7/18/14.
 //  Copyright (c) 2014 Bone Jarring Games and Software. All rights reserved.
 //
-//
 
 import UIKit
 
 class DetailViewController: UIViewController {
-                            
+
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
 
