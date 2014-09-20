@@ -41,16 +41,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Dispose of any resources that can be recreated.
     }
 
-    func insertNewObject(sender: AnyObject) {
-        let context = self.fetchedResultsController.managedObjectContext
-        let entity = self.fetchedResultsController.fetchRequest.entity
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name, inManagedObjectContext: context) as NSManagedObject
-             
-        // If appropriate, configure the new managed object.
-        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        newManagedObject.setValue("Unnamed", forKey: "name")
-             
+    func saveContext() {
         // Save the context.
+        let context = self.fetchedResultsController.managedObjectContext
         var error: NSError? = nil
         if !context.save(&error) {
             // Replace this implementation with code to handle the error appropriately.
@@ -59,13 +52,24 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             abort()
         }
     }
+    
+    func insertNewObject(sender: AnyObject) {
+        let context = self.fetchedResultsController.managedObjectContext
+        let entity = self.fetchedResultsController.fetchRequest.entity
+        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name, inManagedObjectContext: context) as NSManagedObject
+             
+        // If appropriate, configure the new managed object.
+        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+        newManagedObject.setValue("Unnamed", forKey: "name")
+        saveContext()
+    }
 
     // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
+                let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
                 let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -188,6 +192,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             default:
                 return
         }
+        saveContext()
     }
 
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
