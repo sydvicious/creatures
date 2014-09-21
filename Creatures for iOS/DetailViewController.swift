@@ -13,7 +13,8 @@ var myContext = UnsafeMutablePointer<()>()
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var nameField: UITextField!
-
+    @IBOutlet weak var navigationBar: UINavigationItem!
+    
     var detailItem: AnyObject? {
         didSet {
             // Update the view.
@@ -23,13 +24,21 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
+        var name = "";
+        if let detail: AnyObject = self.detailItem {
+            name = detail.valueForKey("name").description
+        }
+        
         if let field = self.nameField {
-            if let detail: AnyObject = self.detailItem {
-                field.hidden = false
-                field.text = detail.valueForKey("name").description
-            } else {
+            if name == "" {
                 field.hidden = true
+            } else {
+                field.hidden = false
+                field.text = name
             }
+        }
+        if let navBar = self.navigationBar {
+            navBar.title = name
         }
     }
 

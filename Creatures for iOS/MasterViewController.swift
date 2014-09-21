@@ -99,7 +99,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let context = self.fetchedResultsController.managedObjectContext
@@ -177,11 +177,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 return
         }
     }
-
+    
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath) {
         switch type {
             case .Insert:
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+                //tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .Middle)
+                //performSegueWithIdentifier("showDetail", sender: self)
             case .Delete:
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             case .Update:
