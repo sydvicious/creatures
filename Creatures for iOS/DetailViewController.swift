@@ -26,7 +26,7 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         var name = "";
         if let detail: AnyObject = self.detailItem {
-            name = detail.valueForKey("name").description
+            name = detail.valueForKey("name")!.description
         }
         
         if let field = self.nameField {

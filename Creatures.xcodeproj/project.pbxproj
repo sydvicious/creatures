@@ -21,6 +21,7 @@
 		622850AE1978EF3300DE985E /* Creatures.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 622850AC1978EF3300DE985E /* Creatures.xcdatamodeld */; };
 		622850AF1978EF3300DE985E /* Creatures.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 622850AC1978EF3300DE985E /* Creatures.xcdatamodeld */; };
 		626A3D7C19CBE59300B3222D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626A3D7B19CBE59300B3222D /* LaunchScreen.xib */; };
+		626E2B7B19DA474400BB0FD4 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E2B7A19DA474400BB0FD4 /* Creature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		6228509E1978ED1B00DE985E /* Creatures_for_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatures_for_MacTests.swift; sourceTree = "<group>"; };
 		622850AD1978EF3300DE985E /* Creatures.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Creatures.xcdatamodel; sourceTree = "<group>"; };
 		626A3D7B19CBE59300B3222D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		626E2B7A19DA474400BB0FD4 /* Creature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				622850AC1978EF3300DE985E /* Creatures.xcdatamodeld */,
+				626E2B7A19DA474400BB0FD4 /* Creature.swift */,
 			);
 			path = "Common Files";
 			sourceTree = SOURCE_ROOT;
@@ -322,7 +325,7 @@
 		6228504D1978EC9600DE985E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				TargetAttributes = {
 					622850561978ECB000DE985E = {
 						CreatedOnToolsVersion = 6.0;
@@ -406,6 +409,7 @@
 				622850AE1978EF3300DE985E /* Creatures.xcdatamodeld in Sources */,
 				6228505D1978ECB000DE985E /* AppDelegate.swift in Sources */,
 				622850621978ECB000DE985E /* MasterViewController.swift in Sources */,
+				626E2B7B19DA474400BB0FD4 /* Creature.swift in Sources */,
 				622850641978ECB000DE985E /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +498,7 @@
 		622850511978EC9600DE985E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};

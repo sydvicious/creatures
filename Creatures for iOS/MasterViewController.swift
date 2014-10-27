@@ -55,8 +55,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     func insertNewObject(sender: AnyObject) {
         let context = self.fetchedResultsController.managedObjectContext
-        let entity = self.fetchedResultsController.fetchRequest.entity
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name, inManagedObjectContext: context) as NSManagedObject
+        let entity = self.fetchedResultsController.fetchRequest.entity!
+        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as NSManagedObject
              
         // If appropriate, configure the new managed object.
         // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
@@ -117,7 +117,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-        cell.textLabel?.text = object.valueForKey("name")!.description
+        cell.textLabel.text = object.valueForKey("timeStamp")!.description
     }
 
     // MARK: - Fetched results controller
@@ -177,20 +177,20 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 return
         }
     }
-    
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath) {
+
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
             case .Insert:
-                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
-                //tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .Middle)
+                tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+                //tableView.selectRowAtIndexPath(indexPath!, animated: true, scrollPosition: .Middle)
                 //performSegueWithIdentifier("showDetail", sender: self)
             case .Delete:
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             case .Update:
-                self.configureCell(tableView.cellForRowAtIndexPath(indexPath)!, atIndexPath: indexPath)
+                self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)!, atIndexPath: indexPath!)
             case .Move:
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+                tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+                tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
             default:
                 return
         }
