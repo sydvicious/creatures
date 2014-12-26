@@ -90,6 +90,7 @@
 		6228509D1978ED1B00DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6228509E1978ED1B00DE985E /* Creatures_for_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatures_for_MacTests.swift; sourceTree = "<group>"; };
 		622850AD1978EF3300DE985E /* Creatures.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Creatures.xcdatamodel; sourceTree = "<group>"; };
+		623B00441A4D337900F82E03 /* Creatures 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Creatures 2.xcdatamodel"; sourceTree = "<group>"; };
 		626A3D7B19CBE59300B3222D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		626E2B7A19DA474400BB0FD4 /* Creature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -928,9 +929,10 @@
 		622850AC1978EF3300DE985E /* Creatures.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				623B00441A4D337900F82E03 /* Creatures 2.xcdatamodel */,
 				622850AD1978EF3300DE985E /* Creatures.xcdatamodel */,
 			);
-			currentVersion = 622850AD1978EF3300DE985E /* Creatures.xcdatamodel */;
+			currentVersion = 623B00441A4D337900F82E03 /* Creatures 2.xcdatamodel */;
 			path = Creatures.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

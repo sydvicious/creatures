@@ -25,18 +25,20 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         var name = "";
+
         if let detail: AnyObject = self.detailItem {
             name = detail.valueForKey("name")!.description
         }
         
-        if let field = self.nameField {
+        if let nameField = self.nameField {
             if name == "" {
-                field.hidden = true
+                nameField.hidden = true
             } else {
-                field.hidden = false
-                field.text = name
+                nameField.hidden = false
+                nameField.text = name
             }
         }
+        
         if let navBar = self.navigationBar {
             navBar.title = name
         }
