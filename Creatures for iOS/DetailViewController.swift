@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var navigationBar: UINavigationItem!
     
-    var detailItem: AnyObject? {
+    var creature: AnyObject? {
         didSet {
             // Update the view.
             self.configureView()
@@ -26,7 +26,7 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         var name = "";
 
-        if let detail: AnyObject = self.detailItem {
+        if let detail: AnyObject = self.creature {
             name = detail.valueForKey("name")!.description
         }
         
@@ -62,7 +62,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func setNameFromField(nameField : UITextField) {
-        if let detail: AnyObject = self.detailItem {
+        if let detail: AnyObject = self.creature {
             detail.setValue(nameField.text, forKey: "name")
         }
     }

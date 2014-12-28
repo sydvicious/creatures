@@ -25,6 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let masterNavigationController = splitViewController.viewControllers[0] as UINavigationController
         let controller = masterNavigationController.topViewController as MasterViewController
         controller.managedObjectContext = self.managedObjectContext
+        
+        // Register default preferences
+        
+        let appDefaults = NSDictionary(object: NSNumber(longLong: 0), forKey: NextSerial)
+        NSUserDefaults.standardUserDefaults().registerDefaults(appDefaults)
+        
         return true
     }
 
@@ -57,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController!, ontoPrimaryViewController primaryViewController:UIViewController!) -> Bool {
         if let secondaryAsNavController = secondaryViewController as? UINavigationController {
             if let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController {
-                if topAsDetailController.detailItem == nil {
+                if topAsDetailController.creature == nil {
                     // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
                     return true
                 }
