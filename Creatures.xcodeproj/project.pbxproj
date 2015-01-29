@@ -942,7 +942,7 @@
 				622850AD1978EF3300DE985E /* Creatures.xcdatamodel */,
 				6288E1D01A4E75B3009F7CE2 /* Creatures 3.xcdatamodel */,
 			);
-			currentVersion = 6288E1D01A4E75B3009F7CE2 /* Creatures 3.xcdatamodel */;
+			currentVersion = 623B00441A4D337900F82E03 /* Creatures 2.xcdatamodel */;
 			path = Creatures.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
