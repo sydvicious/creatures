@@ -55,7 +55,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func insertNewObject(sender: AnyObject) {
         let context = self.fetchedResultsController.managedObjectContext
         let entity = self.fetchedResultsController.fetchRequest.entity!
-        let newCreature = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as Creature
+        let newCreature = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! Creature
              
         // If appropriate, configure the new managed object.
         // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
@@ -68,8 +68,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let creature = self.fetchedResultsController.objectAtIndexPath(indexPath) as Creature
-                let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
+                let creature = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Creature
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.creature = creature
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
@@ -84,12 +84,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
+        let sectionInfo = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
         return sectionInfo.numberOfObjects
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         self.configureCell(cell, atIndexPath: indexPath)
         return cell
     }
@@ -102,7 +102,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let context = self.fetchedResultsController.managedObjectContext
-            context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as Creature)
+            context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! Creature)
                 
             var error: NSError? = nil
             if !context.save(&error) {
@@ -115,8 +115,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let creature = self.fetchedResultsController.objectAtIndexPath(indexPath) as Creature
-        cell.textLabel!.text = creature.name
+        let creature = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Creature
+        cell.textLabel!.text = creature.name as String
     }
 
     // MARK: - Fetched results controller
