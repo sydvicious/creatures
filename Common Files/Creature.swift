@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Bone Jarring Games and Software. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import CoreData
 
 class Creature: NSManagedObject {

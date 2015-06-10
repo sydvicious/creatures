@@ -13,10 +13,8 @@
 		622850671978ECB000DE985E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 622850651978ECB000DE985E /* Main.storyboard */; };
 		622850691978ECB000DE985E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 622850681978ECB000DE985E /* Images.xcassets */; };
 		622850751978ECB000DE985E /* Creatures_for_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622850741978ECB000DE985E /* Creatures_for_iOSTests.swift */; };
-		622850891978ED1B00DE985E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622850881978ED1B00DE985E /* main.swift */; };
 		6228508B1978ED1B00DE985E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228508A1978ED1B00DE985E /* AppDelegate.swift */; };
 		622850901978ED1B00DE985E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6228508F1978ED1B00DE985E /* Images.xcassets */; };
-		622850931978ED1B00DE985E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 622850911978ED1B00DE985E /* MainMenu.xib */; };
 		6228509F1978ED1B00DE985E /* Creatures_for_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228509E1978ED1B00DE985E /* Creatures_for_MacTests.swift */; };
 		622850AE1978EF3300DE985E /* Creatures.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 622850AC1978EF3300DE985E /* Creatures.xcdatamodeld */; };
 		622850AF1978EF3300DE985E /* Creatures.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 622850AC1978EF3300DE985E /* Creatures.xcdatamodeld */; };
@@ -25,6 +23,7 @@
 		6288E1D21A4E7A63009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
 		6288E1D51A4E80CB009F7CE2 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E2B7A19DA474400BB0FD4 /* Creature.swift */; };
 		6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
+		62FA2D391B27B49400FCCF71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62FA2D371B27B49400FCCF71 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,10 +84,8 @@
 		622850741978ECB000DE985E /* Creatures_for_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatures_for_iOSTests.swift; sourceTree = "<group>"; };
 		622850841978ED1B00DE985E /* Creatures for Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Creatures for Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		622850871978ED1B00DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		622850881978ED1B00DE985E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		6228508A1978ED1B00DE985E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6228508F1978ED1B00DE985E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		622850921978ED1B00DE985E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		622850981978ED1B00DE985E /* Creatures for MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Creatures for MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6228509D1978ED1B00DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6228509E1978ED1B00DE985E /* Creatures_for_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatures_for_MacTests.swift; sourceTree = "<group>"; };
@@ -98,6 +95,7 @@
 		626E2B7A19DA474400BB0FD4 /* Creature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 		6288E1D01A4E75B3009F7CE2 /* Creatures 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Creatures 3.xcdatamodel"; sourceTree = "<group>"; };
 		6288E1D11A4E7A63009F7CE2 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
+		62FA2D381B27B49400FCCF71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,9 +193,9 @@
 		622850851978ED1B00DE985E /* Creatures for Mac */ = {
 			isa = PBXGroup;
 			children = (
+				62FA2D371B27B49400FCCF71 /* Main.storyboard */,
 				6228508A1978ED1B00DE985E /* AppDelegate.swift */,
 				6228508F1978ED1B00DE985E /* Images.xcassets */,
-				622850911978ED1B00DE985E /* MainMenu.xib */,
 				622850861978ED1B00DE985E /* Supporting Files */,
 			);
 			path = "Creatures for Mac";
@@ -207,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				622850871978ED1B00DE985E /* Info.plist */,
-				622850881978ED1B00DE985E /* main.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -332,6 +329,7 @@
 		6228504D1978EC9600DE985E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				TargetAttributes = {
 					622850561978ECB000DE985E = {
@@ -394,8 +392,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62FA2D391B27B49400FCCF71 /* Main.storyboard in Resources */,
 				622850901978ED1B00DE985E /* Images.xcassets in Resources */,
-				622850931978ED1B00DE985E /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +436,6 @@
 				6228508B1978ED1B00DE985E /* AppDelegate.swift in Sources */,
 				6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */,
 				622850AF1978EF3300DE985E /* Creatures.xcdatamodeld in Sources */,
-				622850891978ED1B00DE985E /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,12 +491,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		622850911978ED1B00DE985E /* MainMenu.xib */ = {
+		62FA2D371B27B49400FCCF71 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				622850921978ED1B00DE985E /* Base */,
+				62FA2D381B27B49400FCCF71 /* Base */,
 			);
-			name = MainMenu.xib;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

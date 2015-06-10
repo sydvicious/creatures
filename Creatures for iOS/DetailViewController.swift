@@ -3,7 +3,7 @@
 //  Creatures for iOS
 //
 //  Created by Syd Polk on 7/18/14.
-//  Copyright (c) 2014 Bone Jarring Games and Software. All rights reserved.
+//  Copyright (c) 2014-2015 Bone Jarring Games and Software. All rights reserved.
 //
 
 import UIKit
@@ -49,7 +49,7 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
     }
-    
+
     override func didReceiveMemoryWarning() {
         setNameFromField(self.nameField!)
         super.didReceiveMemoryWarning()
