@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Creatures for Mac
+//  Characters for Mac
 //
 //  Created by Syd Polk on 7/18/15.
 //  Copyright © 2014-2015 Bone Jarring Games and Software. All rights reserved.

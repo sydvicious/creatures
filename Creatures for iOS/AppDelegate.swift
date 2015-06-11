@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Creatures for iOS
+//  Characters
 //
 //  Created by Syd Polk on 7/18/14.
 //  Copyright (c) 2014-2015 Bone Jarring Games and Software. All rights reserved.
@@ -72,14 +72,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
-        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.bonejarring.Creatures_for_iOS" in the application's documents Application Support directory.
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.bonejarring.Characters" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count-1]
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("Creatures", withExtension: "momd")!
+        let modelURL = NSBundle.mainBundle().URLForResource("Characters", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
 
@@ -87,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Creatures.sqlite")
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Characters.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         var options = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
         do {

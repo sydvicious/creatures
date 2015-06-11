@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,13 +16,12 @@
 		6228508B1978ED1B00DE985E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228508A1978ED1B00DE985E /* AppDelegate.swift */; };
 		622850901978ED1B00DE985E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6228508F1978ED1B00DE985E /* Images.xcassets */; };
 		6228509F1978ED1B00DE985E /* Creatures_for_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228509E1978ED1B00DE985E /* Creatures_for_MacTests.swift */; };
-		622850AE1978EF3300DE985E /* Creatures.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 622850AC1978EF3300DE985E /* Creatures.xcdatamodeld */; };
-		622850AF1978EF3300DE985E /* Creatures.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 622850AC1978EF3300DE985E /* Creatures.xcdatamodeld */; };
 		626A3D7C19CBE59300B3222D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626A3D7B19CBE59300B3222D /* LaunchScreen.xib */; };
 		626E2B7B19DA474400BB0FD4 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E2B7A19DA474400BB0FD4 /* Creature.swift */; };
 		6288E1D21A4E7A63009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
 		6288E1D51A4E80CB009F7CE2 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E2B7A19DA474400BB0FD4 /* Creature.swift */; };
 		6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
+		62A95C291B29F45700D5B981 /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62A95C271B29F45700D5B981 /* Characters.xcdatamodeld */; };
 		62FA2D391B27B49400FCCF71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62FA2D371B27B49400FCCF71 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		622850571978ECB000DE985E /* Creatures for iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Creatures for iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		622850571978ECB000DE985E /* Characters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Characters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6228505B1978ECB000DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6228505C1978ECB000DE985E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		622850611978ECB000DE985E /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -82,19 +81,17 @@
 		6228506E1978ECB000DE985E /* Creatures for iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Creatures for iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		622850731978ECB000DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		622850741978ECB000DE985E /* Creatures_for_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatures_for_iOSTests.swift; sourceTree = "<group>"; };
-		622850841978ED1B00DE985E /* Creatures for Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Creatures for Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		622850841978ED1B00DE985E /* Characters for Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Characters for Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		622850871978ED1B00DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6228508A1978ED1B00DE985E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6228508F1978ED1B00DE985E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		622850981978ED1B00DE985E /* Creatures for MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Creatures for MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6228509D1978ED1B00DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6228509E1978ED1B00DE985E /* Creatures_for_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatures_for_MacTests.swift; sourceTree = "<group>"; };
-		622850AD1978EF3300DE985E /* Creatures.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Creatures.xcdatamodel; sourceTree = "<group>"; };
-		623B00441A4D337900F82E03 /* Creatures 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Creatures 2.xcdatamodel"; sourceTree = "<group>"; };
 		626A3D7B19CBE59300B3222D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		626E2B7A19DA474400BB0FD4 /* Creature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
-		6288E1D01A4E75B3009F7CE2 /* Creatures 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Creatures 3.xcdatamodel"; sourceTree = "<group>"; };
 		6288E1D11A4E7A63009F7CE2 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
+		62A95C281B29F45700D5B981 /* Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Characters.xcdatamodel; sourceTree = "<group>"; };
 		62FA2D381B27B49400FCCF71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,9 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				622850AA1978ED7900DE985E /* Common Files */,
-				622850591978ECB000DE985E /* Creatures for iOS */,
+				622850591978ECB000DE985E /* Characters */,
 				622850711978ECB000DE985E /* Creatures for iOSTests */,
-				622850851978ED1B00DE985E /* Creatures for Mac */,
+				622850851978ED1B00DE985E /* Characters for Mac */,
 				6228509B1978ED1B00DE985E /* Creatures for MacTests */,
 				622850581978ECB000DE985E /* Products */,
 			);
@@ -145,15 +142,15 @@
 		622850581978ECB000DE985E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				622850571978ECB000DE985E /* Creatures for iOS.app */,
+				622850571978ECB000DE985E /* Characters.app */,
 				6228506E1978ECB000DE985E /* Creatures for iOSTests.xctest */,
-				622850841978ED1B00DE985E /* Creatures for Mac.app */,
+				622850841978ED1B00DE985E /* Characters for Mac.app */,
 				622850981978ED1B00DE985E /* Creatures for MacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		622850591978ECB000DE985E /* Creatures for iOS */ = {
+		622850591978ECB000DE985E /* Characters */ = {
 			isa = PBXGroup;
 			children = (
 				626A3D7D19CBE5AF00B3222D /* Resources */,
@@ -162,6 +159,7 @@
 				622850631978ECB000DE985E /* DetailViewController.swift */,
 				6228505A1978ECB000DE985E /* Supporting Files */,
 			);
+			name = Characters;
 			path = "Creatures for iOS";
 			sourceTree = "<group>";
 		};
@@ -190,7 +188,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		622850851978ED1B00DE985E /* Creatures for Mac */ = {
+		622850851978ED1B00DE985E /* Characters for Mac */ = {
 			isa = PBXGroup;
 			children = (
 				62FA2D371B27B49400FCCF71 /* Main.storyboard */,
@@ -198,6 +196,7 @@
 				6228508F1978ED1B00DE985E /* Images.xcassets */,
 				622850861978ED1B00DE985E /* Supporting Files */,
 			);
+			name = "Characters for Mac";
 			path = "Creatures for Mac";
 			sourceTree = "<group>";
 		};
@@ -229,9 +228,9 @@
 		622850AA1978ED7900DE985E /* Common Files */ = {
 			isa = PBXGroup;
 			children = (
+				62A95C271B29F45700D5B981 /* Characters.xcdatamodeld */,
 				626E2B7A19DA474400BB0FD4 /* Creature.swift */,
 				6288E1D11A4E7A63009F7CE2 /* Prefs.swift */,
-				622850AC1978EF3300DE985E /* Creatures.xcdatamodeld */,
 			);
 			path = "Common Files";
 			sourceTree = SOURCE_ROOT;
@@ -249,9 +248,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		622850561978ECB000DE985E /* Creatures for iOS */ = {
+		622850561978ECB000DE985E /* Characters */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 622850761978ECB000DE985E /* Build configuration list for PBXNativeTarget "Creatures for iOS" */;
+			buildConfigurationList = 622850761978ECB000DE985E /* Build configuration list for PBXNativeTarget "Characters" */;
 			buildPhases = (
 				622850531978ECB000DE985E /* Sources */,
 				622850541978ECB000DE985E /* Frameworks */,
@@ -261,9 +260,9 @@
 			);
 			dependencies = (
 			);
-			name = "Creatures for iOS";
-			productName = "Creatures for iOS";
-			productReference = 622850571978ECB000DE985E /* Creatures for iOS.app */;
+			name = Characters;
+			productName = Characters;
+			productReference = 622850571978ECB000DE985E /* Characters.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6228506D1978ECB000DE985E /* Creatures for iOSTests */ = {
@@ -286,9 +285,9 @@
 			productReference = 6228506E1978ECB000DE985E /* Creatures for iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		622850831978ED1B00DE985E /* Creatures for Mac */ = {
+		622850831978ED1B00DE985E /* Characters for Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 622850A01978ED1B00DE985E /* Build configuration list for PBXNativeTarget "Creatures for Mac" */;
+			buildConfigurationList = 622850A01978ED1B00DE985E /* Build configuration list for PBXNativeTarget "Characters for Mac" */;
 			buildPhases = (
 				622850801978ED1B00DE985E /* Sources */,
 				622850811978ED1B00DE985E /* Frameworks */,
@@ -298,9 +297,9 @@
 			);
 			dependencies = (
 			);
-			name = "Creatures for Mac";
-			productName = "Creatures for Mac";
-			productReference = 622850841978ED1B00DE985E /* Creatures for Mac.app */;
+			name = "Characters for Mac";
+			productName = "Characters for Mac";
+			productReference = 622850841978ED1B00DE985E /* Characters for Mac.app */;
 			productType = "com.apple.product-type.application";
 		};
 		622850971978ED1B00DE985E /* Creatures for MacTests */ = {
@@ -349,8 +348,8 @@
 					};
 				};
 			};
-			buildConfigurationList = 622850501978EC9600DE985E /* Build configuration list for PBXProject "Creatures" */;
-			compatibilityVersion = "Xcode 3.2";
+			buildConfigurationList = 622850501978EC9600DE985E /* Build configuration list for PBXProject "Characters" */;
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -362,9 +361,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				622850561978ECB000DE985E /* Creatures for iOS */,
+				622850561978ECB000DE985E /* Characters */,
 				6228506D1978ECB000DE985E /* Creatures for iOSTests */,
-				622850831978ED1B00DE985E /* Creatures for Mac */,
+				622850831978ED1B00DE985E /* Characters for Mac */,
 				622850971978ED1B00DE985E /* Creatures for MacTests */,
 			);
 		};
@@ -412,11 +411,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6288E1D21A4E7A63009F7CE2 /* Prefs.swift in Sources */,
-				622850AE1978EF3300DE985E /* Creatures.xcdatamodeld in Sources */,
 				6228505D1978ECB000DE985E /* AppDelegate.swift in Sources */,
 				622850621978ECB000DE985E /* MasterViewController.swift in Sources */,
 				626E2B7B19DA474400BB0FD4 /* Creature.swift in Sources */,
 				622850641978ECB000DE985E /* DetailViewController.swift in Sources */,
+				62A95C291B29F45700D5B981 /* Characters.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +434,6 @@
 				6288E1D51A4E80CB009F7CE2 /* Creature.swift in Sources */,
 				6228508B1978ED1B00DE985E /* AppDelegate.swift in Sources */,
 				6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */,
-				622850AF1978EF3300DE985E /* Creatures.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,32 +450,32 @@
 /* Begin PBXTargetDependency section */
 		622850701978ECB000DE985E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 622850561978ECB000DE985E /* Creatures for iOS */;
+			target = 622850561978ECB000DE985E /* Characters */;
 			targetProxy = 6228506F1978ECB000DE985E /* PBXContainerItemProxy */;
 		};
 		6228507D1978ECB100DE985E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 622850561978ECB000DE985E /* Creatures for iOS */;
+			target = 622850561978ECB000DE985E /* Characters */;
 			targetProxy = 6228507C1978ECB100DE985E /* PBXContainerItemProxy */;
 		};
 		6228507F1978ECB100DE985E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 622850561978ECB000DE985E /* Creatures for iOS */;
+			target = 622850561978ECB000DE985E /* Characters */;
 			targetProxy = 6228507E1978ECB100DE985E /* PBXContainerItemProxy */;
 		};
 		6228509A1978ED1B00DE985E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 622850831978ED1B00DE985E /* Creatures for Mac */;
+			target = 622850831978ED1B00DE985E /* Characters for Mac */;
 			targetProxy = 622850991978ED1B00DE985E /* PBXContainerItemProxy */;
 		};
 		622850A71978ED1B00DE985E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 622850831978ED1B00DE985E /* Creatures for Mac */;
+			target = 622850831978ED1B00DE985E /* Characters for Mac */;
 			targetProxy = 622850A61978ED1B00DE985E /* PBXContainerItemProxy */;
 		};
 		622850A91978ED1C00DE985E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 622850831978ED1B00DE985E /* Creatures for Mac */;
+			target = 622850831978ED1B00DE985E /* Characters for Mac */;
 			targetProxy = 622850A81978ED1C00DE985E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -505,6 +503,8 @@
 		622850511978EC9600DE985E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
@@ -512,6 +512,8 @@
 		622850521978EC9600DE985E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 			};
 			name = Release;
 		};
@@ -553,7 +555,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Creatures for iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -596,7 +598,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Creatures for iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -884,7 +886,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		622850501978EC9600DE985E /* Build configuration list for PBXProject "Creatures" */ = {
+		622850501978EC9600DE985E /* Build configuration list for PBXProject "Characters" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				622850511978EC9600DE985E /* Debug */,
@@ -893,7 +895,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		622850761978ECB000DE985E /* Build configuration list for PBXNativeTarget "Creatures for iOS" */ = {
+		622850761978ECB000DE985E /* Build configuration list for PBXNativeTarget "Characters" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				622850771978ECB000DE985E /* Debug */,
@@ -911,7 +913,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		622850A01978ED1B00DE985E /* Build configuration list for PBXNativeTarget "Creatures for Mac" */ = {
+		622850A01978ED1B00DE985E /* Build configuration list for PBXNativeTarget "Characters for Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				622850A11978ED1B00DE985E /* Debug */,
@@ -932,15 +934,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		622850AC1978EF3300DE985E /* Creatures.xcdatamodeld */ = {
+		62A95C271B29F45700D5B981 /* Characters.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				623B00441A4D337900F82E03 /* Creatures 2.xcdatamodel */,
-				622850AD1978EF3300DE985E /* Creatures.xcdatamodel */,
-				6288E1D01A4E75B3009F7CE2 /* Creatures 3.xcdatamodel */,
+				62A95C281B29F45700D5B981 /* Characters.xcdatamodel */,
 			);
-			currentVersion = 623B00441A4D337900F82E03 /* Creatures 2.xcdatamodel */;
-			path = Creatures.xcdatamodeld;
+			currentVersion = 62A95C281B29F45700D5B981 /* Characters.xcdatamodel */;
+			path = Characters.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

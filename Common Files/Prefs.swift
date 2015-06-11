@@ -1,6 +1,6 @@
 //
 //  Prefs.swift
-//  Creatures
+//  Characters
 //
 //  Created by Syd Polk on 12/26/14.
 //
