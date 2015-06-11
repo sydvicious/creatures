@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		621A2E9E1B2A07A500A3B4BE /* CreaturesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A2E9D1B2A07A500A3B4BE /* CreaturesController.swift */; };
+		621A2E9F1B2A07A500A3B4BE /* CreaturesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A2E9D1B2A07A500A3B4BE /* CreaturesController.swift */; };
 		6228505D1978ECB000DE985E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228505C1978ECB000DE985E /* AppDelegate.swift */; };
 		622850621978ECB000DE985E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622850611978ECB000DE985E /* MasterViewController.swift */; };
 		622850641978ECB000DE985E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622850631978ECB000DE985E /* DetailViewController.swift */; };
@@ -71,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		621A2E9D1B2A07A500A3B4BE /* CreaturesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreaturesController.swift; path = "Common Files/CreaturesController.swift"; sourceTree = SOURCE_ROOT; };
 		622850571978ECB000DE985E /* Characters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Characters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6228505B1978ECB000DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6228505C1978ECB000DE985E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 			children = (
 				62A95C271B29F45700D5B981 /* Characters.xcdatamodeld */,
 				626E2B7A19DA474400BB0FD4 /* Creature.swift */,
+				621A2E9D1B2A07A500A3B4BE /* CreaturesController.swift */,
 				6288E1D11A4E7A63009F7CE2 /* Prefs.swift */,
 			);
 			path = "Common Files";
@@ -414,6 +418,7 @@
 				6228505D1978ECB000DE985E /* AppDelegate.swift in Sources */,
 				622850621978ECB000DE985E /* MasterViewController.swift in Sources */,
 				626E2B7B19DA474400BB0FD4 /* Creature.swift in Sources */,
+				621A2E9E1B2A07A500A3B4BE /* CreaturesController.swift in Sources */,
 				622850641978ECB000DE985E /* DetailViewController.swift in Sources */,
 				62A95C291B29F45700D5B981 /* Characters.xcdatamodeld in Sources */,
 			);
@@ -433,6 +438,7 @@
 			files = (
 				6288E1D51A4E80CB009F7CE2 /* Creature.swift in Sources */,
 				6228508B1978ED1B00DE985E /* AppDelegate.swift in Sources */,
+				621A2E9F1B2A07A500A3B4BE /* CreaturesController.swift in Sources */,
 				6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
