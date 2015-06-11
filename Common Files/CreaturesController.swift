@@ -24,7 +24,7 @@ class CreaturesController {
         } catch {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            //print("Unresolved error \(error), \(error.userInfo)")
+            print("Unresolved error \(error)")
             abort()
         }
 
@@ -124,8 +124,6 @@ class CreaturesController {
         let entity = self.fetchRequest.entity!
         let newCreature = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! Creature
         
-        // If appropriate, configure the new managed object.
-        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
         newCreature.name = name
         saveContext()
 
