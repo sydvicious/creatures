@@ -1,5 +1,5 @@
 //
-//  iOS_Tests.swift
+//  iOS-Tests.swift
 //  iOS-Tests
 //
 //  Created by Syd Polk on 6/11/15.
