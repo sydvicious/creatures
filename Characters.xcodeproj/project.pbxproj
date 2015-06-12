@@ -48,7 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		622850571978ECB000DE985E /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		622850571978ECB000DE985E /* Characters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Characters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6228505B1978ECB000DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6228505C1978ECB000DE985E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		622850611978ECB000DE985E /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +110,6 @@
 		6228504C1978EC9600DE985E = {
 			isa = PBXGroup;
 			children = (
-				62C6A0001B2B215D006B50D2 /* Common Tests */,
 				622850AA1978ED7900DE985E /* Common Files */,
 				622850591978ECB000DE985E /* iOS */,
 				622850851978ED1B00DE985E /* Mac */,
@@ -124,7 +123,7 @@
 		622850581978ECB000DE985E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				622850571978ECB000DE985E /* iOS.app */,
+				622850571978ECB000DE985E /* Characters.app */,
 				622850841978ED1B00DE985E /* Mac.app */,
 				62B2CB191B2A551E0073B8DC /* iOS-Tests.xctest */,
 				62B2CB271B2A56D90073B8DC /* Mac-Tests.xctest */,
@@ -211,13 +210,6 @@
 			path = "Mac Tests";
 			sourceTree = "<group>";
 		};
-		62C6A0001B2B215D006B50D2 /* Common Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Common Tests";
-			sourceTree = "<group>";
-		};
 		62C6A01A1B2B22BC006B50D2 /* CommonTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,7 +235,7 @@
 			);
 			name = iOS;
 			productName = Characters;
-			productReference = 622850571978ECB000DE985E /* iOS.app */;
+			productReference = 622850571978ECB000DE985E /* Characters.app */;
 			productType = "com.apple.product-type.application";
 		};
 		622850831978ED1B00DE985E /* Mac */ = {
@@ -521,7 +513,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Characters;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -563,7 +555,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Characters;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
