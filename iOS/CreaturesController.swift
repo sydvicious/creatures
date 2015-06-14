@@ -9,31 +9,9 @@
 import Foundation
 import CoreData
 
-var _creaturesController: CreaturesController? = nil
-
 class CreaturesController {
     // MARK: - Core Data stack
 
-    class func getController() -> CreaturesController {
-        if _creaturesController != nil {
-            return _creaturesController!
-        }
-        _creaturesController = CreaturesController()
-        do {
-            try _creaturesController!.controller.performFetch()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            print("Unresolved error \(error)")
-            abort()
-        }
-
-        return _creaturesController!
-    }
-    
-    func setDelegate(delegate: NSFetchedResultsControllerDelegate) {
-        self.controller.delegate = delegate
-    }
     
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.bonejarring.Characters" in the application's documents Application Support directory.
@@ -99,7 +77,7 @@ class CreaturesController {
     
     lazy var fetchRequest = NSFetchRequest()
     
-    lazy var controller: NSFetchedResultsController = {
+    lazy var fetchedResultsController: NSFetchedResultsController = {
         self.fetchRequest = NSFetchRequest()
         // Edit the entity name as appropriate.
         let entity = NSEntityDescription.entityForName("Creature", inManagedObjectContext: self.managedObjectContext)
@@ -115,28 +93,59 @@ class CreaturesController {
         
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
-        let controller = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: "Master")
-        return controller
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: "Master")
+        return fetchedResultsController
     }()
     
-    func createCreature(name: NSString) {
+    init () {
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            print("Unresolved error \(error)")
+            abort()
+        }
+    }
+    
+    func setDelegate(delegate: NSFetchedResultsControllerDelegate) {
+        self.fetchedResultsController.delegate = delegate
+    }
+    
+    func createCreature(name: NSString) -> Creature {
         let context = self.managedObjectContext
         let entity = self.fetchRequest.entity!
-        let newCreature = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! Creature
+        let entityname = entity.name!
+        let managedObject = NSEntityDescription.insertNewObjectForEntityForName(entityname, inManagedObjectContext: context)
+        let newCreature = managedObject as! Creature
+        //let newCreature = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! Creature
         
         newCreature.name = name
         saveContext()
-
+        return newCreature
     }
     
     func deleteCreatureAtIndexPath(indexPath: NSIndexPath) {
-        self.managedObjectContext.deleteObject(self.controller.objectAtIndexPath(indexPath))
+        self.managedObjectContext.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath))
         saveContext()
-
+    }
+    
+    func deleteCreature(creature: Creature) {
+        self.managedObjectContext.deleteObject(creature)
     }
     
     func creatureFromIndexPath(indexPath: NSIndexPath) -> Creature {
-        return self.controller.objectAtIndexPath(indexPath) as! Creature
+        return self.fetchedResultsController.objectAtIndexPath(indexPath) as! Creature
     }
     
+    func creatures() -> [Creature] {
+        return self.fetchedResultsController.fetchedObjects as! [Creature]
+    }
+    
+    func deleteAll() {
+        let objects: NSArray = self.fetchedResultsController.fetchedObjects!
+        for object in objects {
+            self.managedObjectContext.deleteObject(object as! NSManagedObject)
+        }
+    }
 }

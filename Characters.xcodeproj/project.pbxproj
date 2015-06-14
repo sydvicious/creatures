@@ -19,14 +19,12 @@
 		6288E1D21A4E7A63009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
 		6288E1D51A4E80CB009F7CE2 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E2B7A19DA474400BB0FD4 /* Creature.swift */; };
 		6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
+		628D61511B2BBCF300D420E1 /* TestCreatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */; };
 		62A95C291B29F45700D5B981 /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62A95C271B29F45700D5B981 /* Characters.xcdatamodeld */; };
 		62B2CB1C1B2A551E0073B8DC /* iOS-Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2CB1B1B2A551E0073B8DC /* iOS-Tests.swift */; };
 		62B2CB2A1B2A56D90073B8DC /* Mac-Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2CB291B2A56D90073B8DC /* Mac-Tests.swift */; };
-		62B2CB351B2A59C50073B8DC /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E2B7A19DA474400BB0FD4 /* Creature.swift */; };
-		62B2CB361B2A59C60073B8DC /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E2B7A19DA474400BB0FD4 /* Creature.swift */; };
 		62C6A0051B2B2238006B50D2 /* TestPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C6A0041B2B2238006B50D2 /* TestPrefs.swift */; };
 		62C6A0261B2B24B8006B50D2 /* CreaturesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */; };
-		62C6A0271B2B2537006B50D2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
 		62FA2D391B27B49400FCCF71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62FA2D371B27B49400FCCF71 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +57,15 @@
 		622850871978ED1B00DE985E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6228508A1978ED1B00DE985E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6228508F1978ED1B00DE985E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCreatures.swift; path = "iOS Tests/TestCreatures.swift"; sourceTree = SOURCE_ROOT; };
+		622D72AB1B2BB87E00B3D8F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		622D72AD1B2BB87E00B3D8F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		622D72B01B2BB87E00B3D8F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		622D72B21B2BB87E00B3D8F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		622D72B51B2BB87E00B3D8F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		622D72B71B2BB87E00B3D8F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		622D72C21B2BB8F200B3D8F2 /* iOSTestDummy_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSTestDummy_Tests.swift; sourceTree = "<group>"; };
+		622D72C41B2BB8F200B3D8F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		626A3D7B19CBE59300B3222D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		626E2B7A19DA474400BB0FD4 /* Creature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 		6288E1D11A4E7A63009F7CE2 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
@@ -116,6 +123,8 @@
 				62B2CB1A1B2A551E0073B8DC /* iOS Tests */,
 				62B2CB281B2A56D90073B8DC /* Mac Tests */,
 				62C6A01A1B2B22BC006B50D2 /* CommonTests */,
+				622D72AA1B2BB87E00B3D8F2 /* iOSTestDummy */,
+				622D72C11B2BB8F200B3D8F2 /* iOSTestDummy Tests */,
 				622850581978ECB000DE985E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -181,6 +190,28 @@
 			path = "Common Files";
 			sourceTree = SOURCE_ROOT;
 		};
+		622D72AA1B2BB87E00B3D8F2 /* iOSTestDummy */ = {
+			isa = PBXGroup;
+			children = (
+				622D72AB1B2BB87E00B3D8F2 /* AppDelegate.swift */,
+				622D72AD1B2BB87E00B3D8F2 /* ViewController.swift */,
+				622D72AF1B2BB87E00B3D8F2 /* Main.storyboard */,
+				622D72B21B2BB87E00B3D8F2 /* Assets.xcassets */,
+				622D72B41B2BB87E00B3D8F2 /* LaunchScreen.storyboard */,
+				622D72B71B2BB87E00B3D8F2 /* Info.plist */,
+			);
+			path = iOSTestDummy;
+			sourceTree = "<group>";
+		};
+		622D72C11B2BB8F200B3D8F2 /* iOSTestDummy Tests */ = {
+			isa = PBXGroup;
+			children = (
+				622D72C21B2BB8F200B3D8F2 /* iOSTestDummy_Tests.swift */,
+				622D72C41B2BB8F200B3D8F2 /* Info.plist */,
+			);
+			path = "iOSTestDummy Tests";
+			sourceTree = "<group>";
+		};
 		626A3D7D19CBE5AF00B3222D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +225,7 @@
 		62B2CB1A1B2A551E0073B8DC /* iOS Tests */ = {
 			isa = PBXGroup;
 			children = (
+				622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */,
 				62B2CB1B1B2A551E0073B8DC /* iOS-Tests.swift */,
 				62C6A0041B2B2238006B50D2 /* TestPrefs.swift */,
 				62B2CB1D1B2A551E0073B8DC /* Info.plist */,
@@ -403,10 +435,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				628D61511B2BBCF300D420E1 /* TestCreatures.swift in Sources */,
 				62B2CB1C1B2A551E0073B8DC /* iOS-Tests.swift in Sources */,
 				62C6A0051B2B2238006B50D2 /* TestPrefs.swift in Sources */,
-				62C6A0271B2B2537006B50D2 /* Prefs.swift in Sources */,
-				62B2CB351B2A59C50073B8DC /* Creature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +446,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				62B2CB2A1B2A56D90073B8DC /* Mac-Tests.swift in Sources */,
-				62B2CB361B2A59C60073B8DC /* Creature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +473,22 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+		622D72AF1B2BB87E00B3D8F2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				622D72B01B2BB87E00B3D8F2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		622D72B41B2BB87E00B3D8F2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				622D72B51B2BB87E00B3D8F2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		62FA2D371B27B49400FCCF71 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -457,6 +503,7 @@
 		622850511978EC9600DE985E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
@@ -466,6 +513,7 @@
 		622850521978EC9600DE985E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 			};
@@ -494,6 +542,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -544,6 +593,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

@@ -25,7 +25,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-        self.creaturesController = CreaturesController.getController()
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        self.creaturesController = delegate.creaturesController
         self.creaturesController?.setDelegate(self)
     }
 
@@ -60,11 +61,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Table View
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.creaturesController!.controller.sections?.count ?? 0
+        return self.creaturesController!.fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = self.creaturesController!.controller.sections![section]
+        let sectionInfo = self.creaturesController!.fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
     }
 

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import iOS
+@testable import Characters
 
 class TestPrefs: XCTestCase {
 

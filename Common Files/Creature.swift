@@ -14,5 +14,4 @@ class Creature: NSManagedObject {
     // for this object.
     let serial = Prefs.getNewID()
     @NSManaged var name : NSString
-
 }
