@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		622850901978ED1B00DE985E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6228508F1978ED1B00DE985E /* Images.xcassets */; };
 		626A3D7C19CBE59300B3222D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626A3D7B19CBE59300B3222D /* LaunchScreen.xib */; };
 		626E2B7B19DA474400BB0FD4 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E2B7A19DA474400BB0FD4 /* Creature.swift */; };
+		627426771B733A910051A5E5 /* CharactersContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627426761B733A910051A5E5 /* CharactersContext.swift */; };
 		6288E1D21A4E7A63009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
 		6288E1D51A4E80CB009F7CE2 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E2B7A19DA474400BB0FD4 /* Creature.swift */; };
 		6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
@@ -58,17 +59,11 @@
 		6228508A1978ED1B00DE985E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6228508F1978ED1B00DE985E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCreatures.swift; path = "iOS Tests/TestCreatures.swift"; sourceTree = SOURCE_ROOT; };
-		622D72AB1B2BB87E00B3D8F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		622D72AD1B2BB87E00B3D8F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		622D72B01B2BB87E00B3D8F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		622D72B21B2BB87E00B3D8F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		622D72B51B2BB87E00B3D8F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		622D72B71B2BB87E00B3D8F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		622D72C21B2BB8F200B3D8F2 /* iOSTestDummy_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSTestDummy_Tests.swift; sourceTree = "<group>"; };
-		622D72C41B2BB8F200B3D8F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		626A3D7B19CBE59300B3222D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		626E2B7A19DA474400BB0FD4 /* Creature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
+		627426761B733A910051A5E5 /* CharactersContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersContext.swift; sourceTree = "<group>"; };
 		6288E1D11A4E7A63009F7CE2 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
+		628C42E21B71BC06001C3223 /* Characters 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 2.xcdatamodel"; sourceTree = "<group>"; };
 		62A95C281B29F45700D5B981 /* Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Characters.xcdatamodel; sourceTree = "<group>"; };
 		62B2CB191B2A551E0073B8DC /* iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B2CB1B1B2A551E0073B8DC /* iOS-Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS-Tests.swift"; sourceTree = "<group>"; };
@@ -77,7 +72,6 @@
 		62B2CB291B2A56D90073B8DC /* Mac-Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mac-Tests.swift"; sourceTree = "<group>"; };
 		62B2CB2B1B2A56D90073B8DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C6A0041B2B2238006B50D2 /* TestPrefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPrefs.swift; sourceTree = "<group>"; };
-		62C6A01B1B2B22BC006B50D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreaturesController.swift; sourceTree = "<group>"; };
 		62FA2D381B27B49400FCCF71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,9 +116,6 @@
 				622850851978ED1B00DE985E /* Mac */,
 				62B2CB1A1B2A551E0073B8DC /* iOS Tests */,
 				62B2CB281B2A56D90073B8DC /* Mac Tests */,
-				62C6A01A1B2B22BC006B50D2 /* CommonTests */,
-				622D72AA1B2BB87E00B3D8F2 /* iOSTestDummy */,
-				622D72C11B2BB8F200B3D8F2 /* iOSTestDummy Tests */,
 				622850581978ECB000DE985E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -147,6 +138,7 @@
 				6228505C1978ECB000DE985E /* AppDelegate.swift */,
 				622850611978ECB000DE985E /* MasterViewController.swift */,
 				62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */,
+				627426761B733A910051A5E5 /* CharactersContext.swift */,
 				622850631978ECB000DE985E /* DetailViewController.swift */,
 				6228505A1978ECB000DE985E /* Supporting Files */,
 			);
@@ -190,28 +182,6 @@
 			path = "Common Files";
 			sourceTree = SOURCE_ROOT;
 		};
-		622D72AA1B2BB87E00B3D8F2 /* iOSTestDummy */ = {
-			isa = PBXGroup;
-			children = (
-				622D72AB1B2BB87E00B3D8F2 /* AppDelegate.swift */,
-				622D72AD1B2BB87E00B3D8F2 /* ViewController.swift */,
-				622D72AF1B2BB87E00B3D8F2 /* Main.storyboard */,
-				622D72B21B2BB87E00B3D8F2 /* Assets.xcassets */,
-				622D72B41B2BB87E00B3D8F2 /* LaunchScreen.storyboard */,
-				622D72B71B2BB87E00B3D8F2 /* Info.plist */,
-			);
-			path = iOSTestDummy;
-			sourceTree = "<group>";
-		};
-		622D72C11B2BB8F200B3D8F2 /* iOSTestDummy Tests */ = {
-			isa = PBXGroup;
-			children = (
-				622D72C21B2BB8F200B3D8F2 /* iOSTestDummy_Tests.swift */,
-				622D72C41B2BB8F200B3D8F2 /* Info.plist */,
-			);
-			path = "iOSTestDummy Tests";
-			sourceTree = "<group>";
-		};
 		626A3D7D19CBE5AF00B3222D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,14 +210,6 @@
 				62B2CB2B1B2A56D90073B8DC /* Info.plist */,
 			);
 			path = "Mac Tests";
-			sourceTree = "<group>";
-		};
-		62C6A01A1B2B22BC006B50D2 /* CommonTests */ = {
-			isa = PBXGroup;
-			children = (
-				62C6A01B1B2B22BC006B50D2 /* Info.plist */,
-			);
-			path = CommonTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,7 +312,7 @@
 				};
 			};
 			buildConfigurationList = 622850501978EC9600DE985E /* Build configuration list for PBXProject "Characters" */;
-			compatibilityVersion = "Xcode 6.3";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -411,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				627426771B733A910051A5E5 /* CharactersContext.swift in Sources */,
 				6288E1D21A4E7A63009F7CE2 /* Prefs.swift in Sources */,
 				6228505D1978ECB000DE985E /* AppDelegate.swift in Sources */,
 				622850621978ECB000DE985E /* MasterViewController.swift in Sources */,
@@ -471,22 +434,6 @@
 				622850661978ECB000DE985E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		622D72AF1B2BB87E00B3D8F2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				622D72B01B2BB87E00B3D8F2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		622D72B41B2BB87E00B3D8F2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				622D72B51B2BB87E00B3D8F2 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		62FA2D371B27B49400FCCF71 /* Main.storyboard */ = {
@@ -558,10 +505,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bonejarring.characters;
 				PRODUCT_NAME = Characters;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -602,9 +550,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bonejarring.characters;
 				PRODUCT_NAME = Characters;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -930,6 +879,7 @@
 		62A95C271B29F45700D5B981 /* Characters.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				628C42E21B71BC06001C3223 /* Characters 2.xcdatamodel */,
 				62A95C281B29F45700D5B981 /* Characters.xcdatamodel */,
 			);
 			currentVersion = 62A95C281B29F45700D5B981 /* Characters.xcdatamodel */;

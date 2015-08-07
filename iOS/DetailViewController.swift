@@ -10,24 +10,29 @@ import UIKit
 
 var myContext = UnsafeMutablePointer<()>()
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewControllerDelegate  {
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var navigationBar: UINavigationItem!
     
-    var creature: AnyObject? {
+    var creature: Creature? {
         didSet {
             // Update the view.
             self.configureView()
         }
     }
-
+    
+    lazy var creaturesController: CreaturesController = {
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        return  delegate.creaturesController
+    }()
+    
     func configureView() {
         // Update the user interface for the detail item.
         var name = "";
-
-        if let detail: AnyObject = self.creature {
-            name = detail.valueForKey("name")!.description
+        
+        if (self.creature != nil) {
+            name = self.creature!.name as String
         }
         
         if let nameField = self.nameField {
@@ -62,9 +67,32 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func setNameFromField(nameField : UITextField) {
-        if let detail: AnyObject = self.creature {
-            detail.setValue(nameField.text, forKey: "name")
+        if (self.creature != nil) {
+            let name = nameField.text!
+            let creature = self.creature!
+            let creaturesController = self.creaturesController
+            creaturesController.saveName(name, forCreature: creature)
         }
+    }
+    
+    func saveFields() {
+        if (self.creature != nil) {
+            self.setNameFromField(nameField)
+        }
+    }
+    
+    // MARK: UITextViewDelegate
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        self.setNameFromField(self.nameField!)
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        self.setNameFromField(self.nameField!)
+    }
+    
+    func textViewDidChangeSelection(textView: UITextView) {
+        self.setNameFromField(self.nameField!)
     }
 
 }

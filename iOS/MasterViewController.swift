@@ -49,11 +49,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let creature = self.creaturesController!.creatureFromIndexPath(indexPath)
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+                controller.saveFields()
+                let creature = self.creaturesController!.creatureFromIndexPath(indexPath)
                 controller.creature = creature
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
+                self.detailViewController = controller
             }
         }
     }
@@ -61,11 +63,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Table View
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.creaturesController!.fetchedResultsController.sections?.count ?? 0
+        return self.creaturesController!.context.fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = self.creaturesController!.fetchedResultsController.sections![section]
+        let sectionInfo = self.creaturesController!.context.fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
     }
 
@@ -126,6 +128,17 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.tableView.endUpdates()
     }
 
+    // MARK: UITableViewDelegate
+    
+    override func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        self.detailViewController!.saveFields()
+        return indexPath
+    }
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        return indexPath
+    }
+    
     /*
      // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
      
@@ -134,6 +147,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
          self.tableView.reloadData()
      }
      */
+
+    // MARK: UISplitViewControllerDelegate
+    
+    //func splitViewController(svc: UISplitViewController, willChangeToDisplayMode displayMode: UISplitViewControllerDisplayMode) {
+    //    self.setNameFromField(self.nameField!)
+    //}
 
 }
 
