@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISplitViewControllerDelegate {
 
     var detailViewController: DetailViewController? = nil
     var creaturesController: CreaturesController? = nil
@@ -24,6 +24,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            split.preferredDisplayMode = .PrimaryOverlay
+            split.delegate = self
         }
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.creaturesController = delegate.creaturesController
