@@ -13,6 +13,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     var detailViewController: DetailViewController? = nil
     var creaturesController: CreaturesController? = nil
+    var newlyCreatedCreature: Creature? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
             if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) {
-                //split.delegate = self
+                split.delegate = self
                 split.preferredDisplayMode = .PrimaryOverlay
             }
         }
@@ -45,22 +46,32 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     func insertNewObject(sender: AnyObject) {
-        self.creaturesController!.createCreature("Untitled")
+        self.newlyCreatedCreature = self.creaturesController!.createCreature("Untitled")
+        self.performSegueWithIdentifier("showDetail", sender: self)
     }
 
     // MARK: - Segues
 
+    func creatureForSegue() -> Creature? {
+        var creature: Creature? = nil
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            creature = self.creaturesController!.creatureFromIndexPath(indexPath)
+        } else if let newCreature = self.newlyCreatedCreature {
+            creature = newCreature
+            self.newlyCreatedCreature = nil
+        }
+        return creature
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.saveFields()
-                let creature = self.creaturesController!.creatureFromIndexPath(indexPath)
-                controller.creature = creature
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
-                self.detailViewController = controller
-            }
+            let creature = self.creatureForSegue()
+            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+            controller.saveFields()
+            controller.creature = creature
+            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            self.detailViewController = controller
         }
     }
 
@@ -154,9 +165,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     // MARK: UISplitViewControllerDelegate
     
-    //func splitViewController(svc: UISplitViewController, willChangeToDisplayMode displayMode: UISplitViewControllerDisplayMode) {
-    //    self.setNameFromField(self.nameField!)
-    //}
+    func splitViewController(svc: UISplitViewController, willChangeToDisplayMode displayMode: UISplitViewControllerDisplayMode) {
+        self.detailViewController!.saveFields()
+    }
 
 }
 
