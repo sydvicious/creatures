@@ -24,8 +24,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-            split.preferredDisplayMode = .PrimaryOverlay
-            split.delegate = self
+            if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) {
+                //split.delegate = self
+                split.preferredDisplayMode = .PrimaryOverlay
+            }
         }
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.creaturesController = delegate.creaturesController

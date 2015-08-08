@@ -40,7 +40,6 @@ class CreaturesController {
         
         newCreature.name = name
         self.context.saveContext()
-        self.logAll()
         return newCreature
     }
     
