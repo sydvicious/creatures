@@ -38,15 +38,13 @@ class CreaturesController {
         //let newCreature = managedObject as! Creature
         let newCreature = NSEntityDescription.insertNewObjectForEntityForName(entityname, inManagedObjectContext: context) as! Creature
         
-        newCreature.name = name
-        self.context.saveContext()
+        self.saveName(name, forCreature: newCreature)
         return newCreature
     }
     
     func saveCreature(name: NSString, atIndexPath: NSIndexPath) {
         let creature = self.creatureFromIndexPath(atIndexPath)
-        creature.name = name
-        self.context.saveContext()
+        self.saveName(name, forCreature: creature)
     }
     
     func saveName(name: NSString, forCreature creature: Creature) {
