@@ -78,24 +78,13 @@ class CharactersContext {
                 
                 if (nserror.domain == NSCocoaErrorDomain) {
                     let code = nserror.code
-                    let userInfo = nserror.userInfo
+                    let userInfo = nserror.userInfo as! [String:AnyObject]
                     if (code == NSValidationStringTooShortError) {
-                        var foundValidationErrorKey = false
-                        var foundValidationErrorValue : String?
-                        var creature : Creature?
-                        for (key, value) in userInfo {
-                            let keyString = key as! String
-                            if (keyString == "NSValidationErrorKey") {
-                                foundValidationErrorKey = true
-                            } else if (keyString == "NSValidationErrorValue") {
-                                foundValidationErrorValue = value as? String
-                            } else if (keyString == "NSValidationErrorObject") {
-                                creature = value as? Creature
-                            }
-                        }
-                        if (foundValidationErrorKey && foundValidationErrorValue == "") {
+                        let foundValidationErrorValue = userInfo["NSValidationErrorValue"] as! String
+                        if (foundValidationErrorValue == "") {
+                            let creature = userInfo["NSValidationErrorObject"] as! Creature
                             context.rollback()
-                            print ("Name for \(creature!.name) cannot be set to the empty string")
+                            print ("Name for \(creature.name) cannot be set to the empty string")
                             throw Creature.CreatureDataError.NameCannotBeNull
                         }
                     }
