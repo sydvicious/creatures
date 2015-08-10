@@ -55,18 +55,56 @@ class CharactersContext {
 
     // MARK: - Core Data Saving support
     
-    func saveContext () {
+    func saveContext () throws {
         let context = self.managedObjectContext
         if context.hasChanges {
             do {
                 try context.save()
                 try self.fetchedResultsController.performFetch()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                // Let me just say that decoding Core Data errors in Swift is amazingly painful.
+                
                 let nserror = error as NSError
-                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-                abort()
+                
+                // At this point nserror.userInfo has a handy dictionary explaining what went wrong.
+                // However, you can't cast this dictionary (declared as [NSObject : AnyObject]?) to
+                // "as! [String:String]. It compiles, but when you do the "let userInfo = ", the
+                // runtime fails to convert the CoreFoundation object.
+                
+                // So you have to get the keys and values and cast each one of them looking for
+                // the specific error case you are interested in. Wow. This will have to be split
+                // into its own class at some point. This is going to get really gross.
+                
+                
+                if (nserror.domain == NSCocoaErrorDomain) {
+                    let code = nserror.code
+                    let userInfo = nserror.userInfo
+                    if (code == NSValidationStringTooShortError) {
+                        var foundValidationErrorKey = false
+                        var foundValidationErrorValue : String?
+                        var creature : Creature?
+                        for (key, value) in userInfo {
+                            let keyString = key as! String
+                            if (keyString == "NSValidationErrorKey") {
+                                foundValidationErrorKey = true
+                            } else if (keyString == "NSValidationErrorValue") {
+                                foundValidationErrorValue = value as? String
+                            } else if (keyString == "NSValidationErrorObject") {
+                                creature = value as? Creature
+                            }
+                        }
+                        if (foundValidationErrorKey && foundValidationErrorValue == "") {
+                            context.rollback()
+                            print ("Name for \(creature!.name) cannot be set to the empty string")
+                            throw Creature.CreatureDataError.NameCannotBeNull
+                        }
+                    }
+                    NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                    abort()
+                } else {
+                    NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                    abort()
+                }
             }
         }
     }

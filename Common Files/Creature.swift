@@ -10,6 +10,10 @@ import Foundation
 import CoreData
 
 class Creature: NSManagedObject {
+    enum CreatureDataError: ErrorType {
+        case NameCannotBeNull
+    }
+
     // When this is hooked up to the server, the server will have to provide a serial (or GUID)
     // for this object.
     let serial = Prefs.getNewID()

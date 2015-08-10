@@ -56,7 +56,6 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     }
 
     override func didReceiveMemoryWarning() {
-        setNameFromField(self.nameField!)
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -68,10 +67,14 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     
     @IBAction func setNameFromField(nameField : UITextField) {
         if (self.creature != nil) {
-            let name = nameField.text!
             let creature = self.creature!
+            var name = nameField.text!
+            if (name == "") {
+                name = creature.name as String
+                nameField.text! = name
+            }
             let creaturesController = self.creaturesController
-            creaturesController.saveName(name, forCreature: creature)
+                try! creaturesController.saveName(name, forCreature: creature)
         }
     }
     

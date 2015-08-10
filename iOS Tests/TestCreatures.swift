@@ -57,13 +57,13 @@ class TestCreatures: XCTestCase {
     }
     
     func testCreate() {
-        let creature = creaturesController.createCreature("TestCreature1")
+        let creature = try! creaturesController.createCreature("TestCreature1")
         XCTAssertNotNil(creature, "creature was nil in testCreate.")
     }
     
     func testDelete() {
         creaturesController.logAll()
-        let creature = creaturesController.createCreature("TestCreature2")
+        let creature = try! creaturesController.createCreature("TestCreature2")
         creaturesController.logAll()
         print(creature.name)
         let indexPath = NSIndexPath(forItem: 0, inSection: 0)
@@ -74,10 +74,20 @@ class TestCreatures: XCTestCase {
     }
     
     func testName() {
-        let creature = creaturesController.createCreature("TestCreature3")
-        creaturesController.saveName("TestCreature3.1", forCreature: creature)
+        let creature = try! creaturesController.createCreature("TestCreature3")
+        try! creaturesController.saveName("TestCreature3.1", forCreature: creature)
         let name = creature.name
         XCTAssertEqual(name, "TestCreature3.1", "Name operation failed.")
+
+        do {
+            try creaturesController.saveName("", forCreature: creature)
+            XCTFail("testName() was supposed to throw if name was the null string.")
+        } catch Creature.CreatureDataError.NameCannotBeNull {
+            // Yay. We pass
+        } catch {
+            let nserror = error as NSError
+            XCTFail("Some other error happened when we tried to set name to null. Error code = \(nserror.code); domain = \(nserror.domain); description = \(nserror.localizedDescription)")
+        }
     }
     
 }

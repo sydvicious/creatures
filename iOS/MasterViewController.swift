@@ -46,7 +46,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     func insertNewObject(sender: AnyObject) {
-        self.newlyCreatedCreature = self.creaturesController!.createCreature("Untitled")
+        do {
+            try self.newlyCreatedCreature = self.creaturesController!.createCreature("<unnamed>")
+        } catch {
+            // Can't happen.
+            abort()
+        }
         self.performSegueWithIdentifier("showDetail", sender: self)
     }
 

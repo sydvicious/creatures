@@ -30,38 +30,36 @@ class CreaturesController {
         self.context.fetchedResultsController.delegate = delegate
     }
     
-    func createCreature(name: NSString) -> Creature {
+    func createCreature(name: NSString) throws -> Creature {
         let context = self.context.managedObjectContext
         let entity = self.context.fetchRequest.entity!
         let entityname = entity.name!
-        //let managedObject = NSEntityDescription.insertNewObjectForEntityForName(entityname, //inManagedObjectContext: context)
-        //let newCreature = managedObject as! Creature
         let newCreature = NSEntityDescription.insertNewObjectForEntityForName(entityname, inManagedObjectContext: context) as! Creature
         
-        self.saveName(name, forCreature: newCreature)
+        try self.saveName(name, forCreature: newCreature)
         return newCreature
     }
     
-    func saveCreature(name: NSString, atIndexPath: NSIndexPath) {
+    func saveCreature(name: NSString, atIndexPath: NSIndexPath) throws {
         let creature = self.creatureFromIndexPath(atIndexPath)
-        self.saveName(name, forCreature: creature)
+        try self.saveName(name, forCreature: creature)
     }
     
-    func saveName(name: NSString, forCreature creature: Creature) {
+    func saveName(name: NSString, forCreature creature: Creature) throws {
         if (name != creature.name) {
             creature.name = name
-            self.context.saveContext()
+            try self.context.saveContext()
         }
     }
     
     func deleteCreatureAtIndexPath(indexPath: NSIndexPath) {
         self.context.managedObjectContext.deleteObject(self.context.fetchedResultsController.objectAtIndexPath(indexPath))
-        self.context.saveContext()
+        try! self.context.saveContext()
     }
     
     func deleteCreature(creature: Creature) {
         self.context.managedObjectContext.deleteObject(creature)
-        self.context.saveContext()
+        try! self.context.saveContext()
     }
     
     func creatureFromIndexPath(indexPath: NSIndexPath) -> Creature {
