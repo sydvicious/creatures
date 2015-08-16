@@ -76,18 +76,57 @@ class TestCreatures: XCTestCase {
     func testName() {
         let creature = try! creaturesController.createCreature("TestCreature3")
         try! creaturesController.saveName("TestCreature3.1", forCreature: creature)
-        let name = creature.name
+        var name = creature.name
         XCTAssertEqual(name, "TestCreature3.1", "Name operation failed.")
 
+        try! creaturesController.saveName(" TestCreature3.2", forCreature: creature)
+        name = creature.name
+        XCTAssertEqual(name, "TestCreature3.2", "Leading space test failed.")
+
+        try! creaturesController.saveName("TestCreature3.3 ", forCreature: creature)
+        name = creature.name
+        XCTAssertEqual(name, "TestCreature3.3", "Trailing space test failed.")
+
+        try! creaturesController.saveName(" TestCreature3.4 ", forCreature: creature)
+        name = creature.name
+        XCTAssertEqual(name, "TestCreature3.4", "Leading and trailing spaces test failed.")
+        
+        try! creaturesController.saveName(" TestCreature3.5 ", forCreature: creature)
+        name = creature.name
+        XCTAssertEqual(name, "TestCreature3.5", "Leading and trailing non-breaking spaces test failed.")
+        
+        try! creaturesController.saveName("\tTestCreature3.6\t", forCreature: creature)
+        name = creature.name
+        XCTAssertEqual(name, "TestCreature3.6", "Leading and trailing tabs test failed.")
+
+        try! creaturesController.saveName("\nTestCreature3.7\n", forCreature: creature)
+        name = creature.name
+        XCTAssertEqual(name, "TestCreature3.7", "Leading and trailing newlines test failed.")
+        
+        try! creaturesController.saveName("\rTestCreature3.8\r", forCreature: creature)
+        name = creature.name
+        XCTAssertEqual(name, "TestCreature3.8", "Leading and trailing carriage returns test failed.")
+        
         do {
             try creaturesController.saveName("", forCreature: creature)
-            XCTFail("testName() was supposed to throw if name was the null string.")
+            XCTFail("saveName() was supposed to return an error if name was the null string.")
         } catch Creature.CreatureDataError.NameCannotBeNull {
             // Yay. We pass
         } catch {
             let nserror = error as NSError
             XCTFail("Some other error happened when we tried to set name to null. Error code = \(nserror.code); domain = \(nserror.domain); description = \(nserror.localizedDescription)")
         }
+
+        do {
+            try creaturesController.saveName("  ", forCreature: creature)
+            XCTFail("saveName() was supposed to return an error if trimmed name was the null string.")
+        } catch Creature.CreatureDataError.NameCannotBeNull {
+            // Yay. We pass
+        } catch {
+            let nserror = error as NSError
+            XCTFail("Some other error happened when we tried to set name to null. Error code = \(nserror.code); domain = \(nserror.domain); description = \(nserror.localizedDescription)")
+        }
+
     }
     
 }

@@ -46,8 +46,9 @@ class CreaturesController {
     }
     
     func saveName(name: NSString, forCreature creature: Creature) throws {
-        if (name != creature.name) {
-            creature.name = name
+        let trimmed_name = name.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        if (trimmed_name != creature.name) {
+            creature.name = trimmed_name
             try self.context.saveContext()
         }
     }
