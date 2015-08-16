@@ -69,6 +69,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
         if (self.creature != nil) {
             let creature = self.creature!
             var name = nameField.text!
+            name = name.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
             if (name == "") {
                 name = creature.name as String
                 nameField.text! = name
