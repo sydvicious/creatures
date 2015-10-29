@@ -54,7 +54,7 @@ class CreaturesController {
     }
     
     func deleteCreatureAtIndexPath(indexPath: NSIndexPath) {
-        self.context.managedObjectContext.deleteObject(self.context.fetchedResultsController.objectAtIndexPath(indexPath))
+        self.context.managedObjectContext.deleteObject(self.context.fetchedResultsController.objectAtIndexPath(indexPath) as! Creature)
         try! self.context.saveContext()
     }
     
