@@ -7,12 +7,31 @@
 //
 
 import UIKit
+import SnapKit
 
 var myContext = UnsafeMutablePointer<()>()
 
 class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewControllerDelegate  {
 
-    @IBOutlet weak var nameField: UITextField!
+    // Views containing data
+    @IBOutlet var contentView: UIView!
+    lazy var biographyView: UIView = {
+        return UIView()
+    }()
+    var abilityView: UIView?
+    var raceView: UIView?
+    var classView: UIView?
+    var movementView: UIView?
+    var combatView: UIView?
+    var skillsView: UIView?
+    var featsView: UIView?
+    var spellsView: UIView?
+    var gearView: UIView?
+    
+    lazy var nameField: UITextField = {
+        return UITextField()
+    }()
+    
     @IBOutlet weak var navigationBar: UINavigationItem!
     
     var creature: Creature? {
@@ -35,23 +54,34 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
             name = self.creature!.name as String
         }
         
-        if let nameField = self.nameField {
-            if name == "" {
-                nameField.hidden = true
-            } else {
-                nameField.hidden = false
-                nameField.text = name
-            }
+        if name == "" {
+            nameField.hidden = true
+        } else {
+            nameField.hidden = false
+            nameField.text = name
         }
         
         if let navBar = self.navigationBar {
             navBar.title = name
         }
+            
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        biographyView.backgroundColor = UIColor.init(red: 0.9, green: 0.9, blue: 1.0, alpha: 0.5)
+        biographyView.addSubview(nameField)
+        if let content = self.contentView {
+            content.addSubview(biographyView)
+            biographyView.snp_makeConstraints{ make in
+                make.top.equalTo(content).offset(5)
+                make.left.equalTo(content).offset(5)
+                make.right.equalTo(content).offset(-5)
+                make.bottom.equalTo(content).offset(-5)
+            }
+        }
+        
         self.configureView()
     }
 
@@ -61,7 +91,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     }
     
     override func viewWillDisappear(animated: Bool) {
-        setNameFromField(self.nameField!)
+        setNameFromField(self.nameField)
         super.viewWillDisappear(animated)
     }
     
@@ -88,15 +118,15 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     // MARK: UITextViewDelegate
     
     func textViewDidEndEditing(textView: UITextView) {
-        self.setNameFromField(self.nameField!)
+        self.setNameFromField(self.nameField)
     }
     
     func textViewDidChange(textView: UITextView) {
-        self.setNameFromField(self.nameField!)
+        self.setNameFromField(self.nameField)
     }
     
     func textViewDidChangeSelection(textView: UITextView) {
-        self.setNameFromField(self.nameField!)
+        self.setNameFromField(self.nameField)
     }
 
 }
