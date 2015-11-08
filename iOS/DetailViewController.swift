@@ -30,7 +30,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        label.backgroundColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         label.textAlignment = .Right
         return label
     } ()
@@ -81,11 +81,13 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
                 make.top.equalTo(content).offset(5)
                 make.left.equalTo(content).offset(5)
                 make.right.equalTo(content).offset(-5)
-                make.bottom.equalTo(content).offset(-5)
             }
             nameLabel.snp_makeConstraints{ make in
                 make.top.equalTo(biographyView).offset(5)
                 make.right.equalTo(biographyView).offset(-5)
+            }
+            biographyView.snp_makeConstraints{ make in
+                make.bottom.equalTo(nameLabel.snp_bottom).offset(5)
             }
         }
         
