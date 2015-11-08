@@ -29,6 +29,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 
             }
         }
+
+        let traits = self.view.traitCollection
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) || (traits.verticalSizeClass == .Regular) {
+            self.splitViewController?.preferredDisplayMode = .PrimaryOverlay
+        }
+
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.creaturesController = delegate.creaturesController
         self.creaturesController?.setDelegate(self)
@@ -67,13 +73,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return creature
     }
     
-    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-        print("traitCollectionDidChange")
-        print(previousTraitCollection)
-        print("---")
-        print(self.view.traitCollection)
-        print(" ")
-    }
+    //override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+    //   print("traitCollectionDidChange")
+    //    print(previousTraitCollection)
+    //    print("---")
+    //    print(self.view.traitCollection)
+    //    print(" ")
+    //}
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let creature = self.creatureForSegue()
@@ -86,34 +93,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             
             // From http://stackoverflow.com/questions/27243158/hiding-the-master-view-controller-with-uisplitviewcontroller-in-ios8
             let traits = self.view.traitCollection
-            print(traits)
-            if traits.userInterfaceIdiom == .Pad {
-                print("iPad")
-            } else {
-                print("iPhone")
-            }
-            if traits.horizontalSizeClass == .Regular {
-                print("Horizontal - Regular")
-            } else {
-                print("Horizontal - Compact")
-            }
-            if traits.verticalSizeClass == .Regular {
-                print("Vertical - Regular")
-            } else {
-                print("Vertical - Compact")
-            }
-            if UIDevice.currentDevice().orientation == .LandscapeLeft {
-                print("LandscapeLeft")
-            } else if UIDevice.currentDevice().orientation == .LandscapeRight {
-                print("LandscapeRight")
-            } else if UIDevice.currentDevice().orientation == .Portrait {
-                print("Portrait")
-            } else if UIDevice.currentDevice().orientation == .PortraitUpsideDown {
-                print("PortraitUpsideDown")
-            } else {
-                print("Unknown Orientation")
-            }
-            if traits.verticalSizeClass == .Regular {
+
+            if (traits.verticalSizeClass == .Regular) {
                 let animations: () -> Void = {
                     self.splitViewController?.preferredDisplayMode = .Automatic
                 }
