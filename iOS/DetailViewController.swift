@@ -28,9 +28,12 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     var spellsView: UIView?
     var gearView: UIView?
     
-    lazy var nameField: UITextField = {
-        return UITextField()
-    }()
+    lazy var nameLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        label.textAlignment = .Right
+        return label
+    } ()
     
     @IBOutlet weak var navigationBar: UINavigationItem!
     
@@ -55,10 +58,10 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
         }
         
         if name == "" {
-            nameField.hidden = true
+            nameLabel.hidden = true
         } else {
-            nameField.hidden = false
-            nameField.text = name
+            nameLabel.hidden = false
+            nameLabel.text = name
         }
         
         if let navBar = self.navigationBar {
@@ -71,7 +74,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         biographyView.backgroundColor = UIColor.init(red: 0.9, green: 0.9, blue: 1.0, alpha: 0.5)
-        biographyView.addSubview(nameField)
+        biographyView.addSubview(nameLabel)
         if let content = self.contentView {
             content.addSubview(biographyView)
             biographyView.snp_makeConstraints{ make in
@@ -79,6 +82,10 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
                 make.left.equalTo(content).offset(5)
                 make.right.equalTo(content).offset(-5)
                 make.bottom.equalTo(content).offset(-5)
+            }
+            nameLabel.snp_makeConstraints{ make in
+                make.top.equalTo(biographyView).offset(5)
+                make.right.equalTo(biographyView).offset(-5)
             }
         }
         
@@ -91,18 +98,18 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     }
     
     override func viewWillDisappear(animated: Bool) {
-        setNameFromField(self.nameField)
+        setNameFromField(self.nameLabel)
         super.viewWillDisappear(animated)
     }
     
-    @IBAction func setNameFromField(nameField : UITextField) {
+    @IBAction func setNameFromField(nameLabel : UILabel) {
         if (self.creature != nil) {
             let creature = self.creature!
-            var name = nameField.text!
+            var name = nameLabel.text!
             name = name.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
             if (name == "") {
                 name = creature.name as String
-                nameField.text! = name
+                nameLabel.text! = name
             }
             let creaturesController = self.creaturesController
                 try! creaturesController.saveName(name, forCreature: creature)
@@ -111,22 +118,22 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     
     func saveFields() {
         if (self.creature != nil) {
-            self.setNameFromField(nameField)
+            self.setNameFromField(nameLabel)
         }
     }
     
     // MARK: UITextViewDelegate
     
     func textViewDidEndEditing(textView: UITextView) {
-        self.setNameFromField(self.nameField)
+        self.setNameFromField(self.nameLabel)
     }
     
     func textViewDidChange(textView: UITextView) {
-        self.setNameFromField(self.nameField)
+        self.setNameFromField(self.nameLabel)
     }
     
     func textViewDidChangeSelection(textView: UITextView) {
-        self.setNameFromField(self.nameField)
+        self.setNameFromField(self.nameLabel)
     }
 
 }
