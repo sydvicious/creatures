@@ -22,13 +22,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
-        if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-            if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) {
-                split.delegate = self
-                split.preferredDisplayMode = .PrimaryOverlay
-            }
+        guard let split = self.splitViewController else { return }
+        let controllers = split.viewControllers
+        self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+
+        let traits = self.view.traitCollection
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) || (traits.verticalSizeClass == .Regular) {
+            self.splitViewController?.preferredDisplayMode = .PrimaryOverlay
         }
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.creaturesController = delegate.creaturesController
@@ -68,6 +68,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return creature
     }
     
+    //override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+    //   print("traitCollectionDidChange")
+    //    print(previousTraitCollection)
+    //    print("---")
+    //    print(self.view.traitCollection)
+    //    print(" ")
+    //}
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let creature = self.creatureForSegue()
@@ -77,6 +85,19 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
             controller.navigationItem.leftItemsSupplementBackButton = true
             self.detailViewController = controller
+            
+            // From http://stackoverflow.com/questions/27243158/hiding-the-master-view-controller-with-uisplitviewcontroller-in-ios8
+            let traits = self.view.traitCollection
+
+            if (traits.verticalSizeClass == .Regular) {
+                let animations: () -> Void = {
+                    self.splitViewController?.preferredDisplayMode = .Automatic
+                }
+                let completion: Bool -> Void = { _ in
+                    self.splitViewController?.preferredDisplayMode = .PrimaryHidden
+                }
+                UIView.animateWithDuration(0.3, animations: animations, completion: completion)
+            }
         }
     }
 

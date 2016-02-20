@@ -31,8 +31,8 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
         // Update the user interface for the detail item.
         var name = "";
         
-        if (self.creature != nil) {
-            name = self.creature!.name as String
+        if let creature = self.creature {
+            name = creature.name as String
         }
         
         if let nameField = self.nameField {

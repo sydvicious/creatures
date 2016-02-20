@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
         let modelURL = NSBundle.mainBundle().URLForResource("Characters", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
-        }()
+    }()
     
 
 }
