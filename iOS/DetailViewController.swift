@@ -53,42 +53,40 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
         // Update the user interface for the detail item.
         var name = "";
         
-        if (self.creature != nil) {
-            name = self.creature!.name as String
+        if let creature = self.creature {
+            name = creature.name as String
         }
         
         if name == "" {
-            nameLabel.hidden = true
+            self.nameLabel.hidden = true
         } else {
-            nameLabel.hidden = false
-            nameLabel.text = name
+            self.nameLabel.hidden = false
+            self.nameLabel.text = name
         }
         
         if let navBar = self.navigationBar {
             navBar.title = name
         }
-            
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         biographyView.backgroundColor = UIColor.init(red: 0.9, green: 0.9, blue: 1.0, alpha: 0.5)
-        biographyView.addSubview(nameLabel)
-        if let content = self.contentView {
-            content.addSubview(biographyView)
-            biographyView.snp_makeConstraints{ make in
-                make.top.equalTo(content).offset(5)
-                make.left.equalTo(content).offset(5)
-                make.right.equalTo(content).offset(-5)
-            }
-            nameLabel.snp_makeConstraints{ make in
-                make.top.equalTo(biographyView).offset(5)
-                make.right.equalTo(biographyView).offset(-5)
-            }
-            biographyView.snp_makeConstraints{ make in
-                make.bottom.equalTo(nameLabel.snp_bottom).offset(5)
-            }
+        biographyView.addSubview(self.nameLabel)
+        guard let content = self.contentView else { return }
+        content.addSubview(biographyView)
+        biographyView.snp_makeConstraints{ make in
+            make.top.equalTo(content).offset(5)
+            make.left.equalTo(content).offset(5)
+            make.right.equalTo(content).offset(-5)
+        }
+        self.nameLabel.snp_makeConstraints{ make in
+            make.top.equalTo(biographyView).offset(5)
+            make.right.equalTo(biographyView).offset(-5)
+        }
+        biographyView.snp_makeConstraints{ make in
+            make.bottom.equalTo(self.nameLabel.snp_bottom).offset(5)
         }
         
         self.configureView()
@@ -105,23 +103,19 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     }
     
     @IBAction func setNameFromField(nameLabel : UILabel) {
-        if (self.creature != nil) {
-            let creature = self.creature!
-            var name = nameLabel.text!
-            name = name.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-            if (name == "") {
-                name = creature.name as String
-                nameLabel.text! = name
-            }
-            let creaturesController = self.creaturesController
-                try! creaturesController.saveName(name, forCreature: creature)
+        guard let creature = self.creature else { return }
+        guard var name = nameLabel.text else {return }
+        name = name.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        if (name == "") {
+            name = creature.name as String
+            nameLabel.text! = name
         }
+        let creaturesController = self.creaturesController
+        try! creaturesController.saveName(name, forCreature: creature)
     }
     
     func saveFields() {
-        if (self.creature != nil) {
-            self.setNameFromField(nameLabel)
-        }
+        self.setNameFromField(self.nameLabel)
     }
     
     // MARK: UITextViewDelegate

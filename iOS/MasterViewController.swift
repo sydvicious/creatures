@@ -22,13 +22,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
-        if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-            if (self.detailViewController!.creature == nil) {
-                
-            }
-        }
+        guard let split = self.splitViewController else { return }
+        let controllers = split.viewControllers
+        self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
 
         let traits = self.view.traitCollection
         if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) || (traits.verticalSizeClass == .Regular) {
