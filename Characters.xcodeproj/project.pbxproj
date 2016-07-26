@@ -11,7 +11,6 @@
 		622850621978ECB000DE985E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622850611978ECB000DE985E /* MasterViewController.swift */; };
 		622850641978ECB000DE985E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622850631978ECB000DE985E /* DetailViewController.swift */; };
 		622850671978ECB000DE985E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 622850651978ECB000DE985E /* Main.storyboard */; };
-		622850691978ECB000DE985E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 622850681978ECB000DE985E /* Images.xcassets */; };
 		6228508B1978ED1B00DE985E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228508A1978ED1B00DE985E /* AppDelegate.swift */; };
 		622850901978ED1B00DE985E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6228508F1978ED1B00DE985E /* Images.xcassets */; };
 		626A3D7C19CBE59300B3222D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626A3D7B19CBE59300B3222D /* LaunchScreen.xib */; };
@@ -22,6 +21,7 @@
 		6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
 		628D61511B2BBCF300D420E1 /* TestCreatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */; };
 		62A95C291B29F45700D5B981 /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62A95C271B29F45700D5B981 /* Characters.xcdatamodeld */; };
+		62AD27671D470C8D00BD7B84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 622850681978ECB000DE985E /* Images.xcassets */; };
 		62B2CB1C1B2A551E0073B8DC /* iOS-Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2CB1B1B2A551E0073B8DC /* iOS-Tests.swift */; };
 		62B2CB2A1B2A56D90073B8DC /* Mac-Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2CB291B2A56D90073B8DC /* Mac-Tests.swift */; };
 		62C6A0051B2B2238006B50D2 /* TestPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C6A0041B2B2238006B50D2 /* TestPrefs.swift */; };
@@ -292,17 +292,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0800;
 				TargetAttributes = {
 					622850561978ECB000DE985E = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = R5PQPZARC5;
+						LastSwiftMigration = 0800;
 					};
 					622850831978ED1B00DE985E = {
 						CreatedOnToolsVersion = 6.0;
 					};
 					62B2CB181B2A551E0073B8DC = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 622850561978ECB000DE985E;
 					};
 					62B2CB261B2A56D90073B8DC = {
@@ -339,7 +342,7 @@
 			files = (
 				622850671978ECB000DE985E /* Main.storyboard in Resources */,
 				626A3D7C19CBE59300B3222D /* LaunchScreen.xib in Resources */,
-				622850691978ECB000DE985E /* Images.xcassets in Resources */,
+				62AD27671D470C8D00BD7B84 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,8 +453,23 @@
 		622850511978EC9600DE985E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 			};
@@ -460,8 +478,23 @@
 		622850521978EC9600DE985E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 			};
 			name = Release;
@@ -505,7 +538,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -513,6 +546,7 @@
 				PRODUCT_NAME = Characters;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -550,12 +584,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bonejarring.characters;
 				PRODUCT_NAME = Characters;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -645,6 +681,7 @@
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -666,6 +703,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -691,6 +729,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Characters.app/Characters";
 			};
 			name = Debug;
@@ -713,6 +752,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -731,6 +771,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bonejarring.iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Characters.app/Characters";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -821,6 +863,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bonejarring.Mac-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mac.app/Contents/MacOS/Mac";
 			};
 			name = Release;

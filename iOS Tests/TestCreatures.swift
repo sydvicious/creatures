@@ -66,7 +66,7 @@ class TestCreatures: XCTestCase {
         let creature = try! creaturesController.createCreature("TestCreature2")
         creaturesController.logAll()
         print(creature.name)
-        let indexPath = NSIndexPath(forItem: 0, inSection: 0)
+        let indexPath = IndexPath(item: 0, section: 0)
         creaturesController.deleteCreatureAtIndexPath(indexPath)
         creaturesController.logAll()
         let creatures = creaturesController.creatures()

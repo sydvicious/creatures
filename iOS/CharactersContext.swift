@@ -13,28 +13,25 @@ import CoreData
 class CharactersContext {
     static let managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("Characters", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOfURL: modelURL)!
+        let modelURL = Bundle.main.urlForResource("Characters", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
     }()
 
-    static let applicationDocumentsDirectory: NSURL = {
+    static let applicationDocumentsDirectory: URL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.bonejarring.Characters" in the application's documents Application Support directory.
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let urls = FileManager.default.urlsForDirectory(.documentDirectory, inDomains: .userDomainMask)
         return urls[urls.count-1]
     }()
     
     let persistentStoreCoordinator: NSPersistentStoreCoordinator
     
-    init(_ psc : NSPersistentStoreCoordinator = {
-        // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
-        
-        // Create the coordinator and store
-        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-        let url = applicationDocumentsDirectory.URLByAppendingPathComponent("Characters.sqlite")
-        var failureReason = "There was an error creating or loading the application's saved data."
-        var options = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
+    init() {
+        let coordinator : NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: CharactersContext.managedObjectModel)
+        let url = try! CharactersContext.applicationDocumentsDirectory.appendingPathComponent("Characters.sqlite")
+        let failureReason = "There was an error creating or loading the application's saved data."
+        let options = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
         do {
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()
@@ -48,11 +45,9 @@ class CharactersContext {
             NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
             abort()
         }
-        
-        return coordinator
-        } () ) {
-            persistentStoreCoordinator = psc
-        }
+            
+        persistentStoreCoordinator = coordinator
+    }
 
     // MARK: - Core Data Saving support
     
@@ -86,7 +81,7 @@ class CharactersContext {
                             let creature = userInfo["NSValidationErrorObject"] as! Creature
                             context.rollback()
                             print ("Name for \(creature.name) cannot be set to the empty string")
-                            throw Creature.CreatureDataError.NameCannotBeNull
+                            throw Creature.CreatureDataError.nameCannotBeNull
                         }
                     }
                     NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -102,30 +97,25 @@ class CharactersContext {
     lazy var managedObjectContext: NSManagedObjectContext = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
         let coordinator = self.persistentStoreCoordinator
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
     
-    lazy var fetchRequest = NSFetchRequest()
-    
-    lazy var fetchedResultsController: NSFetchedResultsController = {
-        self.fetchRequest = NSFetchRequest()
-        // Edit the entity name as appropriate.
-        let entity = NSEntityDescription.entityForName("Creature", inManagedObjectContext: self.managedObjectContext)
-        self.fetchRequest.entity = entity
-        
+    lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Creature.fetchRequest()
         // Set the batch size to a suitable number.
-        self.fetchRequest.fetchBatchSize = 20
+        
+        fetchRequest.fetchBatchSize = 20
         
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: "caseInsensitiveCompare:")
+        let sortDescriptor = SortDescriptor(key: "name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
         
-        self.fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: "Master")
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: "Master")
         return fetchedResultsController
     }()
 }

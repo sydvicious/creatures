@@ -12,7 +12,7 @@ let NextSerial = "NextCharacterSerial"
 
 class Prefs {
     class func getNewID() -> NSString {
-        let uuidString = NSUUID().UUIDString
+        let uuidString = UUID().uuidString
         return uuidString
     }
 }

@@ -20,23 +20,23 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MasterViewController.insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
         guard let split = self.splitViewController else { return }
         let controllers = split.viewControllers
         self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
 
         let traits = self.view.traitCollection
-        if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) || (traits.verticalSizeClass == .Regular) {
-            self.splitViewController?.preferredDisplayMode = .PrimaryOverlay
+        if (UIDevice.current().userInterfaceIdiom == .pad) || (traits.verticalSizeClass == .regular) {
+            self.splitViewController?.preferredDisplayMode = .primaryOverlay
         }
-        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let delegate = UIApplication.shared().delegate as! AppDelegate
         self.creaturesController = delegate.creaturesController
         self.creaturesController?.setDelegate(self)
     }
 
-    override func viewWillAppear(animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+    override func viewWillAppear(_ animated: Bool) {
+        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
 
@@ -45,14 +45,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Dispose of any resources that can be recreated.
     }
     
-    func insertNewObject(sender: AnyObject) {
+    func insertNewObject(_ sender: AnyObject) {
         do {
             try self.newlyCreatedCreature = self.creaturesController!.createCreature("<unnamed>")
         } catch {
             // Can't happen.
             abort()
         }
-        self.performSegueWithIdentifier("showDetail", sender: self)
+        self.performSegue(withIdentifier: "showDetail", sender: self)
     }
 
     // MARK: - Segues
@@ -76,7 +76,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     //    print(" ")
     //}
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let creature = self.creatureForSegue()
             let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
@@ -89,94 +89,94 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             // From http://stackoverflow.com/questions/27243158/hiding-the-master-view-controller-with-uisplitviewcontroller-in-ios8
             let traits = self.view.traitCollection
 
-            if (traits.verticalSizeClass == .Regular) {
+            if (traits.verticalSizeClass == .regular) {
                 let animations: () -> Void = {
-                    self.splitViewController?.preferredDisplayMode = .Automatic
+                    self.splitViewController?.preferredDisplayMode = .automatic
                 }
-                let completion: Bool -> Void = { _ in
-                    self.splitViewController?.preferredDisplayMode = .PrimaryHidden
+                let completion: (Bool) -> Void = { _ in
+                    self.splitViewController?.preferredDisplayMode = .primaryHidden
                 }
-                UIView.animateWithDuration(0.3, animations: animations, completion: completion)
+                UIView.animate(withDuration: 0.3, animations: animations, completion: completion)
             }
         }
     }
 
     // MARK: - Table View
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return self.creaturesController!.context.fetchedResultsController.sections?.count ?? 0
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = self.creaturesController!.context.fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         self.configureCell(cell, atIndexPath: indexPath)
         return cell
     }
 
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             self.creaturesController!.deleteCreatureAtIndexPath(indexPath)
         }
     }
 
-    func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
+    func configureCell(_ cell: UITableViewCell, atIndexPath indexPath: IndexPath) {
         let creature = self.creaturesController!.creatureFromIndexPath(indexPath)
         cell.textLabel!.text = creature.name as String
     }
 
     // MARK: - Fetched results controller
 
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.beginUpdates()
     }
 
-    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
-            case .Insert:
-                self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-            case .Delete:
-                self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+            case .insert:
+                self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+            case .delete:
+                self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
             default:
                 return
         }
     }
 
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: AnyObject, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
-            case .Insert:
-                tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-            case .Delete:
-                tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-            case .Update:
-                self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)!, atIndexPath: indexPath!)
-            case .Move:
-                tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-                tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+            case .insert:
+                tableView.insertRows(at: [newIndexPath!], with: .fade)
+            case .delete:
+                tableView.deleteRows(at: [indexPath!], with: .fade)
+            case .update:
+                self.configureCell(tableView.cellForRow(at: indexPath!)!, atIndexPath: indexPath!)
+            case .move:
+                tableView.deleteRows(at: [indexPath!], with: .fade)
+                tableView.insertRows(at: [newIndexPath!], with: .fade)
         }
     }
 
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
     }
 
     // MARK: UITableViewDelegate
     
-    override func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    override func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
         self.detailViewController!.saveFields()
         return indexPath
     }
     
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return indexPath
     }
     
@@ -191,7 +191,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     // MARK: UISplitViewControllerDelegate
     
-    func splitViewController(svc: UISplitViewController, willChangeToDisplayMode displayMode: UISplitViewControllerDisplayMode) {
+    func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode) {
         self.detailViewController!.saveFields()
     }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-var myContext = UnsafeMutablePointer<()>()
+var myContext: UnsafeMutablePointer<()>? = nil
 
 class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewControllerDelegate  {
 
@@ -23,7 +23,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     }
     
     lazy var creaturesController: CreaturesController = {
-        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let delegate = UIApplication.shared().delegate as! AppDelegate
         return  delegate.creaturesController
     }()
     
@@ -37,9 +37,9 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
         
         if let nameField = self.nameField {
             if name == "" {
-                nameField.hidden = true
+                nameField.isHidden = true
             } else {
-                nameField.hidden = false
+                nameField.isHidden = false
                 nameField.text = name
             }
         }
@@ -49,9 +49,23 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
         }
     }
 
+    func saveFieldsNotification(_ notification: NSNotification) {
+        self.saveFields()
+    }
+    
+    func saveFields() {
+        if (self.creature != nil) {
+            self.setNameFromField(nameField)
+        }
+    }
+    
+    var timer = Timer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        NotificationCenter.default.addObserver(self, selector: #selector(self.saveFieldsNotification(_:)) , name: NSNotification.Name.UIViewControllerShowDetailTargetDidChange, object: nil)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.saveFields), userInfo: nil, repeats: true)
+
         self.configureView()
     }
 
@@ -60,16 +74,18 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        setNameFromField(self.nameField!)
+    override func viewWillDisappear(_ animated: Bool) {
+        self.setNameFromField(self.nameField!)
+        NotificationCenter.default.removeObserver(self)
         super.viewWillDisappear(animated)
+        self.timer.invalidate()
     }
     
-    @IBAction func setNameFromField(nameField : UITextField) {
+    @IBAction func setNameFromField(_ nameField : UITextField) {
         if (self.creature != nil) {
             let creature = self.creature!
             var name = nameField.text!
-            name = name.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            name = name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             if (name == "") {
                 name = creature.name as String
                 nameField.text! = name
@@ -79,25 +95,19 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
         }
     }
     
-    func saveFields() {
-        if (self.creature != nil) {
-            self.setNameFromField(nameField)
-        }
-    }
-    
     // MARK: UITextViewDelegate
     
-    func textViewDidEndEditing(textView: UITextView) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         self.setNameFromField(self.nameField!)
     }
     
-    func textViewDidChange(textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView) {
         self.setNameFromField(self.nameField!)
     }
     
-    func textViewDidChangeSelection(textView: UITextView) {
+    func textViewDidChangeSelection(_ textView: UITextView) {
         self.setNameFromField(self.nameField!)
     }
-
+    
 }
 

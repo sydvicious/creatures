@@ -15,7 +15,7 @@ class CreaturesController {
 
     var context: CharactersContext
     
-    init (fromContext charactersContext: CharactersContext ) {
+    init (_ charactersContext: CharactersContext ) {
         do {
             self.context = charactersContext
             try self.context.fetchedResultsController.performFetch()
@@ -27,45 +27,43 @@ class CreaturesController {
         }
     }
     
-    func setDelegate(delegate: NSFetchedResultsControllerDelegate) {
+    func setDelegate(_ delegate: NSFetchedResultsControllerDelegate) {
         self.context.fetchedResultsController.delegate = delegate
     }
     
-    func createCreature(name: NSString) throws -> Creature {
+    func createCreature(_ name: NSString) throws -> Creature {
         let context = self.context.managedObjectContext
-        let entity = self.context.fetchRequest.entity!
-        let entityname = entity.name!
-        let newCreature = NSEntityDescription.insertNewObjectForEntityForName(entityname, inManagedObjectContext: context) as! Creature
+        let newCreature = Creature(context: context)
         
         try self.saveName(name, forCreature: newCreature)
         return newCreature
     }
     
-    func saveCreature(name: NSString, atIndexPath: NSIndexPath) throws {
+    func saveCreature(_ name: NSString, atIndexPath: IndexPath) throws {
         let creature = self.creatureFromIndexPath(atIndexPath)
         try self.saveName(name, forCreature: creature)
     }
     
-    func saveName(name: NSString, forCreature creature: Creature) throws {
-        let trimmed_name = name.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    func saveName(_ name: NSString, forCreature creature: Creature) throws {
+        let trimmed_name = name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         if (trimmed_name != creature.name) {
             creature.name = trimmed_name
             try self.context.saveContext()
         }
     }
     
-    func deleteCreatureAtIndexPath(indexPath: NSIndexPath) {
-        self.context.managedObjectContext.deleteObject(self.context.fetchedResultsController.objectAtIndexPath(indexPath) as! Creature)
+    func deleteCreatureAtIndexPath(_ indexPath: IndexPath) {
+        self.context.managedObjectContext.delete(self.context.fetchedResultsController.object(at: indexPath) as! Creature)
         try! self.context.saveContext()
     }
     
-    func deleteCreature(creature: Creature) {
-        self.context.managedObjectContext.deleteObject(creature)
+    func deleteCreature(_ creature: Creature) {
+        self.context.managedObjectContext.delete(creature)
         try! self.context.saveContext()
     }
     
-    func creatureFromIndexPath(indexPath: NSIndexPath) -> Creature {
-        return self.context.fetchedResultsController.objectAtIndexPath(indexPath) as! Creature
+    func creatureFromIndexPath(_ indexPath: IndexPath) -> Creature {
+        return self.context.fetchedResultsController.object(at: indexPath) as! Creature
     }
     
     func creatures() -> [Creature] {
