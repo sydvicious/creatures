@@ -15,26 +15,49 @@ class LoginViewController: UIViewController {
     @IBOutlet var givenName: UITextField!
     @IBOutlet var emailAddress: UITextField!
     
+    @IBOutlet var welcomeView: UIView!
+    @IBOutlet var welcomeMessage: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         let defaults = UserDefaults.standard
         
+        var fullyInitialized = true
+        
         if let storedFullNameObject = defaults.object(forKey: "fullName") {
             let storedFullName = storedFullNameObject as! String
             fullName.text = storedFullName
+            fullyInitialized = fullyInitialized && (storedFullName != "")
+        } else {
+            fullyInitialized = false
         }
         
-        if let storedGiveNameObject = defaults.object(forKey: "givenName") {
-            let storedGivenName = storedGiveNameObject as! String
+        if let storedGivenNameObject = defaults.object(forKey: "givenName") {
+            let storedGivenName = storedGivenNameObject as! String
             givenName.text = storedGivenName
+            fullyInitialized = fullyInitialized && (storedGivenName != "")
+        } else {
+            fullyInitialized = false
         }
         
         if let storedEmailAddressObject = defaults.object(forKey: "emailAddress") {
             let storedEmailAddress = storedEmailAddressObject as! String
             emailAddress.text = storedEmailAddress
+            fullyInitialized = fullyInitialized && (storedEmailAddress != "")
+        } else {
+            fullyInitialized = false
+        }
+
+        if fullyInitialized {
+            settingsView.isHidden = true
+            welcomeView.isHidden = false
+            welcomeMessage.text = String(format: "Welcome back, %@!", givenName.text!)
+        } else {
+            settingsView.isHidden = false
+            welcomeView.isHidden = true
         }
         
     }
