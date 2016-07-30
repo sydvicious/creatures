@@ -26,10 +26,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let controllers = split.viewControllers
         self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
 
-        let traits = self.view.traitCollection
-        if (UIDevice.current().userInterfaceIdiom == .pad) || (traits.verticalSizeClass == .regular) {
-            self.splitViewController?.preferredDisplayMode = .primaryOverlay
-        }
+        self.splitViewController?.preferredDisplayMode = .allVisible
+
         let delegate = UIApplication.shared().delegate as! AppDelegate
         self.creaturesController = delegate.creaturesController
         self.creaturesController?.setDelegate(self)
@@ -68,14 +66,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return creature
     }
     
-    //override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-    //   print("traitCollectionDidChange")
-    //    print(previousTraitCollection)
-    //    print("---")
-    //    print(self.view.traitCollection)
-    //    print(" ")
-    //}
-
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let creature = self.creatureForSegue()
@@ -85,19 +75,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
             controller.navigationItem.leftItemsSupplementBackButton = true
             self.detailViewController = controller
-            
-            // From http://stackoverflow.com/questions/27243158/hiding-the-master-view-controller-with-uisplitviewcontroller-in-ios8
-            let traits = self.view.traitCollection
-
-            if (traits.verticalSizeClass == .regular) {
-                let animations: () -> Void = {
-                    self.splitViewController?.preferredDisplayMode = .automatic
-                }
-                let completion: (Bool) -> Void = { _ in
-                    self.splitViewController?.preferredDisplayMode = .primaryHidden
-                }
-                UIView.animate(withDuration: 0.3, animations: animations, completion: completion)
-            }
         }
     }
 
