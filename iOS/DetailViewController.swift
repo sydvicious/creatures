@@ -49,22 +49,15 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
         }
     }
 
-    func saveFieldsNotification(_ notification: NSNotification) {
-        self.saveFields()
-    }
-    
     func saveFields() {
         if (self.creature != nil) {
             self.setNameFromField(nameField)
         }
     }
     
-    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.saveFieldsNotification(_:)) , name: NSNotification.Name.UIViewControllerShowDetailTargetDidChange, object: nil)
-        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.saveFields), userInfo: nil, repeats: true)
 
         self.configureView()
     }
@@ -76,9 +69,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     
     override func viewWillDisappear(_ animated: Bool) {
         self.setNameFromField(self.nameField!)
-        NotificationCenter.default.removeObserver(self)
         super.viewWillDisappear(animated)
-        self.timer.invalidate()
     }
     
     @IBAction func setNameFromField(_ nameField : UITextField) {

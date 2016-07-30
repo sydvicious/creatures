@@ -26,6 +26,8 @@
 		62B2CB2A1B2A56D90073B8DC /* Mac-Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2CB291B2A56D90073B8DC /* Mac-Tests.swift */; };
 		62C6A0051B2B2238006B50D2 /* TestPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C6A0041B2B2238006B50D2 /* TestPrefs.swift */; };
 		62C6A0261B2B24B8006B50D2 /* CreaturesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */; };
+		62DC42981D4C500C00A8EE5F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DC42971D4C500C00A8EE5F /* LoginViewController.swift */; };
+		62DC429A1D4C524D00A8EE5F /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DC42991D4C524D00A8EE5F /* SplitViewController.swift */; };
 		62FA2D391B27B49400FCCF71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62FA2D371B27B49400FCCF71 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 		62B2CB2B1B2A56D90073B8DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C6A0041B2B2238006B50D2 /* TestPrefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPrefs.swift; sourceTree = "<group>"; };
 		62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreaturesController.swift; sourceTree = "<group>"; };
+		62DC42971D4C500C00A8EE5F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		62DC42991D4C524D00A8EE5F /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		62FA2D381B27B49400FCCF71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,10 +140,12 @@
 			children = (
 				626A3D7D19CBE5AF00B3222D /* Resources */,
 				6228505C1978ECB000DE985E /* AppDelegate.swift */,
-				622850611978ECB000DE985E /* MasterViewController.swift */,
+				62DC42991D4C524D00A8EE5F /* SplitViewController.swift */,
 				62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */,
 				627426761B733A910051A5E5 /* CharactersContext.swift */,
 				622850631978ECB000DE985E /* DetailViewController.swift */,
+				62DC42971D4C500C00A8EE5F /* LoginViewController.swift */,
+				622850611978ECB000DE985E /* MasterViewController.swift */,
 				6228505A1978ECB000DE985E /* Supporting Files */,
 			);
 			path = iOS;
@@ -376,10 +382,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62DC42981D4C500C00A8EE5F /* LoginViewController.swift in Sources */,
 				627426771B733A910051A5E5 /* CharactersContext.swift in Sources */,
 				6288E1D21A4E7A63009F7CE2 /* Prefs.swift in Sources */,
 				6228505D1978ECB000DE985E /* AppDelegate.swift in Sources */,
 				622850621978ECB000DE985E /* MasterViewController.swift in Sources */,
+				62DC429A1D4C524D00A8EE5F /* SplitViewController.swift in Sources */,
 				626E2B7B19DA474400BB0FD4 /* Creature.swift in Sources */,
 				622850641978ECB000DE985E /* DetailViewController.swift in Sources */,
 				62C6A0261B2B24B8006B50D2 /* CreaturesController.swift in Sources */,

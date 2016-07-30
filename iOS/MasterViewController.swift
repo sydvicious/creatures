@@ -132,7 +132,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         switch type {
         case .insert:
             tableView.insertRows(at: [newIndexPath!], with: .fade)
-            tableView.selectRow(at: newIndexPath!, animated: true, scrollPosition: .middle)
+            let rows = tableView.numberOfRows(inSection: 0)
+            if (rows > 0) {
+                tableView.selectRow(at: newIndexPath!, animated: true, scrollPosition: .middle)
+            }
         case .delete:
             tableView.deleteRows(at: [indexPath!], with: .fade)
         case .update:
