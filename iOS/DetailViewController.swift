@@ -23,7 +23,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     }
     
     lazy var creaturesController: CreaturesController = {
-        let delegate = UIApplication.shared().delegate as! AppDelegate
+        let delegate = UIApplication.shared.delegate as! AppDelegate
         return  delegate.creaturesController
     }()
     

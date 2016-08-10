@@ -33,7 +33,7 @@ class CreaturesController {
     
     func createCreature(_ name: NSString) throws -> Creature {
         let context = self.context.managedObjectContext
-        let newCreature = Creature(context: context)
+        let newCreature = Creature(context: context!)
         
         try self.saveName(name, forCreature: newCreature)
         return newCreature
@@ -53,12 +53,12 @@ class CreaturesController {
     }
     
     func deleteCreatureAtIndexPath(_ indexPath: IndexPath) {
-        self.context.managedObjectContext.delete(self.context.fetchedResultsController.object(at: indexPath) as! Creature)
+        self.context.managedObjectContext?.delete(self.context.fetchedResultsController.object(at: indexPath) as! Creature)
         try! self.context.saveContext()
     }
     
     func deleteCreature(_ creature: Creature) {
-        self.context.managedObjectContext.delete(creature)
+        self.context.managedObjectContext?.delete(creature)
         try! self.context.saveContext()
     }
     

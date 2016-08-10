@@ -20,13 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Override point for customization after application launch.
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
         
         // Register default preferences
         
         let appDefaults = NSDictionary(object: NSNumber(value: 0), forKey: NextSerial)
-        UserDefaults.standard.register(appDefaults as! [String : AnyObject])
+        UserDefaults.standard.register(defaults: appDefaults as! [String : AnyObject])
         
         return true
     }

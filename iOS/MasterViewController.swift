@@ -18,7 +18,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MasterViewController.insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
@@ -27,10 +27,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
 
         let traits = self.view.traitCollection
-        if (UIDevice.current().userInterfaceIdiom == .pad) || (traits.verticalSizeClass == .regular) {
+        if (UIDevice.current.userInterfaceIdiom == .pad) || (traits.verticalSizeClass == .regular) {
             self.splitViewController?.preferredDisplayMode = .primaryOverlay
         }
-        let delegate = UIApplication.shared().delegate as! AppDelegate
+        let delegate = UIApplication.shared.delegate as! AppDelegate
         self.creaturesController = delegate.creaturesController
         self.creaturesController?.setDelegate(self)
     }
@@ -79,10 +79,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let creature = self.creatureForSegue()
-            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+            let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
             controller.saveFields()
             controller.creature = creature
-            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
             controller.navigationItem.leftItemsSupplementBackButton = true
             self.detailViewController = controller
             
