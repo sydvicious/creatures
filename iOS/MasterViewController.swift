@@ -18,7 +18,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MasterViewController.insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
@@ -28,7 +28,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
         self.splitViewController?.preferredDisplayMode = .allVisible
 
-        let delegate = UIApplication.shared().delegate as! AppDelegate
+        let delegate = UIApplication.shared.delegate as! AppDelegate
         self.creaturesController = delegate.creaturesController
         self.creaturesController?.setDelegate(self)
     }
@@ -69,10 +69,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let creature = self.creatureForSegue()
-            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+            let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
             controller.saveFields()
             controller.creature = creature
-            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
             controller.navigationItem.leftItemsSupplementBackButton = true
             self.detailViewController = controller
         }
@@ -119,33 +119,33 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
-        case .insert:
-            self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
-        case .delete:
-            self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
-        default:
-            return
+            case .insert:
+                self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+            case .delete:
+                self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+            default:
+                return
         }
     }
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: AnyObject, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
-        case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
-            let rows = tableView.numberOfRows(inSection: 0)
-            if (rows > 0) {
-                tableView.selectRow(at: newIndexPath!, animated: true, scrollPosition: .middle)
-            }
-        case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
-        case .update:
-            self.configureCell(tableView.cellForRow(at:indexPath!)!, atIndexPath: indexPath!)
-        case .move:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
+            case .insert:
+                tableView.insertRows(at: [newIndexPath!], with: .fade)
+                let rows = tableView.numberOfRows(inSection: 0)
+                if (rows > 0) {
+                    tableView.selectRow(at: newIndexPath!, animated: true, scrollPosition: .middle)
+                }
+            case .delete:
+                tableView.deleteRows(at: [indexPath!], with: .fade)
+            case .update:
+                self.configureCell(tableView.cellForRow(at: indexPath!)!, atIndexPath: indexPath!)
+            case .move:
+                tableView.deleteRows(at: [indexPath!], with: .fade)
+                tableView.insertRows(at: [newIndexPath!], with: .fade)
         }
     }
-    
+
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
     }

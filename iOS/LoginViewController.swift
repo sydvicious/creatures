@@ -10,13 +10,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet var settingsView: UIView!
     @IBOutlet var fullName: UITextField!
     @IBOutlet var givenName: UITextField!
     @IBOutlet var emailAddress: UITextField!
-    
-    @IBOutlet var welcomeView: UIView!
-    @IBOutlet var welcomeMessage: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +48,8 @@ class LoginViewController: UIViewController {
         }
 
         if fullyInitialized {
-            settingsView.isHidden = true
-            welcomeView.isHidden = false
-            welcomeMessage.text = String(format: "Welcome back, %@!", givenName.text!)
-        } else {
-            settingsView.isHidden = false
-            welcomeView.isHidden = true
+            self.performSegue(withIdentifier: "WelcomeViewSegue", sender: self)
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,23 +57,52 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    func checkData() -> Bool {
+        if let name = fullName.text {
+            if name == "" {
+                return false
+            }
+        } else {
+            return false
+        }
+        
+        if let given = givenName.text {
+            if given == "" {
+                return false
+            }
+        } else {
+            return false
+        }
+        
+        if let email = emailAddress.text {
+            if email == "" {
+                return false
+            }
+        } else {
+            return false
+        }
+        return true
+    }
+    
+    func save() {
         let defaults = UserDefaults.standard
         defaults.set(fullName.text!, forKey: "fullName")
         defaults.set(givenName.text!, forKey: "givenName")
         defaults.set(emailAddress.text!, forKey: "emailAddress")
-        super.viewWillDisappear(animated)
-
     }
 
-    /*
     // MARK: - Navigation
 
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: AnyObject?) -> Bool {
+        return self.checkData()
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        self.save()
     }
-    */
+
 
 }

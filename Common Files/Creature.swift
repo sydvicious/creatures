@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class Creature: NSManagedObject {
-    enum CreatureDataError: ErrorProtocol {
+    enum CreatureDataError: Error {
         case nameCannotBeNull
     }
 

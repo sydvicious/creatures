@@ -16,7 +16,7 @@ class SplitViewController: UISplitViewController, UISplitViewControllerDelegate 
         // Do any additional setup after loading the view.
         
         let navigationController = self.viewControllers[self.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = self.displayModeButtonItem()
+        navigationController.topViewController!.navigationItem.leftBarButtonItem = self.displayModeButtonItem
         self.delegate = self
 
     }
