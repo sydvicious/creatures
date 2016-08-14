@@ -42,8 +42,9 @@ class CharactersContext: NSObject, NSFetchedResultsControllerDelegate {
         return container
     }()
 
-    init () {
-        
+    override init () {
+        super.init()
+        self.managedObjectContext = self.persistentContainer.viewContext
     }
     
     // MARK: - Core Data Saving support
