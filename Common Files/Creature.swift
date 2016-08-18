@@ -17,5 +17,5 @@ class Creature: NSManagedObject {
     // When this is hooked up to the server, the server will have to provide a serial (or GUID)
     // for this object.
     let serial = Prefs.getNewID()
-    @NSManaged var name : NSString
+    @NSManaged var name : String
 }

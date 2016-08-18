@@ -72,7 +72,7 @@ class CharactersContext: NSObject, NSFetchedResultsControllerDelegate {
                 
                 if (nserror.domain == NSCocoaErrorDomain) {
                     let code = nserror.code
-                    let userInfo = nserror.userInfo as! [String:AnyObject]
+                    let userInfo = nserror.userInfo
                     if (code == NSValidationStringTooShortError) {
                         let foundValidationErrorValue = userInfo["NSValidationErrorValue"] as! String
                         if (foundValidationErrorValue == "") {

@@ -31,7 +31,7 @@ class CreaturesController {
         self.context.fetchedResultsController.delegate = delegate
     }
     
-    func createCreature(_ name: NSString) throws -> Creature {
+    func createCreature(_ name: String) throws -> Creature {
         let context = self.context.managedObjectContext
         let newCreature = Creature(context: context!)
         
@@ -39,12 +39,12 @@ class CreaturesController {
         return newCreature
     }
     
-    func saveCreature(_ name: NSString, atIndexPath: IndexPath) throws {
+    func saveCreature(_ name: String, atIndexPath: IndexPath) throws {
         let creature = self.creatureFromIndexPath(atIndexPath)
         try self.saveName(name, forCreature: creature)
     }
     
-    func saveName(_ name: NSString, forCreature creature: Creature) throws {
+    func saveName(_ name: String, forCreature creature: Creature) throws {
         let trimmed_name = name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         if (trimmed_name != creature.name) {
             creature.name = trimmed_name

@@ -8,7 +8,7 @@
 
 import UIKit
 
-var myContext: UnsafeMutablePointer<()>? = nil
+var myContext: UnsafeMutableRawPointer? = nil
 
 class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewControllerDelegate  {
 
@@ -78,7 +78,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
             var name = nameField.text!
             name = name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             if (name == "") {
-                name = creature.name as String
+                name = creature.name
                 nameField.text! = name
             }
             let creaturesController = self.creaturesController
