@@ -50,7 +50,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             // Can't happen.
             abort()
         }
-        self.performSegue(withIdentifier: "showDetail", sender: self)
     }
 
     // MARK: - Segues
@@ -61,7 +60,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             creature = self.creaturesController!.creatureFromIndexPath(indexPath)
         } else if let newCreature = self.newlyCreatedCreature {
             creature = newCreature
-            self.newlyCreatedCreature = nil
         }
         return creature
     }
@@ -103,6 +101,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             self.creaturesController!.deleteCreatureAtIndexPath(indexPath)
+        } else if editingStyle == .insert {
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
         }
     }
 
@@ -112,10 +112,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     // MARK: - Fetched results controller
-
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.tableView.beginUpdates()
-    }
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
@@ -147,7 +143,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.tableView.endUpdates()
+        self.tableView.reloadData()
+
+        if let newlyCreatedCreature = self.newlyCreatedCreature {
+            let indexPath = self.creaturesController?.indexPathFromCreature(newlyCreatedCreature)
+            self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+            self.performSegue(withIdentifier: "showDetail", sender: self)
+            self.newlyCreatedCreature = nil
+        }
     }
 
     // MARK: UITableViewDelegate
@@ -161,15 +164,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return indexPath
     }
     
-    /*
-     // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
-     
-     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-         // In the simplest, most efficient, case, reload the table view.
-         self.tableView.reloadData()
-     }
-     */
-
     // MARK: UISplitViewControllerDelegate
     
     func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode) {

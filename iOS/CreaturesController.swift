@@ -66,6 +66,11 @@ class CreaturesController {
         return self.context.fetchedResultsController.object(at: indexPath) as! Creature
     }
     
+    func indexPathFromCreature(_ creature: Creature) -> IndexPath {
+        let indexPath = self.context.fetchedResultsController.indexPath(forObject: creature)
+        return indexPath!
+    }
+    
     func creatures() -> [Creature] {
         return self.context.fetchedResultsController.fetchedObjects as! [Creature]
     }
