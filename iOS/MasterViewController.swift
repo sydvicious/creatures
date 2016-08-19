@@ -34,7 +34,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+        self.clearsSelectionOnViewWillAppear = false
+        //self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+        if let creature = self.detailViewController?.creature {
+            self.tableView.selectRow(at: self.creaturesController?.indexPathFromCreature(creature), animated: true, scrollPosition: .middle)
+        }
         super.viewWillAppear(animated)
     }
 
