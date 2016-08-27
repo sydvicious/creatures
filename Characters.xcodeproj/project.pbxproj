@@ -14,6 +14,18 @@
 		6228508B1978ED1B00DE985E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228508A1978ED1B00DE985E /* AppDelegate.swift */; };
 		622850901978ED1B00DE985E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6228508F1978ED1B00DE985E /* Images.xcassets */; };
 		624E4A4F1D6034CB004D78F2 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624E4A4E1D6034CB004D78F2 /* WelcomeViewController.swift */; };
+		626677641D71478E0020DAF2 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626677631D71478E0020DAF2 /* Ability.swift */; };
+		626677651D71478E0020DAF2 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626677631D71478E0020DAF2 /* Ability.swift */; };
+		626677661D71478E0020DAF2 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626677631D71478E0020DAF2 /* Ability.swift */; };
+		626677671D71478E0020DAF2 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626677631D71478E0020DAF2 /* Ability.swift */; };
+		626677691D7148FF0020DAF2 /* d20Bonuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626677681D7148FF0020DAF2 /* d20Bonuses.swift */; };
+		6266776A1D7148FF0020DAF2 /* d20Bonuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626677681D7148FF0020DAF2 /* d20Bonuses.swift */; };
+		6266776B1D7148FF0020DAF2 /* d20Bonuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626677681D7148FF0020DAF2 /* d20Bonuses.swift */; };
+		6266776C1D7148FF0020DAF2 /* d20Bonuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626677681D7148FF0020DAF2 /* d20Bonuses.swift */; };
+		6266776E1D714A4F0020DAF2 /* d20AbilityModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6266776D1D714A4F0020DAF2 /* d20AbilityModifier.swift */; };
+		6266776F1D714A4F0020DAF2 /* d20AbilityModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6266776D1D714A4F0020DAF2 /* d20AbilityModifier.swift */; };
+		626677701D714A4F0020DAF2 /* d20AbilityModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6266776D1D714A4F0020DAF2 /* d20AbilityModifier.swift */; };
+		626677711D714A4F0020DAF2 /* d20AbilityModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6266776D1D714A4F0020DAF2 /* d20AbilityModifier.swift */; };
 		626A3D7C19CBE59300B3222D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626A3D7B19CBE59300B3222D /* LaunchScreen.xib */; };
 		626E2B7B19DA474400BB0FD4 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E2B7A19DA474400BB0FD4 /* Creature.swift */; };
 		627426771B733A910051A5E5 /* CharactersContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627426761B733A910051A5E5 /* CharactersContext.swift */; };
@@ -63,6 +75,9 @@
 		6228508F1978ED1B00DE985E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCreatures.swift; path = "iOS Tests/TestCreatures.swift"; sourceTree = SOURCE_ROOT; };
 		624E4A4E1D6034CB004D78F2 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		626677631D71478E0020DAF2 /* Ability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
+		626677681D7148FF0020DAF2 /* d20Bonuses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = d20Bonuses.swift; sourceTree = "<group>"; };
+		6266776D1D714A4F0020DAF2 /* d20AbilityModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = d20AbilityModifier.swift; sourceTree = "<group>"; };
 		626A3D7B19CBE59300B3222D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		626E2B7A19DA474400BB0FD4 /* Creature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 		627426761B733A910051A5E5 /* CharactersContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersContext.swift; sourceTree = "<group>"; };
@@ -184,6 +199,9 @@
 		622850AA1978ED7900DE985E /* Common Files */ = {
 			isa = PBXGroup;
 			children = (
+				626677631D71478E0020DAF2 /* Ability.swift */,
+				626677681D7148FF0020DAF2 /* d20Bonuses.swift */,
+				6266776D1D714A4F0020DAF2 /* d20AbilityModifier.swift */,
 				62A95C271B29F45700D5B981 /* Characters.xcdatamodeld */,
 				626E2B7A19DA474400BB0FD4 /* Creature.swift */,
 				6288E1D11A4E7A63009F7CE2 /* Prefs.swift */,
@@ -391,10 +409,13 @@
 				6288E1D21A4E7A63009F7CE2 /* Prefs.swift in Sources */,
 				6228505D1978ECB000DE985E /* AppDelegate.swift in Sources */,
 				622850621978ECB000DE985E /* MasterViewController.swift in Sources */,
+				626677691D7148FF0020DAF2 /* d20Bonuses.swift in Sources */,
 				62DC429A1D4C524D00A8EE5F /* SplitViewController.swift in Sources */,
+				6266776E1D714A4F0020DAF2 /* d20AbilityModifier.swift in Sources */,
 				626E2B7B19DA474400BB0FD4 /* Creature.swift in Sources */,
 				622850641978ECB000DE985E /* DetailViewController.swift in Sources */,
 				62C6A0261B2B24B8006B50D2 /* CreaturesController.swift in Sources */,
+				626677641D71478E0020DAF2 /* Ability.swift in Sources */,
 				62A95C291B29F45700D5B981 /* Characters.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,7 +425,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6288E1D51A4E80CB009F7CE2 /* Creature.swift in Sources */,
+				6266776A1D7148FF0020DAF2 /* d20Bonuses.swift in Sources */,
 				6228508B1978ED1B00DE985E /* AppDelegate.swift in Sources */,
+				626677651D71478E0020DAF2 /* Ability.swift in Sources */,
+				6266776F1D714A4F0020DAF2 /* d20AbilityModifier.swift in Sources */,
 				6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,7 +438,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				628D61511B2BBCF300D420E1 /* TestCreatures.swift in Sources */,
+				6266776B1D7148FF0020DAF2 /* d20Bonuses.swift in Sources */,
 				62B2CB1C1B2A551E0073B8DC /* iOS-Tests.swift in Sources */,
+				626677661D71478E0020DAF2 /* Ability.swift in Sources */,
+				626677701D714A4F0020DAF2 /* d20AbilityModifier.swift in Sources */,
 				62C6A0051B2B2238006B50D2 /* TestPrefs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,7 +450,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				626677671D71478E0020DAF2 /* Ability.swift in Sources */,
 				62B2CB2A1B2A56D90073B8DC /* Mac-Tests.swift in Sources */,
+				626677711D714A4F0020DAF2 /* d20AbilityModifier.swift in Sources */,
+				6266776C1D7148FF0020DAF2 /* d20Bonuses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
