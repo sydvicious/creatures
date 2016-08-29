@@ -15,7 +15,7 @@ class CreaturesController {
 
     var context: CharactersContext
     
-    init (_ charactersContext: CharactersContext ) {
+    private init (_ charactersContext: CharactersContext ) {
         do {
             self.context = charactersContext
             try self.context.fetchedResultsController.performFetch()
@@ -25,6 +25,15 @@ class CreaturesController {
             print("Unresolved error \(error)")
             abort()
         }
+    }
+    
+    static private var sharedController: CreaturesController? = nil
+
+    static func sharedCreaturesController(_ charactersContext: CharactersContext) -> CreaturesController {
+        if sharedController == nil {
+            sharedController = CreaturesController(charactersContext)
+        }
+        return sharedController!
     }
     
     func setDelegate(_ delegate: NSFetchedResultsControllerDelegate) {

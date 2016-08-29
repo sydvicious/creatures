@@ -10,39 +10,9 @@ import XCTest
 import CoreData
 @testable import Characters
 
-class TestCharactersContext: CharactersContext {
-    init () {
-        let newpsc : NSPersistentStoreCoordinator = {
-        // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
-        // Create the coordinator and store
-        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: CharactersContext.managedObjectModel)
-            
-        let failureReason = "There was an error creating or loading the application's saved data."
-        do {
-            try coordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil)
-        } catch {
-            // Report any error we got.
-            var dict = [String: AnyObject]()
-            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
-            dict[NSLocalizedFailureReasonErrorKey] = failureReason
-            
-            dict[NSUnderlyingErrorKey] = error as! NSString
-            let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
-            // Replace this with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
-            abort()
-        }
-        
-        return coordinator
-        }()
-        super.init(newpsc)
-    }
-}
-
 class TestCreatures: XCTestCase {
 
-    lazy var creaturesController = CreaturesController(fromContext: TestCharactersContext())
+    lazy var creaturesController = CreaturesController.sharedCreaturesController(CharactersContext())
     
     override func setUp() {
         super.setUp()
@@ -53,6 +23,7 @@ class TestCreatures: XCTestCase {
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        creaturesController.deleteAll()
         super.tearDown()
     }
     
@@ -63,14 +34,15 @@ class TestCreatures: XCTestCase {
     
     func testDelete() {
         creaturesController.logAll()
+        let creatures = creaturesController.creatures()
+        let startCount = creatures.count
         let creature = try! creaturesController.createCreature("TestCreature2")
         creaturesController.logAll()
         print(creature.name)
         let indexPath = IndexPath(item: 0, section: 0)
         creaturesController.deleteCreatureAtIndexPath(indexPath)
         creaturesController.logAll()
-        let creatures = creaturesController.creatures()
-        XCTAssertEqual(creatures.count, 0, "Creatures array not zero.")
+        XCTAssertEqual(creatures.count, startCount, "Did not have same number of creatures at the end.")
     }
     
     func testName() {
@@ -110,7 +82,7 @@ class TestCreatures: XCTestCase {
         do {
             try creaturesController.saveName("", forCreature: creature)
             XCTFail("saveName() was supposed to return an error if name was the null string.")
-        } catch Creature.CreatureDataError.NameCannotBeNull {
+        } catch Creature.CreatureDataError.nameCannotBeNull {
             // Yay. We pass
         } catch {
             let nserror = error as NSError
@@ -120,7 +92,7 @@ class TestCreatures: XCTestCase {
         do {
             try creaturesController.saveName("  ", forCreature: creature)
             XCTFail("saveName() was supposed to return an error if trimmed name was the null string.")
-        } catch Creature.CreatureDataError.NameCannotBeNull {
+        } catch Creature.CreatureDataError.nameCannotBeNull {
             // Yay. We pass
         } catch {
             let nserror = error as NSError
