@@ -53,6 +53,20 @@ class TestD20Bonuses: XCTestCase {
         XCTAssertEqual(info.state, .Expired)
         XCTAssertEqual(info.rounds, 0)
         XCTAssertEqual(decrResult, .Expired)
+        
+        info = d20BonusInfo(newPermanentValue:1)
+        XCTAssertEqual(info.value, 1)
+        XCTAssertEqual(info.state, .Permanent)
+        XCTAssertEqual(info.rounds, 0)
+        
+        info = d20BonusInfo(newTemporaryValue:2, withRounds: 3)
+        XCTAssertEqual(info.value, 2)
+        XCTAssertEqual(info.state, .Temporary)
+        XCTAssertEqual(info.rounds, 3)
+    }
+    
+    func testD20BonusInfoDict() {
+        
     }
     
     func testPerformanceExample() {

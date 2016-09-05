@@ -19,6 +19,18 @@ struct d20BonusInfo {
     var rounds: Int
     var state: d20BonusState
     
+    init(newPermanentValue newValue: Int) {
+        value = newValue
+        state = .Permanent
+        rounds = 0
+    }
+    
+    init(newTemporaryValue newValue: Int, withRounds numRounds: Int) {
+        value = newValue
+        state = .Temporary
+        rounds = numRounds
+    }
+    
     init(_ newValue: Int, makePermanent isPermanent: Bool, withRounds numRounds: Int) {
         value = newValue
         if isPermanent {
