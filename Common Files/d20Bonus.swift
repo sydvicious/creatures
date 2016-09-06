@@ -31,19 +31,9 @@ struct d20BonusInfo {
         rounds = numRounds
     }
     
-    init(_ newValue: Int, makePermanent isPermanent: Bool, withRounds numRounds: Int) {
-        value = newValue
-        if isPermanent {
-            state = .Permanent
-        } else {
-            state = .Temporary
-        }
-        rounds = numRounds
-    }
-    
     mutating func decrementRounds() -> d20BonusState {
         if state == .Temporary {
-            rounds -= 1
+            rounds = rounds - 1
             if (rounds == 0) {
                 self.state = .Expired
             }
@@ -54,9 +44,14 @@ struct d20BonusInfo {
 
 struct d20BonusInfoDict {
     var bonusInfos = [String: d20BonusInfo]()
+
+    mutating func addPermanent(withSource source: String, withValue newValue: Int)  {
+        let info = d20BonusInfo.init(newPermanentValue: newValue)
+        bonusInfos.updateValue(info, forKey: source)
+    }
     
-    mutating func add(withSource source: String, withValue newValue: Int, makePermanent isPermanent: Bool, withRounds numRounds: Int)  {
-        let info = d20BonusInfo.init(newValue, makePermanent: isPermanent, withRounds: numRounds)
+    mutating func addTemporary(withSource source: String, withValue newValue: Int, withRounds numRounds: Int) {
+        let info = d20BonusInfo.init(newTemporaryValue: newValue, withRounds: numRounds)
         bonusInfos.updateValue(info, forKey: source)
     }
     
@@ -81,8 +76,11 @@ struct d20BonusInfoDict {
     
     mutating func decrementRounds() -> d20BonusState {
         for (source, var bonusInfo) in bonusInfos {
-            if bonusInfo.decrementRounds() == .Expired {
+            let d20BonusState = bonusInfo.decrementRounds()
+            if d20BonusState == .Expired {
                 bonusInfos.removeValue(forKey: source)
+            } else if d20BonusState == .Temporary {
+                bonusInfos.updateValue(bonusInfo, forKey: source)
             }
         }
         if bonusInfos.isEmpty {
@@ -96,12 +94,20 @@ struct d20BonusInfoDict {
 struct d20Bonus {
     var bonuses = [String: d20BonusInfoDict]()
 
-    mutating func add(_ type: String, fromSource newSource: String, withValue newValue: Int, makePermanent isPermanent: Bool, withRounds numRounds: Int) {
+    mutating func addPermanent(_ type: String, fromSource newSource: String, withValue newValue: Int) {
         if bonuses[type] == nil {
             bonuses[type] = d20BonusInfoDict()
         }
         var bonusInfo = bonuses[type]
-        bonusInfo?.add(withSource: newSource, withValue: newValue, makePermanent: isPermanent, withRounds: numRounds)
+        bonusInfo?.addPermanent(withSource: newSource, withValue: newValue)
+    }
+    
+    mutating func addTemporary(_ type: String, fromSource newSource: String, withValue newValue: Int, withRounds numRounds: Int) {
+        if bonuses[type] == nil {
+            bonuses[type] = d20BonusInfoDict()
+        }
+        var bonusInfo = bonuses[type]
+        bonusInfo?.addTemporary(withSource: newSource, withValue: newValue, withRounds: numRounds)
     }
     
     func remove(source: String, fromType type: String) {
@@ -130,19 +136,27 @@ struct d20Bonus {
 class d20Bonuses: NSObject {
     var bonuses = [String: d20Bonus]()
 
-    func add(type: String, fromSource newSource: String, withValue newValue: Int, makePermanent isPermanent: Bool, withRounds numRounds: Int) {
+    func addBonusType(_ type: String) -> d20Bonus {
         var bonus: d20Bonus
-
         if bonuses[type] == nil {
             bonus = d20Bonus()
         } else {
             bonus = bonuses[type]!
         }
-     
-        bonus.add(type, fromSource: newSource, withValue: newValue, makePermanent: isPermanent, withRounds: numRounds)
-        
+        return bonus
     }
     
+    func addPermanent(type: String, fromSource newSource: String, withValue newValue: Int) {
+        var bonus = addBonusType(type)
+     
+        bonus.addPermanent(type, fromSource: newSource, withValue: newValue)
+    }
+    
+    func addTemporary(type: String, fromSource newSource: String, withValue newValue: Int, withRounds numRounds: Int) {
+        var bonus = addBonusType(type)
+        bonus.addTemporary(type, fromSource: newSource, withValue: newValue, withRounds: numRounds)
+    }
+
     func remove(source: String, fromType type: String) {
         if let bonus = bonuses[type] {
             bonus.remove(source: source, fromType: type)
