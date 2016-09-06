@@ -138,6 +138,92 @@ class TestD20Bonuses: XCTestCase {
         XCTAssertNotEqual(d20BonusState, .Expired)
         netValue = infoDict.netValue()
         XCTAssertEqual(netValue, 2)
+    }
+    
+    func testD20Bonus() {
+        var bonus = d20Bonus()
+        var netValue: Int
+        var bonusState: d20BonusState
+        
+        bonus.addPermanent("armor", fromSource: "Plate", withValue: 6)
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 6)
+        bonus.remove("armor", fromSource: "Plate")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 0)
+        
+        bonus.addPermanent("armor", fromSource: "Plate", withValue: 6)
+        bonus.addPermanent("armor", fromSource: "Robe of Armor", withValue: 4)
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 6)
+        bonus.remove("armor", fromSource: "Plate")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 4)
+        bonus.remove("armor", fromSource: "Robe of Armor")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 0)
+        
+        bonus.addTemporary("armor", fromSource: "Enhance Armor", withValue: 1, withRounds: 2)
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 1)
+        bonus.decrementRounds("armor")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 1)
+        bonus.decrementRounds("armor")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 0)
+        
+        bonus.addTemporary("armor", fromSource: "Shield", withValue: 3, withRounds: 1)
+        bonus.addTemporary("armor", fromSource: "Enhance Armor", withValue: 1, withRounds: 2)
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 3)
+        bonus.decrementRounds("armor")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 1)
+        bonus.decrementRounds("armor")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 0)
+
+        bonus.addTemporary("armor", fromSource: "Shield", withValue: 1, withRounds: 1)
+        bonus.addTemporary("armor", fromSource: "Enhance Armor", withValue: 3, withRounds: 2)
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 3)
+        bonus.decrementRounds("armor")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 3)
+        bonus.decrementRounds("armor")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 0)
+        
+        bonus.addPermanent("armor", fromSource: "Shield", withValue: 1)
+        bonus.addTemporary("armor", fromSource: "Enhance Armor", withValue: 3, withRounds: 2)
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 3)
+        bonus.decrementRounds("armor")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 3)
+        bonus.decrementRounds("armor")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 1)
+        bonus.remove("armor", fromSource: "Shield")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 0)
+        
+        bonus.addPermanent("armor", fromSource: "Shield", withValue: 3)
+        bonus.addTemporary("armor", fromSource: "Enhance Armor", withValue: 1, withRounds: 2)
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 3)
+        bonus.decrementRounds("armor")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 3)
+        bonus.remove("armor", fromSource: "Shield")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 1)
+        bonus.decrementRounds("armor")
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 0)
+        
+        
 
     }
     

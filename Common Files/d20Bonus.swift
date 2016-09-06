@@ -61,6 +61,10 @@ struct d20BonusInfoDict {
         }
     }
     
+    func isEmpty() -> Bool {
+        return bonusInfos.isEmpty
+    }
+    
     func netValue() -> Int {
         if bonusInfos.isEmpty {
             return 0
@@ -100,6 +104,7 @@ struct d20Bonus {
         }
         var bonusInfo = bonuses[type]
         bonusInfo?.addPermanent(withSource: newSource, withValue: newValue)
+        bonuses.updateValue(bonusInfo!, forKey: type)
     }
     
     mutating func addTemporary(_ type: String, fromSource newSource: String, withValue newValue: Int, withRounds numRounds: Int) {
@@ -108,15 +113,21 @@ struct d20Bonus {
         }
         var bonusInfo = bonuses[type]
         bonusInfo?.addTemporary(withSource: newSource, withValue: newValue, withRounds: numRounds)
+        bonuses.updateValue(bonusInfo!, forKey: type)
     }
     
-    func remove(source: String, fromType type: String) {
+    mutating func remove(_ type: String, fromSource source: String) {
         if var bonusInfos = bonuses[type] {
             bonusInfos.remove(source: source)
+            if (bonusInfos.isEmpty()) {
+                bonuses.removeValue(forKey: type)
+            } else {
+                bonuses.updateValue(bonusInfos, forKey: type)
+            }
         }
     }
     
-    func netValue(forType type: String) -> Int {
+    func netValue(_ type: String) -> Int {
         if let bonus = bonuses[type] {
             return bonus.netValue()
         } else {
@@ -124,10 +135,12 @@ struct d20Bonus {
         }
     }
     
-    mutating func decrementRounds(forType type: String) {
+    mutating func decrementRounds(_ type: String) {
         for (type, var bonus) in bonuses {
             if bonus.decrementRounds() == .Expired {
                 bonuses.removeValue(forKey: type)
+            } else {
+                bonuses.updateValue(bonus, forKey: type)
             }
         }
     }
@@ -146,34 +159,33 @@ class d20Bonuses: NSObject {
         return bonus
     }
     
-    func addPermanent(type: String, fromSource newSource: String, withValue newValue: Int) {
+    func addPermanent(_ type: String, fromSource newSource: String, withValue newValue: Int) {
         var bonus = addBonusType(type)
-     
         bonus.addPermanent(type, fromSource: newSource, withValue: newValue)
     }
     
-    func addTemporary(type: String, fromSource newSource: String, withValue newValue: Int, withRounds numRounds: Int) {
+    func addTemporary(_ type: String, fromSource newSource: String, withValue newValue: Int, withRounds numRounds: Int) {
         var bonus = addBonusType(type)
         bonus.addTemporary(type, fromSource: newSource, withValue: newValue, withRounds: numRounds)
     }
 
-    func remove(source: String, fromType type: String) {
-        if let bonus = bonuses[type] {
-            bonus.remove(source: source, fromType: type)
+    func remove(_ type: String, fromSource source: String) {
+        if var bonus = bonuses[type] {
+            bonus.remove(type, fromSource: source)
         }
     }
     
     func netValue() -> Int {
         var total = 0
         for (type, bonus) in bonuses {
-            total += bonus.netValue(forType: type)
+            total += bonus.netValue(type)
         }
         return total
     }
     
     func decrementRounds() {
         for (type, var bonus) in bonuses {
-            bonus.decrementRounds(forType: type)
+            bonus.decrementRounds(type)
         }
     }
 }
