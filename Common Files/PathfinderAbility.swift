@@ -8,6 +8,7 @@
 
 import UIKit
 
-class PathfinderAbility: NSObject {
+class PathfinderAbility: d20Ability {
 
 }
+

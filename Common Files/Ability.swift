@@ -8,7 +8,11 @@
 
 import UIKit
 
-class Ability: NSObject {
-    var score: Int = 10;
+class Ability {
+    var baseScore: Int
+    
+    init(score: Int) {
+        baseScore = score
+    }
 }
 
