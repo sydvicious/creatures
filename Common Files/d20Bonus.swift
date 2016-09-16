@@ -96,7 +96,7 @@ struct d20BonusBySource {
     }
 }
 
-struct d20Bonuses {
+struct d20Bonus {
     var bonuses = [String: d20BonusBySource]()
 
     mutating func addPermanent(_ type: String, fromSource newSource: String, withValue newValue: Int) {
@@ -136,6 +136,14 @@ struct d20Bonuses {
         }
     }
     
+    func netValue() -> Int {
+        var result = 0
+        for (type, _) in bonuses {
+            result = result + self.netValue(type)
+        }
+        return result
+    }
+    
     mutating func decrementRounds(_ type: String) {
         for (type, var bonus) in bonuses {
             if bonus.decrementRounds() == .Expired {
@@ -143,6 +151,12 @@ struct d20Bonuses {
             } else {
                 bonuses.updateValue(bonus, forKey: type)
             }
+        }
+    }
+    
+    mutating func decrementRounds() {
+        for (type, _) in bonuses {
+            self.decrementRounds(type)
         }
     }
     

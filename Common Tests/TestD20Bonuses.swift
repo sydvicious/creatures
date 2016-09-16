@@ -140,8 +140,8 @@ class TestD20Bonuses: XCTestCase {
         XCTAssertEqual(netValue, 2)
     }
     
-    func testD20Bonuses() {
-        var bonus = d20Bonuses()
+    func testD20Bonus() {
+        var bonus = d20Bonus()
         var netValue: Int
         
         bonus.addPermanent("armor", fromSource: "Plate", withValue: 6)
@@ -221,6 +221,22 @@ class TestD20Bonuses: XCTestCase {
         bonus.decrementRounds("armor")
         netValue = bonus.netValue("armor")
         XCTAssertEqual(netValue, 0)
+
+        bonus.addPermanent("armor", fromSource: "Shield", withValue: 3)
+        bonus.addTemporary("enhancement", fromSource: "Enhance Armor", withValue: 1, withRounds: 2)
+        netValue = bonus.netValue("armor")
+        XCTAssertEqual(netValue, 3)
+        netValue = bonus.netValue()
+        XCTAssertEqual(netValue, 4)
+        bonus.decrementRounds()
+        bonus.decrementRounds()
+        netValue = bonus.netValue()
+        XCTAssertEqual(netValue, 3)
+        bonus.remove("armor", fromSource: "Shield")
+        netValue = bonus.netValue()
+        netValue = bonus.netValue()
+        XCTAssertEqual(netValue, 0)
+
     }
     
     func testPerformanceExample() {

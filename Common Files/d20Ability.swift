@@ -10,6 +10,6 @@ import Foundation
 
 protocol d20Ability {
     var baseScore : Int { get set }
-    var bonuses : d20Bonuses { get set }
+    var bonuses : d20Bonus { get set }
     
 }
