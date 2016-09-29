@@ -15,7 +15,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var navigationBar: UINavigationItem!
     
-    var creature: Creature? {
+    var creature: CreatureModel? {
         didSet {
             // Update the view.
             self.configureView()

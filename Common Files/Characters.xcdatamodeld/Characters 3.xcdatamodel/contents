@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A323" minimumToolsVersion="Xcode 7.0" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="CreatureModel" representedClassName="Characters.CreatureModel" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" minValueString="1" defaultValueString="&lt;unnamed&gt;" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="oid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CreatureModel" positionX="-63" positionY="-18" width="128" height="75"/>
+    </elements>
+</model>

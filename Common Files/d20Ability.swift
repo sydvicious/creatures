@@ -29,7 +29,10 @@ class d20Ability: Ability {
 
 extension d20Ability: d20AbilityVars {
     var modifier: Int {
-        return Int((currentScore - 5) / 2)
+        let normalized : Double = Double(currentScore - 10)
+        let half = normalized / 2.0
+        let result = floor(half)
+        return Int(result)
     }
 }
 
@@ -61,7 +64,7 @@ let heavyLoads: [Int] = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 115, 130, 1
 
 extension d20Ability: d20Strength {
     
-    func load(whichArray: [Int]) -> Int {
+    private func load(whichArray: [Int]) -> Int {
         if currentScore > 29 {
             let remainder = currentScore - 30
             let decades = Int(remainder / 10)

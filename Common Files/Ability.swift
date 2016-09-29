@@ -9,10 +9,27 @@
 import UIKit
 
 class Ability {
-    var baseScore: Int
+    private var _baseScore: Int
+    
+    var baseScore: Int {
+        get {
+            return self._baseScore
+        }
+        set {
+            if newValue < 0 {
+                self._baseScore = 0
+            } else {
+                self._baseScore = newValue
+            }
+        }
+    }
     
     init(score: Int) {
-        baseScore = score
+        if (score < 0) {
+            self._baseScore = 0
+        } else {
+            self._baseScore = score
+        }
     }
 }
 

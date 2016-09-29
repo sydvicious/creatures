@@ -76,10 +76,10 @@ class CharactersContext: NSObject, NSFetchedResultsControllerDelegate {
                     if (code == NSValidationStringTooShortError) {
                         let foundValidationErrorValue = userInfo["NSValidationErrorValue"] as! String
                         if (foundValidationErrorValue == "") {
-                            let creature = userInfo["NSValidationErrorObject"] as! Creature
+                            let creature = userInfo["NSValidationErrorObject"] as! CreatureModel
                             context?.rollback()
                             print ("Name for \(creature.name) cannot be set to the empty string")
-                            throw Creature.CreatureDataError.nameCannotBeNull
+                            throw CreatureModel.CreatureModelDataError.nameCannotBeNull
                         }
                     }
                     NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -93,7 +93,7 @@ class CharactersContext: NSObject, NSFetchedResultsControllerDelegate {
     }
         
     lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Creature.fetchRequest()
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CreatureModel.fetchRequest()
         // Set the batch size to a suitable number.
         
         fetchRequest.fetchBatchSize = 20

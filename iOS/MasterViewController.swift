@@ -13,7 +13,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     var detailViewController: DetailViewController? = nil
     var creaturesController: CreaturesController? = nil
-    var newlyCreatedCreature: Creature? = nil
+    var newlyCreatedCreature: CreatureModel? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +58,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     // MARK: - Segues
 
-    func creatureForSegue() -> Creature? {
-        var creature: Creature? = nil
+    func creatureForSegue() -> CreatureModel? {
+        var creature: CreatureModel? = nil
         if let indexPath = self.tableView.indexPathForSelectedRow {
             creature = self.creaturesController!.creatureFromIndexPath(indexPath)
         } else if let newCreature = self.newlyCreatedCreature {

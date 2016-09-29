@@ -82,7 +82,7 @@ class TestCreatures: XCTestCase {
         do {
             try creaturesController.saveName("", forCreature: creature)
             XCTFail("saveName() was supposed to return an error if name was the null string.")
-        } catch Creature.CreatureDataError.nameCannotBeNull {
+        } catch CreatureModel.CreatureModelDataError.nameCannotBeNull {
             // Yay. We pass
         } catch {
             let nserror = error as NSError
@@ -92,7 +92,7 @@ class TestCreatures: XCTestCase {
         do {
             try creaturesController.saveName("  ", forCreature: creature)
             XCTFail("saveName() was supposed to return an error if trimmed name was the null string.")
-        } catch Creature.CreatureDataError.nameCannotBeNull {
+        } catch CreatureModel.CreatureModelDataError.nameCannotBeNull {
             // Yay. We pass
         } catch {
             let nserror = error as NSError

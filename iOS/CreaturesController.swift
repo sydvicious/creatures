@@ -40,9 +40,13 @@ class CreaturesController {
         self.context.fetchedResultsController.delegate = delegate
     }
     
-    func createCreature(_ name: String) throws -> Creature {
+    func createCreature(_ name: String) throws -> CreatureModel {
         let context = self.context.managedObjectContext
-        let newCreature = Creature(context: context!)
+        let newCreature = CreatureModel(context: context!)
+        
+        let oid = Prefs.getNewID()
+        newCreature.oid = oid
+        try self.context.saveContext()
         
         try self.saveName(name, forCreature: newCreature)
         return newCreature
@@ -53,7 +57,7 @@ class CreaturesController {
         try self.saveName(name, forCreature: creature)
     }
     
-    func saveName(_ name: String, forCreature creature: Creature) throws {
+    func saveName(_ name: String, forCreature creature: CreatureModel) throws {
         let trimmed_name = name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         if (trimmed_name != creature.name) {
             creature.name = trimmed_name
@@ -62,30 +66,30 @@ class CreaturesController {
     }
     
     func deleteCreatureAtIndexPath(_ indexPath: IndexPath) {
-        self.context.managedObjectContext?.delete(self.context.fetchedResultsController.object(at: indexPath) as! Creature)
+        self.context.managedObjectContext?.delete(self.context.fetchedResultsController.object(at: indexPath) as! CreatureModel)
         try! self.context.saveContext()
     }
     
-    func deleteCreature(_ creature: Creature) {
+    func deleteCreature(_ creature: CreatureModel) {
         self.context.managedObjectContext?.delete(creature)
         try! self.context.saveContext()
     }
     
-    func creatureFromIndexPath(_ indexPath: IndexPath) -> Creature {
-        return self.context.fetchedResultsController.object(at: indexPath) as! Creature
+    func creatureFromIndexPath(_ indexPath: IndexPath) -> CreatureModel {
+        return self.context.fetchedResultsController.object(at: indexPath) as! CreatureModel
     }
     
-    func indexPathFromCreature(_ creature: Creature) -> IndexPath {
+    func indexPathFromCreature(_ creature: CreatureModel) -> IndexPath {
         let indexPath = self.context.fetchedResultsController.indexPath(forObject: creature)
         return indexPath!
     }
     
-    func creatures() -> [Creature] {
-        return self.context.fetchedResultsController.fetchedObjects as! [Creature]
+    func creatures() -> [CreatureModel] {
+        return self.context.fetchedResultsController.fetchedObjects as! [CreatureModel]
     }
     
     func deleteAll() {
-        let creatures = self.context.fetchedResultsController.fetchedObjects as! [Creature]
+        let creatures = self.context.fetchedResultsController.fetchedObjects as! [CreatureModel]
         for creature in creatures {
             self.deleteCreature(creature)
         }
