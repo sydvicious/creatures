@@ -98,7 +98,7 @@ class CreaturesController {
     func logAll() {
         let creatures = self.creatures()
         for creature in creatures {
-            print(creature.name)
+            print(creature.name!)
         }
     }
 }

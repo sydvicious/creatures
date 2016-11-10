@@ -112,7 +112,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     func configureCell(_ cell: UITableViewCell, atIndexPath indexPath: IndexPath) {
         let creature = self.creaturesController!.creatureFromIndexPath(indexPath)
-        cell.textLabel!.text = creature.name as String
+        cell.textLabel!.text = creature.name! as String
     }
 
     // MARK: - Fetched results controller

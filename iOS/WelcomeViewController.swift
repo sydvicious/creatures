@@ -29,10 +29,6 @@ class WelcomeViewController: UIViewController {
         Thread.sleep(forTimeInterval: 1.0)
     }
 
-    func respondToTimer() {
-        self.performSegue(withIdentifier: "SplitViewSegue", sender: self)
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

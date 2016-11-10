@@ -10,7 +10,7 @@ import UIKit
 
 var myContext: UnsafeMutableRawPointer? = nil
 
-class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewControllerDelegate  {
+class DetailViewController: UIViewController, UITextFieldDelegate, UISplitViewControllerDelegate  {
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var navigationBar: UINavigationItem!
@@ -32,7 +32,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
         var name = "";
         
         if let creature = self.creature {
-            name = creature.name as String
+            name = creature.name! as String
         }
         
         if let nameField = self.nameField {
@@ -42,6 +42,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
                 nameField.isHidden = false
                 nameField.text = name
             }
+            nameField.delegate = self
         }
         
         if let navBar = self.navigationBar {
@@ -51,10 +52,11 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
 
     func saveFields() {
         if (self.creature != nil) {
-            self.setNameFromField(nameField)
+            if let field = nameField {
+                self.setNameFromField(field)
+            }
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +80,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
             var name = nameField.text!
             name = name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             if (name == "") {
-                name = creature.name
+                name = creature.name!
                 nameField.text! = name
             }
             let creaturesController = self.creaturesController
@@ -86,19 +88,20 @@ class DetailViewController: UIViewController, UITextViewDelegate, UISplitViewCon
         }
     }
     
-    // MARK: UITextViewDelegate
+    // MARK: UITextFieldDelegate
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        self.setNameFromField(self.nameField!)
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.nameField.returnKeyType = .done
+        return true
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        self.setNameFromField(self.nameField!)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let navBar = self.navigationBar {
+            navBar.title = nameField.text!
+        }
+        nameField.resignFirstResponder()
+        return false
     }
-    
-    func textViewDidChangeSelection(_ textView: UITextView) {
-        self.setNameFromField(self.nameField!)
-    }
-    
+
 }
 

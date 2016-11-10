@@ -11,8 +11,10 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet var fullName: UITextField!
-    @IBOutlet var givenName: UITextField!
     @IBOutlet var emailAddress: UITextField!
+    @IBOutlet var doneButton: UIButton!
+    @IBOutlet var pleaseBanner: UILabel!
+    @IBOutlet var welcomeBanner: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,19 +24,12 @@ class LoginViewController: UIViewController {
         let defaults = UserDefaults.standard
         
         var fullyInitialized = true
+        var storedFullName = ""
         
         if let storedFullNameObject = defaults.object(forKey: "fullName") {
-            let storedFullName = storedFullNameObject as! String
+            storedFullName = storedFullNameObject as! String
             fullName.text = storedFullName
             fullyInitialized = fullyInitialized && (storedFullName != "")
-        } else {
-            fullyInitialized = false
-        }
-        
-        if let storedGivenNameObject = defaults.object(forKey: "givenName") {
-            let storedGivenName = storedGivenNameObject as! String
-            givenName.text = storedGivenName
-            fullyInitialized = fullyInitialized && (storedGivenName != "")
         } else {
             fullyInitialized = false
         }
@@ -48,7 +43,17 @@ class LoginViewController: UIViewController {
         }
 
         if fullyInitialized {
-            self.performSegue(withIdentifier: "WelcomeViewSegue", sender: self)
+            welcomeBanner.text = String(format: "Welcome back, %@!", storedFullName)
+            welcomeBanner.isHidden = false
+            _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(LoginViewController.respondToTimer), userInfo: nil, repeats: false)
+            Thread.sleep(forTimeInterval: 1.0)
+        } else {
+            fullName.isHidden = false
+            emailAddress.isHidden = false
+            pleaseBanner.isHidden = false
+            pleaseBanner.isHidden = false
+            doneButton.isHidden = false
+            doneButton.isEnabled = true
         }
     }
 
@@ -60,14 +65,6 @@ class LoginViewController: UIViewController {
     func checkData() -> Bool {
         if let name = fullName.text {
             if name == "" {
-                return false
-            }
-        } else {
-            return false
-        }
-        
-        if let given = givenName.text {
-            if given == "" {
                 return false
             }
         } else {
@@ -87,10 +84,14 @@ class LoginViewController: UIViewController {
     func save() {
         let defaults = UserDefaults.standard
         defaults.set(fullName.text!, forKey: "fullName")
-        defaults.set(givenName.text!, forKey: "givenName")
         defaults.set(emailAddress.text!, forKey: "emailAddress")
+        defaults.synchronize()
     }
 
+    func respondToTimer() {
+        self.performSegue(withIdentifier: "SplitViewSegue", sender: self)
+    }
+    
     // MARK: - Navigation
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
