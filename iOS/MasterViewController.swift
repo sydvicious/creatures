@@ -35,7 +35,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     override func viewWillAppear(_ animated: Bool) {
         self.clearsSelectionOnViewWillAppear = false
-        //self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         if let creature = self.detailViewController?.creature {
             self.tableView.selectRow(at: self.creaturesController?.indexPathFromCreature(creature), animated: true, scrollPosition: .middle)
         }
@@ -148,12 +147,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.reloadData()
-
-        if let newlyCreatedCreature = self.newlyCreatedCreature {
-            let indexPath = self.creaturesController?.indexPathFromCreature(newlyCreatedCreature)
-            self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
-            self.performSegue(withIdentifier: "showDetail", sender: self)
-            self.newlyCreatedCreature = nil
+        if let creature = self.detailViewController?.creature {
+            self.tableView.selectRow(at: self.creaturesController?.indexPathFromCreature(creature), animated: true, scrollPosition: .middle)
         }
     }
 

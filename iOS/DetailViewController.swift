@@ -95,6 +95,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UISplitViewCo
         return true
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        self.setNameFromField(nameField)
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let navBar = self.navigationBar {
             navBar.title = nameField.text!
