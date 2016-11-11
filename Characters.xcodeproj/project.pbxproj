@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		620124141DD5808500E1A05F /* WizardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620124131DD5808500E1A05F /* WizardPageViewController.swift */; };
 		62166FA11D8CB87E003540D4 /* TestAbility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62166FA01D8CB87E003540D4 /* TestAbility.swift */; };
 		62166FA21D8CB87E003540D4 /* TestAbility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62166FA01D8CB87E003540D4 /* TestAbility.swift */; };
 		62166FA61D8CBA70003540D4 /* TestD20Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62166FA51D8CBA70003540D4 /* TestD20Ability.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		62004A501D9CB85E00A41168 /* Characters 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 3.xcdatamodel"; sourceTree = "<group>"; };
+		620124131DD5808500E1A05F /* WizardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardPageViewController.swift; sourceTree = "<group>"; };
 		62166FA01D8CB87E003540D4 /* TestAbility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestAbility.swift; path = "Common Tests/TestAbility.swift"; sourceTree = SOURCE_ROOT; };
 		62166FA51D8CBA70003540D4 /* TestD20Ability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestD20Ability.swift; path = "Common Tests/TestD20Ability.swift"; sourceTree = SOURCE_ROOT; };
 		6222E0541DB48D7E0031FD74 /* Creature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
@@ -144,6 +146,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		620124151DD580BE00E1A05F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				622850631978ECB000DE985E /* DetailViewController.swift */,
+				62DC42971D4C500C00A8EE5F /* LoginViewController.swift */,
+				622850611978ECB000DE985E /* MasterViewController.swift */,
+				62DC42991D4C524D00A8EE5F /* SplitViewController.swift */,
+				620124131DD5808500E1A05F /* WizardPageViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		6215D9B71DB47F7000DFBF88 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,13 +240,10 @@
 			isa = PBXGroup;
 			children = (
 				626A3D7D19CBE5AF00B3222D /* Resources */,
+				620124151DD580BE00E1A05F /* ViewControllers */,
 				6228505C1978ECB000DE985E /* AppDelegate.swift */,
 				62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */,
 				627426761B733A910051A5E5 /* CharactersContext.swift */,
-				622850631978ECB000DE985E /* DetailViewController.swift */,
-				62DC42971D4C500C00A8EE5F /* LoginViewController.swift */,
-				622850611978ECB000DE985E /* MasterViewController.swift */,
-				62DC42991D4C524D00A8EE5F /* SplitViewController.swift */,
 				6228505A1978ECB000DE985E /* Supporting Files */,
 			);
 			path = iOS;
@@ -527,6 +538,7 @@
 				62FED46B1DB4867E0073E486 /* Transactions+CoreDataProperties.swift in Sources */,
 				622850641978ECB000DE985E /* DetailViewController.swift in Sources */,
 				62C6A0261B2B24B8006B50D2 /* CreaturesController.swift in Sources */,
+				620124141DD5808500E1A05F /* WizardPageViewController.swift in Sources */,
 				62D02FC11D72381A00CB6CA6 /* d20Ability.swift in Sources */,
 				62FED4621DB486480073E486 /* Characters.xcdatamodeld in Sources */,
 				62D02FC31D7238A500CB6CA6 /* d20Bonus.swift in Sources */,

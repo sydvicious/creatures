@@ -38,7 +38,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" text="Name" borderStyle="line" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qdW-Ye-dTP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" text="Name" borderStyle="line" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qdW-Ye-dTP">
                                 <rect key="frame" x="16" y="72" width="343" height="32"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -203,10 +203,10 @@
             </objects>
             <point key="canvasLocation" x="-13" y="40"/>
         </scene>
-        <!--Page View Controller-->
+        <!--Wizard Page View Controller-->
         <scene sceneID="tfP-um-LhN">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="cTs-Cq-Gnf" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="cTs-Cq-Gnf" customClass="WizardPageViewController" customModule="Characters" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8j-Ka-kkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-351" y="715"/>
