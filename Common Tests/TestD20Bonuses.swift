@@ -238,12 +238,4 @@ class TestD20Bonuses: XCTestCase {
         XCTAssertEqual(netValue, 0)
 
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

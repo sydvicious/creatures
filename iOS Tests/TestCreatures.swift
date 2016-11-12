@@ -12,7 +12,7 @@ import CoreData
 
 class TestCreatures: XCTestCase {
 
-    lazy var creaturesController = CreaturesController.sharedCreaturesController(CharactersContext())
+    lazy var creaturesController = CreaturesController.sharedCreaturesController(CharactersContext(true))
     
     override func setUp() {
         super.setUp()
@@ -27,26 +27,24 @@ class TestCreatures: XCTestCase {
         super.tearDown()
     }
     
-    func testCreate() {
-        let creature = try! creaturesController.createCreature("TestCreature1")
+    func testCreatures() {
+        var creature = try! creaturesController.createCreature("TestCreature1")
         XCTAssertNotNil(creature, "creature was nil in testCreate.")
-    }
-    
-    func testDelete() {
+
         creaturesController.logAll()
         let creatures = creaturesController.creatures()
         let startCount = creatures.count
-        let creature = try! creaturesController.createCreature("TestCreature2")
+        creature = try! creaturesController.createCreature("TestCreature2")
         creaturesController.logAll()
-        print(creature.name)
-        let indexPath = IndexPath(item: 0, section: 0)
+        print(creature.name! as String)
+        let indexPath = creaturesController.indexPathFromCreature(creature)
+        let indexPath2 = creaturesController.indexPathFromCreature(creature)
+
         creaturesController.deleteCreatureAtIndexPath(indexPath)
         creaturesController.logAll()
         XCTAssertEqual(creatures.count, startCount, "Did not have same number of creatures at the end.")
-    }
-    
-    func testName() {
-        let creature = try! creaturesController.createCreature("TestCreature3")
+
+        creature = try! creaturesController.createCreature("TestCreature3")
         try! creaturesController.saveName("TestCreature3.1", forCreature: creature)
         var name = creature.name
         XCTAssertEqual(name, "TestCreature3.1", "Name operation failed.")

@@ -26,7 +26,6 @@
 		6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
 		628D61511B2BBCF300D420E1 /* TestCreatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */; };
 		62ACB3D01DD457FD00D7BA89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62ACB3CF1DD457FD00D7BA89 /* Images.xcassets */; };
-		62B2CB1C1B2A551E0073B8DC /* iOS-Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2CB1B1B2A551E0073B8DC /* iOS-Tests.swift */; };
 		62B2CB2A1B2A56D90073B8DC /* Mac-Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2CB291B2A56D90073B8DC /* Mac-Tests.swift */; };
 		62C6A0051B2B2238006B50D2 /* TestPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C6A0041B2B2238006B50D2 /* TestPrefs.swift */; };
 		62C6A0261B2B24B8006B50D2 /* CreaturesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */; };
@@ -92,7 +91,6 @@
 		62A95C281B29F45700D5B981 /* Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Characters.xcdatamodel; sourceTree = "<group>"; };
 		62ACB3CF1DD457FD00D7BA89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		62B2CB191B2A551E0073B8DC /* iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		62B2CB1B1B2A551E0073B8DC /* iOS-Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS-Tests.swift"; sourceTree = "<group>"; };
 		62B2CB1D1B2A551E0073B8DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62B2CB271B2A56D90073B8DC /* Mac-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mac-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B2CB291B2A56D90073B8DC /* Mac-Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mac-Tests.swift"; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 			isa = PBXGroup;
 			children = (
 				622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */,
-				62B2CB1B1B2A551E0073B8DC /* iOS-Tests.swift */,
 				62C6A0041B2B2238006B50D2 /* TestPrefs.swift */,
 				62B2CB1D1B2A551E0073B8DC /* Info.plist */,
 			);
@@ -569,7 +566,6 @@
 				62D02FC51D73437B00CB6CA6 /* TestD20Bonuses.swift in Sources */,
 				62166FA61D8CBA70003540D4 /* TestD20Ability.swift in Sources */,
 				628D61511B2BBCF300D420E1 /* TestCreatures.swift in Sources */,
-				62B2CB1C1B2A551E0073B8DC /* iOS-Tests.swift in Sources */,
 				62166FA11D8CB87E003540D4 /* TestAbility.swift in Sources */,
 				62C6A0051B2B2238006B50D2 /* TestPrefs.swift in Sources */,
 			);

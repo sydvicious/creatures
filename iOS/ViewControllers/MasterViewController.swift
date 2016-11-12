@@ -82,12 +82,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Table View
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.creaturesController!.context.fetchedResultsController.sections?.count ?? 0
+        return self.creaturesController!.context.fetchedResultsController!.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = self.creaturesController!.context.fetchedResultsController.sections![section]
-        return sectionInfo.numberOfObjects
+        let sectionInfo = self.creaturesController!.context.fetchedResultsController?.sections![section]
+        return sectionInfo!.numberOfObjects
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

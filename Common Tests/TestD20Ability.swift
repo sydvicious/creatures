@@ -95,14 +95,13 @@ class TestD20Ability: XCTestCase {
         XCTAssertEqual(ability.baseScore, 15)
         XCTAssertEqual(ability.currentScore, 17)
         XCTAssertEqual(modifier, 3)
-        ability.bonus.addTemporary("enhancement", fromSource: "Bull's Strength", withValue: 1, withRounds: 1)
 
         ability.baseScore = 10
         XCTAssertEqual(ability.baseScore, 10)
         XCTAssertEqual(ability.currentScore, 12)
         XCTAssertEqual(ability.bonus.netValue(), 2)
         modifier = ability.modifier
-        XCTAssertEqual(modifier, 2)
+        XCTAssertEqual(modifier, 1)
         ability.bonus.decrementRounds()
         modifier = ability.modifier
         XCTAssertEqual(ability.baseScore, 10)
@@ -117,19 +116,10 @@ class TestD20Ability: XCTestCase {
         XCTAssertEqual(modifier, -4)
         ability.bonus.decrementRounds()
         modifier = ability.modifier
-        XCTAssertEqual(ability.baseScore, 10)
-        XCTAssertEqual(ability.currentScore, 12)
-        XCTAssertEqual(modifier, 1)
+        XCTAssertEqual(modifier, -4)
         
         
 
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
     
 }

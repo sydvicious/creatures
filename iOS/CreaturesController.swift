@@ -18,7 +18,7 @@ class CreaturesController {
     private init (_ charactersContext: CharactersContext ) {
         do {
             self.context = charactersContext
-            try self.context.fetchedResultsController.performFetch()
+            try self.context.fetchedResultsController?.performFetch()
         } catch {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -37,7 +37,7 @@ class CreaturesController {
     }
     
     func setDelegate(_ delegate: NSFetchedResultsControllerDelegate) {
-        self.context.fetchedResultsController.delegate = delegate
+        self.context.fetchedResultsController?.delegate = delegate
     }
     
     func createCreature(_ name: String) throws -> CreatureModel {
@@ -66,7 +66,7 @@ class CreaturesController {
     }
     
     func deleteCreatureAtIndexPath(_ indexPath: IndexPath) {
-        self.context.managedObjectContext?.delete(self.context.fetchedResultsController.object(at: indexPath) as! CreatureModel)
+        self.context.managedObjectContext?.delete(self.context.fetchedResultsController?.object(at: indexPath) as! CreatureModel)
         try! self.context.saveContext()
     }
     
@@ -76,20 +76,20 @@ class CreaturesController {
     }
     
     func creatureFromIndexPath(_ indexPath: IndexPath) -> CreatureModel {
-        return self.context.fetchedResultsController.object(at: indexPath) as! CreatureModel
+        return self.context.fetchedResultsController!.object(at: indexPath) as! CreatureModel
     }
     
     func indexPathFromCreature(_ creature: CreatureModel) -> IndexPath {
-        let indexPath = self.context.fetchedResultsController.indexPath(forObject: creature)
+        let indexPath = self.context.fetchedResultsController?.indexPath(forObject: creature)
         return indexPath!
     }
     
     func creatures() -> [CreatureModel] {
-        return self.context.fetchedResultsController.fetchedObjects as! [CreatureModel]
+        return self.context.fetchedResultsController!.fetchedObjects as! [CreatureModel]
     }
     
     func deleteAll() {
-        let creatures = self.context.fetchedResultsController.fetchedObjects as! [CreatureModel]
+        let creatures = self.context.fetchedResultsController?.fetchedObjects as! [CreatureModel]
         for creature in creatures {
             self.deleteCreature(creature)
         }
