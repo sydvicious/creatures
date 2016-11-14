@@ -37,9 +37,8 @@
 		62D02FC61D73437B00CB6CA6 /* TestD20Bonuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D02FC41D73437B00CB6CA6 /* TestD20Bonuses.swift */; };
 		62DC42981D4C500C00A8EE5F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DC42971D4C500C00A8EE5F /* LoginViewController.swift */; };
 		62DC429A1D4C524D00A8EE5F /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DC42991D4C524D00A8EE5F /* SplitViewController.swift */; };
+		62EDDC031DD96D950027A719 /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62EDDBFE1DD96D950027A719 /* Characters.xcdatamodeld */; };
 		62FA2D391B27B49400FCCF71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62FA2D371B27B49400FCCF71 /* Main.storyboard */; };
-		62FED4621DB486480073E486 /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62A95C271B29F45700D5B981 /* Characters.xcdatamodeld */; };
-		62FED4631DB486490073E486 /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62A95C271B29F45700D5B981 /* Characters.xcdatamodeld */; };
 		62FED4681DB4867E0073E486 /* CreatureModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FED4641DB4867E0073E486 /* CreatureModel+CoreDataClass.swift */; };
 		62FED4691DB4867E0073E486 /* CreatureModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FED4651DB4867E0073E486 /* CreatureModel+CoreDataProperties.swift */; };
 		62FED46A1DB4867E0073E486 /* Transactions+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FED4661DB4867E0073E486 /* Transactions+CoreDataClass.swift */; };
@@ -68,7 +67,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		62004A501D9CB85E00A41168 /* Characters 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 3.xcdatamodel"; sourceTree = "<group>"; };
 		620124131DD5808500E1A05F /* WizardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardPageViewController.swift; sourceTree = "<group>"; };
 		62166FA01D8CB87E003540D4 /* TestAbility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestAbility.swift; path = "Common Tests/TestAbility.swift"; sourceTree = SOURCE_ROOT; };
 		62166FA51D8CBA70003540D4 /* TestD20Ability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestD20Ability.swift; path = "Common Tests/TestD20Ability.swift"; sourceTree = SOURCE_ROOT; };
@@ -86,9 +84,7 @@
 		622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCreatures.swift; path = "iOS Tests/TestCreatures.swift"; sourceTree = SOURCE_ROOT; };
 		626A3D7B19CBE59300B3222D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		627426761B733A910051A5E5 /* CharactersContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersContext.swift; sourceTree = "<group>"; };
-		6288E1D11A4E7A63009F7CE2 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
-		628C42E21B71BC06001C3223 /* Characters 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 2.xcdatamodel"; sourceTree = "<group>"; };
-		62A95C281B29F45700D5B981 /* Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Characters.xcdatamodel; sourceTree = "<group>"; };
+		6288E1D11A4E7A63009F7CE2 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prefs.swift; path = Utils/Prefs.swift; sourceTree = "<group>"; };
 		62ACB3CF1DD457FD00D7BA89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		62B2CB191B2A551E0073B8DC /* iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B2CB1D1B2A551E0073B8DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,12 +100,15 @@
 		62D02FC41D73437B00CB6CA6 /* TestD20Bonuses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestD20Bonuses.swift; path = "Common Tests/TestD20Bonuses.swift"; sourceTree = SOURCE_ROOT; };
 		62DC42971D4C500C00A8EE5F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		62DC42991D4C524D00A8EE5F /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		62EDDBFF1DD96D950027A719 /* Characters 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 2.xcdatamodel"; sourceTree = "<group>"; };
+		62EDDC001DD96D950027A719 /* Characters 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 3.xcdatamodel"; sourceTree = "<group>"; };
+		62EDDC011DD96D950027A719 /* Characters 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 4.xcdatamodel"; sourceTree = "<group>"; };
+		62EDDC021DD96D950027A719 /* Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Characters.xcdatamodel; sourceTree = "<group>"; };
 		62FA2D381B27B49400FCCF71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		62FED4611DB4844A0073E486 /* Characters 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 4.xcdatamodel"; sourceTree = "<group>"; };
-		62FED4641DB4867E0073E486 /* CreatureModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreatureModel+CoreDataClass.swift"; sourceTree = "<group>"; };
-		62FED4651DB4867E0073E486 /* CreatureModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreatureModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		62FED4661DB4867E0073E486 /* Transactions+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transactions+CoreDataClass.swift"; sourceTree = "<group>"; };
-		62FED4671DB4867E0073E486 /* Transactions+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transactions+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		62FED4641DB4867E0073E486 /* CreatureModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CreatureModel+CoreDataClass.swift"; path = "Models/CreatureModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		62FED4651DB4867E0073E486 /* CreatureModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CreatureModel+CoreDataProperties.swift"; path = "Models/CreatureModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		62FED4661DB4867E0073E486 /* Transactions+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Transactions+CoreDataClass.swift"; path = "Models/Transactions+CoreDataClass.swift"; sourceTree = "<group>"; };
+		62FED4671DB4867E0073E486 /* Transactions+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Transactions+CoreDataProperties.swift"; path = "Models/Transactions+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +158,7 @@
 		6215D9B71DB47F7000DFBF88 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				62EDDBFE1DD96D950027A719 /* Characters.xcdatamodeld */,
 				62FED4641DB4867E0073E486 /* CreatureModel+CoreDataClass.swift */,
 				62FED4651DB4867E0073E486 /* CreatureModel+CoreDataProperties.swift */,
 				62FED4661DB4867E0073E486 /* Transactions+CoreDataClass.swift */,
@@ -187,29 +187,12 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
-		6222E0511DB48CBE0031FD74 /* Creature Attributes */ = {
-			isa = PBXGroup;
-			children = (
-				6222E0531DB48D1C0031FD74 /* Ability */,
-			);
-			name = "Creature Attributes";
-			sourceTree = "<group>";
-		};
 		6222E0521DB48CE70031FD74 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				6288E1D11A4E7A63009F7CE2 /* Prefs.swift */,
 			);
 			name = Utils;
-			sourceTree = "<group>";
-		};
-		6222E0531DB48D1C0031FD74 /* Ability */ = {
-			isa = PBXGroup;
-			children = (
-				62D02FBE1D7236A100CB6CA6 /* Ability.swift */,
-				62D02FB91D72362400CB6CA6 /* d20 */,
-			);
-			name = Ability;
 			sourceTree = "<group>";
 		};
 		6228504C1978EC9600DE985E = {
@@ -277,9 +260,8 @@
 		622850AA1978ED7900DE985E /* Common Files */ = {
 			isa = PBXGroup;
 			children = (
+				62EDDC041DD96DD00027A719 /* Attributes */,
 				6222E0541DB48D7E0031FD74 /* Creature.swift */,
-				62A95C271B29F45700D5B981 /* Characters.xcdatamodeld */,
-				6222E0511DB48CBE0031FD74 /* Creature Attributes */,
 				6215D9B71DB47F7000DFBF88 /* Models */,
 				6222E0521DB48CE70031FD74 /* Utils */,
 			);
@@ -315,46 +297,73 @@
 			path = "Mac Tests";
 			sourceTree = "<group>";
 		};
-		62D02FB91D72362400CB6CA6 /* d20 */ = {
+		62EDDC041DD96DD00027A719 /* Attributes */ = {
+			isa = PBXGroup;
+			children = (
+				62EDDC051DD96DDF0027A719 /* Ability */,
+			);
+			path = Attributes;
+			sourceTree = "<group>";
+		};
+		62EDDC051DD96DDF0027A719 /* Ability */ = {
+			isa = PBXGroup;
+			children = (
+				62D02FBE1D7236A100CB6CA6 /* Ability.swift */,
+				62EDDC061DD96DEF0027A719 /* d20 */,
+			);
+			path = Ability;
+			sourceTree = "<group>";
+		};
+		62EDDC061DD96DEF0027A719 /* d20 */ = {
 			isa = PBXGroup;
 			children = (
 				62D02FC01D72381A00CB6CA6 /* d20Ability.swift */,
 				62D02FC21D7238A500CB6CA6 /* d20Bonus.swift */,
-				62D02FBB1D72363C00CB6CA6 /* D&D3 */,
-				62D02FBC1D72364400CB6CA6 /* D&D3.5 */,
-				62D02FBD1D72365000CB6CA6 /* D&D5 */,
-				62D02FBA1D72362D00CB6CA6 /* Pathfinder */,
+				62EDDC071DD96E040027A719 /* D&D3 */,
+				62EDDC081DD96E140027A719 /* D&D3.5 */,
+				62EDDC091DD96E2B0027A719 /* D&D4 */,
+				62EDDC0A1DD96E5A0027A719 /* D&D5 */,
+				62EDDC0B1DD96E880027A719 /* Pathfinder */,
 			);
-			name = d20;
+			path = d20;
 			sourceTree = "<group>";
 		};
-		62D02FBA1D72362D00CB6CA6 /* Pathfinder */ = {
-			isa = PBXGroup;
-			children = (
-				62D02FB71D72361800CB6CA6 /* PathfinderAbility.swift */,
-			);
-			name = Pathfinder;
-			sourceTree = "<group>";
-		};
-		62D02FBB1D72363C00CB6CA6 /* D&D3 */ = {
+		62EDDC071DD96E040027A719 /* D&D3 */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "D&D3";
+			path = "D&D3";
 			sourceTree = "<group>";
 		};
-		62D02FBC1D72364400CB6CA6 /* D&D3.5 */ = {
+		62EDDC081DD96E140027A719 /* D&D3.5 */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "D&D3.5";
+			path = DD3.5;
 			sourceTree = "<group>";
 		};
-		62D02FBD1D72365000CB6CA6 /* D&D5 */ = {
+		62EDDC091DD96E2B0027A719 /* D&D4 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "D&D4";
+			sourceTree = "<group>";
+		};
+		62EDDC0A1DD96E5A0027A719 /* D&D5 */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "D&D5";
+			path = DD3.5;
+			sourceTree = "<group>";
+		};
+		62EDDC0B1DD96E880027A719 /* Pathfinder */ = {
+			isa = PBXGroup;
+			children = (
+				62D02FB71D72361800CB6CA6 /* PathfinderAbility.swift */,
+			);
+			path = Pathfinder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,13 +540,13 @@
 				622850621978ECB000DE985E /* MasterViewController.swift in Sources */,
 				62DC429A1D4C524D00A8EE5F /* SplitViewController.swift in Sources */,
 				62FED46A1DB4867E0073E486 /* Transactions+CoreDataClass.swift in Sources */,
+				62EDDC031DD96D950027A719 /* Characters.xcdatamodeld in Sources */,
 				62FED4691DB4867E0073E486 /* CreatureModel+CoreDataProperties.swift in Sources */,
 				62FED46B1DB4867E0073E486 /* Transactions+CoreDataProperties.swift in Sources */,
 				622850641978ECB000DE985E /* DetailViewController.swift in Sources */,
 				62C6A0261B2B24B8006B50D2 /* CreaturesController.swift in Sources */,
 				620124141DD5808500E1A05F /* WizardPageViewController.swift in Sources */,
 				62D02FC11D72381A00CB6CA6 /* d20Ability.swift in Sources */,
-				62FED4621DB486480073E486 /* Characters.xcdatamodeld in Sources */,
 				62D02FC31D7238A500CB6CA6 /* d20Bonus.swift in Sources */,
 				62D02FBF1D7236A100CB6CA6 /* Ability.swift in Sources */,
 				62FED4681DB4867E0073E486 /* CreatureModel+CoreDataClass.swift in Sources */,
@@ -555,7 +564,6 @@
 				6222E0561DB48D7E0031FD74 /* Creature.swift in Sources */,
 				62FED46F1DB489640073E486 /* Transactions+CoreDataClass.swift in Sources */,
 				6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */,
-				62FED4631DB486490073E486 /* Characters.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1092,16 +1100,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		62A95C271B29F45700D5B981 /* Characters.xcdatamodeld */ = {
+		62EDDBFE1DD96D950027A719 /* Characters.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				62FED4611DB4844A0073E486 /* Characters 4.xcdatamodel */,
-				62004A501D9CB85E00A41168 /* Characters 3.xcdatamodel */,
-				628C42E21B71BC06001C3223 /* Characters 2.xcdatamodel */,
-				62A95C281B29F45700D5B981 /* Characters.xcdatamodel */,
+				62EDDBFF1DD96D950027A719 /* Characters 2.xcdatamodel */,
+				62EDDC001DD96D950027A719 /* Characters 3.xcdatamodel */,
+				62EDDC011DD96D950027A719 /* Characters 4.xcdatamodel */,
+				62EDDC021DD96D950027A719 /* Characters.xcdatamodel */,
 			);
-			currentVersion = 62FED4611DB4844A0073E486 /* Characters 4.xcdatamodel */;
-			path = Characters.xcdatamodeld;
+			currentVersion = 62EDDC011DD96D950027A719 /* Characters 4.xcdatamodel */;
+			name = Characters.xcdatamodeld;
+			path = Models/Characters.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
