@@ -31,5 +31,10 @@ class Ability {
             self._baseScore = score
         }
     }
+    
+    func transactions(abilityName: String) -> [Transaction] {
+        let baseScoreTransaction = Transaction(action: "creation", source: "ability", type: abilityName, value: String(self._baseScore), duration: -1)
+        return [baseScoreTransaction]
+    }
 }
 

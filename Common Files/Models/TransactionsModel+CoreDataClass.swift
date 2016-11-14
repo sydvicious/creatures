@@ -10,6 +10,6 @@ import Foundation
 import CoreData
 
 
-public class Transactions: NSManagedObject {
+public class TransactionsModel: NSManagedObject {
 
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CreatureModel" representedClassName="Characters.CreatureModel" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" minValueString="1" defaultValueString="&lt;unnamed&gt;" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="oid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="CreatureModel" inverseName="transactions" inverseEntity="CreatureModel" syncable="YES"/>
+    </entity>
+    <entity name="TransactionsModel" representedClassName=".Transactions" syncable="YES">
+        <attribute name="action" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="oid" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="source" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="value" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="creature" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransactionsModel" inverseName="creature" inverseEntity="TransactionsModel" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CreatureModel" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="TransactionsModel" positionX="-63" positionY="0" width="128" height="165"/>
+    </elements>
+</model>

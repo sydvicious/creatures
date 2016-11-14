@@ -9,10 +9,10 @@
 import Foundation
 import CoreData
 
-extension Transactions {
+extension TransactionsModel {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Transactions> {
-        return NSFetchRequest<Transactions>(entityName: "Transactions");
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<TransactionsModel> {
+        return NSFetchRequest<TransactionsModel>(entityName: "TransactionsModel");
     }
 
     @NSManaged public var action: String?
