@@ -21,15 +21,18 @@ class d20Ability: Ability {
         }
     }
 
-    override init(name: String, score: Int) {
+    override init(score: Int) {
         bonus = d20Bonus()
-        super.init(name: name, score: score)
+        super.init(score: score)
     }
     
-    override func transactions() -> [Transaction] {
-        var transactions = super.transactions();
-        
+    func transactions(section: String, name: String) -> [Transaction] {
+        let supertransactions = super.transactions(name: name);
+        let bonusTransactions = self.bonus.transactions(section: section, attribute: name)
+        let transactions = supertransactions + bonusTransactions
+        return transactions
     }
+    
 }
 
 extension d20Ability: d20AbilityVars {

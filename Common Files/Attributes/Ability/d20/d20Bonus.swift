@@ -40,6 +40,10 @@ struct d20BonusInfo {
         }
         return state
     }
+    
+    func transaction(section: String, name: String, type: String) -> Transaction {
+        return Transaction(section: section, attribute: name, subattribute: type, value: String(value), duration: rounds)
+    }
 }
 
 struct d20BonusBySource {
@@ -93,6 +97,19 @@ struct d20BonusBySource {
             return .Expired
         }
         return .Temporary
+    }
+    
+    func transactions(section: String, name: String, type: String) -> [Transaction] {
+        var transactions = [Transaction]()
+        
+        for (_, bonusInfo) in bonusInfos {
+            if bonusInfo.state != .Expired {
+                let transaction = bonusInfo.transaction(section: section, name: name, type: type)
+                transactions.append(transaction)
+            }
+        }
+        
+        return transactions
     }
 }
 
@@ -166,10 +183,10 @@ struct d20Bonus {
         }
     }
     
-    func buildTransactions(section: String, attribute: String) -> [Transaction] {
+    func transactions(section: String, attribute: String) -> [Transaction] {
         var result = [Transaction]()
         for (type, bonus) in bonuses {
-            let transactions = bonus.tranactions(section: section, attribute: attribute, subattribute: type);
+            let transactions = bonus.transactions(section: section, name: attribute, type: type)
             result = result + transactions
         }
         return result

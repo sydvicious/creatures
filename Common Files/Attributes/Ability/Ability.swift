@@ -8,8 +8,8 @@
 
 import UIKit
 
-class Ability: TransactionsProtocol {
-    private var _name: String
+class Ability {
+    let sectionName = "abilities"
     private var _baseScore: Int
     
     var baseScore: Int {
@@ -25,8 +25,7 @@ class Ability: TransactionsProtocol {
         }
     }
     
-    init(name: String, score: Int) {
-        self._name = name
+    init(score: Int) {
         if (score < 0) {
             self._baseScore = 0
         } else {
@@ -34,8 +33,8 @@ class Ability: TransactionsProtocol {
         }
     }
     
-    func transactions() -> [Transaction] {
-        let baseScoreTransaction = Transaction(section: "abilities", source: "ability", attribute: self._name, subattribute: "base", value: String(self._baseScore), duration: -1)
+    func transactions(name: String) -> [Transaction] {
+        let baseScoreTransaction = Transaction(section: sectionName, attribute: name, subattribute: "base", value: String(self._baseScore), duration: -1)
         return [baseScoreTransaction]
     }
 }
