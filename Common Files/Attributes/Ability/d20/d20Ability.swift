@@ -21,9 +21,14 @@ class d20Ability: Ability {
         }
     }
 
-    override init(score: Int) {
+    override init(name: String, score: Int) {
         bonus = d20Bonus()
-        super.init(score: score)
+        super.init(name: name, score: score)
+    }
+    
+    override func transactions() -> [Transaction] {
+        var transactions = super.transactions();
+        
     }
 }
 
