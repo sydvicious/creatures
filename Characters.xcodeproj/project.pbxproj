@@ -20,6 +20,12 @@
 		622850671978ECB000DE985E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 622850651978ECB000DE985E /* Main.storyboard */; };
 		6228508B1978ED1B00DE985E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228508A1978ED1B00DE985E /* AppDelegate.swift */; };
 		622850901978ED1B00DE985E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6228508F1978ED1B00DE985E /* Images.xcassets */; };
+		6261452B1DEBB81200BDDF03 /* CreatueModel+Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6261452A1DEBB81200BDDF03 /* CreatueModel+Creature.swift */; };
+		6261452C1DEBB81200BDDF03 /* CreatueModel+Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6261452A1DEBB81200BDDF03 /* CreatueModel+Creature.swift */; };
+		6268C7B91DE9684500CBD263 /* d20Bonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D02FC21D7238A500CB6CA6 /* d20Bonus.swift */; };
+		6268C7BA1DE9684900CBD263 /* d20Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D02FC01D72381A00CB6CA6 /* d20Ability.swift */; };
+		6268C7BB1DE9684D00CBD263 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D02FBE1D7236A100CB6CA6 /* Ability.swift */; };
+		6268C7BC1DE9685100CBD263 /* PathfinderAbility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D02FB71D72361800CB6CA6 /* PathfinderAbility.swift */; };
 		626A3D7C19CBE59300B3222D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626A3D7B19CBE59300B3222D /* LaunchScreen.xib */; };
 		627426771B733A910051A5E5 /* CharactersContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627426761B733A910051A5E5 /* CharactersContext.swift */; };
 		62811D4C1DE7B5DC00217C09 /* TransactionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62811D4B1DE7B5DC00217C09 /* TransactionsProtocol.swift */; };
@@ -89,6 +95,7 @@
 		6228508A1978ED1B00DE985E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6228508F1978ED1B00DE985E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCreatures.swift; path = "iOS Tests/TestCreatures.swift"; sourceTree = SOURCE_ROOT; };
+		6261452A1DEBB81200BDDF03 /* CreatueModel+Creature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CreatueModel+Creature.swift"; path = "Models/CreatueModel+Creature.swift"; sourceTree = "<group>"; };
 		626A3D7B19CBE59300B3222D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		627426761B733A910051A5E5 /* CharactersContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersContext.swift; sourceTree = "<group>"; };
 		62811D4B1DE7B5DC00217C09 /* TransactionsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsProtocol.swift; sourceTree = "<group>"; };
@@ -172,6 +179,7 @@
 				62EDDBFE1DD96D950027A719 /* Characters.xcdatamodeld */,
 				62FED4641DB4867E0073E486 /* CreatureModel+CoreDataClass.swift */,
 				62FED4651DB4867E0073E486 /* CreatureModel+CoreDataProperties.swift */,
+				6261452A1DEBB81200BDDF03 /* CreatueModel+Creature.swift */,
 				62FED4661DB4867E0073E486 /* TransactionsModel+CoreDataClass.swift */,
 				62FED4671DB4867E0073E486 /* TransactionsModel+CoreDataProperties.swift */,
 			);
@@ -271,8 +279,8 @@
 		622850AA1978ED7900DE985E /* Common Files */ = {
 			isa = PBXGroup;
 			children = (
-				62EDDC041DD96DD00027A719 /* Attributes */,
 				6222E0541DB48D7E0031FD74 /* Creature.swift */,
+				62EDDC041DD96DD00027A719 /* Attributes */,
 				6215D9B71DB47F7000DFBF88 /* Models */,
 				62C154561DD9767900D5DAAC /* Transactions */,
 				6222E0521DB48CE70031FD74 /* Utils */,
@@ -562,6 +570,7 @@
 				62D02FB81D72361800CB6CA6 /* PathfinderAbility.swift in Sources */,
 				62C1545D1DD9789C00D5DAAC /* TransactionsController.swift in Sources */,
 				622850621978ECB000DE985E /* MasterViewController.swift in Sources */,
+				6261452B1DEBB81200BDDF03 /* CreatueModel+Creature.swift in Sources */,
 				62DC429A1D4C524D00A8EE5F /* SplitViewController.swift in Sources */,
 				62FED46A1DB4867E0073E486 /* TransactionsModel+CoreDataClass.swift in Sources */,
 				62EDDC031DD96D950027A719 /* Characters.xcdatamodeld in Sources */,
@@ -588,10 +597,15 @@
 				62FED46E1DB4895F0073E486 /* CreatureModel+CoreDataClass.swift in Sources */,
 				62FED46D1DB4894B0073E486 /* TransactionsModel+CoreDataProperties.swift in Sources */,
 				62C154611DD978DC00D5DAAC /* Transaction.swift in Sources */,
+				6268C7BC1DE9685100CBD263 /* PathfinderAbility.swift in Sources */,
+				6261452C1DEBB81200BDDF03 /* CreatueModel+Creature.swift in Sources */,
 				62811D4D1DE7B5DC00217C09 /* TransactionsProtocol.swift in Sources */,
+				6268C7B91DE9684500CBD263 /* d20Bonus.swift in Sources */,
 				6222E0561DB48D7E0031FD74 /* Creature.swift in Sources */,
 				62C1545B1DD9779F00D5DAAC /* Characters.xcdatamodeld in Sources */,
 				62C1545E1DD9789C00D5DAAC /* TransactionsController.swift in Sources */,
+				6268C7BB1DE9684D00CBD263 /* Ability.swift in Sources */,
+				6268C7BA1DE9684900CBD263 /* d20Ability.swift in Sources */,
 				62FED46F1DB489640073E486 /* TransactionsModel+CoreDataClass.swift in Sources */,
 				6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */,
 			);

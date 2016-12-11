@@ -55,3 +55,4 @@ extension CreatureModel {
     @NSManaged public func removeFromTransactions(_ values: NSOrderedSet)
 
 }
+

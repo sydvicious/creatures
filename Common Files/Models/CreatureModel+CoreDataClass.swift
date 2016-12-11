@@ -14,4 +14,6 @@ public class CreatureModel: NSManagedObject {
     enum CreatureModelDataError: Error {
         case nameCannotBeNull
     }
+    
+    var creature: Creature?
 }

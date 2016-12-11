@@ -40,7 +40,7 @@ class CreaturesController {
         self.context.fetchedResultsController?.delegate = delegate
     }
     
-    func createCreature(_ name: String) throws -> CreatureModel {
+    func createCreature(_ name: String, withSystem: String = "Pathfinder", withCreature: Creature? = nil) throws -> CreatureModel {
         let context = self.context.managedObjectContext
         let newCreature = CreatureModel(context: context!)
         
@@ -48,8 +48,22 @@ class CreaturesController {
         newCreature.oid = oid
         try self.context.saveContext()
         
+        var creatureWithAbilities: Creature
+        if let creature = withCreature {
+            creatureWithAbilities = creature
+        } else {
+            // Assuming Pathfinder
+            creatureWithAbilities = Creature(system: "Pathfinder", strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10)
+            
+        }
+        newCreature.creature = creatureWithAbilities
         try self.saveName(name, forCreature: newCreature)
+
         return newCreature
+    }
+    
+    func setCreature(model: CreatureModel, creature: Creature?) {
+        model.creature = creature
     }
     
     func saveCreature(_ name: String, atIndexPath: IndexPath) throws {

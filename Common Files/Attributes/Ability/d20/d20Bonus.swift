@@ -166,12 +166,4 @@ struct d20Bonus {
         }
     }
     
-    func buildTransactions(section: String, attribute: String) -> [Transaction] {
-        var result = [Transaction]()
-        for (type, bonus) in bonuses {
-            let transactions = bonus.tranactions(section: section, attribute: attribute, subattribute: type);
-            result = result + transactions
-        }
-        return result
-    }
  }

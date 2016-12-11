@@ -11,32 +11,23 @@ import UIKit
 class Ability: TransactionsProtocol {
     private var _name: String
     private var _baseScore: Int
+    private let _trans: TransactionsController
     
     var baseScore: Int {
         get {
             return self._baseScore
         }
-        set {
-            if newValue < 0 {
-                self._baseScore = 0
-            } else {
-                self._baseScore = newValue
-            }
-        }
     }
     
-    init(name: String, score: Int) {
+    init(name: String, score: Int, trans: TransactionsController) {
         self._name = name
+        self._trans = trans
         if (score < 0) {
             self._baseScore = 0
         } else {
             self._baseScore = score
         }
-    }
-    
-    func transactions() -> [Transaction] {
-        let baseScoreTransaction = Transaction(section: "abilities", source: "ability", attribute: self._name, subattribute: "base", value: String(self._baseScore), duration: -1)
-        return [baseScoreTransaction]
+        trans.add(transaction: Transaction(section: "ability", source: "creation", attribute: self._name, subattribute: "base", value: String(baseScore), duration: -1))
     }
 }
 
