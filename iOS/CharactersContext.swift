@@ -103,7 +103,7 @@ class CharactersContext: NSObject, NSFetchedResultsControllerDelegate {
                         if (foundValidationErrorValue == "") {
                             let creature = userInfo["NSValidationErrorObject"] as! CreatureModel
                             context?.rollback()
-                            print ("Name for \(creature.name) cannot be set to the empty string")
+                            print ("Name for \(String(describing: creature.name)) cannot be set to the empty string")
                             throw CreatureModel.CreatureModelDataError.nameCannotBeNull
                         }
                     }

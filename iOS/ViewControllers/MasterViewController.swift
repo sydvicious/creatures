@@ -140,8 +140,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             case .update:
                 self.configureCell(tableView.cellForRow(at: indexPath!)!, atIndexPath: indexPath!)
             case .move:
-                tableView.deleteRows(at: [indexPath!], with: .fade)
-                tableView.insertRows(at: [newIndexPath!], with: .fade)
+                self.configureCell(tableView.cellForRow(at: indexPath!)!, atIndexPath: indexPath!)
+                tableView.moveRow(at: indexPath!, to: newIndexPath!)
         }
     }
 
