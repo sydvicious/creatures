@@ -37,7 +37,7 @@ class TestCreatures: XCTestCase {
         creature = try! creaturesController.createCreature("TestCreature2")
         creaturesController.logAll()
         print(creature.name! as String)
-        let indexPath = creaturesController.indexPathFromCreature(creature)
+        var indexPath = creaturesController.indexPathFromCreature(creature)
         _ = creaturesController.indexPathFromCreature(creature)
 
         creaturesController.deleteCreatureAtIndexPath(indexPath)
@@ -96,7 +96,29 @@ class TestCreatures: XCTestCase {
             let nserror = error as NSError
             XCTFail("Some other error happened when we tried to set name to null. Error code = \(nserror.code); domain = \(nserror.domain); description = \(nserror.localizedDescription)")
         }
-
+        
+        creaturesController.deleteAll()
+        var original_creature: Creature?
+        original_creature = Creature(system: "Pathfinder", strength: 18, dexterity: 16, constitution: 14, intelligence: 12, wisdom: 10, charisma: 8)
+        var original_creature_model: CreatureModel?
+        original_creature_model = try! creaturesController.createCreature("TestCreature4", withSystem: "Pathfinder", withCreature: original_creature)
+        name = original_creature_model?.name
+        original_creature_model = nil
+        original_creature = nil
+        original_creature = Creature(system: "Pathfinder", strength: 8, dexterity: 10, constitution: 12, intelligence: 14, wisdom: 16, charisma: 18)
+        original_creature_model = try! creaturesController.createCreature("TestCreature4.1", withSystem: "Pathfinder", withCreature: original_creature)
+        
+        indexPath = IndexPath(row: 0, section: 0)
+        let saved_creature_model = creaturesController.creatureFromIndexPath(indexPath)
+        let saved_name = saved_creature_model.name
+        let saved_creature = saved_creature_model.creature!
+        XCTAssertEqual(name, saved_name)
+        XCTAssertEqual(saved_creature._strength.baseScore, 18)
+        XCTAssertEqual(saved_creature._dexterity.baseScore, 16)
+        XCTAssertEqual(saved_creature._constitution.baseScore, 14)
+        XCTAssertEqual(saved_creature._intelligence.baseScore, 12)
+        XCTAssertEqual(saved_creature._wisdom.baseScore, 10)
+        XCTAssertEqual(saved_creature._charisma.baseScore, 8)
     }
     
 }

@@ -53,7 +53,7 @@ class CreaturesController {
             creature = givenCreature
         } else {
             // Assuming Pathfinder
-            creature = Creature(system: "Pathfinder", strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10)
+            creature = Creature(system: withSystem, strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10)
             
         }
         creatureModel.creature = creature
@@ -116,7 +116,12 @@ class CreaturesController {
     }
     
     func creatureFromIndexPath(_ indexPath: IndexPath) -> CreatureModel {
-        return self.context.fetchedResultsController!.object(at: indexPath) as! CreatureModel
+        let creatureModel = self.context.fetchedResultsController!.object(at: indexPath) as! CreatureModel
+        // Fetch all of the transactions
+        
+        // Create a creature based off of them.
+        
+        return creatureModel
     }
     
     func indexPathFromCreature(_ creature: CreatureModel) -> IndexPath {
