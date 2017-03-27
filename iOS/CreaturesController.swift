@@ -42,40 +42,66 @@ class CreaturesController {
     
     func createCreature(_ name: String, withSystem: String = "Pathfinder", withCreature: Creature? = nil) throws -> CreatureModel {
         let context = self.context.managedObjectContext
-        let newCreature = CreatureModel(context: context!)
+        let creatureModel = CreatureModel(context: context!)
         
+        creatureModel.name = name
         let oid = Prefs.getNewID()
-        newCreature.oid = oid
-        try self.context.saveContext()
-        
-        var creatureWithAbilities: Creature
-        if let creature = withCreature {
-            creatureWithAbilities = creature
+        creatureModel.oid = oid
+
+        var creature: Creature
+        if let givenCreature = withCreature {
+            creature = givenCreature
         } else {
             // Assuming Pathfinder
-            creatureWithAbilities = Creature(system: "Pathfinder", strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10)
+            creature = Creature(system: "Pathfinder", strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10)
             
         }
-        newCreature.creature = creatureWithAbilities
-        try self.saveName(name, forCreature: newCreature)
+        creatureModel.creature = creature
+        try self.save(creatureModel)
 
-        return newCreature
+        return creatureModel
     }
     
-    func setCreature(model: CreatureModel, creature: Creature?) {
-        model.creature = creature
+    func setCreature(creatureModel: CreatureModel, creature: Creature?) {
+        creatureModel.creature = creature
+    }
+    
+    func save(_ creatureModel: CreatureModel) throws {
+        let context = self.context.managedObjectContext
+        guard let creature = creatureModel.creature else {
+            NSLog("Can't save without a creature")
+            abort()
+        }
+        let transactionsController = creature.transactionsController
+        let transactions = transactionsController.pendingTransactions()
+        for trans in transactions {
+            let transModel = TransactionsModel(context: context!)
+            transModel.system = trans.system
+            transModel.section = trans.section
+            transModel.attribute = trans.attribute
+            transModel.source = trans.source
+            transModel.type = trans.type
+            transModel.value = trans.value
+            transModel.duration = trans.duration as NSNumber?
+            transModel.timestamp = trans.timestamp
+            transModel.oid = trans.oid
+            transModel.creature = creatureModel
+            creatureModel.addToTransactions(transModel)
+        }
+        try self.context.saveContext()
+        transactionsController.clearPendingTransactions()
     }
     
     func saveCreature(_ name: String, atIndexPath: IndexPath) throws {
         let creature = self.creatureFromIndexPath(atIndexPath)
-        try self.saveName(name, forCreature: creature)
+        try self.save(creature)
     }
     
-    func saveName(_ name: String, forCreature creature: CreatureModel) throws {
+    func saveName(_ name: String, forCreature creatureModel: CreatureModel) throws {
         let trimmed_name = name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        if (trimmed_name != creature.name) {
-            creature.name = trimmed_name
-            try self.context.saveContext()
+        if (trimmed_name != creatureModel.name) {
+            creatureModel.name = trimmed_name
+            try self.save(creatureModel)
         }
     }
     

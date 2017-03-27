@@ -22,63 +22,72 @@ class TestD20Ability: XCTestCase {
     }
     
     func testD20Ability() {
-        var ability = d20Ability(score: 0)
+        var transactionsController = TransactionsController()
+        var ability = d20Ability(name: "Dummy", score: 0, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 0)
         XCTAssertEqual(ability.currentScore, 0)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         var modifier = ability.modifier
         XCTAssertEqual(modifier, -5)
 
-        ability = d20Ability(score: -1)
+        transactionsController = TransactionsController()
+        ability = d20Ability(name: "Dummy", score: -1, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 0)
         XCTAssertEqual(ability.currentScore, 0)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, -5)
-        
-        ability = d20Ability(score: 1)
+
+        transactionsController = TransactionsController()
+        ability = d20Ability(name: "Dummy", score: 1, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 1)
         XCTAssertEqual(ability.currentScore, 1)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, -5)
         
-        ability = d20Ability(score: 2)
+        transactionsController = TransactionsController()
+        ability = d20Ability(name: "Dummy", score: 2, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 2)
         XCTAssertEqual(ability.currentScore, 2)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, -4)
 
-        ability = d20Ability(score: 9)
+        transactionsController = TransactionsController()
+        ability = d20Ability(name: "Dummy", score: 9, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 9)
         XCTAssertEqual(ability.currentScore, 9)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, -1)
 
-        ability = d20Ability(score: 10)
+        transactionsController = TransactionsController()
+        ability = d20Ability(name: "Dummy", score: 10, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 10)
         XCTAssertEqual(ability.currentScore, 10)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, 0)
 
-        ability = d20Ability(score: 19)
+        transactionsController = TransactionsController()
+        ability = d20Ability(name: "Dummy", score: 19, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 19)
         XCTAssertEqual(ability.currentScore, 19)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, 4)
 
-        ability = d20Ability(score: 20)
+        transactionsController = TransactionsController()
+        ability = d20Ability(name: "Dummy", score: 20, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 20)
         XCTAssertEqual(ability.currentScore, 20)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, 5)
 
-        ability = d20Ability(score: 15)
+        transactionsController = TransactionsController()
+        ability = d20Ability(name: "Dummy", score: 15, transactions: transactionsController)
         ability.bonus.addPermanent("race", fromSource: "Character Creation", withValue: 2)
         XCTAssertEqual(ability.baseScore, 15)
         XCTAssertEqual(ability.currentScore, 17)
@@ -95,30 +104,6 @@ class TestD20Ability: XCTestCase {
         XCTAssertEqual(ability.baseScore, 15)
         XCTAssertEqual(ability.currentScore, 17)
         XCTAssertEqual(modifier, 3)
-
-        ability.baseScore = 10
-        XCTAssertEqual(ability.baseScore, 10)
-        XCTAssertEqual(ability.currentScore, 12)
-        XCTAssertEqual(ability.bonus.netValue(), 2)
-        modifier = ability.modifier
-        XCTAssertEqual(modifier, 1)
-        ability.bonus.decrementRounds()
-        modifier = ability.modifier
-        XCTAssertEqual(ability.baseScore, 10)
-        XCTAssertEqual(ability.currentScore, 12)
-        XCTAssertEqual(modifier, 1)
-
-        ability.baseScore = -1
-        XCTAssertEqual(ability.baseScore, 0)
-        XCTAssertEqual(ability.currentScore, 2)
-        XCTAssertEqual(ability.bonus.netValue(), 2)
-        modifier = ability.modifier
-        XCTAssertEqual(modifier, -4)
-        ability.bonus.decrementRounds()
-        modifier = ability.modifier
-        XCTAssertEqual(modifier, -4)
-        
-        
 
     }
     

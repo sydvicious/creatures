@@ -2,12 +2,13 @@
 //  CreatureModel+CoreDataProperties.swift
 //  Characters
 //
-//  Created by Syd Polk on 10/16/16.
+//  Created by Syd Polk on 12/31/16.
 //
 //
 
 import Foundation
 import CoreData
+
 
 extension CreatureModel {
 
@@ -25,28 +26,28 @@ extension CreatureModel {
 extension CreatureModel {
 
     @objc(insertObject:inTransactionsAtIndex:)
-    @NSManaged public func insertIntoTransactions(_ value: CreatureModel, at idx: Int)
+    @NSManaged public func insertIntoTransactions(_ value: TransactionsModel, at idx: Int)
 
     @objc(removeObjectFromTransactionsAtIndex:)
     @NSManaged public func removeFromTransactions(at idx: Int)
 
     @objc(insertTransactions:atIndexes:)
-    @NSManaged public func insertIntoTransactions(_ values: [CreatureModel], at indexes: NSIndexSet)
+    @NSManaged public func insertIntoTransactions(_ values: [TransactionsModel], at indexes: NSIndexSet)
 
     @objc(removeTransactionsAtIndexes:)
     @NSManaged public func removeFromTransactions(at indexes: NSIndexSet)
 
     @objc(replaceObjectInTransactionsAtIndex:withObject:)
-    @NSManaged public func replaceTransactions(at idx: Int, with value: CreatureModel)
+    @NSManaged public func replaceTransactions(at idx: Int, with value: TransactionsModel)
 
     @objc(replaceTransactionsAtIndexes:withTransactions:)
-    @NSManaged public func replaceTransactions(at indexes: NSIndexSet, with values: [CreatureModel])
+    @NSManaged public func replaceTransactions(at indexes: NSIndexSet, with values: [TransactionsModel])
 
     @objc(addTransactionsObject:)
-    @NSManaged public func addToTransactions(_ value: CreatureModel)
+    @NSManaged public func addToTransactions(_ value: TransactionsModel)
 
     @objc(removeTransactionsObject:)
-    @NSManaged public func removeFromTransactions(_ value: CreatureModel)
+    @NSManaged public func removeFromTransactions(_ value: TransactionsModel)
 
     @objc(addTransactions:)
     @NSManaged public func addToTransactions(_ values: NSOrderedSet)
@@ -55,4 +56,3 @@ extension CreatureModel {
     @NSManaged public func removeFromTransactions(_ values: NSOrderedSet)
 
 }
-

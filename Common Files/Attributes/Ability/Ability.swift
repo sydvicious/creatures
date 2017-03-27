@@ -11,7 +11,6 @@ import UIKit
 class Ability: TransactionsProtocol {
     private var _name: String
     private var _baseScore: Int
-    private let _trans: TransactionsController
     
     var baseScore: Int {
         get {
@@ -19,15 +18,19 @@ class Ability: TransactionsProtocol {
         }
     }
     
-    init(name: String, score: Int, trans: TransactionsController) {
+    init(name: String, score: Int, transactions: TransactionsController) {
         self._name = name
-        self._trans = trans
         if (score < 0) {
             self._baseScore = 0
         } else {
             self._baseScore = score
         }
-        trans.add(transaction: Transaction(section: "ability", source: "creation", attribute: self._name, subattribute: "base", value: String(baseScore), duration: -1))
+        save_transaction(transactions, section: "ability", attribute: name, source: "creation", type: "base", value: String(score), duration: -1)
+    }
+    
+    func save_transaction(_ transactions: TransactionsController, section: String, attribute: String, source: String, type: String, value: String, duration: Int) {
+        let trans = Transaction(system: "", section: section, attribute: attribute, source: source, type: type, value: value, duration: duration)
+        transactions.add(transaction: trans)
     }
 }
 

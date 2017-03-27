@@ -38,7 +38,7 @@ class TestCreatures: XCTestCase {
         creaturesController.logAll()
         print(creature.name! as String)
         let indexPath = creaturesController.indexPathFromCreature(creature)
-        let indexPath2 = creaturesController.indexPathFromCreature(creature)
+        _ = creaturesController.indexPathFromCreature(creature)
 
         creaturesController.deleteCreatureAtIndexPath(indexPath)
         creaturesController.logAll()

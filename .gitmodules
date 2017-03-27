@@ -1,0 +1,3 @@
+[submodule "SwiftStructures"]
+	path = SwiftStructures
+	url = https://github.com/waynewbishop/SwiftStructures

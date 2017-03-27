@@ -9,23 +9,25 @@
 import UIKit
 
 class Transaction: NSObject {
-    public let _section: String
-    public let _source: String
-    public let _attribute: String
-    public let _subattribute: String
-    public let _value: String
-    public let _duration: Int
-    public let _timestamp: NSDate
-    public let _oid: String
+    public let system: String   // The game system this creature is for. Pathfinder, D&D5, etc.
+    public let section: String  // The section this belongs in. Ability, Skill, Feat, etc.
+    public let attribute: String   // What is changing: strength, Alertness, etc.
+    public let source: String   // What generated this transaction
+    public let type: String     // What kind of bonus this is
+    public let value: String    // The value of the change
+    public let duration: Int    // For permanent changes, this is -1. Otherwise, the number of rounds this change is good for.
+    public let timestamp: NSDate    // When this change was created
+    public let oid: String      // Internal identifier
 
-    init(section: String, source: String, attribute: String, subattribute: String, value: String, duration: Int) {
-        _section = section
-        _source = source
-        _attribute = attribute
-        _subattribute = subattribute
-        _value = value
-        _duration = duration
-        _timestamp = NSDate()
-        _oid = Prefs.getNewID()
+    init(system: String, section: String, attribute: String, source: String, type: String, value: String, duration: Int) {
+        self.system = system
+        self.section = section
+        self.attribute = attribute
+        self.source = source
+        self.type = type
+        self.value = value
+        self.duration = duration
+        self.timestamp = NSDate()
+        self.oid = Prefs.getNewID()
     }
 }

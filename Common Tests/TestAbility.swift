@@ -22,17 +22,14 @@ class TestAbility: XCTestCase {
     }
     
     func testAbility() {
-        var ability = Ability(score: 10)
+        var transactionsController = TransactionsController()
+        var ability = Ability(name: "Dummy", score: 10, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 10)
-        
-        ability.baseScore = 12
-        XCTAssertEqual(ability.baseScore, 12)
-        
-        ability.baseScore = -1
+
+        transactionsController = TransactionsController()
+        ability = Ability(name: "Dummy", score: -1, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 0)
-        
-        ability = Ability(score: -1)
-        XCTAssertEqual(ability.baseScore, 0)
+
     }
     
     func testPerformanceExample() {

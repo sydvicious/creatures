@@ -2,7 +2,7 @@
 //  Transactions+CoreDataClass.swift
 //  Characters
 //
-//  Created by Syd Polk on 10/16/16.
+//  Created by Syd Polk on 12/31/16.
 //
 //
 
@@ -10,6 +10,6 @@ import Foundation
 import CoreData
 
 
-public class TransactionsModel: NSManagedObject {
+public class Transactions: NSManagedObject {
 
 }

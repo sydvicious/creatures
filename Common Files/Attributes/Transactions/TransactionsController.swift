@@ -9,23 +9,21 @@
 import UIKit
 
 class TransactionsController: NSObject {
-    private var _pending: [Transaction]
+    private var _pending = [Transaction]()
     
     override init() {
-        _pending = [Transaction]()
         super.init()
     }
 
     func add(transaction: Transaction) {
         _pending.append(transaction)
     }
-
-    func flushTransactions() {
-        // Write to the CoreData model
+    
+    func pendingTransactions() -> [Transaction] {
+        return _pending
     }
     
-    func replayTransactions(parser: (Transaction)->()) {
-        // Read from CoreData model and use the parser callback to enclosing object controller.
+    func clearPendingTransactions() {
+        _pending = [Transaction]()
     }
-    
 }

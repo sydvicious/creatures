@@ -10,7 +10,7 @@ import UIKit
 
 class Creature {
 
-    let _trans: TransactionsController = TransactionsController()
+    let transactionsController = TransactionsController()
     
     let _strength: Ability
     let _dexterity: Ability
@@ -21,26 +21,26 @@ class Creature {
     
     init(system: String, strength: Int, dexterity: Int, constitution: Int, intelligence: Int, wisdom: Int, charisma: Int) {
         if system == "Pathfinder" {
-            _strength = PathfinderAbility(name: "strength", score: strength, trans: _trans)
-            _dexterity = PathfinderAbility(name: "dexterity", score: dexterity, trans: _trans)
-            _constitution = PathfinderAbility(name: "consitution", score: constitution, trans: _trans)
-            _inteligence = PathfinderAbility(name: "intelligence", score: intelligence, trans: _trans)
-            _wisdom = PathfinderAbility(name: "widsom", score: wisdom, trans: _trans)
-            _charisma = PathfinderAbility(name: "charisma", score: charisma, trans: _trans)
+            _strength = PathfinderAbility(name: "strength", score: strength, transactions: transactionsController)
+            _dexterity = PathfinderAbility(name: "dexterity", score: dexterity, transactions: transactionsController)
+            _constitution = PathfinderAbility(name: "consitution", score: constitution, transactions: transactionsController)
+            _inteligence = PathfinderAbility(name: "intelligence", score: intelligence, transactions: transactionsController)
+            _wisdom = PathfinderAbility(name: "widsom", score: wisdom, transactions: transactionsController)
+            _charisma = PathfinderAbility(name: "charisma", score: charisma, transactions: transactionsController)
         } else if system == "D&D" || system == "AD&D" {
-            _strength = Ability(name: "strength", score: strength, trans: _trans)
-            _dexterity = Ability(name: "dexterity", score: dexterity, trans: _trans)
-            _constitution = Ability(name: "consitution", score: constitution, trans: _trans)
-            _inteligence = Ability(name: "intelligence", score: intelligence, trans: _trans)
-            _wisdom = Ability(name: "widsom", score: wisdom, trans: _trans)
-            _charisma = Ability(name: "charisma", score: charisma, trans: _trans)
+            _strength = Ability(name: "strength", score: strength, transactions: transactionsController)
+            _dexterity = Ability(name: "dexterity", score: dexterity, transactions: transactionsController)
+            _constitution = Ability(name: "consitution", score: constitution, transactions: transactionsController)
+            _inteligence = Ability(name: "intelligence", score: intelligence, transactions: transactionsController)
+            _wisdom = Ability(name: "widsom", score: wisdom, transactions: transactionsController)
+            _charisma = Ability(name: "charisma", score: charisma, transactions: transactionsController)
         } else {
-            _strength = d20Ability(name: "strength", score: strength, trans: _trans)
-            _dexterity = d20Ability(name: "dexterity", score: dexterity, trans: _trans)
-            _constitution = d20Ability(name: "consitution", score: constitution, trans: _trans)
-            _inteligence = d20Ability(name: "intelligence", score: intelligence, trans: _trans)
-            _wisdom = d20Ability(name: "widsom", score: wisdom, trans: _trans)
-            _charisma = d20Ability(name: "charisma", score: charisma, trans: _trans)
+            _strength = d20Ability(name: "strength", score: strength, transactions: transactionsController)
+            _dexterity = d20Ability(name: "dexterity", score: dexterity, transactions: transactionsController)
+            _constitution = d20Ability(name: "consitution", score: constitution, transactions: transactionsController)
+            _inteligence = d20Ability(name: "intelligence", score: intelligence, transactions: transactionsController)
+            _wisdom = d20Ability(name: "widsom", score: wisdom, transactions: transactionsController)
+            _charisma = d20Ability(name: "charisma", score: charisma, transactions: transactionsController)
             
         }
         
