@@ -15,7 +15,7 @@ extension CreatureModel {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CreatureModel> {
         return NSFetchRequest<CreatureModel>(entityName: "CreatureModel");
     }
-
+    
     @NSManaged public var name: String?
     @NSManaged public var oid: String?
     @NSManaged public var transactions: NSOrderedSet?
