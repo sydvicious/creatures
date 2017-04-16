@@ -165,5 +165,4 @@ struct d20Bonus {
             return bonuses.isEmpty
         }
     }
-    
  }
