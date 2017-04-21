@@ -146,4 +146,8 @@ class CreaturesController {
             print(creature.name!)
         }
     }
+    
+    func save() {
+        try! self.context.saveContext()
+    }
 }

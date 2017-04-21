@@ -6,7 +6,7 @@
 //
 //
 
-import UIKit
+import Foundation
 
 class Transaction: NSObject {
     public let system: String   // The game system this creature is for. Pathfinder, D&D5, etc.

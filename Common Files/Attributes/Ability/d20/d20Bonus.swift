@@ -6,7 +6,7 @@
 //
 //
 
-import UIKit
+import Foundation
 
 enum d20BonusState {
     case Permanent

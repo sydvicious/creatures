@@ -6,7 +6,7 @@
 //
 //
 
-import UIKit
+import Foundation
 
 class TransactionsController: NSObject {
     private var _pending = [Transaction]()
