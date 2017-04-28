@@ -8,6 +8,9 @@
 
 import Foundation
 
+let batcher = Batch()
+batcher.batch()
+
 
 print("Welcome to the Bone Jarring Creature Command Line Utility.")
 
