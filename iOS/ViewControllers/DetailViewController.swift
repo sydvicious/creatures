@@ -75,8 +75,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UISplitViewCo
     }
     
     @IBAction func setNameFromField(_ nameField : UITextField) {
-        if (self.creature != nil) {
-            let creature = self.creature!
+        if let creature = self.creature {
             var name = nameField.text!
             name = name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             if (name == "") {
