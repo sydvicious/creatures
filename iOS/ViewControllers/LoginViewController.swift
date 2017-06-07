@@ -88,7 +88,7 @@ class LoginViewController: UIViewController {
         defaults.synchronize()
     }
 
-    func respondToTimer() {
+    @objc func respondToTimer() {
         self.performSegue(withIdentifier: "SplitViewSegue", sender: self)
     }
     

@@ -46,7 +46,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Dispose of any resources that can be recreated.
     }
     
-    func insertNewObject(_ sender: AnyObject) {
+    @objc func insertNewObject(_ sender: AnyObject) {
         do {
             try self.newlyCreatedCreature = self.creaturesController!.createCreature("<unnamed>")
         } catch {
