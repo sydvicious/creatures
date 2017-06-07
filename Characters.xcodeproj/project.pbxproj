@@ -62,7 +62,6 @@
 		62ACB3D01DD457FD00D7BA89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62ACB3CF1DD457FD00D7BA89 /* Images.xcassets */; };
 		62B2CB2A1B2A56D90073B8DC /* Mac-Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B2CB291B2A56D90073B8DC /* Mac-Tests.swift */; };
 		62BEFA621EB2EDE600511D87 /* commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BEFA611EB2EDE600511D87 /* commands.swift */; };
-		62BEFA641EB2F71B00511D87 /* batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BEFA631EB2F71B00511D87 /* batch.swift */; };
 		62C1545B1DD9779F00D5DAAC /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62EDDBFE1DD96D950027A719 /* Characters.xcdatamodeld */; };
 		62C1545D1DD9789C00D5DAAC /* TransactionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1545C1DD9789C00D5DAAC /* TransactionsController.swift */; };
 		62C1545E1DD9789C00D5DAAC /* TransactionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1545C1DD9789C00D5DAAC /* TransactionsController.swift */; };
@@ -145,7 +144,6 @@
 		62B2CB291B2A56D90073B8DC /* Mac-Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mac-Tests.swift"; sourceTree = "<group>"; };
 		62B2CB2B1B2A56D90073B8DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62BEFA611EB2EDE600511D87 /* commands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commands.swift; sourceTree = "<group>"; };
-		62BEFA631EB2F71B00511D87 /* batch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.swift; sourceTree = "<group>"; };
 		62C1545A1DD9779800D5DAAC /* Characters 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 5.xcdatamodel"; sourceTree = "<group>"; };
 		62C1545C1DD9789C00D5DAAC /* TransactionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsController.swift; sourceTree = "<group>"; };
 		62C1545F1DD978DC00D5DAAC /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -337,7 +335,6 @@
 			children = (
 				624C5B881EA9AC7A007BF969 /* main.swift */,
 				62BEFA611EB2EDE600511D87 /* commands.swift */,
-				62BEFA631EB2F71B00511D87 /* batch.swift */,
 			);
 			path = bj_character;
 			sourceTree = "<group>";
@@ -701,7 +698,6 @@
 				624C5BA01EA9ADA4007BF969 /* CreaturesController.swift in Sources */,
 				624C5B971EA9AD75007BF969 /* Transaction.swift in Sources */,
 				624C5BA11EA9ADB7007BF969 /* CharactersContext.swift in Sources */,
-				62BEFA641EB2F71B00511D87 /* batch.swift in Sources */,
 				62BEFA621EB2EDE600511D87 /* commands.swift in Sources */,
 				624C5B911EA9AD6D007BF969 /* TransactionsModel+CoreDataProperties.swift in Sources */,
 				624C5B891EA9AC7A007BF969 /* main.swift in Sources */,
