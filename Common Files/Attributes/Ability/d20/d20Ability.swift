@@ -10,17 +10,17 @@ import Foundation
 
 protocol d20AbilityVars {
     var bonus : d20Bonus { get }
-    var currentScore: Int { get }
 }
 
 class d20Ability: Ability {
     var bonus: d20Bonus
-    var currentScore: Int {
+
+    override var currentScore : Int {
         get {
             return self.baseScore + self.bonus.netValue()
         }
     }
-
+    
     override init(name: String, score: Int, transactions: TransactionsController) {
         bonus = d20Bonus()
         super.init(name: name, score: score, transactions: transactions)

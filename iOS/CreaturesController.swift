@@ -144,9 +144,24 @@ class CreaturesController {
     }
     
     func logAll() {
-        let creatures = self.creatures()
-        for creature in creatures {
-            print(creature.name!)
+        let creature_models = self.creatures()
+        if creature_models.count == 0 {
+            print("No creatures found")
+        } else {
+            for model in creature_models {
+                print(model.name!)
+                if let creature = model.creature {
+                    print(" Abilities")
+                    print("  Strength - \(creature._strength.currentScore)")
+                    print("  Dexterity - \(creature._dexterity.currentScore)")
+                    print("  Constitution - \(creature._constitution.currentScore)")
+                    print("  Intelligence - \(creature._intelligence.currentScore)")
+                    print("  Wisdom - \(creature._wisdom.currentScore)")
+                    print("  Charisma - \(creature._charisma.currentScore)")
+                } else {
+                    print("No creature attached!")
+                }
+            }
         }
     }
     

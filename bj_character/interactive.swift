@@ -60,6 +60,11 @@ func database_open() -> Bool {
 
 func list_characters() -> Bool {
     print("list_characters")
+    if let controller = creaturesController {
+        controller.logAll()
+    } else {
+        print("No characters found.")
+    }
     return true
 }
 
@@ -70,6 +75,23 @@ func display_character() -> Bool {
 
 func create_character() -> Bool {
     print("create_character")
+
+    print("Character name: ", terminator:"")
+    if let name = readLine() {
+        if let controller = creaturesController {
+            let model = try! controller.createCreature(name)
+            if let _ = model.creature {
+                print("\(name) created.")
+            } else {
+                print("\(name) created by the creature structure is missing.")
+            }
+        } else {
+            print("No creaturesController")
+        }
+    } else {
+        print("Nothing created.")
+    }
+
     return true
 }
 

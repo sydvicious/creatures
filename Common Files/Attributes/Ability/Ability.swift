@@ -11,13 +11,19 @@ import Foundation
 class Ability: TransactionsProtocol {
     private var _name: String
     private var _baseScore: Int
-    
+
     var baseScore: Int {
         get {
             return self._baseScore
         }
     }
-    
+
+    var currentScore: Int {
+        get {
+            return baseScore
+        }
+    }
+
     init(name: String, score: Int, transactions: TransactionsController) {
         self._name = name
         if (score < 0) {
@@ -33,4 +39,5 @@ class Ability: TransactionsProtocol {
         transactions.add(transaction: trans)
     }
 }
+
 
