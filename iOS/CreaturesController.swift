@@ -120,6 +120,7 @@ class CreaturesController {
         // Fetch all of the transactions
         
         // Create a creature based off of them.
+        // This is where the transactions list must be read.
         let creature = Creature(system: "Pathfinder", strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10)
         creatureModel.creature = creature
         

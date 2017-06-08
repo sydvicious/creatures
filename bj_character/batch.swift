@@ -8,8 +8,25 @@
 
 import Foundation
 
-class Batch {
-    func batch() {
-        CommandProcessor.usage()
+func usage() {
+    let executableName = (CommandLine.arguments[0] as NSString).lastPathComponent
+
+    print("usage:")
+    print("\(executableName) (no option) - interactive mode")
+    print("\(executableName) -h - display help")
+    print("\(executableName) -i - enter interactive mode after other options processed")
+}
+
+
+func process_batch_command(command_string: String) -> Bool {
+    return false
+}
+
+func process_batch_commands(args: [String]) -> () {
+    for arg in args {
+        if !process_batch_command(command_string: arg) {
+            break
+        }
     }
 }
+

@@ -17,7 +17,7 @@ class TestCreatures: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        creaturesController = CreaturesController.sharedCreaturesController(CharactersContext(true))
+        creaturesController = CreaturesController.sharedCreaturesController(CharactersContext(forTest: true, name: "Testing"))
         // Put setup code here. This method is called before the invocation of each test method in the class.
         creaturesController?.deleteAll()
     }

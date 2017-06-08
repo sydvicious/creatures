@@ -23,31 +23,12 @@ enum Commands: Hashable {
 }
 
 let option_strings: [String:Commands] = [
-    "-o": .database_open,
-    "--open": .database_open,
-    "6": .database_open,
-    "-l": .list_characters,
-    "--list": .list_characters,
     "1": .list_characters,
-    "-d": .display_character,
-    "--display": .display_character,
     "2": .display_character,
-    "-c": .create_character,
-    "--create": .create_character,
     "3": .create_character,
-    "-e": .edit_character,
-    "--edit": .edit_character,
     "4": .edit_character,
-    "-x": .delete_character,
-    "--delete": .delete_character,
     "5": .delete_character,
-    "-h": .help,
-    "--help": .help,
-    "-?": .help,
-    "-q": .quit,
-    "--exit": .quit,
-    "--quit": .quit,
-    "--bye": .quit,
+    "6": .database_open,
     "0": .quit
 ]
 
@@ -63,28 +44,42 @@ let help_text: [Commands:String] = [
 ]
 
 func database_open() -> Bool {
+    print("database_open")
 
-    creaturesController = CreaturesController.sharedCreaturesController(CharactersContext(false))
+    print("Database name [default]: ", terminator:"")
+    if let name = readLine() {
+        print("name = " + name)
+        creaturesController = CreaturesController.sharedCreaturesController(CharactersContext(forTest: false, name: name))
+        guard let _ = creaturesController else {
+            print("Database " + name + " not opened or created.")
+            return true
+        }
+    }
     return true
 }
 
 func list_characters() -> Bool {
+    print("list_characters")
     return true
 }
 
 func display_character() -> Bool {
+    print("display_character")
     return true
 }
 
 func create_character() -> Bool {
+    print("create_character")
     return true
 }
 
 func edit_character() -> Bool {
+    print("edit_character")
     return true
 }
 
 func delete_character() -> Bool {
+    print("delete_character")
     return true
 }
 
@@ -95,8 +90,6 @@ func help() -> Bool {
 func quit() -> Bool {
     return false
 }
-
-// Generic commands
 
 let command_map : [Commands:()->Bool] = [
     .database_open : database_open,
@@ -109,13 +102,22 @@ let command_map : [Commands:()->Bool] = [
     .quit: quit
 ]
 
-func usage() {
-    let executableName = (CommandLine.arguments[0] as NSString).lastPathComponent
-    
-    print("usage:")
-    print("\(executableName) (no option) - interactive mode")
-    print("\(executableName) -h - display help")
-    print("\(executableName) -i - enter interactive mode after other options processed")
+func prompt() -> String {
+    print("1. List existing characters")
+    print("2. Display character")
+    print("3. Create character")
+    print("4. Edit character")
+    print("5. Delete character")
+    print("6. Open character database")
+    print("0. Quit")
+
+    print("")
+    print("Command: ", terminator:"")
+
+    if let command = readLine() {
+        return command
+    }
+    return ""
 }
 
 func process_command(command_string: String) -> Bool {
@@ -125,4 +127,17 @@ func process_command(command_string: String) -> Bool {
         print("Unknown option " + command_string)
     }
     return true
+}
+
+func process_interactive() {
+    print("Welcome to the Bone Jarring Creature Command Line Utility.")
+
+    var executing = true;
+
+    while (executing) {
+        let command = prompt()
+        if command != "" {
+            executing = process_command(command_string: command)
+        }
+    }
 }
