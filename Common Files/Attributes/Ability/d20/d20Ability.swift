@@ -8,22 +8,46 @@
 
 import Foundation
 
+public enum Abilities {
+    case Strength
+    case Dexterity
+    case Constitution
+    case Intelligence
+    case Wisdom
+    case Charisma
+}
+
+
 protocol d20AbilityVars {
     var bonus : d20Bonus { get }
 }
 
 class d20Ability: Ability {
     var bonus: d20Bonus
+    
+    static public let AbilityMap: [String:Abilities] = [
+        "strength": .Strength,
+        "dexterity": .Dexterity,
+        "constitution": .Constitution,
+        "intelligence": .Intelligence,
+        "wisdom": .Wisdom,
+        "charisma": .Charisma
+    ]
 
     override var currentScore : Int {
         get {
             return self.baseScore + self.bonus.netValue()
         }
     }
-    
-    override init(name: String, score: Int, transactions: TransactionsController) {
+
+    override init(name: String, score: Int) {
         bonus = d20Bonus()
-        super.init(name: name, score: score, transactions: transactions)
+        super.init(name: name, score: score)
+    }
+
+    convenience init(name: String, score: Int, transactions: TransactionsController) {
+        self.init(name: name, score: score)
+        save_transaction(transactions, section: "ability", attribute: name, source: "creation", type: "base", value: String(score), duration: -1)
     }
     
     override func save_transaction(_ transactions: TransactionsController, section: String, attribute: String, source: String, type: String, value: String, duration: Int) {

@@ -39,7 +39,15 @@ class CreaturesController {
     func setDelegate(_ delegate: NSFetchedResultsControllerDelegate) {
         self.context.fetchedResultsController?.delegate = delegate
     }
-    
+
+    func getCreature(fromModel model: CreatureModel) -> Creature {
+        let creature = Creature()
+        if let transactions = model.transactions {
+            creature.parse(transactions: transactions)
+        }
+        return creature
+    }
+
     func createCreature(_ name: String, withSystem: String = "Pathfinder", withCreature: Creature? = nil) throws -> CreatureModel {
         let context = self.context.managedObjectContext
         let creatureModel = CreatureModel(context: context!)
@@ -53,8 +61,7 @@ class CreaturesController {
             creature = givenCreature
         } else {
             // Assuming Pathfinder
-            creature = Creature(system: withSystem, strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10)
-            
+            creature = getCreature(fromModel: creatureModel)
         }
         creatureModel.creature = creature
         try self.save(creatureModel)
@@ -133,7 +140,11 @@ class CreaturesController {
     }
     
     func creatures() -> [CreatureModel] {
-        return self.context.fetchedResultsController!.fetchedObjects as! [CreatureModel]
+        let models = self.context.fetchedResultsController!.fetchedObjects as! [CreatureModel]
+        for model in models {
+            model.creature = getCreature(fromModel: model)
+        }
+        return models
     }
     
     func deleteAll() {
@@ -152,12 +163,12 @@ class CreaturesController {
                 print(model.name!)
                 if let creature = model.creature {
                     print(" Abilities")
-                    print("  Strength - \(creature._strength.currentScore)")
-                    print("  Dexterity - \(creature._dexterity.currentScore)")
-                    print("  Constitution - \(creature._constitution.currentScore)")
-                    print("  Intelligence - \(creature._intelligence.currentScore)")
-                    print("  Wisdom - \(creature._wisdom.currentScore)")
-                    print("  Charisma - \(creature._charisma.currentScore)")
+                    print("  Strength - \(creature.strength)")
+                    print("  Dexterity - \(creature.dexterity)")
+                    print("  Constitution - \(creature.constitution)")
+                    print("  Intelligence - \(creature.intelligence)")
+                    print("  Wisdom - \(creature.wisdom)")
+                    print("  Charisma - \(creature.charisma)")
                 } else {
                     print("No creature attached!")
                 }

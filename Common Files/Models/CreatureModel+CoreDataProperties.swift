@@ -18,7 +18,7 @@ extension CreatureModel {
     
     @NSManaged public var name: String?
     @NSManaged public var oid: String?
-    @NSManaged public var transactions: NSOrderedSet?
+    @NSManaged public var transactions: NSSet?
 
 }
 

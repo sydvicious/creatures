@@ -116,12 +116,12 @@ class TestCreatures: XCTestCase {
             let saved_name = saved_creature_model.name
             let saved_creature = saved_creature_model.creature!
             XCTAssertEqual(name, saved_name)
-            XCTAssertEqual(saved_creature._strength.baseScore, 18)
-            XCTAssertEqual(saved_creature._dexterity.baseScore, 16)
-            XCTAssertEqual(saved_creature._constitution.baseScore, 14)
-            XCTAssertEqual(saved_creature._intelligence.baseScore, 12)
-            XCTAssertEqual(saved_creature._wisdom.baseScore, 10)
-            XCTAssertEqual(saved_creature._charisma.baseScore, 8)
+            XCTAssertEqual(saved_creature.strength, 18)
+            XCTAssertEqual(saved_creature.dexterity, 16)
+            XCTAssertEqual(saved_creature.constitution, 14)
+            XCTAssertEqual(saved_creature.intelligence, 12)
+            XCTAssertEqual(saved_creature.wisdom, 10)
+            XCTAssertEqual(saved_creature.charisma, 8)
         } else {
             XCTFail("Could not get CreaturesController")
         }

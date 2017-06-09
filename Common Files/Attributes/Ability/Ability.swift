@@ -24,13 +24,17 @@ class Ability: TransactionsProtocol {
         }
     }
 
-    init(name: String, score: Int, transactions: TransactionsController) {
+    init(name: String, score: Int) {
         self._name = name
         if (score < 0) {
             self._baseScore = 0
         } else {
             self._baseScore = score
         }
+    }
+
+    convenience init(name: String, score: Int, transactions: TransactionsController) {
+        self.init(name: name, score:score)
         save_transaction(transactions, section: "ability", attribute: name, source: "creation", type: "base", value: String(score), duration: -1)
     }
     
