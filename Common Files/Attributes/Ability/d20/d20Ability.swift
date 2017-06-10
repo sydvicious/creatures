@@ -17,14 +17,22 @@ public enum Abilities {
     case Charisma
 }
 
-
 protocol d20AbilityVars {
     var bonus : d20Bonus { get }
 }
 
 class d20Ability: Ability {
     var bonus: d20Bonus
-    
+
+    public static let abilityStrings : [String] = [
+        "Strength",
+        "Dexterity",
+        "Constitution",
+        "Intelligence",
+        "Wisdom",
+        "Charisma"
+    ]
+
     static public let AbilityMap: [String:Abilities] = [
         "strength": .Strength,
         "dexterity": .Dexterity,

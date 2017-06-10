@@ -1,0 +1,3 @@
+[submodule "SwiftPriorityQueue"]
+	path = SwiftPriorityQueue
+	url = git@github.com:BoneJarring/SwiftPriorityQueue

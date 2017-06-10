@@ -73,6 +73,155 @@ func display_character() -> Bool {
     return true
 }
 
+func creatureWithAssignedAbilities() -> Creature? {
+
+    var creature: Creature? = nil
+
+    var str = 10, dex = 10, con = 10, int = 10, wis = 10, cha = 10
+
+    print("Strength: ", terminator:"")
+    if let strength = readLine() {
+        if let value = Int(strength) {
+            str = value
+        }
+    }
+
+    print("Dexterity: ", terminator:"")
+    if let dexterity = readLine() {
+        if let value = Int(dexterity) {
+            dex = value
+        }
+    }
+
+    print("Constitution: ", terminator:"")
+    if let constitution = readLine() {
+        if let value = Int(constitution) {
+            con = value
+        }
+    }
+
+    print("Intelligence: ", terminator:"")
+    if let intelligence = readLine() {
+        if let value = Int(intelligence) {
+            int = value
+        }
+    }
+
+    print("Wisdom: ", terminator:"")
+    if let wisdom = readLine() {
+        if let value = Int(wisdom) {
+            wis = value
+        }
+    }
+
+    print("Charisma: ", terminator:"")
+    if let charisma = readLine() {
+        if let value = Int(charisma) {
+            cha = value
+        }
+    }
+
+    creature = Creature(system: "Pathfinder", strength: str, dexterity: dex, constitution: con, intelligence: int, wisdom: wis, charisma: cha)
+
+    return creature
+}
+
+func creatureWith4D6Best3() -> Creature? {
+    var creature: Creature? = nil
+
+    var str = 10, dex = 10, con = 10, int = 10, wis = 10, cha = 10
+
+    var rolls: [Int] = [
+    ]
+
+    var queue = PriorityQueue<Int>()
+    for _ in 1...6 {
+        let roll = Dice.roll4d6best3()
+        queue.push(roll)
+    }
+
+    for _ in 1...6 {
+        let roll = queue.pop()!
+        rolls.append(roll)
+    }
+
+    print("Choose which roll for the various abilities.")
+    var i = 1
+    for roll in rolls {
+        print("\(i). \(roll)")
+        i += 1
+    }
+    print("Strength: ", terminator: "")
+    if let choiceStr = readLine() {
+        let choice = Int(choiceStr)! - 1
+        str = rolls[choice]
+        rolls.remove(at: choice)
+    }
+
+    i = 1
+    for roll in rolls {
+        print("\(i).\(roll)")
+        i += 1
+    }
+    print("Dexterity: ", terminator: "")
+    if let choiceStr = readLine() {
+        let choice = Int(choiceStr)! - 1
+        dex = rolls[choice]
+        rolls.remove(at: choice)
+    }
+
+    i = 1
+    for roll in rolls {
+        print("\(i).\(roll)")
+        i += 1
+    }
+    print("Constituion: ", terminator: "")
+    if let choiceStr = readLine() {
+        let choice = Int(choiceStr)! - 1
+        con = rolls[choice]
+        rolls.remove(at: choice)
+    }
+
+    i = 1
+    for roll in rolls {
+        print("\(i).\(roll)")
+        i += 1
+    }
+    print("Intelligence: ", terminator: "")
+    if let choiceStr = readLine() {
+        let choice = Int(choiceStr)! - 1
+        int = rolls[choice]
+        rolls.remove(at: choice)
+    }
+
+    i = 1
+    for roll in rolls {
+        print("\(i).\(roll)")
+        i += 1
+    }
+    print("Wisdom: ", terminator: "")
+    if let choiceStr = readLine() {
+        let choice = Int(choiceStr)! - 1
+        wis = rolls[choice]
+        rolls.remove(at: choice)
+    }
+
+    i = 1
+    for roll in rolls {
+        print("\(i).\(roll)")
+        i += 1
+    }
+    print("Charisma: ", terminator: "")
+    if let choiceStr = readLine() {
+        let choice = Int(choiceStr)! - 1
+        cha = rolls[choice]
+        rolls.remove(at: choice)
+    }
+
+    creature = Creature(system: "Pathfinder", strength: str, dexterity: dex, constitution: con, intelligence: int, wisdom: wis, charisma: cha)
+
+    return creature
+}
 func create_character() -> Bool {
     print("create_character")
 
@@ -84,52 +233,14 @@ func create_character() -> Bool {
             print("2. 4d6, choose which scores go with which abilities")
             print("3. Use points")
             print("Choice: ", terminator:"")
-            var str = 10, dex = 10, con = 10, int = 10, wis = 10, cha = 10
+            var creature: Creature? = nil
             while true {
                 if let choice = readLine() {
                     if choice == "1" {
-                        print("Strength: ", terminator:"")
-                        if let strength = readLine() {
-                            if let value = Int(strength) {
-                                str = value
-                            }
-                        }
-
-                        print("Dexterity: ", terminator:"")
-                        if let dexterity = readLine() {
-                            if let value = Int(dexterity) {
-                                dex = value
-                            }
-                        }
-
-                        print("Constitution: ", terminator:"")
-                        if let constitution = readLine() {
-                            if let value = Int(constitution) {
-                                con = value
-                            }
-                        }
-
-                        print("Intelligence: ", terminator:"")
-                        if let intelligence = readLine() {
-                            if let value = Int(intelligence) {
-                                int = value
-                            }
-                        }
-
-                        print("Wisdom: ", terminator:"")
-                        if let wisdom = readLine() {
-                            if let value = Int(wisdom) {
-                                wis = value
-                            }
-                        }
-
-                        print("Charisma: ", terminator:"")
-                        if let charisma = readLine() {
-                            if let value = Int(charisma) {
-                                cha = value
-                            }
-                        }
-
+                        creature = creatureWithAssignedAbilities()
+                        break
+                    } else if choice == "2" {
+                        creature = creatureWith4D6Best3()
                         break
                     } else {
                         print("Not supported yet.")
@@ -137,13 +248,15 @@ func create_character() -> Bool {
                 }
             }
 
-            let creature = Creature(system: "Pathfinder", strength: str, dexterity: dex, constitution: con, intelligence: int, wisdom: wis, charisma: cha)
-
-            let model = try! controller.createCreature(name, withSystem: "Pathfinder", withCreature: creature)
-            if let _ = model.creature {
-                print("\(name) created.")
+            if let creat = creature {
+                let model = try! controller.createCreature(name, withSystem: "Pathfinder", withCreature: creat)
+                if let _ = model.creature {
+                    print("\(name) created.")
+                } else {
+                    print("\(name) created by the creature structure is missing.")
+                }
             } else {
-                print("\(name) created by the creature structure is missing.")
+                print("No creature created.")
             }
         } else {
             print("No creaturesController")
