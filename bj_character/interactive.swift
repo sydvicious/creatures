@@ -79,7 +79,67 @@ func create_character() -> Bool {
     print("Character name: ", terminator:"")
     if let name = readLine() {
         if let controller = creaturesController {
-            let model = try! controller.createCreature(name)
+            print("Please select how you want to generate abilities.")
+            print("1. Enter scores")
+            print("2. 4d6, choose which scores go with which abilities")
+            print("3. Use points")
+            print("Choice: ", terminator:"")
+            var str = 10, dex = 10, con = 10, int = 10, wis = 10, cha = 10
+            while true {
+                if let choice = readLine() {
+                    if choice == "1" {
+                        print("Strength: ", terminator:"")
+                        if let strength = readLine() {
+                            if let value = Int(strength) {
+                                str = value
+                            }
+                        }
+
+                        print("Dexterity: ", terminator:"")
+                        if let dexterity = readLine() {
+                            if let value = Int(dexterity) {
+                                dex = value
+                            }
+                        }
+
+                        print("Constitution: ", terminator:"")
+                        if let constitution = readLine() {
+                            if let value = Int(constitution) {
+                                con = value
+                            }
+                        }
+
+                        print("Intelligence: ", terminator:"")
+                        if let intelligence = readLine() {
+                            if let value = Int(intelligence) {
+                                int = value
+                            }
+                        }
+
+                        print("Wisdom: ", terminator:"")
+                        if let wisdom = readLine() {
+                            if let value = Int(wisdom) {
+                                wis = value
+                            }
+                        }
+
+                        print("Charisma: ", terminator:"")
+                        if let charisma = readLine() {
+                            if let value = Int(charisma) {
+                                cha = value
+                            }
+                        }
+
+                        break
+                    } else {
+                        print("Not supported yet.")
+                    }
+                }
+            }
+
+            let creature = Creature(system: "Pathfinder", strength: str, dexterity: dex, constitution: con, intelligence: int, wisdom: wis, charisma: cha)
+
+            let model = try! controller.createCreature(name, withSystem: "Pathfinder", withCreature: creature)
             if let _ = model.creature {
                 print("\(name) created.")
             } else {
