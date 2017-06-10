@@ -140,8 +140,7 @@ func creatureWith4D6Best3() -> Creature? {
         queue.push(roll)
     }
 
-    for _ in 1...6 {
-        let roll = queue.pop()!
+    for roll in queue {
         rolls.append(roll)
     }
 
