@@ -87,20 +87,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		624C5B001EEBB97D00B161F1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 624C5AF81EEBB97C00B161F1 /* SwiftPriorityQueue.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5539481F1AC6495600666559;
-			remoteInfo = SwiftPriorityQueue;
-		};
-		624C5B021EEBB97D00B161F1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 624C5AF81EEBB97C00B161F1 /* SwiftPriorityQueue.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5539482F1AC6495600666559;
-			remoteInfo = SwiftPriorityQueueTests;
-		};
 		62B2CB1E1B2A551E0073B8DC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6228504D1978EC9600DE985E /* Project object */;
@@ -148,23 +134,9 @@
 		62430B061EE9093F00135FA6 /* batch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = batch.swift; sourceTree = "<group>"; };
 		624AE9DB1E17817A00DD9782 /* Characters 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 6.xcdatamodel"; sourceTree = "<group>"; };
 		624C5AE31EEBB59700B161F1 /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dice.swift; path = Utils/Dice.swift; sourceTree = "<group>"; };
-		624C5AE71EEBB97C00B161F1 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
-		624C5AE81EEBB97C00B161F1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		624C5AE91EEBB97C00B161F1 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
-		624C5AEA1EEBB97C00B161F1 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		624C5AEB1EEBB97C00B161F1 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		624C5AEC1EEBB97C00B161F1 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		624C5AED1EEBB97C00B161F1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		624C5AEF1EEBB97C00B161F1 /* SwiftPriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPriorityQueue.swift; sourceTree = "<group>"; };
-		624C5AF11EEBB97C00B161F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		624C5AF21EEBB97C00B161F1 /* astar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = astar.swift; sourceTree = "<group>"; };
-		624C5AF41EEBB97C00B161F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		624C5AF51EEBB97C00B161F1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		624C5AF61EEBB97C00B161F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		624C5AF71EEBB97C00B161F1 /* SwiftPriorityQueue.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftPriorityQueue.podspec; sourceTree = "<group>"; };
-		624C5AF81EEBB97C00B161F1 /* SwiftPriorityQueue.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SwiftPriorityQueue.xcodeproj; sourceTree = "<group>"; };
-		624C5AFC1EEBB97C00B161F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		624C5AFD1EEBB97C00B161F1 /* SwiftPriorityQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPriorityQueueTests.swift; sourceTree = "<group>"; };
 		624C5B861EA9AC7A007BF969 /* bj_character */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = bj_character; sourceTree = BUILT_PRODUCTS_DIR; };
 		624C5B881EA9AC7A007BF969 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		625824851E17B4CA0049DE03 /* TransactionsModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TransactionsModel+CoreDataClass.swift"; path = "Models/TransactionsModel+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -373,18 +345,9 @@
 		624C5AE61EEBB97C00B161F1 /* SwiftPriorityQueue */ = {
 			isa = PBXGroup;
 			children = (
-				624C5AE71EEBB97C00B161F1 /* .gitattributes */,
-				624C5AE81EEBB97C00B161F1 /* .gitignore */,
-				624C5AE91EEBB97C00B161F1 /* .swift-version */,
-				624C5AEA1EEBB97C00B161F1 /* CHANGELOG.md */,
 				624C5AEB1EEBB97C00B161F1 /* LICENSE */,
-				624C5AEC1EEBB97C00B161F1 /* Package.swift */,
 				624C5AED1EEBB97C00B161F1 /* README.md */,
 				624C5AEE1EEBB97C00B161F1 /* Sources */,
-				624C5AF01EEBB97C00B161F1 /* SwiftPriorityQueue */,
-				624C5AF71EEBB97C00B161F1 /* SwiftPriorityQueue.podspec */,
-				624C5AF81EEBB97C00B161F1 /* SwiftPriorityQueue.xcodeproj */,
-				624C5AFB1EEBB97C00B161F1 /* SwiftPriorityQueueTests */,
 			);
 			path = SwiftPriorityQueue;
 			sourceTree = "<group>";
@@ -395,36 +358,6 @@
 				624C5AEF1EEBB97C00B161F1 /* SwiftPriorityQueue.swift */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		624C5AF01EEBB97C00B161F1 /* SwiftPriorityQueue */ = {
-			isa = PBXGroup;
-			children = (
-				624C5AF11EEBB97C00B161F1 /* AppDelegate.swift */,
-				624C5AF21EEBB97C00B161F1 /* astar.swift */,
-				624C5AF31EEBB97C00B161F1 /* MainMenu.xib */,
-				624C5AF51EEBB97C00B161F1 /* Images.xcassets */,
-				624C5AF61EEBB97C00B161F1 /* Info.plist */,
-			);
-			path = SwiftPriorityQueue;
-			sourceTree = "<group>";
-		};
-		624C5AF91EEBB97C00B161F1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				624C5B011EEBB97D00B161F1 /* SwiftPriorityQueue.app */,
-				624C5B031EEBB97D00B161F1 /* SwiftPriorityQueueTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		624C5AFB1EEBB97C00B161F1 /* SwiftPriorityQueueTests */ = {
-			isa = PBXGroup;
-			children = (
-				624C5AFC1EEBB97C00B161F1 /* Info.plist */,
-				624C5AFD1EEBB97C00B161F1 /* SwiftPriorityQueueTests.swift */,
-			);
-			path = SwiftPriorityQueueTests;
 			sourceTree = "<group>";
 		};
 		624C5B871EA9AC7A007BF969 /* bj_character */ = {
@@ -682,12 +615,6 @@
 			mainGroup = 6228504C1978EC9600DE985E;
 			productRefGroup = 622850581978ECB000DE985E /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 624C5AF91EEBB97C00B161F1 /* Products */;
-					ProjectRef = 624C5AF81EEBB97C00B161F1 /* SwiftPriorityQueue.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				622850561978ECB000DE985E /* iOS */,
@@ -698,23 +625,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		624C5B011EEBB97D00B161F1 /* SwiftPriorityQueue.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = SwiftPriorityQueue.app;
-			remoteRef = 624C5B001EEBB97D00B161F1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		624C5B031EEBB97D00B161F1 /* SwiftPriorityQueueTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SwiftPriorityQueueTests.xctest;
-			remoteRef = 624C5B021EEBB97D00B161F1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		622850551978ECB000DE985E /* Resources */ = {
@@ -882,14 +792,6 @@
 				622850661978ECB000DE985E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		624C5AF31EEBB97C00B161F1 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				624C5AF41EEBB97C00B161F1 /* Base */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 		62FA2D371B27B49400FCCF71 /* Main.storyboard */ = {
