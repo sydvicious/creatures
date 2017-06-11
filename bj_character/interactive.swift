@@ -306,6 +306,116 @@ func creatureWithDicePool(dice: Int) -> Creature? {
 
 }
 
+func creatureWith(points: Int) -> Creature? {
+    var creature: Creature? = nil
+    var str = 10, dex = 10, con = 10, int = 10, wis = 10, cha = 10
+
+    var currentPoints: Int {
+        get {
+            var total = PathfinderAbility.AbilityCosts[str]!
+            total += PathfinderAbility.AbilityCosts[dex]!
+            total += PathfinderAbility.AbilityCosts[con]!
+            total += PathfinderAbility.AbilityCosts[int]!
+            total += PathfinderAbility.AbilityCosts[wis]!
+            total += PathfinderAbility.AbilityCosts[cha]!
+            return total
+        }
+    }
+
+    var done = false
+    while !done {
+        print("You have \(points - currentPoints) left. Choose an ability to modify.")
+        print("1. Strength (\(str))")
+        print("2. Dexterity (\(dex))")
+        print("3. Constitution (\(con))")
+        print("4. Intelligence (\(int))")
+        print("5. Wisdom (\(wis))")
+        print("6. Charisma (\(cha))")
+        print("0. Done")
+        print("")
+        print("Choose: ", terminator: "")
+        if let choice_str = readLine() {
+            if choice_str == "0" {
+                if currentPoints - points == 0 {
+                    done = true
+                } else if currentPoints < points {
+                    print("You still have \(points - currentPoints) left. Are you sure you want to exit? [y/N]", terminator: "")
+                    if let confirm_str = readLine() {
+                        let first_char = Array(confirm_str)[0]
+                        if first_char == "y" || first_char == "Y" {
+                            done = true
+                        }
+                    }
+                } else {
+                    print("You have used too many points.")
+                }
+            } else {
+                if let choice = Int(choice_str) {
+                    print("+ Increase by one")
+                    print("- Decrease by one")
+                    print("Choose: ", terminator: "")
+                    if let direction = readLine() {
+                        var sign = 0
+                        if direction == "+" {
+                            sign = 1
+                        } else if direction == "-1" {
+                            sign = -1
+                        }
+                        if sign != 0 {
+                            switch choice {
+                            case 1:
+                                str += sign
+                                if (str > 18) || (str < 7) {
+                                    str -= sign
+                                } else {
+                                    print("Strength out of bounds.")
+                                }
+                            case 2:
+                                dex += sign
+                                if (dex > 18) || (dex < 7) {
+                                    dex -= sign
+                                } else {
+                                    print("Dexterity out of bounds.")
+                                }
+                            case 3:
+                                con += sign
+                                if (con > 18) || (con < 7) {
+                                    con -= sign
+                                } else {
+                                    print("Constitution out of bounds.")
+                                }
+                            case 4:
+                                int += sign
+                                if (int > 18) || (int < 7) {
+                                    int -= sign
+                                } else {
+                                    print("Intelligence out of bounds.")
+                                }
+                            case 5:
+                                wis += sign
+                                if (wis > 18) || (wis < 7) {
+                                    wis -= sign
+                                } else {
+                                    print("Wisdom out of bounds.")
+                                }
+                            case 6:
+                                cha += sign
+                                if (cha > 18) || (cha < 7) {
+                                    cha -= sign
+                                } else {
+                                    print("Charisma out of bounds.")
+                                }
+                            default: ()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return Creature(system: "Pathfinder", strength: str, dexterity: dex, constitution:con, intelligence: int, wisdom: wis, charisma: cha)
+}
+
 func create_character() -> Bool {
     print("create_character")
 
@@ -319,7 +429,10 @@ func create_character() -> Bool {
             print("4. Heroic (2d6+6, choose which scores go with which abilities")
             print("5. Standard dice pool (24d6, make 6 abilities with 3 rolls")
             print("6. Heroic dice pool (28d6, make 6 abilities with 3 rolls")
-            print("7. Use points")
+            print("7. Use points - low fantasy")
+            print("8. Use points - standard fantasy")
+            print("9: Use points - high fantasy")
+            print("10: Use points - epic fantasy")
             print("Choice: ", terminator:"")
             var creature: Creature? = nil
             while true {
@@ -341,6 +454,18 @@ func create_character() -> Bool {
                         break
                     } else if choice == "6" {
                         creature = creatureWithDicePool(dice: 28)
+                        break
+                    } else if choice == "7" {
+                        creature = creatureWith(points: 10)
+                        break
+                    } else if choice == "8" {
+                        creature = creatureWith(points: 15)
+                        break
+                    } else if choice == "9" {
+                        creature = creatureWith(points: 20)
+                        break
+                    } else if choice == "10" {
+                        creature = creatureWith(points: 25)
                         break
                     } else {
                         print("Not supported yet.")
