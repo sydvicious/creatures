@@ -126,17 +126,168 @@ func creatureWithAssignedAbilities() -> Creature? {
     return creature
 }
 
-func creatureWith4D6Best3() -> Creature? {
+func generate4d6best3() -> Int {
+    return Dice.roll(number: 4, dieType: 6, bonus: 0, best: 3)
+}
+
+func generate3d6() -> Int {
+    return Dice.roll(number: 3, dieType: 6, bonus: 0)
+}
+
+func generate2d6plus6() -> Int {
+    return Dice.roll(number: 2, dieType: 6, bonus: 6)
+}
+
+func creatureWithChosenRolls(rolls: [Int]) -> Creature? {
     var creature: Creature? = nil
+
+    var _rolls = rolls
 
     var str = 10, dex = 10, con = 10, int = 10, wis = 10, cha = 10
 
-    var rolls: [Int] = [
-    ]
+    print("Choose which roll for the various abilities.")
+    var i = 1
+    for roll in _rolls {
+        print("\(i). \(roll)")
+        i += 1
+    }
+    print("Strength: ", terminator: "")
+    if let choiceStr = readLine() {
+        let choice = Int(choiceStr)! - 1
+        str = _rolls[choice]
+        _rolls.remove(at: choice)
+    }
+
+    i = 1
+    for roll in _rolls {
+        print("\(i).\(roll)")
+        i += 1
+    }
+    print("Dexterity: ", terminator: "")
+    if let choiceStr = readLine() {
+        let choice = Int(choiceStr)! - 1
+        dex = _rolls[choice]
+        _rolls.remove(at: choice)
+    }
+
+    i = 1
+    for roll in _rolls {
+        print("\(i).\(roll)")
+        i += 1
+    }
+    print("Constituion: ", terminator: "")
+    if let choiceStr = readLine() {
+        let choice = Int(choiceStr)! - 1
+        con = _rolls[choice]
+        _rolls.remove(at: choice)
+    }
+
+    i = 1
+    for roll in _rolls {
+        print("\(i).\(roll)")
+        i += 1
+    }
+    print("Intelligence: ", terminator: "")
+    if let choiceStr = readLine() {
+        let choice = Int(choiceStr)! - 1
+        int = _rolls[choice]
+        _rolls.remove(at: choice)
+    }
+
+    i = 1
+    for roll in _rolls {
+        print("\(i).\(roll)")
+        i += 1
+    }
+    print("Wisdom: ", terminator: "")
+    if let choiceStr = readLine() {
+        let choice = Int(choiceStr)! - 1
+        wis = _rolls[choice]
+        _rolls.remove(at: choice)
+    }
+
+    i = 1
+    for roll in _rolls {
+        print("\(i).\(roll)")
+        i += 1
+    }
+    print("Charisma: ", terminator: "")
+    if let choiceStr = readLine() {
+        let choice = Int(choiceStr)! - 1
+        cha = _rolls[choice]
+        _rolls.remove(at: choice)
+    }
+
+    creature = Creature(system: "Pathfinder", strength: str, dexterity: dex, constitution: con, intelligence: int, wisdom: wis, charisma: cha)
+
+    return creature
+}
+
+func creatureWithRoller(roller: ()->Int) -> Creature? {
+    var rolls: [Int] = []
 
     var queue = PriorityQueue<Int>()
     for _ in 1...6 {
-        let roll = Dice.roll4d6best3()
+        let roll = roller()
+        queue.push(roll)
+    }
+
+    for roll in queue {
+        rolls.append(roll)
+    }
+    
+    return creatureWithChosenRolls(rolls: rolls)
+}
+
+func chooseFromPool(rolls: [Int]) -> Int {
+    var lines = 0
+    var roll_number = -1
+    while (roll_number == -1) {
+        for i in 0...rolls.count-1 {
+            if i < 9 {
+                print(" ", terminator:"")
+            }
+            print("\(i + 1). \(rolls[i])", terminator:"")
+            if lines == 5 {
+                print("")
+                lines = 0
+            } else {
+                print(" ", terminator:"")
+                lines += 1
+            }
+        }
+        if (lines != 0) {
+            print("")
+        }
+        print("Roll number: ", terminator: "")
+        if let choice_str = readLine() {
+            if let choice = Int(choice_str) {
+                roll_number = choice
+            }
+        }
+    }
+    return roll_number
+}
+
+func creatureWithDicePool(dice: Int) -> Creature? {
+    var rolls: [Int] = []
+
+    func pull_from_dice_pool(prompt: String) -> Int {
+        print ("Choose 3 rolls for \(prompt): ")
+        var total = 0
+        for _ in 1...3 {
+            let roll_number = chooseFromPool(rolls: rolls)
+            let roll = rolls[roll_number - 1]
+            rolls.remove(at: roll_number - 1)
+            total += roll
+        }
+        return total
+    }
+
+    var queue = PriorityQueue<Int>()
+
+    for _ in 1...dice {
+        let roll = Dice.roll(number: 1, dieType: 6, bonus: 0)
         queue.push(roll)
     }
 
@@ -144,83 +295,17 @@ func creatureWith4D6Best3() -> Creature? {
         rolls.append(roll)
     }
 
-    print("Choose which roll for the various abilities.")
-    var i = 1
-    for roll in rolls {
-        print("\(i). \(roll)")
-        i += 1
-    }
-    print("Strength: ", terminator: "")
-    if let choiceStr = readLine() {
-        let choice = Int(choiceStr)! - 1
-        str = rolls[choice]
-        rolls.remove(at: choice)
-    }
+    let str = pull_from_dice_pool(prompt: "Strength")
+    let dex = pull_from_dice_pool(prompt: "Dexterity")
+    let con = pull_from_dice_pool(prompt: "Constitution")
+    let int = pull_from_dice_pool(prompt: "Intelligence")
+    let wis = pull_from_dice_pool(prompt: "Wisdom")
+    let cha = pull_from_dice_pool(prompt: "Charisma")
 
-    i = 1
-    for roll in rolls {
-        print("\(i).\(roll)")
-        i += 1
-    }
-    print("Dexterity: ", terminator: "")
-    if let choiceStr = readLine() {
-        let choice = Int(choiceStr)! - 1
-        dex = rolls[choice]
-        rolls.remove(at: choice)
-    }
+    return Creature(system: "Pathfinder", strength: str, dexterity: dex, constitution: con, intelligence: int, wisdom: wis, charisma: cha)
 
-    i = 1
-    for roll in rolls {
-        print("\(i).\(roll)")
-        i += 1
-    }
-    print("Constituion: ", terminator: "")
-    if let choiceStr = readLine() {
-        let choice = Int(choiceStr)! - 1
-        con = rolls[choice]
-        rolls.remove(at: choice)
-    }
-
-    i = 1
-    for roll in rolls {
-        print("\(i).\(roll)")
-        i += 1
-    }
-    print("Intelligence: ", terminator: "")
-    if let choiceStr = readLine() {
-        let choice = Int(choiceStr)! - 1
-        int = rolls[choice]
-        rolls.remove(at: choice)
-    }
-
-    i = 1
-    for roll in rolls {
-        print("\(i).\(roll)")
-        i += 1
-    }
-    print("Wisdom: ", terminator: "")
-    if let choiceStr = readLine() {
-        let choice = Int(choiceStr)! - 1
-        wis = rolls[choice]
-        rolls.remove(at: choice)
-    }
-
-    i = 1
-    for roll in rolls {
-        print("\(i).\(roll)")
-        i += 1
-    }
-    print("Charisma: ", terminator: "")
-    if let choiceStr = readLine() {
-        let choice = Int(choiceStr)! - 1
-        cha = rolls[choice]
-        rolls.remove(at: choice)
-    }
-
-    creature = Creature(system: "Pathfinder", strength: str, dexterity: dex, constitution: con, intelligence: int, wisdom: wis, charisma: cha)
-
-    return creature
 }
+
 func create_character() -> Bool {
     print("create_character")
 
@@ -229,8 +314,12 @@ func create_character() -> Bool {
         if let controller = creaturesController {
             print("Please select how you want to generate abilities.")
             print("1. Enter scores")
-            print("2. 4d6, choose which scores go with which abilities")
-            print("3. Use points")
+            print("2. Standard (4d6 best 3, choose which scores go with which abilities)")
+            print("3. Classic (3d6, choose which scores go with which abilities")
+            print("4. Heroic (2d6+6, choose which scores go with which abilities")
+            print("5. Standard dice pool (24d6, make 6 abilities with 3 rolls")
+            print("6. Heroic dice pool (28d6, make 6 abilities with 3 rolls")
+            print("7. Use points")
             print("Choice: ", terminator:"")
             var creature: Creature? = nil
             while true {
@@ -239,7 +328,19 @@ func create_character() -> Bool {
                         creature = creatureWithAssignedAbilities()
                         break
                     } else if choice == "2" {
-                        creature = creatureWith4D6Best3()
+                        creature = creatureWithRoller(roller: generate4d6best3)
+                        break
+                    } else if choice == "3" {
+                        creature = creatureWithRoller(roller: generate3d6)
+                        break
+                    } else if choice == "4" {
+                        creature = creatureWithRoller(roller: generate2d6plus6)
+                        break
+                    } else if choice == "5" {
+                        creature = creatureWithDicePool(dice: 24)
+                        break
+                    } else if choice == "6" {
+                        creature = creatureWithDicePool(dice: 28)
                         break
                     } else {
                         print("Not supported yet.")
