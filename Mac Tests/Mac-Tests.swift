@@ -3,7 +3,7 @@
 //  Mac-Tests
 //
 //  Created by Syd Polk on 6/11/15.
-//
+//  Copyright (c) 2015 Bone Jarring Games and Software, LLC. All rights reserved.
 //
 
 import XCTest

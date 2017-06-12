@@ -3,7 +3,7 @@
 //  Characters
 //
 //  Created by Syd Polk on 9/16/16.
-//
+//  Copyright (c) 2016 Bone Jarring Games and Software, LLC. All rights reserved.
 //
 
 import XCTest

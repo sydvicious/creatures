@@ -3,6 +3,7 @@
 //  Characters
 //
 //  Created by Sydney Polk on 6/9/17.
+//  Copyright (c) 2017 Bone Jarring Games and Software, LLC. All rights reserved.
 //
 
 import Foundation

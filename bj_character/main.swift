@@ -3,7 +3,7 @@
 //  bj_character
 //
 //  Created by Syd Polk on 4/20/17.
-//
+//  Copyright (c) 2017 Bone Jarring Games and Software, LLC. All rights reserved.
 //
 
 import Foundation
