@@ -46,7 +46,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Dispose of any resources that can be recreated.
     }
     
-    @objc func insertNewObject(_ sender: AnyObject) {
+    @objc
+    func insertNewObject(_ sender: AnyObject) {
         do {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let wizardViewController = storyboard.instantiateViewController(withIdentifier: "Wizard")

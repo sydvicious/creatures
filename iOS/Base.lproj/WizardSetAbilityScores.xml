@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+     Copyright (c) 2017 Bone Jarring Games and Software, LLC. All rights reserved.
+ -->
+
+<?properties {
+    "ability_label": {
+        "textAlignment": "right",
+        "font": body,
+    },
+
+    "ability_box": {
+        "textAlignment": "right",
+        "font": body,
+        "keyboardType": numberPad,
+"width": 50
+    },
+
+    "legend": {
+        "font": "caption1",
+        "textAlignment": "center",
+    },
+}?>
+
+<LMScrollView panGestureRecognizer.allowedTouchTypes="direct, indirect" backgroundColor="#ffffff">
+    <LMColumnView layoutMargins="8" spacing="16">
+        <LMColumnView class="table">
+            <LMRowView class="row">
+                <UILabel class="legend" text="Please type in your ability scores directly."/>
+            </LMRowView>
+            <LMRowView class="row">
+                <UILabel class="ability_label" text="Strength:"/>
+                <UITextField class="ability_box" id="str_field" placeholder="10"/>
+            </LMRowView>
+            <LMRowView class="row">
+                <UILabel class="ability_label" text="Dexterity:"/>
+                <UITextField class="ability_box" id="dex_field" placeholder="10"/>
+            </LMRowView>
+            <LMRowView class="row">
+                <UILabel class="ability_label" text="Constitution:"/>
+                <UITextField class="ability_box" id="con_field" placeholder="10"/>
+            </LMRowView>
+            <LMRowView class="row">
+                <UILabel class="ability_label" text="Intelligence:"/>
+                <UITextField class="ability_box" id="int_field" placeholder="10"/>
+            </LMRowView>
+            <LMRowView class="row">
+                <UILabel class="ability_label" text="Wisdom:"/>
+                <UITextField class="ability_box" id="wis_field" placeholder="10"/>
+            </LMRowView>
+            <LMRowView class="row">
+                <UILabel class="ability_label" text="Charisma:"/>
+                <UITextField class="ability_box" id="cha_field" placeholder="10"/>
+            </LMRowView>
+        </LMColumnView>
+    </LMColumnView>
+</LMScrollView>

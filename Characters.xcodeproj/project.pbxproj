@@ -23,6 +23,7 @@
 		622850671978ECB000DE985E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 622850651978ECB000DE985E /* Main.storyboard */; };
 		6228508B1978ED1B00DE985E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228508A1978ED1B00DE985E /* AppDelegate.swift */; };
 		622850901978ED1B00DE985E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6228508F1978ED1B00DE985E /* Images.xcassets */; };
+		623C1B5C1F0DDCBA00F3ADBA /* WizardSetAbilityScores.xml in Resources */ = {isa = PBXBuildFile; fileRef = 623C1B5A1F0DDCBA00F3ADBA /* WizardSetAbilityScores.xml */; };
 		62430B071EE90D4100135FA6 /* batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62430B061EE9093F00135FA6 /* batch.swift */; };
 		624AE9D21E17528C00DD9782 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		624C5AE41EEBB59700B161F1 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624C5AE31EEBB59700B161F1 /* Dice.swift */; };
@@ -138,6 +139,7 @@
 		6228508A1978ED1B00DE985E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6228508F1978ED1B00DE985E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestCreatures.swift; path = "iOS Tests/TestCreatures.swift"; sourceTree = SOURCE_ROOT; };
+		623C1B5B1F0DDCBA00F3ADBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/WizardSetAbilityScores.xml; sourceTree = "<group>"; };
 		62430B061EE9093F00135FA6 /* batch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = batch.swift; sourceTree = "<group>"; };
 		624AE9DB1E17817A00DD9782 /* Characters 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 6.xcdatamodel"; sourceTree = "<group>"; };
 		624C5AE31EEBB59700B161F1 /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dice.swift; path = Utils/Dice.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				62ACB3CF1DD457FD00D7BA89 /* Images.xcassets */,
 				626A3D7B19CBE59300B3222D /* LaunchScreen.xib */,
 				622850651978ECB000DE985E /* Main.storyboard */,
+				623C1B5A1F0DDCBA00F3ADBA /* WizardSetAbilityScores.xml */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62ACB3D01DD457FD00D7BA89 /* Images.xcassets in Resources */,
+				623C1B5C1F0DDCBA00F3ADBA /* WizardSetAbilityScores.xml in Resources */,
 				622850671978ECB000DE985E /* Main.storyboard in Resources */,
 				624AE9D21E17528C00DD9782 /* (null) in Resources */,
 				626A3D7C19CBE59300B3222D /* LaunchScreen.xib in Resources */,
@@ -816,6 +820,14 @@
 				622850661978ECB000DE985E /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		623C1B5A1F0DDCBA00F3ADBA /* WizardSetAbilityScores.xml */ = {
+			isa = PBXVariantGroup;
+			children = (
+				623C1B5B1F0DDCBA00F3ADBA /* Base */,
+			);
+			name = WizardSetAbilityScores.xml;
 			sourceTree = "<group>";
 		};
 		62FA2D371B27B49400FCCF71 /* Main.storyboard */ = {

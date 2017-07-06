@@ -7,41 +7,40 @@
 
 import UIKit
 
-class WizardSetAbilityScoresViewController: UIViewController {
-
-    private var strength: PathfinderAbility = PathfinderAbility.init(name: "strength", score: 10)
-    private var dexterity: PathfinderAbility = PathfinderAbility.init(name: "dexterity", score: 10)
-    private var constitution: PathfinderAbility = PathfinderAbility.init(name: "constitution", score: 10)
-    private var intelligence: PathfinderAbility = PathfinderAbility.init(name: "intelligence", score: 10)
-    private var wisdom: PathfinderAbility = PathfinderAbility.init(name: "wisdom", score: 10)
-    private var charisma: PathfinderAbility = PathfinderAbility.init(name: "charisman", score: 10)
+class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegate {
+    
+    private var abilities : [String:Ability] = [:]
+    
+    @IBOutlet var str_field: UITextField?
+    @IBOutlet var dex_field: UITextField?
+    @IBOutlet var con_field: UITextField?
+    @IBOutlet var int_field: UITextField?
+    @IBOutlet var wis_field: UITextField?
+    @IBOutlet var cha_field: UITextField?
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         super.viewDidLoad()
         
-        self.setView()
+    }
+    
+    func setAbilityValues() {
+        for ability in ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"] {
+            abilities[ability] = PathfinderAbility(name: ability, score: Int(str_field!.text!)!)
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
+        if let value = Int(string) {
+            if value < 0 {
+                return false
+            }
+            if value > 99 {
+                return false
+            }
+            return true
+        }
+        return false
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    private func setView() {
-        
-    }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
