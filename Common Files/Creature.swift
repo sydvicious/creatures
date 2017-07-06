@@ -92,8 +92,17 @@ let setAbilityCommands: [String:(Creature, Ability) -> ()] = [
     "widsom": setWisdomFor
 ]
 
-class Creature {
+let abilityConstructors: [String:(String,Int,TransactionsController)->Ability] = [
+    "Pathfinder": PathfinderAbility.init,
+    "AD&D": Ability.init,
+    "D&D": Ability.init,
+    "D&D5": d20Ability.init
+]
 
+class Creature {
+    
+    let system: String
+    
     let transactionsController = TransactionsController()
     
     var _strength: Ability? = nil
@@ -167,34 +176,75 @@ class Creature {
             }
         }
     }
-
-    init() {
-
-    }
-
-    init(system: String, strength: Int, dexterity: Int, constitution: Int, intelligence: Int, wisdom: Int, charisma: Int) {
-        if system == "Pathfinder" {
-            _strength = PathfinderAbility(name: "strength", score: strength, transactions: transactionsController)
-            _dexterity = PathfinderAbility(name: "dexterity", score: dexterity, transactions: transactionsController)
-            _constitution = PathfinderAbility(name: "constitution", score: constitution, transactions: transactionsController)
-            _intelligence = PathfinderAbility(name: "intelligence", score: intelligence, transactions: transactionsController)
-            _wisdom = PathfinderAbility(name: "wisdom", score: wisdom, transactions: transactionsController)
-            _charisma = PathfinderAbility(name: "charisma", score: charisma, transactions: transactionsController)
-        } else if system == "D&D" || system == "AD&D" {
-            _strength = Ability(name: "strength", score: strength, transactions: transactionsController)
-            _dexterity = Ability(name: "dexterity", score: dexterity, transactions: transactionsController)
-            _constitution = Ability(name: "constitution", score: constitution, transactions: transactionsController)
-            _intelligence = Ability(name: "intelligence", score: intelligence, transactions: transactionsController)
-            _wisdom = Ability(name: "wisdom", score: wisdom, transactions: transactionsController)
-            _charisma = Ability(name: "charisma", score: charisma, transactions: transactionsController)
-        } else {
-            _strength = d20Ability(name: "strength", score: strength, transactions: transactionsController)
-            _dexterity = d20Ability(name: "dexterity", score: dexterity, transactions: transactionsController)
-            _constitution = d20Ability(name: "constitution", score: constitution, transactions: transactionsController)
-            _intelligence = d20Ability(name: "intelligence", score: intelligence, transactions: transactionsController)
-            _wisdom = d20Ability(name: "wisdom", score: wisdom, transactions: transactionsController)
-            _charisma = d20Ability(name: "charisma", score: charisma, transactions: transactionsController)
+    
+    func ability(named: String, fromBaseScore: Int) -> Ability? {
+        if let ability_init:(String, Int, TransactionsController) -> Ability = abilityConstructors[system] {
+            return ability_init(named, fromBaseScore, transactionsController)
         }
+        print("Unknown ability \(system)")
+        abort()
+    }
+    
+    func setStrength(baseScore: Int) {
+        if _strength == nil {
+            _strength = ability(named: "strength", fromBaseScore: baseScore)
+        } else {
+            // Deal with transactions and modifications and something
+        }
+    }
+    
+    func setDexterity(baseScore: Int) {
+        if _dexterity == nil {
+            _dexterity = ability(named: "dexterity", fromBaseScore: baseScore)
+        } else {
+        }
+    }
+    
+    func setConstitution(baseScore: Int) {
+        if _constitution == nil {
+            _constitution = ability(named: "constitution", fromBaseScore: baseScore)
+        } else {
+        }
+    }
+    
+    func setIntelligence(baseScore: Int) {
+        if _intelligence == nil {
+            _intelligence = ability(named: "intelligence", fromBaseScore: baseScore)
+        } else {
+        }
+    }
+    
+    func setWisdom(baseScore: Int) {
+        if _wisdom == nil {
+            _wisdom = ability(named: "wisdom", fromBaseScore: baseScore)
+        } else {
+        }
+    }
+    
+    func setCharisma(baseScore: Int) {
+        if _charisma == nil {
+            _charisma = ability(named: "charisma", fromBaseScore: baseScore)
+        } else {
+        }
+    }
+    
+    init() {
+        system = "Pathfinder"
+    }
+    
+    init(system: String) {
+        self.system = system
+    }
+    
+    init(system: String, strength: Int, dexterity: Int, constitution: Int, intelligence: Int, wisdom: Int, charisma: Int) {
+        self.system = system
+        
+        setStrength(baseScore: strength)
+        setDexterity(baseScore: dexterity)
+        setConstitution(baseScore: constitution)
+        setIntelligence(baseScore: intelligence)
+        setWisdom(baseScore: wisdom)
+        setCharisma(baseScore: charisma)
     }
 
     func parse(transactions: NSSet) {

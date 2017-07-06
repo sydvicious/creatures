@@ -1,3 +1,6 @@
 [submodule "SwiftPriorityQueue"]
 	path = SwiftPriorityQueue
 	url = git@github.com:BoneJarring/SwiftPriorityQueue
+[submodule "MarkupKit"]
+	path = MarkupKit
+	url = git@github.com:BoneJarring/MarkupKit
