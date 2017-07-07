@@ -10,11 +10,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet var fullName: UITextField!
-    @IBOutlet var emailAddress: UITextField!
-    @IBOutlet var doneButton: UIButton!
-    @IBOutlet var pleaseBanner: UILabel!
-    @IBOutlet var welcomeBanner: UILabel!
+    @IBOutlet weak var fullName: UITextField!
+    @IBOutlet weak var emailAddress: UITextField!
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var pleaseBanner: UILabel!
+    @IBOutlet weak var welcomeBanner: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,13 +45,17 @@ class LoginViewController: UIViewController {
         if fullyInitialized {
             welcomeBanner.text = String(format: "Welcome back, %@!", storedFullName)
             welcomeBanner.isHidden = false
+            pleaseBanner.isHidden = true
+            fullName.isHidden = true
+            emailAddress.isHidden = true
+            doneButton.isHidden = true
             _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(LoginViewController.respondToTimer), userInfo: nil, repeats: false)
             Thread.sleep(forTimeInterval: 1.0)
         } else {
             fullName.isHidden = false
             emailAddress.isHidden = false
             pleaseBanner.isHidden = false
-            pleaseBanner.isHidden = false
+            welcomeBanner.isHidden = true
             doneButton.isHidden = false
             doneButton.isEnabled = true
         }

@@ -32,7 +32,16 @@ class d20Ability: Ability {
         "Wisdom",
         "Charisma"
     ]
-
+    
+    public static let abilityKeys: [String] = [
+        "strength",
+        "dexterity",
+        "constitution",
+        "intelligence",
+        "wisdom",
+        "charisma"
+    ]
+    
     static public let AbilityMap: [String:Abilities] = [
         "strength": .Strength,
         "dexterity": .Dexterity,
@@ -41,7 +50,14 @@ class d20Ability: Ability {
         "wisdom": .Wisdom,
         "charisma": .Charisma
     ]
-
+    
+    public static func modifier(value: Int) -> Int {
+        let normalized : Double = Double(value - 10)
+        let half = normalized / 2.0
+        let result = floor(half)
+        return Int(result)
+    }
+    
     override var currentScore : Int {
         get {
             return self.baseScore + self.bonus.netValue()
@@ -67,10 +83,7 @@ class d20Ability: Ability {
 
 extension d20Ability: d20AbilityVars {
     var modifier: Int {
-        let normalized : Double = Double(currentScore - 10)
-        let half = normalized / 2.0
-        let result = floor(half)
-        return Int(result)
+        return d20Ability.modifier(value: currentScore)
     }
 }
 

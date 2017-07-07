@@ -52,7 +52,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let wizardViewController = storyboard.instantiateViewController(withIdentifier: "Wizard")
             self.present(wizardViewController, animated: true, completion: nil)
-            try self.newlyCreatedCreature = self.creaturesController!.createCreature("<unnamed>")
+//            try self.newlyCreatedCreature = self.creaturesController!.createCreature("<unnamed>")
         } catch {
             // Can't happen.
             abort()

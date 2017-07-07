@@ -13,7 +13,8 @@ var wizardName = "<untitled>"
 
 private var wizardIPhoneViewControllerNames = [
     "WizardIntroIPhone",
-    "WizardBioIPhone"
+    "WizardBioIPhone",
+    "WizardSetAbilties"
 ]
 
 private var wizardiPadViewControllerNames = [
