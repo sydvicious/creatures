@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var pleaseBanner: UILabel!
     @IBOutlet weak var welcomeBanner: UILabel!
+    @IBOutlet weak var nameRow: UIStackView!
+    @IBOutlet weak var emailRow: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,14 +48,14 @@ class LoginViewController: UIViewController {
             welcomeBanner.text = String(format: "Welcome back, %@!", storedFullName)
             welcomeBanner.isHidden = false
             pleaseBanner.isHidden = true
-            fullName.isHidden = true
-            emailAddress.isHidden = true
+            nameRow.isHidden = true
+            emailRow.isHidden = true
             doneButton.isHidden = true
-            _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(LoginViewController.respondToTimer), userInfo: nil, repeats: false)
+            _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(LoginViewController.respondToTimer), userInfo: nil, repeats: false)
             Thread.sleep(forTimeInterval: 1.0)
         } else {
-            fullName.isHidden = false
-            emailAddress.isHidden = false
+            nameRow.isHidden = false
+            emailRow.isHidden = false
             pleaseBanner.isHidden = false
             welcomeBanner.isHidden = true
             doneButton.isHidden = false
