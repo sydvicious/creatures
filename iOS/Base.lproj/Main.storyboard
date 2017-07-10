@@ -274,7 +274,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Zeb-d3-tKm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ueZ-xA-t9t" secondAttribute="bottom" constant="195" id="HtU-gV-bMW"/>
                             <constraint firstAttribute="trailing" secondItem="ueZ-xA-t9t" secondAttribute="trailing" constant="16" id="Yin-6X-agI"/>
                             <constraint firstItem="ueZ-xA-t9t" firstAttribute="top" secondItem="ULb-Lz-Jm5" secondAttribute="bottom" id="bem-Sy-wMU"/>
                             <constraint firstItem="ueZ-xA-t9t" firstAttribute="leading" secondItem="fVg-fD-vjy" secondAttribute="leading" constant="16" id="zUp-8Q-cH0"/>
@@ -556,22 +555,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LEk-KS-LXo">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LEk-KS-LXo">
                                 <rect key="frame" x="16" y="20" width="288" height="212"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="Please name your character. You can always change it later." textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rm-gd-41S">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="Please name your character. You can always change it later." textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rm-gd-41S">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="&lt;unnamed&gt;" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="B3g-B8-dLJ">
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="&lt;unnamed&gt;" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="B3g-B8-dLJ">
                                         <rect key="frame" x="0.0" y="60" width="288" height="26"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="  There will be more information available in this screen as time goes on. Stay tuned." textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0DK-j3-YUb">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" editable="NO" text="  There will be more information available in this screen as time goes on. Stay tuned." textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0DK-j3-YUb">
                                         <rect key="frame" x="0.0" y="86" width="288" height="126"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -585,7 +584,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qaP-Px-0l5" firstAttribute="top" secondItem="LEk-KS-LXo" secondAttribute="bottom" constant="248" id="U4z-Hj-k4L"/>
                             <constraint firstItem="LEk-KS-LXo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ME5-Ky-s1b" secondAttribute="bottom" id="b5D-Nb-iD4"/>
                             <constraint firstAttribute="trailing" secondItem="LEk-KS-LXo" secondAttribute="trailing" constant="16" id="xPW-ye-iUI"/>
                             <constraint firstItem="LEk-KS-LXo" firstAttribute="leading" secondItem="da7-1N-57m" secondAttribute="leading" constant="16" id="zTm-Yb-8n3"/>
