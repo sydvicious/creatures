@@ -70,7 +70,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UISplitViewCo
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.setNameFromField(self.nameField!)
+        if let newName = self.nameField {
+            self.setNameFromField(newName)
+        }
         super.viewWillDisappear(animated)
     }
     

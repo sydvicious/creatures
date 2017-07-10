@@ -311,37 +311,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FTI-ff-WSC">
-                                <rect key="frame" x="16" y="20" width="288" height="290"/>
+                                <rect key="frame" x="16" y="20" width="288" height="245"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Pathfinder Character Sheet from Bone Jarring Games and Software." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adN-0U-M90">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="Mcc-Ps-tCo"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="72"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please input your name and email address." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDD-6j-Odi">
-                                        <rect key="frame" x="0.0" y="80" width="288" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Bp4-LL-3xJ"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="72" width="288" height="42.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back, %@!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cc-zv-S46">
-                                        <rect key="frame" x="0.0" y="130" width="288" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="ZdW-Va-UnZ"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="114.5" width="288" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0K-4r-gOW" userLabel="Name Row">
-                                        <rect key="frame" x="0.0" y="180" width="288" height="40"/>
+                                        <rect key="frame" x="0.0" y="135" width="288" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GL-i4-bNi">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
@@ -372,7 +363,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0f-8I-BGS" userLabel="Email Row">
-                                        <rect key="frame" x="0.0" y="220" width="288" height="40"/>
+                                        <rect key="frame" x="0.0" y="175" width="288" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1E-mC-0cz">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
@@ -402,7 +393,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRL-Ml-oG6" userLabel="Done">
-                                        <rect key="frame" x="0.0" y="260" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="215" width="288" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="I2Y-GU-Yq4"/>
                                         </constraints>
@@ -517,26 +508,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ll4-2q-ZNj">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfs-Fb-T67">
                                 <rect key="frame" x="16" y="20" width="288" height="440"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfs-Fb-T67" customClass="VerticallyCenteredTextView" customModule="Characters" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="440"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Welcome to the Bone Jarring Character Creation Wizard. You will be guided though each step to create your awesome character!  This version of Bone Jarring Characters works with the Paizo Pathfinder Role Playing System. Please refer to the Core Rulebook and other books for reference.  Swipe left to get started.</string>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                            </stackView>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Welcome to the Bone Jarring Character Creation Wizard. You will be guided though each step to create your awesome character!  This version of Bone Jarring Characters works with the Paizo Pathfinder Role Playing System. Please refer to the Core Rulebook and other books for reference.  Swipe left to get started.</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="EwB-rV-bCB" firstAttribute="top" secondItem="Ll4-2q-ZNj" secondAttribute="bottom" constant="20" id="39E-c4-c8t"/>
-                            <constraint firstAttribute="trailing" secondItem="Ll4-2q-ZNj" secondAttribute="trailing" constant="16" id="cYN-2B-IxV"/>
-                            <constraint firstItem="Ll4-2q-ZNj" firstAttribute="top" secondItem="t8e-iE-x1M" secondAttribute="bottom" id="dmO-TE-VLG"/>
-                            <constraint firstItem="Ll4-2q-ZNj" firstAttribute="leading" secondItem="bzZ-Cs-Pdn" secondAttribute="leading" constant="16" id="y69-Tc-RGi"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRu-Tn-GFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
