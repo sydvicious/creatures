@@ -69,21 +69,34 @@ class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegat
                 if let label = labels[field.key] {
                     label!.text = modifier_string
                 }
+                break
             }
         }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if let score = Int(string) {
-            if score < 0 {
-                return false
+        if let currentString = textField.text {
+            let stringCopy = currentString as NSString?
+            if let proposedString = stringCopy?.replacingCharacters(in: range, with: string) {
+                if let score = Int(proposedString) {
+                    if score < 0 {
+                        return false
+                    }
+                    if score > 99 {
+                        return false
+                    }
+                    return true
+                }
             }
-            if score > 99 {
-                return false
-            }
-            setDataFor(textField, score: score)
-            return true
         }
         return false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let string = textField.text {
+            if let score = Int(string) {
+                setDataFor(textField, score: score)
+            }
+        }
     }
 }
