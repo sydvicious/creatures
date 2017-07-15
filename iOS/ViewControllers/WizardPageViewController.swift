@@ -21,6 +21,8 @@ private var wizardiPadViewControllerNames = [
     "WizardIntroIPad"
 ]
 
+let doneButton = UIBarButtonItem(title: "Done", style: , target: <#T##Any?#>, action: <#T##Selector?#>)
+
 private (set) var wizardViewControllers: [UIViewController] = {
     var controllers: [UIViewController] = []
     var controllerNames = UIDevice.current.userInterfaceIdiom == .pad ? wizardiPadViewControllerNames : wizardIPhoneViewControllerNames

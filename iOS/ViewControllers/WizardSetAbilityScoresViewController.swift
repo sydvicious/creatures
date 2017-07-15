@@ -86,6 +86,8 @@ class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegat
                         return false
                     }
                     return true
+                } else if proposedString == "" {
+                    return true
                 }
             }
         }
