@@ -15,6 +15,23 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UISplitViewCo
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var navigationBar: UINavigationItem!
     
+    @IBOutlet weak var str_label: UILabel!
+    @IBOutlet weak var dex_label: UILabel!
+    @IBOutlet weak var con_label: UILabel!
+    @IBOutlet weak var int_label: UILabel!
+    @IBOutlet weak var wis_label: UILabel!
+    @IBOutlet weak var cha_label: UILabel!
+    
+    @IBOutlet weak var str_mod_label: UILabel!
+    @IBOutlet weak var dex_mod_label: UILabel!
+    @IBOutlet weak var con_mod_label: UILabel!
+    @IBOutlet weak var int_mod_label: UILabel!
+    @IBOutlet weak var wis_mod_label: UILabel!
+    @IBOutlet weak var cha_mod_label: UILabel!
+    
+    let abilityLabels: [Abilities:UILabel?] = [:]
+    let abilityModLabels: [Abilities:UILabel?] = [:]
+    
     var creature: CreatureModel? {
         didSet {
             // Update the view.
