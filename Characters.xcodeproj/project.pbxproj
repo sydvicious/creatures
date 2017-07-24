@@ -52,6 +52,9 @@
 		624C5BA01EA9ADA4007BF969 /* CreaturesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */; };
 		624C5BA11EA9ADB7007BF969 /* CharactersContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627426761B733A910051A5E5 /* CharactersContext.swift */; };
 		624C5BA21EA9ADB8007BF969 /* CharactersContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627426761B733A910051A5E5 /* CharactersContext.swift */; };
+		625073CF1F2507A3005D1996 /* CreatureBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625073CE1F2507A3005D1996 /* CreatureBuilder.swift */; };
+		625073D01F2507A3005D1996 /* CreatureBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625073CE1F2507A3005D1996 /* CreatureBuilder.swift */; };
+		625073D11F2507A3005D1996 /* CreatureBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625073CE1F2507A3005D1996 /* CreatureBuilder.swift */; };
 		625824891E17B4CA0049DE03 /* TransactionsModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625824851E17B4CA0049DE03 /* TransactionsModel+CoreDataClass.swift */; };
 		6258248A1E17B4CA0049DE03 /* TransactionsModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625824861E17B4CA0049DE03 /* TransactionsModel+CoreDataProperties.swift */; };
 		6258248B1E17B4CA0049DE03 /* CreatureModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625824871E17B4CA0049DE03 /* CreatureModel+CoreDataClass.swift */; };
@@ -146,6 +149,7 @@
 		624C5AEF1EEBB97C00B161F1 /* SwiftPriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPriorityQueue.swift; sourceTree = "<group>"; };
 		624C5B861EA9AC7A007BF969 /* bj_character */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = bj_character; sourceTree = BUILT_PRODUCTS_DIR; };
 		624C5B881EA9AC7A007BF969 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		625073CE1F2507A3005D1996 /* CreatureBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureBuilder.swift; sourceTree = "<group>"; };
 		625824851E17B4CA0049DE03 /* TransactionsModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TransactionsModel+CoreDataClass.swift"; path = "Models/TransactionsModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		625824861E17B4CA0049DE03 /* TransactionsModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TransactionsModel+CoreDataProperties.swift"; path = "Models/TransactionsModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		625824871E17B4CA0049DE03 /* CreatureModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CreatureModel+CoreDataClass.swift"; path = "Models/CreatureModel+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				6222E0541DB48D7E0031FD74 /* Creature.swift */,
+				625073CE1F2507A3005D1996 /* CreatureBuilder.swift */,
 				62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */,
 				627426761B733A910051A5E5 /* CharactersContext.swift */,
 				62EDDC041DD96DD00027A719 /* Attributes */,
@@ -698,6 +703,7 @@
 				620B344C1EFF3DDA00C6A703 /* WizardChooseMethodViewController.swift in Sources */,
 				6258248A1E17B4CA0049DE03 /* TransactionsModel+CoreDataProperties.swift in Sources */,
 				622850621978ECB000DE985E /* MasterViewController.swift in Sources */,
+				625073CF1F2507A3005D1996 /* CreatureBuilder.swift in Sources */,
 				62DC429A1D4C524D00A8EE5F /* SplitViewController.swift in Sources */,
 				62EDDC031DD96D950027A719 /* Characters.xcdatamodeld in Sources */,
 				625824891E17B4CA0049DE03 /* TransactionsModel+CoreDataClass.swift in Sources */,
@@ -723,6 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				625073D01F2507A3005D1996 /* CreatureBuilder.swift in Sources */,
 				6228508B1978ED1B00DE985E /* AppDelegate.swift in Sources */,
 				624C5B931EA9AD6E007BF969 /* CreatureModel+CoreDataProperties.swift in Sources */,
 				62C154611DD978DC00D5DAAC /* Transaction.swift in Sources */,
@@ -791,6 +798,7 @@
 				62D02FC61D73437B00CB6CA6 /* TestD20Bonuses.swift in Sources */,
 				62B2CB2A1B2A56D90073B8DC /* Mac-Tests.swift in Sources */,
 				62166FA71D8CBA70003540D4 /* TestD20Ability.swift in Sources */,
+				625073D11F2507A3005D1996 /* CreatureBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

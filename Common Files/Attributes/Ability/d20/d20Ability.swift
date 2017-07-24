@@ -33,22 +33,31 @@ class d20Ability: Ability {
         "Charisma"
     ]
     
-    public static let abilityKeys: [String] = [
-        "strength",
-        "dexterity",
-        "constitution",
-        "intelligence",
-        "wisdom",
-        "charisma"
+    public static let abilityKeys: [Abilities] = [
+        .Strength,
+        .Dexterity,
+        .Constitution,
+        .Intelligence,
+        .Wisdom,
+        .Charisma
     ]
     
-    static public let AbilityMap: [String:Abilities] = [
+    static public let abilitiesMap: [String:Abilities] = [
         "strength": .Strength,
         "dexterity": .Dexterity,
         "constitution": .Constitution,
         "intelligence": .Intelligence,
         "wisdom": .Wisdom,
         "charisma": .Charisma
+    ]
+    
+    static public let abilititesStringMap: [Abilities:String] = [
+        .Strength: "strength",
+        .Dexterity: "dexterity",
+        .Constitution: "constitution",
+        .Intelligence: "intelligence",
+        .Wisdom: "wisdom",
+        .Charisma: "charisman"
     ]
     
     public static func modifier(value: Int) -> Int {

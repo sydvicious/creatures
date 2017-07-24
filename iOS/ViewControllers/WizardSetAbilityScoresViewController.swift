@@ -9,8 +9,6 @@ import UIKit
 
 class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegate {
     
-    private var abilities : [String:Ability] = [:]
-    
     @IBOutlet weak var str_field: UITextField!
     @IBOutlet weak var dex_field: UITextField!
     @IBOutlet weak var con_field: UITextField!
@@ -25,44 +23,54 @@ class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegat
     @IBOutlet weak var wis_mod: UILabel!
     @IBOutlet weak var cha_mod: UILabel!
     
-    var fields: [String:UITextField?] = [:]
-    var labels: [String:UILabel?] = [:]
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
+    var wizardViewController: WizardPageViewController? = nil
+
+    var fields: [Abilities:UITextField?] = [:]
+    var labels: [Abilities:UILabel?] = [:]
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         super.viewDidLoad()
+        
+        wizardViewController = self.parent as? WizardPageViewController
+
         fields = [
-            "strength": str_field,
-            "dexterity": dex_field,
-            "constitution": con_field,
-            "intelligence": int_field,
-            "wisdom": wis_field,
-            "charisma": cha_field
+            .Strength: str_field,
+            .Dexterity: dex_field,
+            .Constitution: con_field,
+            .Intelligence: int_field,
+            .Wisdom: wis_field,
+            .Charisma: cha_field
         ]
         for field in fields {
             field.value?.delegate = self
         }
         
         labels = [
-            "strength": str_mod,
-            "dexterity": dex_mod,
-            "constitution": con_mod,
-            "intelligence": int_mod,
-            "wisdom": wis_mod,
-            "charisma": cha_mod
+            .Strength: str_mod,
+            .Dexterity: dex_mod,
+            .Constitution: con_mod,
+            .Intelligence: int_mod,
+            .Wisdom: wis_mod,
+            .Charisma: cha_mod
         ]
     }
     
     func setAbilityValues() {
         for ability in d20Ability.abilityKeys {
-            abilities[ability] = PathfinderAbility(name: ability, score: Int((fields[ability]??.text!)!)!)
+            guard let field = fields[ability] else { continue }
+            guard let scoreText = field?.text else { continue }
+            guard let score = Int(scoreText) else { continue }
+            wizardViewController?.protoData.abilities[ability] = score
         }
     }
     
     func setDataFor(_ textField: UITextField, score: Int) {
         for field in fields {
             if field.value == textField {
-                abilities[field.key] = PathfinderAbility(name: field.key, score: score)
+                wizardViewController?.protoData.abilities[field.key] = score
                 
                 let modifier = d20Ability.modifier(value: score)
                 let modifier_string = modifier < 0 ? "\(modifier)" : "+\(modifier)"
@@ -78,6 +86,7 @@ class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegat
         if let currentString = textField.text {
             let stringCopy = currentString as NSString?
             if let proposedString = stringCopy?.replacingCharacters(in: range, with: string) {
+    
                 if let score = Int(proposedString) {
                     if score < 0 {
                         return false
@@ -95,10 +104,19 @@ class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegat
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        var allFieldsSet = true
         if let string = textField.text {
             if let score = Int(string) {
                 setDataFor(textField, score: score)
+            } else {
+                allFieldsSet = false
             }
         }
+        doneButton.isEnabled = allFieldsSet
+    }
+    
+    @IBAction func doDoneButton(_ sender: Any) {
+        setAbilityValues()
+        wizardViewController?.done()
     }
 }

@@ -8,9 +8,6 @@
 
 import UIKit
 
-var wizardCreature = Creature()
-var wizardName = "<untitled>"
-
 private var wizardIPhoneViewControllerNames = [
     "WizardIntroIPhone",
     "WizardBioIPhone",
@@ -21,8 +18,6 @@ private var wizardiPadViewControllerNames = [
     "WizardIntroIPad"
 ]
 
-let doneButton = UIBarButtonItem(title: "Done", style: , target: <#T##Any?#>, action: <#T##Selector?#>)
-
 private (set) var wizardViewControllers: [UIViewController] = {
     var controllers: [UIViewController] = []
     var controllerNames = UIDevice.current.userInterfaceIdiom == .pad ? wizardiPadViewControllerNames : wizardIPhoneViewControllerNames
@@ -32,8 +27,16 @@ private (set) var wizardViewControllers: [UIViewController] = {
     return controllers
 }()
 
+struct WizardCreatureProtoData {
+    var name: String = "<unnamed>"
+    var abilities : [Abilities:Int] = [:]
+}
+
+
 class WizardPageViewController: UIPageViewController {
 
+    var protoData = WizardCreatureProtoData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +53,27 @@ class WizardPageViewController: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func done() {
+        // Set up the creature in the controller and dismiss the wizard.
+        // Will not exit if any of the data validation fails.
+        
+        do {
+            var creatureBuilder = CreatureBuilder()
+            creatureBuilder = creatureBuilder.set(system: "Pathfinder")
+            for key in d20Ability.abilityKeys {
+                let score = protoData.abilities[key]!
+                creatureBuilder = creatureBuilder.set(abilityFor: key, score: score)
+            }
+            let creature = try creatureBuilder.build()
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            let creaturesController = delegate.creaturesController
+            _ = try creaturesController.createCreature(protoData.name, withSystem: "Pathfinder", withCreature: creature)
+        } catch {
+            NSLog("Unable to create a creature")
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

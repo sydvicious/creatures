@@ -11,10 +11,14 @@ class WizardBioViewController: UIViewController {
 
     @IBOutlet weak var nameField: UITextField!
     
+    var wizardViewController: WizardPageViewController? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        nameField!.text = wizardName
+
+        wizardViewController = self.parent as? WizardPageViewController
+        nameField!.text = wizardViewController?.protoData.name
+
         // Do any additional setup after loading the view.
     }
 
@@ -24,7 +28,7 @@ class WizardBioViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        wizardName = nameField!.text!
+        wizardViewController?.protoData.name = nameField!.text!
     }
 
     /*
