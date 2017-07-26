@@ -57,7 +57,7 @@ class d20Ability: Ability {
         .Constitution: "constitution",
         .Intelligence: "intelligence",
         .Wisdom: "wisdom",
-        .Charisma: "charisman"
+        .Charisma: "charisma"
     ]
     
     public static func modifier(value: Int) -> Int {
@@ -78,9 +78,10 @@ class d20Ability: Ability {
         super.init(name: name, score: score)
     }
 
-    convenience init(name: String, score: Int, transactions: TransactionsController) {
-        self.init(name: name, score: score)
-        save_transaction(transactions, section: "ability", attribute: name, source: "creation", type: "base", value: String(score), duration: -1)
+    convenience init(key: Abilities, score: Int, transactions: TransactionsController) {
+        let name = d20Ability.abilititesStringMap[key]
+        self.init(name: name!, score: score)
+        save_transaction(transactions, section: "ability", attribute: name!, source: "creation", type: "base", value: String(score), duration: -1)
     }
     
     override func save_transaction(_ transactions: TransactionsController, section: String, attribute: String, source: String, type: String, value: String, duration: Int) {

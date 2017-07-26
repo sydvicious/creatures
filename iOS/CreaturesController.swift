@@ -163,12 +163,12 @@ class CreaturesController {
                 print(model.name!)
                 if let creature = model.creature {
                     print(" Abilities")
-                    print("  Strength - \(creature.strength)")
-                    print("  Dexterity - \(creature.dexterity)")
-                    print("  Constitution - \(creature.constitution)")
-                    print("  Intelligence - \(creature.intelligence)")
-                    print("  Wisdom - \(creature.wisdom)")
-                    print("  Charisma - \(creature.charisma)")
+                    print("  Strength - \(creature.abilityScoreFor(.Strength))")
+                    print("  Dexterity - \(creature.abilityScoreFor(.Dexterity))")
+                    print("  Constitution - \(creature.abilityScoreFor(.Constitution))")
+                    print("  Intelligence - \(creature.abilityScoreFor(.Intelligence))")
+                    print("  Wisdom - \(creature.abilityScoreFor(.Wisdom))")
+                    print("  Charisma - \(creature.abilityScoreFor(.Charisma))")
                 } else {
                     print("No creature attached!")
                 }

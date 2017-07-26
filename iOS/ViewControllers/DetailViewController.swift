@@ -29,8 +29,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UISplitViewCo
     @IBOutlet weak var wis_mod_label: UILabel!
     @IBOutlet weak var cha_mod_label: UILabel!
     
-    let abilityLabels: [Abilities:UILabel?] = [:]
-    let abilityModLabels: [Abilities:UILabel?] = [:]
+    var abilityLabels: [Abilities:UILabel?] = [:]
+    var abilityModLabels: [Abilities:UILabel?] = [:]
     
     var creature: CreatureModel? {
         didSet {
@@ -62,6 +62,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UISplitViewCo
             nameField.delegate = self
         }
         
+        for ability in d20Ability.abilityKeys {
+            guard let score = creature?.creature?.abilityScoreFor(ability) else { return }
+            abilityLabels[ability]??.text = "\(score)"
+            let modifier = d20Ability.modifier(value: score)
+            let modifier_string = modifier < 0 ? "\(modifier)" : "+\(modifier)"
+            abilityModLabels[ability]??.text = modifier_string
+        }
+        
         if let navBar = self.navigationBar {
             navBar.title = name
         }
@@ -78,6 +86,24 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UISplitViewCo
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        abilityLabels[.Strength] = str_label
+        abilityModLabels[.Strength] = str_mod_label
+        
+        abilityLabels[.Dexterity] = dex_label
+        abilityModLabels[.Dexterity] = dex_mod_label
+        
+        abilityLabels[.Constitution] = con_label
+        abilityModLabels[.Constitution] = con_mod_label
+        
+        abilityLabels[.Intelligence] = int_label
+        abilityModLabels[.Intelligence] = int_mod_label
+        
+        abilityLabels[.Wisdom] = wis_label
+        abilityModLabels[.Wisdom] = wis_mod_label
+        
+        abilityLabels[.Charisma] = cha_label
+        abilityModLabels[.Charisma] = cha_mod_label
+        
         self.configureView()
     }
 
