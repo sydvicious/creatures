@@ -65,8 +65,7 @@ class WizardPageViewController: UIPageViewController {
                 creatureBuilder = creatureBuilder.set(abilityFor: key, score: score)
             }
             let creature = try creatureBuilder.build()
-            let delegate = UIApplication.shared.delegate as! AppDelegate
-            let creaturesController = delegate.creaturesController
+            let creaturesController = CreaturesController.sharedCreaturesController()
             _ = try creaturesController.createCreature(protoData.name, withSystem: "Pathfinder", withCreature: creature)
         } catch {
             NSLog("Unable to create a creature")

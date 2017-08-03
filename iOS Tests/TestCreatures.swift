@@ -17,7 +17,7 @@ class TestCreatures: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        creaturesController = CreaturesController.sharedCreaturesController(CharactersContext(forTest: true, name: "Testing"))
+        creaturesController = CreaturesController.sharedCreaturesController(true, "Testing")
         // Put setup code here. This method is called before the invocation of each test method in the class.
         creaturesController?.deleteAll()
     }
@@ -30,58 +30,58 @@ class TestCreatures: XCTestCase {
     
     func testCreatures() {
         if let controller = creaturesController {
-            var creature = try! controller.createCreature("TestCreature1")
-            XCTAssertNotNil(creature, "creature was nil in testCreate.")
+            var creatureModel = try! controller.createCreature("TestCreature1")
+            XCTAssertNotNil(creatureModel, "creature was nil in testCreate.")
 
             controller.logAll()
 
             let creatures = controller.creatures()
             let startCount = creatures.count
-            creature = try! controller.createCreature("TestCreature2")
+            creatureModel = try! controller.createCreature("TestCreature2")
             controller.logAll()
-            print(creature.name!)
-            var indexPath = controller.indexPathFromCreature(creature)
-            _ = controller.indexPathFromCreature(creature)
+            print(creatureModel.name!)
+            var indexPath = controller.indexPathFromCreature(creatureModel)
+            _ = controller.indexPathFromCreature(creatureModel)
 
             controller.deleteCreatureAtIndexPath(indexPath)
             controller.logAll()
             XCTAssertEqual(creatures.count, startCount, "Did not have same number of creatures at the end.")
 
-            creature = try! controller.createCreature("TestCreature3")
-            try! controller.saveName("TestCreature3.1", forCreature: creature)
-            var name = creature.name
+            creatureModel = try! controller.createCreature("TestCreature3")
+            try! controller.saveName("TestCreature3.1", forCreature: creatureModel)
+            var name = creatureModel.name
             XCTAssertEqual(name, "TestCreature3.1", "Name operation failed.")
 
-            try! controller.saveName(" TestCreature3.2", forCreature: creature)
-            name = creature.name
+            try! controller.saveName(" TestCreature3.2", forCreature: creatureModel)
+            name = creatureModel.name
             XCTAssertEqual(name, "TestCreature3.2", "Leading space test failed.")
 
-            try! controller.saveName("TestCreature3.3 ", forCreature: creature)
-            name = creature.name
+            try! controller.saveName("TestCreature3.3 ", forCreature: creatureModel)
+            name = creatureModel.name
             XCTAssertEqual(name, "TestCreature3.3", "Trailing space test failed.")
 
-            try! controller.saveName(" TestCreature3.4 ", forCreature: creature)
-            name = creature.name
+            try! controller.saveName(" TestCreature3.4 ", forCreature: creatureModel)
+            name = creatureModel.name
             XCTAssertEqual(name, "TestCreature3.4", "Leading and trailing spaces test failed.")
             
-            try! controller.saveName(" TestCreature3.5 ", forCreature: creature)
-            name = creature.name
+            try! controller.saveName(" TestCreature3.5 ", forCreature: creatureModel)
+            name = creatureModel.name
             XCTAssertEqual(name, "TestCreature3.5", "Leading and trailing non-breaking spaces test failed.")
             
-            try! controller.saveName("\tTestCreature3.6\t", forCreature: creature)
-            name = creature.name
+            try! controller.saveName("\tTestCreature3.6\t", forCreature: creatureModel)
+            name = creatureModel.name
             XCTAssertEqual(name, "TestCreature3.6", "Leading and trailing tabs test failed.")
 
-            try! controller.saveName("\nTestCreature3.7\n", forCreature: creature)
-            name = creature.name
+            try! controller.saveName("\nTestCreature3.7\n", forCreature: creatureModel)
+            name = creatureModel.name
             XCTAssertEqual(name, "TestCreature3.7", "Leading and trailing newlines test failed.")
             
-            try! controller.saveName("\rTestCreature3.8\r", forCreature: creature)
-            name = creature.name
+            try! controller.saveName("\rTestCreature3.8\r", forCreature: creatureModel)
+            name = creatureModel.name
             XCTAssertEqual(name, "TestCreature3.8", "Leading and trailing carriage returns test failed.")
             
             do {
-                try controller.saveName("", forCreature: creature)
+                try controller.saveName("", forCreature: creatureModel)
                 XCTFail("saveName() was supposed to return an error if name was the null string.")
             } catch CreatureModel.CreatureModelDataError.nameCannotBeNull {
                 // Yay. We pass
@@ -91,7 +91,7 @@ class TestCreatures: XCTestCase {
             }
 
             do {
-                try controller.saveName("  ", forCreature: creature)
+                try controller.saveName("  ", forCreature: creatureModel)
                 XCTFail("saveName() was supposed to return an error if trimmed name was the null string.")
             } catch CreatureModel.CreatureModelDataError.nameCannotBeNull {
                 // Yay. We pass
@@ -116,12 +116,12 @@ class TestCreatures: XCTestCase {
             let saved_name = saved_creature_model.name
             let saved_creature = saved_creature_model.creature!
             XCTAssertEqual(name, saved_name)
-            XCTAssertEqual(saved_creature.strength, 18)
-            XCTAssertEqual(saved_creature.dexterity, 16)
-            XCTAssertEqual(saved_creature.constitution, 14)
-            XCTAssertEqual(saved_creature.intelligence, 12)
-            XCTAssertEqual(saved_creature.wisdom, 10)
-            XCTAssertEqual(saved_creature.charisma, 8)
+            XCTAssertEqual(saved_creature.abilityScoreFor(.Strength), 18)
+            XCTAssertEqual(saved_creature.abilityScoreFor(.Dexterity), 16)
+            XCTAssertEqual(saved_creature.abilityScoreFor(.Constitution), 14)
+            XCTAssertEqual(saved_creature.abilityScoreFor(.Intelligence), 12)
+            XCTAssertEqual(saved_creature.abilityScoreFor(.Wisdom), 10)
+            XCTAssertEqual(saved_creature.abilityScoreFor(.Charisma), 8)
         } else {
             XCTFail("Could not get CreaturesController")
         }

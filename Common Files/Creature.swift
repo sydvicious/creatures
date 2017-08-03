@@ -76,8 +76,13 @@ class Creature {
         abort()
     }
     
-    func abilityScoreFor(_ ability: Abilities) -> Int {
-        return abilities[ability]!!.baseScore
+    func abilityScoreFor(_ abilityKey: Abilities) -> Int {
+        if let abilityValue = abilities[abilityKey] {
+            if let currentScore = abilityValue?.currentScore {
+                return currentScore
+            }
+        }
+        return 0
     }
     
     init() {

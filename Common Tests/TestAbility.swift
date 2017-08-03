@@ -23,11 +23,11 @@ class TestAbility: XCTestCase {
     
     func testAbility() {
         var transactionsController = TransactionsController()
-        var ability = Ability(name: "Dummy", score: 10, transactions: transactionsController)
+        var ability = Ability(key: d20Ability.abilitiesMap["strength"]!, score: 10, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 10)
 
         transactionsController = TransactionsController()
-        ability = Ability(name: "Dummy", score: -1, transactions: transactionsController)
+        ability = Ability(key: d20Ability.abilitiesMap["strength"]!, score: -1, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 0)
 
     }

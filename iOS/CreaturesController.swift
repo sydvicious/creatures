@@ -15,9 +15,9 @@ class CreaturesController {
 
     var context: CharactersContext
     
-    private init (_ charactersContext: CharactersContext ) {
+    private init (_ forTest: Bool = false, _ name: String = "Characters") {
         do {
-            self.context = charactersContext
+            self.context = CharactersContext(forTest: forTest, name: name)
             try self.context.fetchedResultsController?.performFetch()
         } catch {
             // Replace this implementation with code to handle the error appropriately.
@@ -29,9 +29,9 @@ class CreaturesController {
     
     static private var sharedController: CreaturesController? = nil
 
-    static func sharedCreaturesController(_ charactersContext: CharactersContext) -> CreaturesController {
+    static func sharedCreaturesController(_ forTest: Bool = false, _ name: String = "Characters") -> CreaturesController {
         if sharedController == nil {
-            sharedController = CreaturesController(charactersContext)
+            sharedController = CreaturesController(forTest, name)
         }
         return sharedController!
     }

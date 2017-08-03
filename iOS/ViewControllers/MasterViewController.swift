@@ -28,8 +28,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
         self.splitViewController?.preferredDisplayMode = .allVisible
 
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        self.creaturesController = delegate.creaturesController
+        self.creaturesController = CreaturesController.sharedCreaturesController()
         self.creaturesController?.setDelegate(self)
     }
 
