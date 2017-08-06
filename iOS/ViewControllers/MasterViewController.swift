@@ -68,7 +68,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if segue.identifier == "showDetail" {
             let creature = self.creatureForSegue()
             let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-            controller.saveFields()
             controller.creature = creature
             controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
             controller.navigationItem.leftItemsSupplementBackButton = true
@@ -152,7 +151,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
-        self.detailViewController!.saveFields()
         return indexPath
     }
     
@@ -160,11 +158,5 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return indexPath
     }
     
-    // MARK: UISplitViewControllerDelegate
-    
-    func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode) {
-        self.detailViewController!.saveFields()
-    }
-
 }
 

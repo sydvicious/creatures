@@ -15,7 +15,10 @@ private var wizardIPhoneViewControllerNames = [
 ]
 
 private var wizardiPadViewControllerNames = [
-    "WizardIntroIPad"
+    //"WizardIntroIPad"
+    "WizardIntroIPhone",
+    "WizardBioIPhone",
+    "WizardSetAbiltiesIPhone"
 ]
 
 private (set) var wizardViewControllers: [UIViewController] = {
@@ -28,14 +31,14 @@ private (set) var wizardViewControllers: [UIViewController] = {
 }()
 
 struct WizardCreatureProtoData {
-    var name: String = "<unnamed>"
+    var name: String = ""
     var abilities : [Abilities:Int] = [:]
 }
 
 
 class WizardPageViewController: UIPageViewController {
 
-    var protoData = WizardCreatureProtoData()
+    var protoData : WizardCreatureProtoData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,7 @@ class WizardPageViewController: UIPageViewController {
         dataSource = self
         // Do any additional setup after loading the view.
         
+        protoData = WizardCreatureProtoData()
         if let firstViewController = wizardViewControllers.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
@@ -52,7 +56,26 @@ class WizardPageViewController: UIPageViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    func isCharacterReady() -> Bool {
+        let name = protoData?.name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        if "" == name {
+            return false
+        }
+        for key in d20Ability.abilityKeys {
+            guard let _ = protoData?.abilities[key] else {
+                return false
+            }
+        }
+        return true
+    }
+
+    func cancel() {
+        NSLog("Put up an alert here!")
+        protoData = nil
+        self.dismiss(animated: true, completion: nil)
+    }
+
     func done() {
         // Set up the creature in the controller and dismiss the wizard.
         // Will not exit if any of the data validation fails.
@@ -61,16 +84,17 @@ class WizardPageViewController: UIPageViewController {
             var creatureBuilder = CreatureBuilder()
             creatureBuilder = creatureBuilder.set(system: "Pathfinder")
             for key in d20Ability.abilityKeys {
-                let score = protoData.abilities[key]!
-                creatureBuilder = creatureBuilder.set(abilityFor: key, score: score)
+                let score = protoData?.abilities[key]!
+                creatureBuilder = creatureBuilder.set(abilityFor: key, score: score!)
             }
             let creature = try creatureBuilder.build()
             let creaturesController = CreaturesController.sharedCreaturesController()
-            _ = try creaturesController.createCreature(protoData.name, withSystem: "Pathfinder", withCreature: creature)
+            _ = try creaturesController.createCreature((protoData?.name)!, withSystem: "Pathfinder", withCreature: creature)
         } catch {
             NSLog("Unable to create a creature")
         }
         
+        protoData = nil
         self.dismiss(animated: true, completion: nil)
     }
     /*

@@ -90,6 +90,7 @@
 		62DC42981D4C500C00A8EE5F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DC42971D4C500C00A8EE5F /* LoginViewController.swift */; };
 		62DC429A1D4C524D00A8EE5F /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DC42991D4C524D00A8EE5F /* SplitViewController.swift */; };
 		62EDDC031DD96D950027A719 /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62EDDBFE1DD96D950027A719 /* Characters.xcdatamodeld */; };
+		62F17BFD1F3663C60094F3F4 /* WizardIPhoneIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F17BFC1F3663C60094F3F4 /* WizardIPhoneIntroViewController.swift */; };
 		62FA2D391B27B49400FCCF71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62FA2D371B27B49400FCCF71 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +183,7 @@
 		62EDDC001DD96D950027A719 /* Characters 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 3.xcdatamodel"; sourceTree = "<group>"; };
 		62EDDC011DD96D950027A719 /* Characters 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 4.xcdatamodel"; sourceTree = "<group>"; };
 		62EDDC021DD96D950027A719 /* Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Characters.xcdatamodel; sourceTree = "<group>"; };
+		62F17BFC1F3663C60094F3F4 /* WizardIPhoneIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardIPhoneIntroViewController.swift; sourceTree = "<group>"; };
 		62FA2D381B27B49400FCCF71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +235,7 @@
 				62DC42991D4C524D00A8EE5F /* SplitViewController.swift */,
 				620B344D1EFF3E1400C6A703 /* WizardBioViewController.swift */,
 				620B344B1EFF3DDA00C6A703 /* WizardChooseMethodViewController.swift */,
+				62F17BFC1F3663C60094F3F4 /* WizardIPhoneIntroViewController.swift */,
 				620124131DD5808500E1A05F /* WizardPageViewController.swift */,
 				626BA3211F034DDF00219A0A /* WizardSetAbilityScoresViewController.swift */,
 			);
@@ -696,6 +699,7 @@
 				62DC42981D4C500C00A8EE5F /* LoginViewController.swift in Sources */,
 				627426771B733A910051A5E5 /* CharactersContext.swift in Sources */,
 				6222E0551DB48D7E0031FD74 /* Creature.swift in Sources */,
+				62F17BFD1F3663C60094F3F4 /* WizardIPhoneIntroViewController.swift in Sources */,
 				6288E1D21A4E7A63009F7CE2 /* Prefs.swift in Sources */,
 				6228505D1978ECB000DE985E /* AppDelegate.swift in Sources */,
 				62D02FB81D72361800CB6CA6 /* PathfinderAbility.swift in Sources */,

@@ -56,6 +56,8 @@ class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegat
             .Wisdom: wis_mod,
             .Charisma: cha_mod
         ]
+
+        doneButton.isEnabled = (wizardViewController?.isCharacterReady())!
     }
     
     func setAbilityValues() {
@@ -63,14 +65,14 @@ class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegat
             guard let field = fields[ability] else { continue }
             guard let scoreText = field?.text else { continue }
             guard let score = Int(scoreText) else { continue }
-            wizardViewController?.protoData.abilities[ability] = score
+            wizardViewController?.protoData?.abilities[ability] = score
         }
     }
     
     func setDataFor(_ textField: UITextField, score: Int) {
         for field in fields {
             if field.value == textField {
-                wizardViewController?.protoData.abilities[field.key] = score
+                wizardViewController?.protoData?.abilities[field.key] = score
                 
                 let modifier = d20Ability.modifier(value: score)
                 let modifier_string = modifier < 0 ? "\(modifier)" : "+\(modifier)"
@@ -104,15 +106,16 @@ class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegat
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        var allFieldsSet = true
         if let string = textField.text {
             if let score = Int(string) {
                 setDataFor(textField, score: score)
-            } else {
-                allFieldsSet = false
             }
         }
-        doneButton.isEnabled = allFieldsSet
+        doneButton.isEnabled = (wizardViewController?.isCharacterReady())!
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        wizardViewController?.cancel()
     }
     
     @IBAction func doDoneButton(_ sender: Any) {

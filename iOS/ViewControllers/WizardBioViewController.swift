@@ -7,9 +7,10 @@
 
 import UIKit
 
-class WizardBioViewController: UIViewController {
+class WizardBioViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     
     var wizardViewController: WizardPageViewController? = nil
     
@@ -17,8 +18,9 @@ class WizardBioViewController: UIViewController {
         super.viewDidLoad()
 
         wizardViewController = self.parent as? WizardPageViewController
-        nameField!.text = wizardViewController?.protoData.name
-
+        nameField!.text = wizardViewController?.protoData?.name
+        nameField!.delegate = self
+        setDoneButton()
         // Do any additional setup after loading the view.
     }
 
@@ -28,17 +30,26 @@ class WizardBioViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        wizardViewController?.protoData.name = nameField!.text!
+        wizardViewController?.protoData?.name = nameField!.text!
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setDoneButton() {
+        doneButton.isEnabled = (wizardViewController?.isCharacterReady())!
     }
-    */
-
+    
+    @IBAction func cancel(_ sender: Any) {
+        wizardViewController?.cancel()
+    }
+    
+    @IBAction func done(_ sender: Any) {
+        wizardViewController?.done()
+    }
+    
+    // MARK UITextFieldDelegate
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        wizardViewController?.protoData?.name = textField.text!
+        setDoneButton()
+    }
+    
 }

@@ -10,9 +10,8 @@ import UIKit
 
 var myContext: UnsafeMutableRawPointer? = nil
 
-class DetailViewController: UIViewController, UITextFieldDelegate, UISplitViewControllerDelegate  {
+class DetailViewController: UIViewController, UISplitViewControllerDelegate  {
 
-    @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var navigationBar: UINavigationItem!
     
     @IBOutlet weak var str_label: UILabel!
@@ -51,15 +50,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UISplitViewCo
         if let creature = self.creature {
             name = creature.name! as String
         }
-        
-        if let nameField = self.nameField {
-            if name == "" {
-                nameField.isHidden = true
-            } else {
-                nameField.isHidden = false
-                nameField.text = name
-            }
-            nameField.delegate = self
+        if let navBar = self.navigationBar {
+            navBar.title = name
         }
         
         for ability in d20Ability.abilityKeys {
@@ -68,18 +60,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UISplitViewCo
             let modifier = d20Ability.modifier(value: score)
             let modifier_string = modifier < 0 ? "\(modifier)" : "+\(modifier)"
             abilityModLabels[ability]??.text = modifier_string
-        }
-        
-        if let navBar = self.navigationBar {
-            navBar.title = name
-        }
-    }
-
-    func saveFields() {
-        if (self.creature != nil) {
-            if let field = nameField {
-                self.setNameFromField(field)
-            }
         }
     }
     
@@ -111,45 +91,5 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UISplitViewCo
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        if let newName = self.nameField {
-            self.setNameFromField(newName)
-        }
-        super.viewWillDisappear(animated)
-    }
-    
-    @IBAction func setNameFromField(_ nameField : UITextField) {
-        if let creature = self.creature {
-            var name = nameField.text!
-            name = name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            if (name == "") {
-                name = creature.name!
-                nameField.text! = name
-            }
-            let creaturesController = self.creaturesController
-            try! creaturesController.saveName(name, forCreature: creature)
-        }
-    }
-    
-    // MARK: UITextFieldDelegate
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        self.nameField.returnKeyType = .done
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        self.setNameFromField(nameField)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let navBar = self.navigationBar {
-            navBar.title = nameField.text!
-        }
-        nameField.resignFirstResponder()
-        return false
-    }
-
 }
 
