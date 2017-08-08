@@ -14,6 +14,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var detailViewController: DetailViewController? = nil
     var creaturesController: CreaturesController? = nil
     var newlyCreatedCreature: CreatureModel? = nil
+    var newCreatureObserver: NSObjectProtocol? = nil
   
     @IBOutlet var noResultsView: UIView!
     @IBOutlet weak var noResultsLabel: UILabel!
@@ -35,6 +36,18 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         self.creaturesController = CreaturesController.sharedCreaturesController()
         self.creaturesController?.setDelegate(self)
+        
+        let center = NotificationCenter.default
+        let mainQueue = OperationQueue.main
+        self.newCreatureObserver = center.addObserver(forName: NSNotification.Name(rawValue: "selectNewCreature"), object: nil, queue: mainQueue) { (notification) in
+            self.newlyCreatedCreature = notification.object as? CreatureModel
+            let indexPath = self.creaturesController?.indexPathFromCreature(self.newlyCreatedCreature!)
+            if let path = indexPath {
+                self.tableView.selectRow(at: path, animated: true, scrollPosition: .middle)
+                self.detailViewController?.creature = self.newlyCreatedCreature!
+                self.performSegue(withIdentifier: "showDetail", sender: self)
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -191,5 +204,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return indexPath
     }
     
+    deinit {
+        let center = NotificationCenter.default
+        center.removeObserver(self.newCreatureObserver as Any)
+    }
 }
 

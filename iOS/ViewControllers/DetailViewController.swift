@@ -30,7 +30,6 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate  {
     
     var abilityLabels: [Abilities:UILabel?] = [:]
     var abilityModLabels: [Abilities:UILabel?] = [:]
-    var blankView: UIView? = nil
     
     var creature: CreatureModel? {
         didSet {
@@ -60,10 +59,12 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate  {
                 let modifier_string = modifier < 0 ? "\(modifier)" : "+\(modifier)"
                 abilityModLabels[ability]??.text = modifier_string
             }
+            view.isHidden = false
         } else {
             if let navBar = self.navigationBar {
                 navBar.title = "BoneJarring Characters"
             }
+            view.isHidden = true
         }
     }
     

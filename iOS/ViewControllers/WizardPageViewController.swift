@@ -21,15 +21,6 @@ private var wizardiPadViewControllerNames = [
     "WizardSetAbiltiesIPhone"
 ]
 
-private (set) var wizardViewControllers: [UIViewController] = {
-    var controllers: [UIViewController] = []
-    var controllerNames = UIDevice.current.userInterfaceIdiom == .pad ? wizardiPadViewControllerNames : wizardIPhoneViewControllerNames
-    for name in controllerNames {
-        controllers.append(UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name))
-    }
-    return controllers
-}()
-
 struct WizardCreatureProtoData {
     var name: String = ""
     var abilities : [Abilities:Int] = [:]
@@ -37,6 +28,15 @@ struct WizardCreatureProtoData {
 
 
 class WizardPageViewController: UIPageViewController {
+
+    private (set) var wizardViewControllers: [UIViewController] = {
+        var controllers: [UIViewController] = []
+        var controllerNames = UIDevice.current.userInterfaceIdiom == .pad ? wizardiPadViewControllerNames : wizardIPhoneViewControllerNames
+        for name in controllerNames {
+            controllers.append(UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name))
+        }
+        return controllers
+    }()
 
     var protoData : WizardCreatureProtoData?
     
@@ -72,8 +72,7 @@ class WizardPageViewController: UIPageViewController {
 
     func cancel() {
         NSLog("Put up an alert here!")
-        protoData = nil
-        self.dismiss(animated: true, completion: nil)
+        dismissAll()
     }
 
     func done() {
@@ -89,13 +88,13 @@ class WizardPageViewController: UIPageViewController {
             }
             let creature = try creatureBuilder.build()
             let creaturesController = CreaturesController.sharedCreaturesController()
-            _ = try creaturesController.createCreature((protoData?.name)!, withSystem: "Pathfinder", withCreature: creature)
+            let creatureModel = try creaturesController.createCreature((protoData?.name)!, withSystem: "Pathfinder", withCreature: creature)
+            NotificationCenter.default.post(name: Notification.Name("selectNewCreature"), object: creatureModel)
         } catch {
             NSLog("Unable to create a creature")
         }
-        
-        protoData = nil
-        self.dismiss(animated: true, completion: nil)
+
+        dismissAll()
     }
     /*
     // MARK: - Navigation
@@ -163,5 +162,13 @@ extension WizardPageViewController: UIPageViewControllerDataSource {
         }
         
         return firstViewControllerIndex
+    }
+    
+    func dismissAll() {
+        for controller in wizardViewControllers {
+            controller.dismiss(animated: true, completion: nil)
+        }
+        protoData = nil
+        self.dismiss(animated: true, completion: nil)
     }
 }
