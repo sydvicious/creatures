@@ -134,9 +134,9 @@ class CreaturesController {
         return creatureModel
     }
     
-    func indexPathFromCreature(_ creature: CreatureModel) -> IndexPath {
+    func indexPathFromCreature(_ creature: CreatureModel) -> IndexPath? {
         let indexPath = self.context.fetchedResultsController?.indexPath(forObject: creature)
-        return indexPath!
+        return indexPath
     }
     
     func creatures() -> [CreatureModel] {

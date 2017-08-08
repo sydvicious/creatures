@@ -30,6 +30,7 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate  {
     
     var abilityLabels: [Abilities:UILabel?] = [:]
     var abilityModLabels: [Abilities:UILabel?] = [:]
+    var blankView: UIView? = nil
     
     var creature: CreatureModel? {
         didSet {
@@ -45,21 +46,24 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate  {
     
     func configureView() {
         // Update the user interface for the detail item.
-        var name = "";
         
         if let creature = self.creature {
-            name = creature.name! as String
-        }
-        if let navBar = self.navigationBar {
-            navBar.title = name
-        }
-        
-        for ability in d20Ability.abilityKeys {
-            guard let score = creature?.creature?.abilityScoreFor(ability) else { return }
-            abilityLabels[ability]??.text = "\(score)"
-            let modifier = d20Ability.modifier(value: score)
-            let modifier_string = modifier < 0 ? "\(modifier)" : "+\(modifier)"
-            abilityModLabels[ability]??.text = modifier_string
+            let name = creature.name! as String
+            if let navBar = self.navigationBar {
+                navBar.title = name
+            }
+            
+            for ability in d20Ability.abilityKeys {
+                guard let score = creature.creature?.abilityScoreFor(ability) else { return }
+                abilityLabels[ability]??.text = "\(score)"
+                let modifier = d20Ability.modifier(value: score)
+                let modifier_string = modifier < 0 ? "\(modifier)" : "+\(modifier)"
+                abilityModLabels[ability]??.text = modifier_string
+            }
+        } else {
+            if let navBar = self.navigationBar {
+                navBar.title = "BoneJarring Characters"
+            }
         }
     }
     

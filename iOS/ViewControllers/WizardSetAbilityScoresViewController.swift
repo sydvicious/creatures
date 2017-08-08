@@ -96,6 +96,8 @@ class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegat
                     if score > 99 {
                         return false
                     }
+                    setDataFor(textField, score: score)
+                    doneButton.isEnabled = (wizardViewController?.isCharacterReady())!
                     return true
                 } else if proposedString == "" {
                     return true
@@ -103,6 +105,16 @@ class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegat
             }
         }
         return false
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if let string = textField.text {
+            if let score = Int(string) {
+                setDataFor(textField, score: score)
+            }
+        }
+        doneButton.isEnabled = (wizardViewController?.isCharacterReady())!
+        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -113,13 +125,15 @@ class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegat
         }
         doneButton.isEnabled = (wizardViewController?.isCharacterReady())!
     }
-    
+
     @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
         wizardViewController?.cancel()
     }
     
     @IBAction func doDoneButton(_ sender: Any) {
         setAbilityValues()
+        self.dismiss(animated: true, completion: nil)
         wizardViewController?.done()
     }
 }

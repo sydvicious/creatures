@@ -14,7 +14,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var detailViewController: DetailViewController? = nil
     var creaturesController: CreaturesController? = nil
     var newlyCreatedCreature: CreatureModel? = nil
-
+  
+    @IBOutlet var noResultsView: UIView!
+    @IBOutlet weak var noResultsLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,6 +31,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
         self.splitViewController?.preferredDisplayMode = .allVisible
 
+        tableView.backgroundView = noResultsView
+        
         self.creaturesController = CreaturesController.sharedCreaturesController()
         self.creaturesController?.setDelegate(self)
     }
@@ -75,10 +80,33 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
     }
 
+    func totalEntries() -> Int {
+        var total = 0
+        if let sectionsArray = self.creaturesController!.context.fetchedResultsController!.sections {
+            let sections = sectionsArray.count
+            for i in 0..<sections {
+                let sectionInfo = sectionsArray[i]
+                total += sectionInfo.numberOfObjects
+            }
+        }
+    
+        return total
+    }
     // MARK: - Table View
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.creaturesController!.context.fetchedResultsController!.sections?.count ?? 0
+        var sections = self.creaturesController!.context.fetchedResultsController!.sections?.count ?? 0
+        let itemCount = totalEntries()
+
+        if (itemCount == 0) {
+            sections = 0
+            tableView.separatorStyle = .none
+            noResultsLabel.isHidden = false
+        } else {
+            tableView.separatorStyle = .singleLine
+            noResultsLabel.isHidden = true
+        }
+        return sections
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -144,8 +172,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.reloadData()
         if let creature = self.detailViewController?.creature {
-            self.tableView.selectRow(at: self.creaturesController?.indexPathFromCreature(creature), animated: true, scrollPosition: .middle)
+            let indexPath = self.creaturesController?.indexPathFromCreature(creature)
+            if let path = indexPath {
+                self.tableView.selectRow(at: path, animated: true, scrollPosition: .middle)
+                return
+            }
         }
+        self.detailViewController?.creature = nil
     }
 
     // MARK: UITableViewDelegate

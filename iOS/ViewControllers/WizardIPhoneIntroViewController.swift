@@ -35,10 +35,12 @@ class WizardIPhoneIntroViewController: UIViewController {
     }
     */
     @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
         wizardViewController?.cancel()
     }
     
     @IBAction func done(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
         wizardViewController?.done()
     }
 }

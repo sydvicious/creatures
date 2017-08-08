@@ -38,10 +38,12 @@ class WizardBioViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
         wizardViewController?.cancel()
     }
     
     @IBAction func done(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
         wizardViewController?.done()
     }
     
@@ -51,5 +53,9 @@ class WizardBioViewController: UIViewController, UITextFieldDelegate {
         wizardViewController?.protoData?.name = textField.text!
         setDoneButton()
     }
-    
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        setDoneButton()
+        return true
+    }
 }
