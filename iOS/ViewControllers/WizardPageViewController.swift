@@ -29,7 +29,7 @@ struct WizardCreatureProtoData {
 
 class WizardPageViewController: UIPageViewController {
 
-    private (set) var wizardViewControllers: [UIViewController] = {
+    var wizardViewControllers: [UIViewController] = {
         var controllers: [UIViewController] = []
         var controllerNames = UIDevice.current.userInterfaceIdiom == .pad ? wizardiPadViewControllerNames : wizardIPhoneViewControllerNames
         for name in controllerNames {

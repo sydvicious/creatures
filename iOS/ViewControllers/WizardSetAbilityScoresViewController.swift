@@ -100,6 +100,7 @@ class WizardSetAbilityScoresViewController: UIViewController, UITextFieldDelegat
                     doneButton.isEnabled = (wizardViewController?.isCharacterReady())!
                     return true
                 } else if proposedString == "" {
+                    doneButton.isEnabled = (wizardViewController?.isCharacterReady())!
                     return true
                 }
             }

@@ -7,11 +7,37 @@
 
 import UIKit
 
+private let chooseAbilityViewControllerNames : [String:String] = [
+    "transfer" : "WizardSetAbiltiesIPhone"
+]
+
 class WizardChooseMethodViewController: UIViewController {
 
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
+    @IBOutlet weak var standardButton: UIButton!
+    @IBOutlet weak var classicButton: UIButton!
+    @IBOutlet weak var heroicButton: UIButton!
+    @IBOutlet weak var dicePoolButton: UIButton!
+    @IBOutlet weak var purchaseButton: UIButton!
+    @IBOutlet weak var transferButton: UIButton!
+    
+    var wizardViewController: WizardPageViewController? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        wizardViewController = self.parent as? WizardPageViewController
+
+        standardButton.isHidden = true
+        classicButton.isHidden = true
+        heroicButton.isHidden = true
+        dicePoolButton.isHidden = true
+        purchaseButton.isHidden = true
+        transferButton.isHidden = false
+        
+        setDoneButton()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -20,15 +46,36 @@ class WizardChooseMethodViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func standard(_ sender: Any) {
     }
-    */
+    
+    @IBAction func classic(_ sender: Any) {
+    }
+    
+    @IBAction func heroic(_ sender: Any) {
+    }
+    
+    @IBAction func dicePool(_ sender: Any) {
+    }
+    
+    @IBAction func purchase(_ sender: Any) {
+    }
+    
+    @IBAction func transfer(_ sender: Any) {
+        
+    }
+    
+    func setDoneButton() {
+        doneButton.isEnabled = (wizardViewController?.isCharacterReady())!
+    }
 
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        wizardViewController?.cancel()
+    }
+    
+    @IBAction func done(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        wizardViewController?.done()
+    }
 }

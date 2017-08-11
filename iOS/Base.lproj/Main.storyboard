@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BzX-M2-jmv">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -34,7 +34,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VS0-Ld-7BH">
@@ -273,7 +273,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Zeb-d3-tKm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fVg-fD-vjy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fN-Gh-n42">
@@ -516,6 +516,119 @@
             </objects>
             <point key="canvasLocation" x="277.5" y="709.85915492957747"/>
         </scene>
+        <!--Wizard Choose Method View Controller-->
+        <scene sceneID="ACt-mW-jx3">
+            <objects>
+                <viewController storyboardIdentifier="WizardChooseMethod" id="a35-4Q-YHu" customClass="WizardChooseMethodViewController" customModule="Characters" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tae-6a-wxH"/>
+                        <viewControllerLayoutGuide type="bottom" id="tDw-8R-1xX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b7s-Vj-wp7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bxp-5A-MgZ">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Choose Method" id="s5y-Ot-xzF">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="lGV-Y2-ccc">
+                                            <connections>
+                                                <action selector="cancel:" destination="a35-4Q-YHu" id="bxl-Ht-iep"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="Nlr-v3-qGi">
+                                            <connections>
+                                                <action selector="done:" destination="a35-4Q-YHu" id="7u8-gh-IkC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="yb9-Pe-V4D">
+                                <rect key="frame" x="10" y="84" width="300" height="396"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select your method of generating your ability scores." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvZ-Jc-eSm">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kht-Eu-d32">
+                                        <rect key="frame" x="0.0" y="70" width="300" height="54.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Standard - Roll 4d6"/>
+                                        <connections>
+                                            <action selector="standard:" destination="a35-4Q-YHu" eventType="touchUpInside" id="qeh-YH-fZP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dg4-Wh-ldX">
+                                        <rect key="frame" x="0.0" y="124.5" width="300" height="54"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Classic - Roll 3d6"/>
+                                        <connections>
+                                            <action selector="classic:" destination="a35-4Q-YHu" eventType="touchUpInside" id="gsx-WY-fNO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbn-15-4Fh">
+                                        <rect key="frame" x="0.0" y="178.5" width="300" height="54.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Heroic - Roll 2d6+6"/>
+                                        <connections>
+                                            <action selector="heroic:" destination="a35-4Q-YHu" eventType="touchUpInside" id="t2R-1z-oyl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srr-zp-fh3">
+                                        <rect key="frame" x="0.0" y="233" width="300" height="54.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Dice Pool - Choose from 24d6"/>
+                                        <connections>
+                                            <action selector="dicePool:" destination="a35-4Q-YHu" eventType="touchUpInside" id="lGI-fr-EC5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9x-Fw-Xt1">
+                                        <rect key="frame" x="0.0" y="287.5" width="300" height="54"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Purchase - Use points"/>
+                                        <connections>
+                                            <action selector="purchase:" destination="a35-4Q-YHu" eventType="touchUpInside" id="Xjs-me-ypj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRc-Qb-28V">
+                                        <rect key="frame" x="0.0" y="341.5" width="300" height="54.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Transfer existing character"/>
+                                        <connections>
+                                            <action selector="transfer:" destination="a35-4Q-YHu" eventType="touchUpInside" id="Z4Z-qU-Qj4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bxp-5A-MgZ" firstAttribute="top" secondItem="Tae-6a-wxH" secondAttribute="bottom" id="2wW-9M-pP8"/>
+                            <constraint firstItem="yb9-Pe-V4D" firstAttribute="leading" secondItem="b7s-Vj-wp7" secondAttribute="leading" constant="10" id="A6S-O8-Dvp"/>
+                            <constraint firstItem="Bxp-5A-MgZ" firstAttribute="width" secondItem="b7s-Vj-wp7" secondAttribute="width" id="hj6-ad-lDT"/>
+                            <constraint firstAttribute="trailing" secondItem="yb9-Pe-V4D" secondAttribute="trailing" constant="10" id="m42-Em-PQY"/>
+                            <constraint firstItem="tDw-8R-1xX" firstAttribute="top" secondItem="yb9-Pe-V4D" secondAttribute="bottom" id="yVG-ag-oaW"/>
+                            <constraint firstItem="yb9-Pe-V4D" firstAttribute="top" secondItem="Bxp-5A-MgZ" secondAttribute="bottom" constant="20" id="zun-rp-XcK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="classicButton" destination="dg4-Wh-ldX" id="z62-aY-Eqt"/>
+                        <outlet property="dicePoolButton" destination="srr-zp-fh3" id="Jeb-Ub-TKa"/>
+                        <outlet property="doneButton" destination="Nlr-v3-qGi" id="g17-FM-LAl"/>
+                        <outlet property="heroicButton" destination="dbn-15-4Fh" id="X9E-A9-ODh"/>
+                        <outlet property="purchaseButton" destination="v9x-Fw-Xt1" id="zho-Nb-AaU"/>
+                        <outlet property="standardButton" destination="kht-Eu-d32" id="arA-61-VJl"/>
+                        <outlet property="transferButton" destination="dRc-Qb-28V" id="rvU-fn-QXb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bYI-fU-blD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1085.625" y="718.30985915492954"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="htO-w7-9dc">
             <objects>
@@ -525,7 +638,7 @@
                         <viewControllerLayoutGuide type="bottom" id="RWC-hR-xc6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yYL-Ce-gNF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FTI-ff-WSC">
@@ -668,7 +781,7 @@
             <objects>
                 <tableViewController title="Characters" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="Characters" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -744,11 +857,11 @@
                         <viewControllerLayoutGuide type="bottom" id="EwB-rV-bCB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bzZ-Cs-Pdn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JRD-e0-7CZ">
-                                <rect key="frame" x="0.0" y="20" width="320" height="39"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Introduction" id="ise-vs-8li">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="xgc-RT-xGZ">
@@ -765,10 +878,10 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92x-ac-rhk">
-                                <rect key="frame" x="16" y="64" width="288" height="504"/>
+                                <rect key="frame" x="16" y="69" width="288" height="411"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" directionalLockEnabled="YES" pagingEnabled="YES" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfs-Fb-T67">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="411"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Welcome to the Bone Jarring Character Creation Wizard. You will be guided though each step to create your awesome character!  This version of Bone Jarring Characters works with the Paizo Pathfinder Role Playing System. Please refer to the Core Rulebook and other books for reference.  Swipe left to get started.</string>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -809,7 +922,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qaP-Px-0l5"/>
                     </layoutGuides>
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="da7-1N-57m">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V80-4H-GrW">
