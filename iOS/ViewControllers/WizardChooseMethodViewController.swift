@@ -46,6 +46,12 @@ class WizardChooseMethodViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func replaceChooseMethodControllerWithController(_ name: String) {
+        let newController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name)
+        wizardViewController?.wizardViewControllers[2] = newController
+        wizardViewController?.setViewControllers([newController], direction: .forward, animated: true, completion: nil)
+    }
+    
     @IBAction func standard(_ sender: Any) {
     }
     
@@ -62,7 +68,7 @@ class WizardChooseMethodViewController: UIViewController {
     }
     
     @IBAction func transfer(_ sender: Any) {
-        
+        replaceChooseMethodControllerWithController("WizardSetAbiltiesIPhone")
     }
     
     func setDoneButton() {

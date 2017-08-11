@@ -11,14 +11,14 @@ import UIKit
 private var wizardIPhoneViewControllerNames = [
     "WizardIntroIPhone",
     "WizardBioIPhone",
-    "WizardSetAbiltiesIPhone"
+    "WizardChooseMethod"
 ]
 
 private var wizardiPadViewControllerNames = [
     //"WizardIntroIPad"
     "WizardIntroIPhone",
     "WizardBioIPhone",
-    "WizardSetAbiltiesIPhone"
+    "WizardChooseMethod"
 ]
 
 struct WizardCreatureProtoData {
@@ -172,3 +172,4 @@ extension WizardPageViewController: UIPageViewControllerDataSource {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
