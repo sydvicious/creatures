@@ -58,11 +58,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.viewWillAppear(animated)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @objc
     func insertNewObject(_ sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -138,7 +133,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             self.creaturesController!.deleteCreatureAtIndexPath(indexPath)
         } else if editingStyle == .insert {
