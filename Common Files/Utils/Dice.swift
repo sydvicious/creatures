@@ -57,6 +57,16 @@ class Dice {
         total += bonus
         return total
     }
+    
+    static func takeRolls(rolls: [Int], best: Int) -> Int {
+        var total = 0
+        var queue = PriorityQueue<Int>()
+        for _ in 1...best {
+            let roll = queue.pop()
+            total += roll!
+        }
+        return total
+    }
 }
 
 

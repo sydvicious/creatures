@@ -73,6 +73,11 @@ class d20Ability: Ability {
         }
     }
 
+    public func currentModifer() -> Int {
+        return d20Ability.modifier(value: self.currentScore)
+    }
+
+    
     override init(name: String, score: Int) {
         bonus = d20Bonus()
         super.init(name: name, score: score)

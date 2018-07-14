@@ -8,6 +8,7 @@
 import UIKit
 
 private let chooseAbilityViewControllerNames : [String:String] = [
+    "standard" : "DiceGroup",
     "transfer" : "WizardSetAbiltiesIPhone"
 ]
 
@@ -29,7 +30,7 @@ class WizardChooseMethodViewController: UIViewController {
 
         wizardViewController = self.parent as? WizardPageViewController
 
-        standardButton.isHidden = true
+        standardButton.isHidden = false
         classicButton.isHidden = true
         heroicButton.isHidden = true
         dicePoolButton.isHidden = true
@@ -48,6 +49,7 @@ class WizardChooseMethodViewController: UIViewController {
     }
     
     @IBAction func standard(_ sender: Any) {
+        replaceChooseMethodControllerWithController("DiceGroup")
     }
     
     @IBAction func classic(_ sender: Any) {
