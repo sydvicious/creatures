@@ -1,18 +1,13 @@
 //
-//  AbilityWizard4d6TableViewController.swift
+//  AbilityDisplayTableViewController.swift
 //  iOS
 //
-//  Created by Syd Polk on 7/13/18.
+//  Created by Syd Polk on 7/26/18.
 //
 
 import UIKit
 
-protocol AbilityWizard4d6TableViewControllerDelegate {
-    
-}
-
-class AbilityWizard4d6TableViewController: UITableViewController {
-
+class AbilityDisplayTableViewController: UITableViewController {
     var rolls: [Rolls4d6]? = nil
     
     override func viewDidLoad() {
@@ -33,20 +28,24 @@ class AbilityWizard4d6TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
         return 6
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Ability4d6Cell", for: indexPath) as! AbilityWizard4d6TableViewCell
+       let cell = tableView.dequeueReusableCell(withIdentifier: "WizardAbilityDisplay", for: indexPath) as! AbilityDisplayTableViewCell
 
         // Configure the cell...
 
+        cell.ability = d20Ability.abilityStrings[indexPath.row]
         if let rolls = self.rolls {
-            cell.setGUI(rolls: rolls[indexPath.row].rolls, minimumIndex: rolls[indexPath.row].minimumIndex())
+            cell.score = rolls[indexPath.row].score()
+        } else {
+            cell.score = 10
         }
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 48
     }
@@ -100,5 +99,4 @@ class AbilityWizard4d6TableViewController: UITableViewController {
         self.rolls = rolls
         self.tableView.reloadData()
     }
-
 }

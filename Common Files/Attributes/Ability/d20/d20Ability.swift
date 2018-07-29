@@ -67,6 +67,14 @@ class d20Ability: Ability {
         return Int(result)
     }
     
+    public static func modifierString(value: Int) -> String {
+        let modifier = d20Ability.modifier(value: value)
+        if modifier < 0 {
+            return String(modifier)
+        }
+        return "+" + String(modifier)
+    }
+    
     override var currentScore : Int {
         get {
             return self.baseScore + self.bonus.netValue()

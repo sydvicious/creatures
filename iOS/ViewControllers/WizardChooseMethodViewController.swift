@@ -8,7 +8,7 @@
 import UIKit
 
 private let chooseAbilityViewControllerNames : [String:String] = [
-    "standard" : "DiceGroup",
+    "standard" : "WizardAbilities4d6",
     "transfer" : "WizardSetAbiltiesIPhone"
 ]
 
@@ -49,7 +49,7 @@ class WizardChooseMethodViewController: UIViewController {
     }
     
     @IBAction func standard(_ sender: Any) {
-        replaceChooseMethodControllerWithController("DiceGroup")
+        replaceChooseMethodControllerWithController("WizardAbilities4d6")
     }
     
     @IBAction func classic(_ sender: Any) {
