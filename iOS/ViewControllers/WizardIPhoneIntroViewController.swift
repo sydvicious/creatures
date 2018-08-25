@@ -3,6 +3,7 @@
 //  iOS
 //
 //  Created by Sydney Polk on 8/5/17.
+//  Copyright © 2017 Bone Jarring Games and Software. All rights reserved.
 //
 
 import UIKit

@@ -521,7 +521,7 @@
             <objects>
                 <tableViewController id="s8d-hh-ZoG" userLabel="AbilityWizard4d6TableViewController" customClass="AbilityWizard4d6TableViewController" customModule="Characters" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RD1-Yp-iRE">
-                        <rect key="frame" x="0.0" y="0.0" width="128" height="375.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="128" height="365.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -610,7 +610,7 @@
             <objects>
                 <tableViewController id="lzB-Db-eWG" customClass="AbilityDisplayTableViewController" customModule="Characters" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="I7S-8q-wOd">
-                        <rect key="frame" x="0.0" y="0.0" width="160" height="375.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="365.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -732,20 +732,20 @@
                                             <constraint firstAttribute="height" constant="20" id="5BS-VD-4zS"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbO-2Q-Q3f">
-                                        <rect key="frame" x="0.0" y="62.5" width="288" height="375.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbO-2Q-Q3f" userLabel="TableView Stack View">
+                                        <rect key="frame" x="0.0" y="62.5" width="288" height="365.5"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNE-cj-AUT" userLabel="Dice Dragging View">
-                                                <rect key="frame" x="0.0" y="0.0" width="128" height="375.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="365.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="128" id="Edu-nH-Ove"/>
+                                                    <constraint firstAttribute="width" constant="128" id="PSp-ED-Vdc"/>
                                                 </constraints>
                                                 <connections>
                                                     <segue destination="s8d-hh-ZoG" kind="embed" identifier="AbilityWizard4d6" id="ZH1-eA-wav"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ing-Zm-a2V" userLabel="Display View">
-                                                <rect key="frame" x="128" y="0.0" width="160" height="375.5"/>
+                                                <rect key="frame" x="128" y="0.0" width="160" height="365.5"/>
                                                 <connections>
                                                     <segue destination="lzB-Db-eWG" kind="embed" identifier="AbilityDisplay" id="5k7-O0-biX"/>
                                                 </connections>
@@ -753,13 +753,16 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="ing-Zm-a2V" firstAttribute="leading" secondItem="YNE-cj-AUT" secondAttribute="trailing" id="0LZ-gp-zgM"/>
-                                            <constraint firstItem="YNE-cj-AUT" firstAttribute="leading" secondItem="gbO-2Q-Q3f" secondAttribute="leading" id="OYL-uc-dSF"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Y5Y-m4-Qih"/>
                                             <constraint firstAttribute="bottom" secondItem="YNE-cj-AUT" secondAttribute="bottom" id="Yqw-hv-JyI"/>
                                             <constraint firstItem="YNE-cj-AUT" firstAttribute="top" secondItem="gbO-2Q-Q3f" secondAttribute="top" id="wZy-EH-UkS"/>
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1R-Yv-uwO">
-                                        <rect key="frame" x="0.0" y="438" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="428" width="288" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="4le-na-qbx"/>
+                                        </constraints>
                                         <state key="normal" title="Reroll"/>
                                         <connections>
                                             <action selector="reroll:" destination="XET-xF-Okw" eventType="touchUpInside" id="Jt0-fw-PMQ"/>

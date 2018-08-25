@@ -3,6 +3,7 @@
 //  iOS
 //
 //  Created by Syd Polk on 7/13/18.
+//  Copyright © 2018 Bone Jarring Games and Software. All rights reserved.
 //
 
 import UIKit
@@ -17,12 +18,6 @@ class AbilityWizard4d6TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -48,6 +43,7 @@ class AbilityWizard4d6TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return 48
     }
 
