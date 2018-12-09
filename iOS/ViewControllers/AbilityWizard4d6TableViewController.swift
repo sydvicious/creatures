@@ -8,16 +8,15 @@
 
 import UIKit
 
-protocol AbilityWizard4d6TableViewControllerDelegate {
-    
-}
-
 class AbilityWizard4d6TableViewController: UITableViewController {
 
     var rolls: [Rolls4d6]? = nil
+    var delegate: Wizard4d6ViewControllerDelegate? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.isEditing = true
+        self.tableView.isScrollEnabled = false
     }
 
     // MARK: - Table view data source
@@ -43,7 +42,6 @@ class AbilityWizard4d6TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return 48
     }
 
@@ -67,20 +65,26 @@ class AbilityWizard4d6TableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        print("Moving row from %d to %d", fromIndexPath.row, to.row)
+        if var rolls = self.rolls {
+            let abilityRolls = rolls[fromIndexPath.row]
+            rolls[fromIndexPath.row] = rolls[to.row]
+            rolls[to.row] = abilityRolls
+            if let delegate = self.delegate {
+                delegate.setRolls(withRolls: rolls)
+            }
+            self.tableView.reloadData()
+        }
+        
     }
-    */
 
-    /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
 
     /*
     // MARK: - Navigation
@@ -91,10 +95,21 @@ class AbilityWizard4d6TableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 
     func setRolls(rolls: [Rolls4d6]) {
         self.rolls = rolls
         self.tableView.reloadData()
     }
 
+    func setDelegate(delegate: Wizard4d6ViewControllerDelegate) {
+        self.delegate = delegate
+    }
 }

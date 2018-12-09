@@ -8,8 +8,11 @@
 
 import UIKit
 
+protocol Wizard4d6ViewControllerDelegate {
+    func setRolls(withRolls: [Rolls4d6])
+}
 
-class Wizard4d6ViewController: UIViewController {
+class Wizard4d6ViewController: UIViewController, Wizard4d6ViewControllerDelegate {
     var wizardViewController: WizardPageViewController? = nil
 
     var rolls = [Rolls4d6(), Rolls4d6(), Rolls4d6(), Rolls4d6(), Rolls4d6(), Rolls4d6()]
@@ -25,13 +28,8 @@ class Wizard4d6ViewController: UIViewController {
     }
     
     @IBAction func reroll(_ sender: Any) {
-        self.rolls = [Rolls4d6(), Rolls4d6(), Rolls4d6(), Rolls4d6(), Rolls4d6(), Rolls4d6()]
-        if let dieRollsController = dieRollsTableViewController {
-            dieRollsController.setRolls(rolls: self.rolls)
-        }
-        if let abilityDisplayController = abilityDisplayTableViewController {
-            abilityDisplayController.setRolls(rolls: self.rolls)
-        }
+        let rolls = [Rolls4d6(), Rolls4d6(), Rolls4d6(), Rolls4d6(), Rolls4d6(), Rolls4d6()]
+        setRolls(withRolls: rolls)
     }
     
     func setAbilityValues() {
@@ -57,6 +55,7 @@ class Wizard4d6ViewController: UIViewController {
             dieRollsTableViewController = segue.destination as? AbilityWizard4d6TableViewController
             if let controller = dieRollsTableViewController {
                 controller.setRolls(rolls: self.rolls)
+                controller.setDelegate(delegate: self)
             }
         } else if segue.identifier == "AbilityDisplay" {
             abilityDisplayTableViewController = segue.destination as? AbilityDisplayTableViewController
@@ -64,5 +63,17 @@ class Wizard4d6ViewController: UIViewController {
                 controller.setRolls(rolls: self.rolls)
             }
         }
+    }
+    
+    // Wizard4d6ViewControllerDelegate
+    func setRolls(withRolls: [Rolls4d6]) {
+        self.rolls = withRolls
+        if let dieRollsController = dieRollsTableViewController {
+            dieRollsController.setRolls(rolls: self.rolls)
+        }
+        if let abilityDisplayController = abilityDisplayTableViewController {
+            abilityDisplayController.setRolls(rolls: self.rolls)
+        }
+
     }
 }
