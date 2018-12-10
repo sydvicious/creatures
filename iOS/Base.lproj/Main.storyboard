@@ -611,16 +611,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tT-dW-0Rz">
-                                            <rect key="frame" x="0.0" y="0.0" width="160" height="32"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="148" height="32"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLH-N9-6Xu" userLabel="Strength">
-                                                    <rect key="frame" x="0.0" y="0.0" width="96" height="32"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="32"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EK1-sX-ZwK">
-                                                    <rect key="frame" x="96" y="0.0" width="32" height="32"/>
+                                                    <rect key="frame" x="84" y="0.0" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="PnD-wi-6IS"/>
                                                     </constraints>
@@ -629,7 +629,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjh-l4-gp0">
-                                                    <rect key="frame" x="128" y="0.0" width="32" height="32"/>
+                                                    <rect key="frame" x="116" y="0.0" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="QVS-zA-GpR"/>
                                                     </constraints>
@@ -694,7 +694,7 @@
                                     <navigationItem title="4d6" id="vyZ-Mz-jyi">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Uxc-1c-Zph">
                                             <connections>
-                                                <action selector="cancel:" destination="DeP-Yz-AaS" id="aas-dS-fYn"/>
+                                                <action selector="cancel:" destination="XET-xF-Okw" id="5cH-LJ-FOP"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="adp-xV-Rdw" userLabel="Done">
@@ -1154,7 +1154,7 @@
                             </items>
                         </navigationBar>
                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="NEe-tl-gaT">
-                            <rect key="frame" x="10" y="84" width="300" height="240.5"/>
+                            <rect key="frame" x="10" y="84" width="300" height="453"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select your method of generating your ability scores." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLo-Qe-frG">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="42.5"/>
@@ -1163,7 +1163,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJT-I8-1cQ">
-                                    <rect key="frame" x="0.0" y="42.5" width="300" height="33"/>
+                                    <rect key="frame" x="0.0" y="42.5" width="300" height="68.5"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     <state key="normal" title="Standard - Roll 4d6"/>
                                     <connections>
@@ -1171,7 +1171,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXl-f2-fk1">
-                                    <rect key="frame" x="0.0" y="75.5" width="300" height="33"/>
+                                    <rect key="frame" x="0.0" y="111" width="300" height="68.5"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     <state key="normal" title="Classic - Roll 3d6"/>
                                     <connections>
@@ -1179,7 +1179,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZj-jO-6a8">
-                                    <rect key="frame" x="0.0" y="108.5" width="300" height="33"/>
+                                    <rect key="frame" x="0.0" y="179.5" width="300" height="68"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     <state key="normal" title="Heroic - Roll 2d6+6"/>
                                     <connections>
@@ -1187,7 +1187,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qx-YH-dak">
-                                    <rect key="frame" x="0.0" y="141.5" width="300" height="33"/>
+                                    <rect key="frame" x="0.0" y="247.5" width="300" height="68.5"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     <state key="normal" title="Dice Pool - Choose from 24d6"/>
                                     <connections>
@@ -1195,7 +1195,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ezy-yN-J6N">
-                                    <rect key="frame" x="0.0" y="174.5" width="300" height="33"/>
+                                    <rect key="frame" x="0.0" y="316" width="300" height="68.5"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     <state key="normal" title="Purchase - Use points"/>
                                     <connections>
@@ -1203,7 +1203,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mM-8q-QEc">
-                                    <rect key="frame" x="0.0" y="207.5" width="300" height="33"/>
+                                    <rect key="frame" x="0.0" y="384.5" width="300" height="68.5"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     <state key="normal" title="Transfer existing character"/>
                                     <connections>

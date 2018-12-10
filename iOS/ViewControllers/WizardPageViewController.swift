@@ -52,6 +52,13 @@ class WizardPageViewController: UIPageViewController {
         }
     }
 
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .portrait
+        }
+        return .all
+    }
+    
     func isCharacterReady() -> Bool {
         let name = protoData?.name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         if "" == name {

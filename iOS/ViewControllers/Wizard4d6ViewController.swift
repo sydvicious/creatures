@@ -19,6 +19,11 @@ class Wizard4d6ViewController: UIViewController, Wizard4d6ViewControllerDelegate
     var dieRollsTableViewController: AbilityWizard4d6TableViewController? = nil
     var abilityDisplayTableViewController: AbilityDisplayTableViewController? = nil
 
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        wizardViewController?.cancel()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
