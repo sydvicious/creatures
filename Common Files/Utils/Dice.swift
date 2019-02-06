@@ -8,6 +8,27 @@
 
 import Foundation
 
+struct IndexRollPair: Comparable {
+    static func < (lhs: IndexRollPair, rhs: IndexRollPair) -> Bool {
+        return lhs.score < rhs.score
+    }
+    
+    static func == (lhs: IndexRollPair, rhs: IndexRollPair) -> Bool {
+        return lhs.score == rhs.score
+    }
+    
+    let index: Int
+    let score: Int
+    
+    init(index: Int, score: Int) {
+        self.index = index
+        self.score = score
+    }
+    
+    
+}
+
+
 class Dice {
 
     static func rawRoll(dieType: Int) -> Int {
@@ -60,12 +81,20 @@ class Dice {
     
     static func takeRolls(rolls: [Int], best: Int) -> Int {
         var total = 0
-        var queue = PriorityQueue<Int>()
+        var queue = PriorityQueue<Int>.init(ascending: false, startingValues: rolls)
         for _ in 1...best {
             let roll = queue.pop()
             total += roll!
         }
         return total
+    }
+    
+    static func miminumIndex(rolls: [Int]) -> Int {
+        var queue = PriorityQueue<IndexRollPair>.init(ascending: true)
+        for (index, roll) in rolls.enumerated() {
+            queue.push(IndexRollPair(index: index, score: roll))
+        }
+        return queue.pop()!.index
     }
 }
 

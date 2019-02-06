@@ -24,11 +24,7 @@ class Rolls4d6 {
     }
     
     func score() -> Int {
-        var score = 0
-        for i in 0...3 {
-            score += rolls[i]
-        }
-        score -= rolls[self.minimumIndex()]
+        let score = Dice.takeRolls(rolls: rolls, best: 3)
         return score
     }
 }

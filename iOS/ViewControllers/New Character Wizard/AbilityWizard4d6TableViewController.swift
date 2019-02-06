@@ -36,7 +36,7 @@ class AbilityWizard4d6TableViewController: UITableViewController {
         // Configure the cell...
 
         if let rolls = self.rolls {
-            cell.setGUI(rolls: rolls[indexPath.row].rolls, minimumIndex: rolls[indexPath.row].minimumIndex())
+            cell.setGUI(rolls: rolls[indexPath.row].rolls)
         }
         return cell
     }

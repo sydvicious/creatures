@@ -72,6 +72,9 @@
 		6288E1D21A4E7A63009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
 		6288E1D61A4E80D6009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
 		628D61511B2BBCF300D420E1 /* TestCreatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */; };
+		628E4B7D220A9D6F00F58FA8 /* AbilityWizardDiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628E4B7C220A9D6F00F58FA8 /* AbilityWizardDiceTableViewCell.swift */; };
+		628E4B81220AA41000F58FA8 /* Rolls3d6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628E4B80220AA41000F58FA8 /* Rolls3d6.swift */; };
+		628E4B83220AA4B600F58FA8 /* AbilityWizard3d6TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628E4B82220AA4B600F58FA8 /* AbilityWizard3d6TableViewCell.swift */; };
 		6292EB43210AB3300071424E /* AbilityDisplayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292EB42210AB3300071424E /* AbilityDisplayTableViewController.swift */; };
 		6292EB47210AB3FB0071424E /* AbilityDisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292EB46210AB3FB0071424E /* AbilityDisplayTableViewCell.swift */; };
 		629611791F4023AC00217557 /* d6w6.png in Resources */ = {isa = PBXBuildFile; fileRef = 629611731F4023A800217557 /* d6w6.png */; };
@@ -137,7 +140,7 @@
 /* Begin PBXFileReference section */
 		620124131DD5808500E1A05F /* WizardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardPageViewController.swift; sourceTree = "<group>"; };
 		620B34491EFF3C9B00C6A703 /* VerticallyCenteredTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticallyCenteredTextView.swift; sourceTree = "<group>"; };
-		620B344B1EFF3DDA00C6A703 /* WizardChooseMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WizardChooseMethodViewController.swift; path = iOS/ViewControllers/WizardChooseMethodViewController.swift; sourceTree = SOURCE_ROOT; };
+		620B344B1EFF3DDA00C6A703 /* WizardChooseMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WizardChooseMethodViewController.swift; path = "iOS/ViewControllers/New Character Wizard/WizardChooseMethodViewController.swift"; sourceTree = SOURCE_ROOT; };
 		620B344D1EFF3E1400C6A703 /* WizardBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardBioViewController.swift; sourceTree = "<group>"; };
 		62166FA01D8CB87E003540D4 /* TestAbility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestAbility.swift; path = "Common Tests/TestAbility.swift"; sourceTree = SOURCE_ROOT; };
 		62166FA51D8CBA70003540D4 /* TestD20Ability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestD20Ability.swift; path = "Common Tests/TestD20Ability.swift"; sourceTree = SOURCE_ROOT; };
@@ -161,17 +164,20 @@
 		624C5AEF1EEBB97C00B161F1 /* SwiftPriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPriorityQueue.swift; sourceTree = "<group>"; };
 		624C5B861EA9AC7A007BF969 /* bj_character */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = bj_character; sourceTree = BUILT_PRODUCTS_DIR; };
 		624C5B881EA9AC7A007BF969 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		625073CE1F2507A3005D1996 /* CreatureBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureBuilder.swift; sourceTree = "<group>"; };
+		625073CE1F2507A3005D1996 /* CreatureBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatureBuilder.swift; path = Models/CreatureBuilder.swift; sourceTree = "<group>"; };
 		625824851E17B4CA0049DE03 /* TransactionsModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TransactionsModel+CoreDataClass.swift"; path = "Models/TransactionsModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		625824861E17B4CA0049DE03 /* TransactionsModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TransactionsModel+CoreDataProperties.swift"; path = "Models/TransactionsModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		625824871E17B4CA0049DE03 /* CreatureModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CreatureModel+CoreDataClass.swift"; path = "Models/CreatureModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		625824881E17B4CA0049DE03 /* CreatureModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CreatureModel+CoreDataProperties.swift"; path = "Models/CreatureModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		625F358D210D61730027C6DD /* Rolls4d6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Rolls4d6.swift; path = "Common Files/Rolls4d6.swift"; sourceTree = SOURCE_ROOT; };
+		625F358D210D61730027C6DD /* Rolls4d6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Rolls4d6.swift; path = "Common Files/Utils/Rolls4d6.swift"; sourceTree = SOURCE_ROOT; };
 		626A3D7B19CBE59300B3222D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		626BA3211F034DDF00219A0A /* WizardSetAbilityScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardSetAbilityScoresViewController.swift; sourceTree = "<group>"; };
-		627426761B733A910051A5E5 /* CharactersContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharactersContext.swift; path = ../iOS/CharactersContext.swift; sourceTree = "<group>"; };
+		627426761B733A910051A5E5 /* CharactersContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersContext.swift; sourceTree = "<group>"; };
 		62811D4B1DE7B5DC00217C09 /* TransactionsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsProtocol.swift; sourceTree = "<group>"; };
 		6288E1D11A4E7A63009F7CE2 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prefs.swift; path = Utils/Prefs.swift; sourceTree = "<group>"; };
+		628E4B7C220A9D6F00F58FA8 /* AbilityWizardDiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityWizardDiceTableViewCell.swift; sourceTree = "<group>"; };
+		628E4B80220AA41000F58FA8 /* Rolls3d6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Rolls3d6.swift; path = Utils/Rolls3d6.swift; sourceTree = "<group>"; };
+		628E4B82220AA4B600F58FA8 /* AbilityWizard3d6TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityWizard3d6TableViewCell.swift; sourceTree = "<group>"; };
 		6292EB42210AB3300071424E /* AbilityDisplayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityDisplayTableViewController.swift; sourceTree = "<group>"; };
 		6292EB46210AB3FB0071424E /* AbilityDisplayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityDisplayTableViewCell.swift; sourceTree = "<group>"; };
 		629611731F4023A800217557 /* d6w6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w6.png; path = ../../design/d6w6.png; sourceTree = "<group>"; };
@@ -191,7 +197,7 @@
 		62C1545C1DD9789C00D5DAAC /* TransactionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsController.swift; sourceTree = "<group>"; };
 		62C1545F1DD978DC00D5DAAC /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		62C6A0041B2B2238006B50D2 /* TestPrefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPrefs.swift; sourceTree = "<group>"; };
-		62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreaturesController.swift; path = ../iOS/CreaturesController.swift; sourceTree = "<group>"; };
+		62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreaturesController.swift; sourceTree = "<group>"; };
 		62D0144920F05C1600B6F853 /* Wizard4d6ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wizard4d6ViewController.swift; sourceTree = "<group>"; };
 		62D02FB71D72361800CB6CA6 /* PathfinderAbility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathfinderAbility.swift; sourceTree = "<group>"; };
 		62D02FBE1D7236A100CB6CA6 /* Ability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
@@ -251,19 +257,8 @@
 		620124151DD580BE00E1A05F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6292EB46210AB3FB0071424E /* AbilityDisplayTableViewCell.swift */,
-				6292EB42210AB3300071424E /* AbilityDisplayTableViewController.swift */,
-				62F48EA220F9B3160062AE99 /* AbilityWizard4d6TableViewCell.swift */,
-				62F48EA020F9B2E10062AE99 /* AbilityWizard4d6TableViewController.swift */,
-				622850631978ECB000DE985E /* DetailViewController.swift */,
-				622850611978ECB000DE985E /* MasterViewController.swift */,
-				62DC42991D4C524D00A8EE5F /* SplitViewController.swift */,
-				62D0144920F05C1600B6F853 /* Wizard4d6ViewController.swift */,
-				620B344D1EFF3E1400C6A703 /* WizardBioViewController.swift */,
-				620B344B1EFF3DDA00C6A703 /* WizardChooseMethodViewController.swift */,
-				62F17BFC1F3663C60094F3F4 /* WizardIPhoneIntroViewController.swift */,
-				620124131DD5808500E1A05F /* WizardPageViewController.swift */,
-				626BA3211F034DDF00219A0A /* WizardSetAbilityScoresViewController.swift */,
+				62BAC3E6220A9BA800644532 /* Main windows */,
+				62BAC3E5220A9B6C00644532 /* New Character Wizard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -279,6 +274,7 @@
 		6215D9B71DB47F7000DFBF88 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				625073CE1F2507A3005D1996 /* CreatureBuilder.swift */,
 				625824871E17B4CA0049DE03 /* CreatureModel+CoreDataClass.swift */,
 				625824881E17B4CA0049DE03 /* CreatureModel+CoreDataProperties.swift */,
 				625824851E17B4CA0049DE03 /* TransactionsModel+CoreDataClass.swift */,
@@ -314,6 +310,7 @@
 				624C5AE31EEBB59700B161F1 /* Dice.swift */,
 				6288E1D11A4E7A63009F7CE2 /* Prefs.swift */,
 				625F358D210D61730027C6DD /* Rolls4d6.swift */,
+				628E4B80220AA41000F58FA8 /* Rolls3d6.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -346,6 +343,7 @@
 		622850591978ECB000DE985E /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				628E4B7F220AA39100F58FA8 /* Models */,
 				620B34481EFF3C7100C6A703 /* Utiltiies */,
 				626A3D7D19CBE5AF00B3222D /* Resources */,
 				620124151DD580BE00E1A05F /* ViewControllers */,
@@ -385,10 +383,6 @@
 		622850AA1978ED7900DE985E /* Common Files */ = {
 			isa = PBXGroup;
 			children = (
-				6222E0541DB48D7E0031FD74 /* Creature.swift */,
-				625073CE1F2507A3005D1996 /* CreatureBuilder.swift */,
-				62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */,
-				627426761B733A910051A5E5 /* CharactersContext.swift */,
 				62EDDC041DD96DD00027A719 /* Attributes */,
 				6215D9B71DB47F7000DFBF88 /* Models */,
 				62C154561DD9767900D5DAAC /* Transactions */,
@@ -441,6 +435,16 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		628E4B7F220AA39100F58FA8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				627426761B733A910051A5E5 /* CharactersContext.swift */,
+				6222E0541DB48D7E0031FD74 /* Creature.swift */,
+				62C6A0251B2B24B8006B50D2 /* CreaturesController.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		62B2CB1A1B2A551E0073B8DC /* iOS Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +462,35 @@
 				62B2CB2B1B2A56D90073B8DC /* Info.plist */,
 			);
 			path = "Mac Tests";
+			sourceTree = "<group>";
+		};
+		62BAC3E5220A9B6C00644532 /* New Character Wizard */ = {
+			isa = PBXGroup;
+			children = (
+				6292EB46210AB3FB0071424E /* AbilityDisplayTableViewCell.swift */,
+				6292EB42210AB3300071424E /* AbilityDisplayTableViewController.swift */,
+				628E4B82220AA4B600F58FA8 /* AbilityWizard3d6TableViewCell.swift */,
+				62F48EA220F9B3160062AE99 /* AbilityWizard4d6TableViewCell.swift */,
+				62F48EA020F9B2E10062AE99 /* AbilityWizard4d6TableViewController.swift */,
+				628E4B7C220A9D6F00F58FA8 /* AbilityWizardDiceTableViewCell.swift */,
+				62D0144920F05C1600B6F853 /* Wizard4d6ViewController.swift */,
+				620B344D1EFF3E1400C6A703 /* WizardBioViewController.swift */,
+				620B344B1EFF3DDA00C6A703 /* WizardChooseMethodViewController.swift */,
+				62F17BFC1F3663C60094F3F4 /* WizardIPhoneIntroViewController.swift */,
+				620124131DD5808500E1A05F /* WizardPageViewController.swift */,
+				626BA3211F034DDF00219A0A /* WizardSetAbilityScoresViewController.swift */,
+			);
+			path = "New Character Wizard";
+			sourceTree = "<group>";
+		};
+		62BAC3E6220A9BA800644532 /* Main windows */ = {
+			isa = PBXGroup;
+			children = (
+				622850631978ECB000DE985E /* DetailViewController.swift */,
+				622850611978ECB000DE985E /* MasterViewController.swift */,
+				62DC42991D4C524D00A8EE5F /* SplitViewController.swift */,
+			);
+			path = "Main windows";
 			sourceTree = "<group>";
 		};
 		62C154561DD9767900D5DAAC /* Transactions */ = {
@@ -753,14 +786,17 @@
 				620B344A1EFF3C9B00C6A703 /* VerticallyCenteredTextView.swift in Sources */,
 				622850641978ECB000DE985E /* DetailViewController.swift in Sources */,
 				62F48EA120F9B2E10062AE99 /* AbilityWizard4d6TableViewController.swift in Sources */,
+				628E4B81220AA41000F58FA8 /* Rolls3d6.swift in Sources */,
 				62C154601DD978DC00D5DAAC /* Transaction.swift in Sources */,
 				6258248C1E17B4CA0049DE03 /* CreatureModel+CoreDataProperties.swift in Sources */,
 				6292EB47210AB3FB0071424E /* AbilityDisplayTableViewCell.swift in Sources */,
 				624C5B041EEBB9E900B161F1 /* SwiftPriorityQueue.swift in Sources */,
+				628E4B83220AA4B600F58FA8 /* AbilityWizard3d6TableViewCell.swift in Sources */,
 				626BA3221F034E1A00219A0A /* WizardSetAbilityScoresViewController.swift in Sources */,
 				62C6A0261B2B24B8006B50D2 /* CreaturesController.swift in Sources */,
 				62811D4C1DE7B5DC00217C09 /* TransactionsProtocol.swift in Sources */,
 				620124141DD5808500E1A05F /* WizardPageViewController.swift in Sources */,
+				628E4B7D220A9D6F00F58FA8 /* AbilityWizardDiceTableViewCell.swift in Sources */,
 				62D02FC11D72381A00CB6CA6 /* d20Ability.swift in Sources */,
 				6292EB43210AB3300071424E /* AbilityDisplayTableViewController.swift in Sources */,
 				62D02FC31D7238A500CB6CA6 /* d20Bonus.swift in Sources */,
