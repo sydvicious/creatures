@@ -58,8 +58,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.viewWillAppear(animated)
     }
 
-    @objc
-    func insertNewObject(_ sender: AnyObject) {
+    @objc func insertNewObject(_ sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let wizardViewController = storyboard.instantiateViewController(withIdentifier: "Wizard")
         self.present(wizardViewController, animated: true, completion: nil)
@@ -174,6 +173,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             case .move:
                 self.configureCell(tableView.cellForRow(at: indexPath!)!, atIndexPath: indexPath!)
                 tableView.moveRow(at: indexPath!, to: newIndexPath!)
+        @unknown default:
+            return
         }
     }
 

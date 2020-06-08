@@ -6,7 +6,7 @@
 //  Copyright © 2017 Bone Jarring Games and Software. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class CreatureBuilder: NSObject {
 

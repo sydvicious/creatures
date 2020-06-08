@@ -43,7 +43,7 @@ class TestCreatures: XCTestCase {
             var indexPath = controller.indexPathFromCreature(creatureModel)
             _ = controller.indexPathFromCreature(creatureModel)
 
-            controller.deleteCreatureAtIndexPath(indexPath)
+            controller.deleteCreatureAtIndexPath(indexPath!)
             controller.logAll()
             XCTAssertEqual(creatures.count, startCount, "Did not have same number of creatures at the end.")
 
@@ -112,7 +112,7 @@ class TestCreatures: XCTestCase {
             original_creature_model = try! controller.createCreature("TestCreature4.1", withSystem: "Pathfinder", withCreature: original_creature)
             
             indexPath = IndexPath(row: 0, section: 0)
-            let saved_creature_model = controller.creatureFromIndexPath(indexPath)
+            let saved_creature_model = controller.creatureFromIndexPath(indexPath!)
             let saved_name = saved_creature_model.name
             let saved_creature = saved_creature_model.creature!
             XCTAssertEqual(name, saved_name)

@@ -1,9 +1,9 @@
 //
 //  CreatureModel+CoreDataProperties.swift
-//  Characters
+//  iOS
 //
-//  Created by Syd Polk on 12/31/16.
-//  Copyright (c) 2016-2017 Bone Jarring Games and Software, LLC. All rights reserved.
+//  Created by Syd Polk on 6/7/20.
+//
 //
 
 import Foundation
@@ -13,12 +13,12 @@ import CoreData
 extension CreatureModel {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CreatureModel> {
-        return NSFetchRequest<CreatureModel>(entityName: "CreatureModel");
+        return NSFetchRequest<CreatureModel>(entityName: "CreatureModel")
     }
-    
+
     @NSManaged public var name: String?
     @NSManaged public var oid: String?
-    @NSManaged public var transactions: NSSet?
+    @NSManaged public var transactions: NSOrderedSet?
 
 }
 

@@ -19,10 +19,8 @@ class Transaction: Hashable {
     public let timestamp: NSDate    // When this change was created
     public let oid: String      // Internal identifier
 
-    var hashValue : Int {
-        get {
-            return self.oid.hashValue
-        }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(oid)
     }
 
     init(system: String, section: String, attribute: String, source: String, type: String, value: String, duration: Int) {
@@ -38,14 +36,7 @@ class Transaction: Hashable {
     }
 
     static func ==(lhs: Transaction, rhs: Transaction) -> Bool {
-        return (lhs.system == rhs.system)
-            && (lhs.section == rhs.section)
-            && (lhs.attribute == rhs.attribute)
-            && (lhs.source == rhs.source)
-            && (lhs.type == rhs.type)
-            && (lhs.duration == rhs.duration)
-            && (lhs.timestamp == rhs.timestamp)
-            && (lhs.oid == rhs.oid)
+        return lhs.oid == rhs.oid
     }
 
 }

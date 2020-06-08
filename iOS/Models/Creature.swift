@@ -103,7 +103,7 @@ class Creature {
         abilities[.Charisma] = ability(key: .Charisma, fromBaseScore: charisma)
     }
 
-    func parse(transactions: NSSet) {
+    func parse(transactions: NSOrderedSet) {
         for raw_transaction in transactions {
             let transaction = raw_transaction as! TransactionsModel
             sectionCommands[transaction.section!]!(self, transaction, SystemsMap[transaction.system!]!)

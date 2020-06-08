@@ -116,7 +116,7 @@ extension WizardPageViewController: UIPageViewControllerDataSource {
     
     @available(iOS 5.0, *)
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = wizardViewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = wizardViewControllers.firstIndex(of: viewController) else {
             return nil
         }
         
@@ -135,7 +135,7 @@ extension WizardPageViewController: UIPageViewControllerDataSource {
     
     @available(iOS 5.0, *)
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = wizardViewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = wizardViewControllers.firstIndex(of: viewController) else {
             return nil
         }
         
@@ -159,7 +159,7 @@ extension WizardPageViewController: UIPageViewControllerDataSource {
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        guard let firstViewController = viewControllers?.first, let firstViewControllerIndex = wizardViewControllers.index(of: firstViewController) else {
+        guard let firstViewController = viewControllers?.first, let firstViewControllerIndex = wizardViewControllers.firstIndex(of: firstViewController) else {
             return 0
         }
         

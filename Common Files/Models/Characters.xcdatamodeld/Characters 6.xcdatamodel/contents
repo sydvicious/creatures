@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CreatureModel" representedClassName="CreatureModel" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" minValueString="1" defaultValueString="&lt;unnamed&gt;" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
-        <attribute name="oid" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="TransactionsModel" inverseName="creature" inverseEntity="TransactionsModel" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" minValueString="1" defaultValueString="&lt;unnamed&gt;" spotlightIndexingEnabled="YES"/>
+        <attribute name="oid" optional="YES" attributeType="String"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="TransactionsModel" inverseName="creature" inverseEntity="TransactionsModel"/>
+        <fetchIndex name="byNameIndex">
+            <fetchIndexElement property="name" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
     <entity name="TransactionsModel" representedClassName="TransactionsModel" syncable="YES">
-        <attribute name="attribute" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="oid" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="section" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="source" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="system" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="value" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="creature" maxCount="1" deletionRule="Nullify" destinationEntity="CreatureModel" inverseName="transactions" inverseEntity="CreatureModel" syncable="YES"/>
+        <attribute name="attribute" optional="YES" attributeType="String"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO"/>
+        <attribute name="oid" attributeType="String"/>
+        <attribute name="section" attributeType="String"/>
+        <attribute name="source" attributeType="String"/>
+        <attribute name="system" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="value" attributeType="String"/>
+        <relationship name="creature" maxCount="1" deletionRule="Nullify" destinationEntity="CreatureModel" inverseName="transactions" inverseEntity="CreatureModel"/>
+        <fetchIndex name="byOidIndex">
+            <fetchIndexElement property="oid" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="bySectionIndex">
+            <fetchIndexElement property="section" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="bySourceIndex">
+            <fetchIndexElement property="source" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byTypeIndex">
+            <fetchIndexElement property="type" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byValueIndex">
+            <fetchIndexElement property="value" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
     <elements>
         <element name="CreatureModel" positionX="-63" positionY="-18" width="128" height="90"/>

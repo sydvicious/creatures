@@ -49,7 +49,7 @@ func database_open() -> Bool {
     print("Database name [default]: ", terminator:"")
     if let name = readLine() {
         print("name = " + name)
-        creaturesController = CreaturesController.sharedCreaturesController(CharactersContext(forTest: false, name: name))
+        creaturesController = CreaturesController.sharedCreaturesController(false, name)
         guard let _ = creaturesController else {
             print("Database " + name + " not opened or created.")
             return true
@@ -307,7 +307,6 @@ func creatureWithDicePool(dice: Int) -> Creature? {
 }
 
 func creatureWith(points: Int) -> Creature? {
-    var creature: Creature? = nil
     var str = 10, dex = 10, con = 10, int = 10, wis = 10, cha = 10
 
     var currentPoints: Int {
