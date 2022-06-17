@@ -90,11 +90,18 @@ class Dice {
     }
     
     static func miminumIndex(rolls: [Int]) -> Int {
-        var queue = PriorityQueue<IndexRollPair>.init(ascending: true)
-        for (index, roll) in rolls.enumerated() {
-            queue.push(IndexRollPair(index: index, score: roll))
+        var minIndex = -1
+        var minValue = 10000 // Need MAX_INT
+        
+        var index = 0
+        while (index < rolls.count) {
+            if (rolls[index] < minValue) {
+                minIndex = index
+                minValue = rolls[index]
+            }
+            index += 1
         }
-        return queue.pop()!.index
+        return minIndex
     }
 }
 
