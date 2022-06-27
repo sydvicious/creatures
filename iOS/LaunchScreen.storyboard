@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OW0-ks-ZXB">
-                                <rect key="frame" x="252" y="487.66373239436848" width="330" height="341"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OW0-ks-ZXB">
+                                <rect key="frame" x="252" y="395.5" width="330" height="341"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lmD-bn-0g0">
                                         <rect key="frame" x="0.0" y="0.0" width="330" height="41"/>
@@ -26,7 +26,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" ambiguous="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="Copyright ©2014-2018 Bone Jarring Games and Software, LLC; 2021-2022 Syd Polk. All rights reserved." textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dLu-1V-Zf9">
+                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="Copyright ©2014-2018 Bone Jarring Games and Software, LLC; 2021-2022 Syd Polk. All rights reserved." textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dLu-1V-Zf9">
                                         <rect key="frame" x="0.0" y="41" width="330" height="300"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -34,7 +34,7 @@
                                         </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="330" id="63g-4I-Wnc"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="gXc-wk-UVm"/>
+                                            <constraint firstAttribute="height" constant="300" id="XvE-cW-IdQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
