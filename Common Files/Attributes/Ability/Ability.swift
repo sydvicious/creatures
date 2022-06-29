@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Ability: TransactionsProtocol {
+class Ability: TransactionsProtocol, Equatable, Hashable {
+    
     private var _name: String
     private var _baseScore: Int
 
@@ -42,6 +43,15 @@ class Ability: TransactionsProtocol {
     func save_transaction(_ transactions: TransactionsController, section: String, attribute: String, source: String, type: String, value: String, duration: Int) {
         let trans = Transaction(system: "", section: section, attribute: attribute, source: source, type: type, value: value, duration: duration)
         transactions.add(transaction: trans)
+    }
+    
+    static func == (lhs: Ability, rhs: Ability) -> Bool {
+        return lhs._name == rhs._name && lhs._baseScore == rhs._baseScore
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(_name)
+        hasher.combine(_baseScore)
     }
 }
 

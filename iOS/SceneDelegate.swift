@@ -22,7 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: MainNavigation())
+            let testCreature = Creature(system: "Pathfinder", name:"Pendecar", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
+            let characters = [testCreature]
+
+            window.rootViewController = UIHostingController(rootView: MainNavigation(characters: characters))
             self.window = window
             window.makeKeyAndVisible()
         }

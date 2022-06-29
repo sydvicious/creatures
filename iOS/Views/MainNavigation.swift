@@ -9,13 +9,25 @@
 import SwiftUI
 
 struct MainNavigation: View {
+    @State var characters: [Creature]
+    @State private var selection: Creature?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationSplitView {
+            List(characters, selection: $selection) {character in
+                Text(character.name).tag(character)
+            }
+        } detail: {
+            CharacterView(character: selection)
+        }
     }
 }
 
 struct MainNavigation_Previews: PreviewProvider {
     static var previews: some View {
-        MainNavigation()
+        let testCreature = Creature(system: "Pathfinder", name:"Pendecar", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
+        let characters = [testCreature]
+
+        MainNavigation(characters: characters)
     }
 }
