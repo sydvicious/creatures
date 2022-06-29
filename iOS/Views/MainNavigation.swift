@@ -20,6 +20,7 @@ struct MainNavigation: View {
         } detail: {
             CharacterView(character: selection)
         }
+        .navigationSplitViewStyle(.balanced)
     }
 }
 
