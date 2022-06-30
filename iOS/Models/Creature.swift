@@ -61,11 +61,9 @@ let abilityConstructors: [String:(Abilities,Int,TransactionsController)->Ability
     "D&D5": d20Ability.init
 ]
 
-class Creature: Identifiable, Equatable, Hashable {
-    
+class Creature {
     
     let system: String
-    var name: String = ""
     
     let transactionsController = TransactionsController()
     
@@ -91,14 +89,12 @@ class Creature: Identifiable, Equatable, Hashable {
         system = "Pathfinder"
     }
     
-    init(system: String, name: String) {
+    init(system: String) {
         self.system = system
-        self.name = name
     }
     
-    init(system: String, name:String, strength: Int, dexterity: Int, constitution: Int, intelligence: Int, wisdom: Int, charisma: Int) {
+    init(system: String, strength: Int, dexterity: Int, constitution: Int, intelligence: Int, wisdom: Int, charisma: Int) {
         self.system = system
-        self.name = name
         abilities[.Strength] = ability(key: .Strength, fromBaseScore: strength)
         abilities[.Dexterity] = ability(key: .Dexterity, fromBaseScore: dexterity)
         abilities[.Constitution] = ability(key: .Constitution, fromBaseScore: constitution)
@@ -112,19 +108,6 @@ class Creature: Identifiable, Equatable, Hashable {
             let transaction = raw_transaction as! TransactionsModel
             sectionCommands[transaction.section!]!(self, transaction, SystemsMap[transaction.system!]!)
         }
-    }
-    
-    static func == (lhs: Creature, rhs: Creature) -> Bool {
-        return lhs.system == rhs.system &&
-            lhs.name == rhs.name &&
-            lhs.abilities == rhs.abilities
-    }
-
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(system)
-        hasher.combine(name)
-        hasher.combine(abilities)
     }
 }
 

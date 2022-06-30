@@ -48,26 +48,21 @@ class CreaturesController {
         return creature
     }
 
-    func createCreature(withSystem system: String = "Pathfinder", withName name: String) throws -> CreatureModel {
+    func createCreature(_ name: String, withSystem: String = "Pathfinder", withCreature: Creature? = nil) throws -> CreatureModel {
         let context = self.context.managedObjectContext
         let creatureModel = CreatureModel(context: context!)
         
-        let oid = Prefs.getNewID()
-        creatureModel.oid = oid
         creatureModel.name = name
-        creatureModel.creature = getCreature(fromModel: creatureModel)
-        try self.save(creatureModel)
-        
-        return creatureModel
-    }
-    
-    func createCreature(withSystem system: String = "Pathfinder", withCreature creature: Creature) throws -> CreatureModel {
-        let context = self.context.managedObjectContext
-        let creatureModel = CreatureModel(context: context!)
-        
         let oid = Prefs.getNewID()
         creatureModel.oid = oid
-        creatureModel.name = creature.name
+
+        var creature: Creature
+        if let givenCreature = withCreature {
+            creature = givenCreature
+        } else {
+            // Assuming Pathfinder
+            creature = getCreature(fromModel: creatureModel)
+        }
         creatureModel.creature = creature
         try self.save(creatureModel)
 

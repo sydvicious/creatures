@@ -9,12 +9,12 @@ import SwiftUI
 
 struct CharacterView: View {
     
-    var character: Creature?
+    var character: CreatureModel?
     var name: String
     
-    init(character: Creature?) {
-        if let character = character {
-            self.name = character.name
+    init(character: CreatureModel?) {
+        if let character = character, let name = character.name {
+            self.name = name
         } else {
             self.name = "<no selection>"
         }
@@ -27,7 +27,9 @@ struct CharacterView: View {
 
 struct CharacterView_Previews: PreviewProvider {
     static var previews: some View {
-        let testCreature = Creature(system: "Pathfinder", name: "Pendecar", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
-        CharacterView(character: testCreature)
+        let controller = CreaturesController.sharedCreaturesController(true, "Testing")
+        let testCreature = Creature(system: "Pathfinder",  strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
+        let creatureModel = try! controller.createCreature("Pendecar", withCreature: testCreature)
+        CharacterView(character: creatureModel)
     }
 }

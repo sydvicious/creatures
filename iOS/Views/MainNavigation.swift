@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct MainNavigation: View {
-    @State var characters: [Creature]
-    @State private var selection: Creature?
+    @State var characters: [CreatureModel]
+    @State private var selection: CreatureModel?
     
     var body: some View {
         NavigationSplitView {
-            List(characters, selection: $selection) {character in
-                Text(character.name).tag(character)
+            List(characters, id: \.oid, selection: $selection) {character in
+                Text(character.name!).tag(character)
             }
         } detail: {
             CharacterView(character: selection)
@@ -31,8 +31,10 @@ struct MainNavigation: View {
 
 struct MainNavigation_Previews: PreviewProvider {
     static var previews: some View {
-        let testCreature = Creature(system: "Pathfinder", name: "Pendecar", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
-        let characters = [testCreature]
+        let controller = CreaturesController.sharedCreaturesController(true, "Testing")
+        let testCreature = Creature(system: "Pathfinder", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
+        let creatureModel = try! controller.createCreature("Pendecar", withCreature: testCreature)
+        let characters = [creatureModel]
 
         MainNavigation(characters: characters)
     }

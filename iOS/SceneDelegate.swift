@@ -22,10 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            
-            // TODO: Replace with data from Core Data
-            let testCreature = Creature(system: "Pathfinder", name:"Pendecar", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
-            let characters = [testCreature]
+
+            let creaturesController = CreaturesController.sharedCreaturesController()
+            let characters = creaturesController.creatures()
 
             window.rootViewController = UIHostingController(rootView: MainNavigation(characters: characters))
             self.window = window
