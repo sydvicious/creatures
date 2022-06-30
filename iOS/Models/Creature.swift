@@ -68,6 +68,7 @@ class Creature {
     let transactionsController = TransactionsController()
     
     var abilities: [Abilities:Ability?] = [:]
+    
     func ability(key: Abilities, fromBaseScore: Int) -> Ability? {
         if let ability_init:(Abilities, Int, TransactionsController) -> Ability = abilityConstructors[system] {
             return ability_init(key, fromBaseScore, transactionsController)

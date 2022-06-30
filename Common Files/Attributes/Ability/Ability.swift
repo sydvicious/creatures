@@ -13,6 +13,11 @@ class Ability: TransactionsProtocol, Equatable, Hashable {
     private var _name: String
     private var _baseScore: Int
 
+    var name: String {
+        get {
+            return self._name
+        }
+    }
     var baseScore: Int {
         get {
             return self._baseScore
@@ -26,7 +31,7 @@ class Ability: TransactionsProtocol, Equatable, Hashable {
     }
 
     init(name: String, score: Int) {
-        self._name = name
+        self._name = name.capitalized
         if (score < 0) {
             self._baseScore = 0
         } else {
