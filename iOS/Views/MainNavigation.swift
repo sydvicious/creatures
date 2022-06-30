@@ -21,12 +21,17 @@ struct MainNavigation: View {
             CharacterView(character: selection)
         }
         .navigationSplitViewStyle(.balanced)
+        .onAppear(perform: {
+            if self.selection == nil && self.characters.count > 0 {
+                self.selection = self.characters[0]
+            }
+        })
     }
 }
 
 struct MainNavigation_Previews: PreviewProvider {
     static var previews: some View {
-        let testCreature = Creature(system: "Pathfinder", name:"Pendecar", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
+        let testCreature = Creature(system: "Pathfinder", name: "Pendecar", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
         let characters = [testCreature]
 
         MainNavigation(characters: characters)
