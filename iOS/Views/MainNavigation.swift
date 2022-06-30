@@ -16,6 +16,15 @@ struct MainNavigation: View {
         NavigationSplitView {
             List(characters, id: \.oid, selection: $selection) {character in
                 Text(character.name!).tag(character)
+            }.toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+                ToolbarItem {
+                    Button(action: addItem) {
+                        Label("Add Item", systemImage: "plus")
+                    }
+                }
             }
         } detail: {
             CharacterView(character: selection)
@@ -26,6 +35,12 @@ struct MainNavigation: View {
                 self.selection = self.characters[0]
             }
         })
+    }
+    
+    private func addItem() {
+        withAnimation {
+            print("Need to add something here!")
+        }
     }
 }
 

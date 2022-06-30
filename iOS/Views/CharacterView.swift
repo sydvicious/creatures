@@ -35,18 +35,19 @@ struct CharacterView: View {
     
     var body: some View {
         VStack {
-            Text("\(name)")
-            Divider()
-                .gridCellUnsizedAxes(.horizontal)
-            Grid(alignment: .trailing) {
-                AbilityGridRow(ability: strength)
-                AbilityGridRow(ability: dexterity)
-                AbilityGridRow(ability: constitution)
-                AbilityGridRow(ability: intelligence)
-                AbilityGridRow(ability: wisdom)
-                AbilityGridRow(ability: charisma)
-            }.padding().border(.black)
-        }
+            if self.name == "<no selection>" {
+                Text("Select a character or hit + to add a new one")
+            } else {
+                Grid(alignment: .trailing) {
+                    AbilityGridRow(ability: strength)
+                    AbilityGridRow(ability: dexterity)
+                    AbilityGridRow(ability: constitution)
+                    AbilityGridRow(ability: intelligence)
+                    AbilityGridRow(ability: wisdom)
+                    AbilityGridRow(ability: charisma)
+                }.padding().border(.black)
+            }
+        }.navigationTitle(name)
     }
 }
 
