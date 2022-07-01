@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 @objc(CreatureModel)
-public class CreatureModel: NSManagedObject {
+public class CreatureModel: NSManagedObject, Identifiable {
     enum CreatureModelDataError: Error {
         case nameCannotBeNull
     }

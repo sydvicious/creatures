@@ -122,6 +122,24 @@ class CreaturesController {
         try! self.context.saveContext()
     }
     
+    func deleteIndexedCreatures(indexSet: IndexSet) {
+        // Gather all of the creatures
+        
+        
+        var deadItems : [CreatureModel] = []
+        let creatures = self.creatures()
+        
+        for i in indexSet {
+            deadItems.append(creatures[i])
+        }
+        
+        // Delete them one by one
+        
+        for deadItem in deadItems {
+            self.deleteCreature(deadItem)
+        }
+    }
+    
     func creatureFromIndexPath(_ indexPath: IndexPath) -> CreatureModel {
         let creatureModel = self.context.fetchedResultsController!.object(at: indexPath) as! CreatureModel
         // Fetch all of the transactions

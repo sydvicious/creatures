@@ -9,13 +9,21 @@
 import SwiftUI
 
 struct MainNavigation: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @State var characters: [CreatureModel]
     @State private var selection: CreatureModel?
     
+    
+    
     var body: some View {
         NavigationSplitView {
-            List(characters, id: \.oid, selection: $selection) {character in
-                Text(character.name!).tag(character)
+            List {
+                ForEach(characters) { character in
+                    Text(character.name!).tag(character)
+                }.onDelete(perform:{ selectionSet in
+                    let creaturesController = CreaturesController.sharedCreaturesController()
+                    creaturesController.deleteIndexedCreatures(indexSet: selectionSet)
+                })
             }.toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
@@ -52,5 +60,6 @@ struct MainNavigation_Previews: PreviewProvider {
         let characters = [creatureModel]
 
         MainNavigation(characters: characters)
+            .environment(\.managedObjectContext, controller.context.managedObjectContext!)
     }
 }
