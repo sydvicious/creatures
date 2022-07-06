@@ -73,6 +73,7 @@ class CharactersContext: NSObject, NSFetchedResultsControllerDelegate {
                     return fetchedResultsController
                 }()
             })
+            container.viewContext.automaticallyMergesChangesFromParent = true
             return container
         }()
     }

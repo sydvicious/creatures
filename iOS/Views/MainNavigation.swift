@@ -10,19 +10,22 @@ import SwiftUI
 
 struct MainNavigation: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @State var characters: [CreatureModel]
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))],
+        animation: .default)
+    private var characters: FetchedResults<CreatureModel>
+    
     @State private var selection: CreatureModel?
-    
-    
     
     var body: some View {
         NavigationSplitView {
-            List {
-                ForEach(characters) { character in
+            List(selection: $selection) {
+                ForEach(characters, id: \.oid) { character in
                     Text(character.name!).tag(character)
                 }.onDelete(perform:{ selectionSet in
                     let creaturesController = CreaturesController.sharedCreaturesController()
                     creaturesController.deleteIndexedCreatures(indexSet: selectionSet)
+                    try! viewContext.save()
                 })
             }.toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -47,7 +50,9 @@ struct MainNavigation: View {
     
     private func addItem() {
         withAnimation {
-            print("Need to add something here!")
+            let controller = CreaturesController.sharedCreaturesController()
+            let testCreature = Creature(system: "Pathfinder", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
+            _ = try! controller.createCreature("Pendecar", withCreature: testCreature)
         }
     }
 }
@@ -59,7 +64,7 @@ struct MainNavigation_Previews: PreviewProvider {
         let creatureModel = try! controller.createCreature("Pendecar", withCreature: testCreature)
         let characters = [creatureModel]
 
-        MainNavigation(characters: characters)
+        MainNavigation()
             .environment(\.managedObjectContext, controller.context.managedObjectContext!)
     }
 }
