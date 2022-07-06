@@ -57,6 +57,7 @@
 		6296117E1F4023AC00217557 /* d6w3.png in Resources */ = {isa = PBXBuildFile; fileRef = 629611781F4023AB00217557 /* d6w3.png */; };
 		629EF2DF286E48D4000D984E /* AbilityGridRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629EF2DE286E48D4000D984E /* AbilityGridRow.swift */; };
 		62ACB3D01DD457FD00D7BA89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62ACB3CF1DD457FD00D7BA89 /* Images.xcassets */; };
+		62B306BA28752EE20082779F /* NewCharacterWizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B306B928752EE20082779F /* NewCharacterWizard.swift */; };
 		62BEFA621EB2EDE600511D87 /* interactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BEFA611EB2EDE600511D87 /* interactive.swift */; };
 		62BF63DA248DC966008BBD40 /* CreatureModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BF63D9248DC966008BBD40 /* CreatureModel+CoreDataProperties.swift */; };
 		62C1545D1DD9789C00D5DAAC /* TransactionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1545C1DD9789C00D5DAAC /* TransactionsController.swift */; };
@@ -133,6 +134,7 @@
 		62ACB3CF1DD457FD00D7BA89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		62B2CB191B2A551E0073B8DC /* iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B2CB1D1B2A551E0073B8DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62B306B928752EE20082779F /* NewCharacterWizard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCharacterWizard.swift; sourceTree = "<group>"; };
 		62BEFA611EB2EDE600511D87 /* interactive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = interactive.swift; sourceTree = "<group>"; };
 		62BF63D9248DC966008BBD40 /* CreatureModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreatureModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		62C1545A1DD9779800D5DAAC /* Characters 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 5.xcdatamodel"; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 			children = (
 				626E45172869401200F50B74 /* MainNavigation.swift */,
 				624363F328696D0900ED64CE /* CharacterView.swift */,
+				62B306B928752EE20082779F /* NewCharacterWizard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				620B344A1EFF3C9B00C6A703 /* VerticallyCenteredTextView.swift in Sources */,
 				628E4B81220AA41000F58FA8 /* Rolls3d6.swift in Sources */,
 				62C154601DD978DC00D5DAAC /* Transaction.swift in Sources */,
+				62B306BA28752EE20082779F /* NewCharacterWizard.swift in Sources */,
 				624C5B041EEBB9E900B161F1 /* SwiftPriorityQueue.swift in Sources */,
 				62C6A0261B2B24B8006B50D2 /* CreaturesController.swift in Sources */,
 				62811D4C1DE7B5DC00217C09 /* TransactionsProtocol.swift in Sources */,

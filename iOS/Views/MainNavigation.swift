@@ -16,6 +16,7 @@ struct MainNavigation: View {
     private var characters: FetchedResults<CreatureModel>
     
     @State private var selection: CreatureModel?
+    @State private var newCharacterWizardShowing = false
     
     var body: some View {
         NavigationSplitView {
@@ -46,9 +47,13 @@ struct MainNavigation: View {
                 self.selection = self.characters[0]
             }
         })
+        .fullScreenCover(isPresented: $newCharacterWizardShowing, content:{
+            NewCharacterWizard(newCharacterWizardShowing: $newCharacterWizardShowing)
+        })
     }
     
     private func addItem() {
+        newCharacterWizardShowing = true
         withAnimation {
             let controller = CreaturesController.sharedCreaturesController()
             let testCreature = Creature(system: "Pathfinder", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
@@ -61,8 +66,7 @@ struct MainNavigation_Previews: PreviewProvider {
     static var previews: some View {
         let controller = CreaturesController.sharedCreaturesController(true, "Testing")
         let testCreature = Creature(system: "Pathfinder", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
-        let creatureModel = try! controller.createCreature("Pendecar", withCreature: testCreature)
-        let characters = [creatureModel]
+        let _ = try! controller.createCreature("Pendecar", withCreature: testCreature)
 
         MainNavigation()
             .environment(\.managedObjectContext, controller.context.managedObjectContext!)
