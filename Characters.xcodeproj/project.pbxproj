@@ -70,6 +70,7 @@
 		62D02FC11D72381A00CB6CA6 /* d20Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D02FC01D72381A00CB6CA6 /* d20Ability.swift */; };
 		62D02FC31D7238A500CB6CA6 /* d20Bonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D02FC21D7238A500CB6CA6 /* d20Bonus.swift */; };
 		62D02FC51D73437B00CB6CA6 /* TestD20Bonuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D02FC41D73437B00CB6CA6 /* TestD20Bonuses.swift */; };
+		62E17BB928777D43001885BF /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E17BB828777D43001885BF /* WelcomeScreen.swift */; };
 		62EDDC031DD96D950027A719 /* Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62EDDBFE1DD96D950027A719 /* Characters.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +150,7 @@
 		62D02FC21D7238A500CB6CA6 /* d20Bonus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = d20Bonus.swift; sourceTree = "<group>"; };
 		62D02FC41D73437B00CB6CA6 /* TestD20Bonuses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestD20Bonuses.swift; path = "Common Tests/TestD20Bonuses.swift"; sourceTree = SOURCE_ROOT; };
 		62D6B098248B1F430087C9CD /* Characters.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Characters.entitlements; sourceTree = "<group>"; };
+		62E17BB828777D43001885BF /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		62EDDBFF1DD96D950027A719 /* Characters 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 2.xcdatamodel"; sourceTree = "<group>"; };
 		62EDDC001DD96D950027A719 /* Characters 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 3.xcdatamodel"; sourceTree = "<group>"; };
 		62EDDC011DD96D950027A719 /* Characters 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Characters 4.xcdatamodel"; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				624363F328696D0900ED64CE /* CharacterView.swift */,
 				626E45172869401200F50B74 /* CharacterBrowser.swift */,
 				62B306B928752EE20082779F /* NewCharacterWizard.swift */,
+				62E17BB828777D43001885BF /* WelcomeScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 			files = (
 				627426771B733A910051A5E5 /* CharactersContext.swift in Sources */,
 				629EF2DF286E48D4000D984E /* AbilityGridRow.swift in Sources */,
+				62E17BB928777D43001885BF /* WelcomeScreen.swift in Sources */,
 				6222E0551DB48D7E0031FD74 /* Creature.swift in Sources */,
 				625F358E210D61730027C6DD /* Rolls4d6.swift in Sources */,
 				626E45182869401200F50B74 /* CharacterBrowser.swift in Sources */,

@@ -19,7 +19,8 @@ struct CharacterBrowser: View {
     
     @State private var selection: CreatureModel?
     @State private var newCharacterWizardShowing = false
-    
+    @State private var welcomeScreenShowing = false
+        
     var body: some View {
         NavigationSplitView {
             List(selection: $selection) {
@@ -47,11 +48,17 @@ struct CharacterBrowser: View {
         }
         .navigationSplitViewStyle(.balanced)
         .onAppear(perform: {
+            let defaults = UserDefaults.standard
+            welcomeScreenShowing = !defaults.bool(forKey: "WelcomeScreenShown")
             if self.horizontalSizeClass == .regular && self.selection == nil && self.characters.count > 0 {
                 self.selection = self.characters[0]
             }
-            let creaturesController = CreaturesController.sharedCreaturesController()
-            creaturesController.logAll()
+            if self.characters.count == 0 {
+                newCharacterWizardShowing = true
+            }
+        })
+        .fullScreenCover(isPresented: $welcomeScreenShowing, content:{
+            WelcomeScreen(welcomeScreenShowing: $welcomeScreenShowing)
         })
         .sheet(isPresented: $newCharacterWizardShowing, content:{
             NewCharacterWizard(newCharacterWizardShowing: $newCharacterWizardShowing)
