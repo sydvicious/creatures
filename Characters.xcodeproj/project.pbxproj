@@ -130,7 +130,7 @@
 		629611761F4023AA00217557 /* d6w4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w4.png; path = ../../design/d6w4.png; sourceTree = "<group>"; };
 		629611771F4023AB00217557 /* d6w1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w1.png; path = ../../design/d6w1.png; sourceTree = "<group>"; };
 		629611781F4023AB00217557 /* d6w3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w3.png; path = ../../design/d6w3.png; sourceTree = "<group>"; };
-		629EF2DE286E48D4000D984E /* AbilityGridRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AbilityGridRow.swift; path = iOS/Views/AbilityGridRow.swift; sourceTree = "<group>"; };
+		629EF2DE286E48D4000D984E /* AbilityGridRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityGridRow.swift; sourceTree = "<group>"; };
 		62ACB3CF1DD457FD00D7BA89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		62B2CB191B2A551E0073B8DC /* iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B2CB1D1B2A551E0073B8DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -233,7 +233,6 @@
 		6228504C1978EC9600DE985E = {
 			isa = PBXGroup;
 			children = (
-				629EF2DE286E48D4000D984E /* AbilityGridRow.swift */,
 				624C5AE61EEBB97C00B161F1 /* SwiftPriorityQueue */,
 				622850AA1978ED7900DE985E /* Common Files */,
 				622850591978ECB000DE985E /* iOS */,
@@ -333,8 +332,9 @@
 		626E451628693FE900F50B74 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				626E45172869401200F50B74 /* MainNavigation.swift */,
+				629EF2DE286E48D4000D984E /* AbilityGridRow.swift */,
 				624363F328696D0900ED64CE /* CharacterView.swift */,
+				626E45172869401200F50B74 /* MainNavigation.swift */,
 				62B306B928752EE20082779F /* NewCharacterWizard.swift */,
 			);
 			path = Views;
@@ -773,14 +773,19 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Bone Jarring Characters";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.role-playing-games";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bonejarring.characters;
 				PRODUCT_NAME = Characters;
 				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
@@ -822,13 +827,18 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Bone Jarring Characters";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.role-playing-games";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bonejarring.characters;
 				PRODUCT_NAME = Characters;
 				SDKROOT = iphoneos;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;

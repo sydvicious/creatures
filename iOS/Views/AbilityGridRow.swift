@@ -19,23 +19,22 @@ struct AbilityGridRow: View {
             currentScore = ability.currentScore
             let modifier = d20Ability.modifier(value: currentScore)
             modifierString = modifier < 0 ? "\(modifier)" : "+\(modifier)"
-
         }
     }
     
     var body: some View {
         GridRow {
-            HStack {
                 Text(name).multilineTextAlignment(.trailing).bold().padding([.trailing], 5)
                 Text("\(currentScore)").multilineTextAlignment(.trailing).padding([.trailing], 5).font(.system(.body, design: .monospaced))
                 Text("\(modifierString)").font(.system(.body, design: .monospaced))
-            }
         }.padding([.all], 2)
     }
 }
 
 struct AbilityGridRow_Previews: PreviewProvider {
+    static var ability = Ability(name: "Strength", score: 15)
+    
     static var previews: some View {
-        AbilityGridRow(ability: Ability(name: "Strength", score: 15))
+        AbilityGridRow(ability: ability)
     }
 }

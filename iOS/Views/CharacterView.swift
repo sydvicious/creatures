@@ -27,7 +27,6 @@ struct CharacterView: View {
             intelligence = character.creature?.abilities[.Intelligence] ?? nil
             wisdom = character.creature?.abilities[.Wisdom] ?? nil
             charisma = character.creature?.abilities[.Charisma] ?? nil
-
         } else {
             self.name = "<no selection>"
         }
@@ -52,10 +51,10 @@ struct CharacterView: View {
 }
 
 struct CharacterView_Previews: PreviewProvider {
+    static var protoData = ProtoData.dummyProtoData()
+    static var creatureModel = protoData.modelFrom()
+
     static var previews: some View {
-        let controller = CreaturesController.sharedCreaturesController(true, "Testing")
-        let testCreature = Creature(system: "Pathfinder",  strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
-        let creatureModel = try! controller.createCreature("Pendecar", withCreature: testCreature)
         CharacterView(character: creatureModel)
     }
 }

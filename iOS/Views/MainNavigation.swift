@@ -10,10 +10,12 @@ import SwiftUI
 
 struct MainNavigation: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))],
         animation: .default)
-    private var characters: FetchedResults<CreatureModel>
+    public var characters: FetchedResults<CreatureModel>
     
     @State private var selection: CreatureModel?
     @State private var newCharacterWizardShowing = false
@@ -28,7 +30,8 @@ struct MainNavigation: View {
                     creaturesController.deleteIndexedCreatures(indexSet: selectionSet)
                     try! viewContext.save()
                 })
-            }.toolbar {
+            }
+            .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
@@ -38,27 +41,25 @@ struct MainNavigation: View {
                     }
                 }
             }
+            .navigationTitle("Characters")
         } detail: {
             CharacterView(character: selection)
         }
         .navigationSplitViewStyle(.balanced)
         .onAppear(perform: {
-            if self.selection == nil && self.characters.count > 0 {
+            if self.horizontalSizeClass == .regular && self.selection == nil && self.characters.count > 0 {
                 self.selection = self.characters[0]
             }
+            let creaturesController = CreaturesController.sharedCreaturesController()
+            creaturesController.logAll()
         })
-        .fullScreenCover(isPresented: $newCharacterWizardShowing, content:{
+        .sheet(isPresented: $newCharacterWizardShowing, content:{
             NewCharacterWizard(newCharacterWizardShowing: $newCharacterWizardShowing)
         })
     }
     
     private func addItem() {
         newCharacterWizardShowing = true
-        withAnimation {
-            let controller = CreaturesController.sharedCreaturesController()
-            let testCreature = Creature(system: "Pathfinder", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
-            _ = try! controller.createCreature("Pendecar", withCreature: testCreature)
-        }
     }
 }
 

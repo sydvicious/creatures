@@ -12,7 +12,6 @@ class CreatureBuilder: NSObject {
 
     var abilities: [Abilities:Int] = [:]
     var system: String = "Pathfinder"
-    var name: String?
     
     func set(system: String) -> CreatureBuilder {
         self.system = system
@@ -24,12 +23,37 @@ class CreatureBuilder: NSObject {
         return self
     }
     
-    func set(_ name: String) -> CreatureBuilder {
-        self.name = name
+    func set(abilites: [Abilities:Int]) -> CreatureBuilder {
+        self.abilities = abilites
         return self
     }
-        
-    func build() throws -> Creature {
+            
+    private func isCreatureValid() -> Bool {
+        guard abilities[.Strength] != nil else {
+            return false
+        }
+        guard abilities[.Dexterity] != nil else {
+            return false
+        }
+        guard abilities[.Constitution] != nil else {
+            return false
+        }
+        guard abilities[.Intelligence] != nil else {
+            return false
+        }
+        guard abilities[.Wisdom] != nil else {
+            return false
+        }
+        guard abilities[.Charisma] != nil else {
+            return false
+        }
+        return true
+    }
+    
+    func build() -> Creature? {
+        guard isCreatureValid() else {
+            return nil
+        }
         return Creature(system: system, strength: self.abilities[.Strength]!, dexterity: self.abilities[.Dexterity]!, constitution: self.abilities[.Constitution]!, intelligence: self.abilities[.Intelligence]!, wisdom: self.abilities[.Wisdom]!, charisma: self.abilities[.Charisma]!)
     }
     
