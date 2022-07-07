@@ -35,6 +35,8 @@ struct AbilityGridRow_Previews: PreviewProvider {
     static var ability = Ability(name: "Strength", score: 15)
     
     static var previews: some View {
-        AbilityGridRow(ability: ability)
+        Grid {
+            AbilityGridRow(ability: ability)
+        }
     }
 }
