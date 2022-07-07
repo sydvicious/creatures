@@ -4,6 +4,7 @@
 //
 //  Created by Syd Polk on 9/16/16.
 //  Copyright (c) 2016 Bone Jarring Games and Software, LLC. All rights reserved.
+//  Copyright © 2022 Syd Polk (reassigned). All rights reserved.
 //
 
 import XCTest
@@ -23,11 +24,11 @@ class TestAbility: XCTestCase {
     
     func testAbility() {
         var transactionsController = TransactionsController()
-        var ability = Ability(key: d20Ability.abilitiesMap["strength"]!, score: 10, transactions: transactionsController)
+        var ability = Ability(key: .Strength, score: 10, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 10)
 
         transactionsController = TransactionsController()
-        ability = Ability(key: d20Ability.abilitiesMap["strength"]!, score: -1, transactions: transactionsController)
+        ability = Ability(key: .Strength, score: -1, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 0)
 
     }

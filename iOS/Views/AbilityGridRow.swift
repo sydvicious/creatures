@@ -33,7 +33,7 @@ struct AbilityGridRow: View {
 }
 
 struct AbilityGridRow_Previews: PreviewProvider {
-    static var ability = Ability(name: "Strength", score: 15)
+    static var ability = Ability(key: .Strength, score: 15)
     
     static var previews: some View {
         Grid {

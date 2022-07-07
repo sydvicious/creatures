@@ -4,11 +4,12 @@
 //
 //  Created by Syd Polk on 8/27/16.
 //  Copyright (c) 2016-2017 Bone Jarring Games and Software, LLC. All rights reserved.
+//  Copyright © 2022 Syd Polk (reassigned). All rights reserved.
 //
 
 import Foundation
 
-public enum Abilities {
+public enum Abilities: String, CaseIterable {
     case Strength
     case Dexterity
     case Constitution
@@ -23,42 +24,6 @@ protocol d20AbilityVars {
 
 class d20Ability: Ability {
     var bonus: d20Bonus
-
-    public static let abilityStrings : [String] = [
-        "Strength",
-        "Dexterity",
-        "Constitution",
-        "Intelligence",
-        "Wisdom",
-        "Charisma"
-    ]
-    
-    public static let abilityKeys: [Abilities] = [
-        .Strength,
-        .Dexterity,
-        .Constitution,
-        .Intelligence,
-        .Wisdom,
-        .Charisma
-    ]
-    
-    static public let abilitiesMap: [String:Abilities] = [
-        "strength": .Strength,
-        "dexterity": .Dexterity,
-        "constitution": .Constitution,
-        "intelligence": .Intelligence,
-        "wisdom": .Wisdom,
-        "charisma": .Charisma
-    ]
-    
-    static public let abilititesStringMap: [Abilities:String] = [
-        .Strength: "strength",
-        .Dexterity: "dexterity",
-        .Constitution: "constitution",
-        .Intelligence: "intelligence",
-        .Wisdom: "wisdom",
-        .Charisma: "charisma"
-    ]
     
     public static func modifier(value: Int) -> Int {
         let normalized : Double = Double(value - 10)
@@ -84,24 +49,21 @@ class d20Ability: Ability {
     public func currentModifer() -> Int {
         return d20Ability.modifier(value: self.currentScore)
     }
-
     
-    override init(name: String, score: Int) {
+    override init(key: Abilities, score: Int) {
         bonus = d20Bonus()
-        super.init(name: name, score: score)
+        super.init(key: key, score: score)
     }
 
     convenience init(key: Abilities, score: Int, transactions: TransactionsController) {
-        let name = d20Ability.abilititesStringMap[key]
-        self.init(name: name!, score: score)
-        save_transaction(transactions, section: "ability", attribute: name!, source: "creation", type: "base", value: String(score), duration: -1)
+        self.init(key: key, score: score)
+        save_transaction(transactions, section: "ability", attribute: key.rawValue, source: "creation", type: "base", value: String(score), duration: -1)
     }
     
     override func save_transaction(_ transactions: TransactionsController, section: String, attribute: String, source: String, type: String, value: String, duration: Int) {
         let trans = Transaction(system: "d20", section: section, attribute: attribute, source: source, type: type, value: value, duration: duration)
         transactions.add(transaction: trans)
     }
-
 }
 
 extension d20Ability: d20AbilityVars {

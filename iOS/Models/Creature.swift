@@ -4,6 +4,7 @@
 //
 //  Created by Syd Polk on 10/16/16.
 //  Copyright (c) 2016-2017 Bone Jarring Games and Software, LLC. All rights reserved.
+//  Copyright © 2022 Syd Polk (reassigned). All rights reserved.
 //
 
 import Foundation
@@ -25,7 +26,7 @@ enum Sections:Hashable {
 }
 
 func pathfinderAbilityCreation(name: String, value: Int) -> Ability {
-    return PathfinderAbility(name: name, score: value)
+    return PathfinderAbility(key: Abilities(rawValue: name.capitalized)!, score: value)
 }
 
 let SystemsAbilityCreationMap : [String:(String, Int) -> Ability] = [
@@ -46,8 +47,8 @@ func addAbilityFrom(creature: Creature, transaction: TransactionsModel, system: 
     let ability_name = transaction.attribute!
     let value = Int(transaction.value!)
 
-    let ability = sourcesAbilityCreationMap[source]!(system, ability_name, value!);
-    creature.abilities[d20Ability.abilitiesMap[ability_name]!] = ability
+    let ability = sourcesAbilityCreationMap[source]!(system, ability_name, value!)
+    creature.abilities[Abilities(rawValue: ability_name.capitalized)!] = ability
 }
 
 let sectionCommands: [String: (Creature, TransactionsModel, Systems) -> ()] = [

@@ -32,7 +32,7 @@ class ProtoCharacter {
         if "" == proposedName {
             return false
         }
-        for key in d20Ability.abilityKeys {
+        for key in Abilities.allCases {
             guard let _ = abilities[key] else {
                 return false
             }

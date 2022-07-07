@@ -4,6 +4,7 @@
 //
 //  Created by Syd Polk on 9/16/16.
 //  Copyright (c) 2016 Bone Jarring Games and Software, LLC. All rights reserved.
+//  Copyright © 2022 Syd Polk (reassigned). All rights reserved.
 //
 
 import XCTest
@@ -23,7 +24,7 @@ class TestD20Ability: XCTestCase {
     
     func testD20Ability() {
         var transactionsController = TransactionsController()
-        var ability = d20Ability(key: d20Ability.abilitiesMap["strength"]!, score: 0, transactions: transactionsController)
+        var ability = d20Ability(key: .Strength, score: 0, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 0)
         XCTAssertEqual(ability.currentScore, 0)
         XCTAssertEqual(ability.bonus.netValue(), 0)
@@ -31,7 +32,7 @@ class TestD20Ability: XCTestCase {
         XCTAssertEqual(modifier, -5)
 
         transactionsController = TransactionsController()
-        ability = d20Ability(key: d20Ability.abilitiesMap["strength"]!, score: -1, transactions: transactionsController)
+        ability = d20Ability(key: .Strength, score: -1, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 0)
         XCTAssertEqual(ability.currentScore, 0)
         XCTAssertEqual(ability.bonus.netValue(), 0)
@@ -39,7 +40,7 @@ class TestD20Ability: XCTestCase {
         XCTAssertEqual(modifier, -5)
 
         transactionsController = TransactionsController()
-        ability = d20Ability(key: d20Ability.abilitiesMap["strength"]!, score: 1, transactions: transactionsController)
+        ability = d20Ability(key: .Strength, score: 1, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 1)
         XCTAssertEqual(ability.currentScore, 1)
         XCTAssertEqual(ability.bonus.netValue(), 0)
@@ -47,7 +48,7 @@ class TestD20Ability: XCTestCase {
         XCTAssertEqual(modifier, -5)
         
         transactionsController = TransactionsController()
-        ability = d20Ability(key: d20Ability.abilitiesMap["strength"]!, score: 2, transactions: transactionsController)
+        ability = d20Ability(key: .Strength, score: 2, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 2)
         XCTAssertEqual(ability.currentScore, 2)
         XCTAssertEqual(ability.bonus.netValue(), 0)
@@ -55,7 +56,7 @@ class TestD20Ability: XCTestCase {
         XCTAssertEqual(modifier, -4)
 
         transactionsController = TransactionsController()
-        ability = d20Ability(key: d20Ability.abilitiesMap["strength"]!, score: 9, transactions: transactionsController)
+        ability = d20Ability(key: .Strength, score: 9, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 9)
         XCTAssertEqual(ability.currentScore, 9)
         XCTAssertEqual(ability.bonus.netValue(), 0)
@@ -63,7 +64,7 @@ class TestD20Ability: XCTestCase {
         XCTAssertEqual(modifier, -1)
 
         transactionsController = TransactionsController()
-        ability = d20Ability(key: d20Ability.abilitiesMap["strength"]!, score: 10, transactions: transactionsController)
+        ability = d20Ability(key: .Strength, score: 10, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 10)
         XCTAssertEqual(ability.currentScore, 10)
         XCTAssertEqual(ability.bonus.netValue(), 0)
@@ -71,7 +72,7 @@ class TestD20Ability: XCTestCase {
         XCTAssertEqual(modifier, 0)
 
         transactionsController = TransactionsController()
-        ability = d20Ability(key: d20Ability.abilitiesMap["strength"]!, score: 19, transactions: transactionsController)
+        ability = d20Ability(key: .Strength, score: 19, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 19)
         XCTAssertEqual(ability.currentScore, 19)
         XCTAssertEqual(ability.bonus.netValue(), 0)
@@ -79,7 +80,7 @@ class TestD20Ability: XCTestCase {
         XCTAssertEqual(modifier, 4)
 
         transactionsController = TransactionsController()
-        ability = d20Ability(key: d20Ability.abilitiesMap["strength"]!, score: 20, transactions: transactionsController)
+        ability = d20Ability(key: .Strength, score: 20, transactions: transactionsController)
         XCTAssertEqual(ability.baseScore, 20)
         XCTAssertEqual(ability.currentScore, 20)
         XCTAssertEqual(ability.bonus.netValue(), 0)
@@ -87,7 +88,7 @@ class TestD20Ability: XCTestCase {
         XCTAssertEqual(modifier, 5)
 
         transactionsController = TransactionsController()
-        ability = d20Ability(key: d20Ability.abilitiesMap["strength"]!, score: 15, transactions: transactionsController)
+        ability = d20Ability(key: .Strength, score: 15, transactions: transactionsController)
         ability.bonus.addPermanent("race", fromSource: "Character Creation", withValue: 2)
         XCTAssertEqual(ability.baseScore, 15)
         XCTAssertEqual(ability.currentScore, 17)
