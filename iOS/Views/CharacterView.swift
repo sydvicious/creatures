@@ -3,6 +3,7 @@
 //  iOS
 //
 //  Created by Syd Polk on 6/26/22.
+//  Copyright © 2022 Syd Polk. All rights reserved.
 //
 
 import SwiftUI
@@ -51,7 +52,7 @@ struct CharacterView: View {
 }
 
 struct CharacterView_Previews: PreviewProvider {
-    static var protoData = ProtoData.dummyProtoData()
+    static var protoData = ProtoCharacter.dummyProtoData()
     static var creatureModel = protoData.modelFrom()
 
     static var previews: some View {

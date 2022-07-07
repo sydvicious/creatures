@@ -4,7 +4,7 @@
 //
 //  Created by Syd Polk on 7/18/14.
 //  Copyright (c) 2014-2016 Bone Jarring Games and Software, LLC. All rights reserved.
-//  Copyright © 2022 Syd Polk. All rights reserved.
+//  Copyright © 2022 Syd Polk (reassigned). All rights reserved.
 //
 
 import UIKit

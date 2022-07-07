@@ -3,6 +3,7 @@
 //  iOS
 //
 //  Created by Syd Polk on 6/30/22.
+//  Copyright © 2022 Syd Polk. All rights reserved.
 //
 
 import SwiftUI

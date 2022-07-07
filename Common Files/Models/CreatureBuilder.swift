@@ -4,6 +4,7 @@
 //
 //  Created by Syd Polk on 7/23/17.
 //  Copyright © 2017 Bone Jarring Games and Software. All rights reserved.
+//  Copyright © 2022 Syd Polk (reassigned). All rights reserved.
 //
 
 import Foundation

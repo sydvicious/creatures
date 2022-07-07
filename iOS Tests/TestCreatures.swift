@@ -4,6 +4,7 @@
 //
 //  Created by Syd Polk on 6/12/15.
 //  Copyright (c) 2016-2017 Bone Jarring Games and Software, LLC. All rights reserved.
+//  Copyright © 2022 Syd Polk (reassigned). All rights reserved.
 //
 
 import XCTest
@@ -30,14 +31,14 @@ class TestCreatures: XCTestCase {
     
     func testCreatures() {
         if let controller = creaturesController {
-            var creatureModel = try! controller.createCreature(withName: "TestCreature1")
+            var creatureModel = try! controller.createCreature("TestCreature1")
             XCTAssertNotNil(creatureModel, "creature was nil in testCreate.")
 
             controller.logAll()
 
             let creatures = controller.creatures()
             let startCount = creatures.count
-            creatureModel = try! controller.createCreature(withName: "TestCreature2")
+            creatureModel = try! controller.createCreature("TestCreature2")
             controller.logAll()
             print(creatureModel.name!)
             var indexPath = controller.indexPathFromCreature(creatureModel)
@@ -47,7 +48,7 @@ class TestCreatures: XCTestCase {
             controller.logAll()
             XCTAssertEqual(creatures.count, startCount, "Did not have same number of creatures at the end.")
 
-            creatureModel = try! controller.createCreature(withName: "TestCreature3")
+            creatureModel = try! controller.createCreature("TestCreature3")
             try! controller.saveName("TestCreature3.1", forCreature: creatureModel)
             var name = creatureModel.name
             XCTAssertEqual(name, "TestCreature3.1", "Name operation failed.")
@@ -102,14 +103,14 @@ class TestCreatures: XCTestCase {
             
             controller.deleteAll()
             var original_creature: Creature?
-            original_creature = Creature(system: "Pathfinder", name: "TestCreature4", strength: 18, dexterity: 16, constitution: 14, intelligence: 12, wisdom: 10, charisma: 8)
+            original_creature = Creature(system: "Pathfinder", strength: 18, dexterity: 16, constitution: 14, intelligence: 12, wisdom: 10, charisma: 8)
             var original_creature_model: CreatureModel?
-            original_creature_model = try! controller.createCreature(withSystem: "Pathfinder", withCreature: original_creature!)
+            original_creature_model = try! controller.createCreature("TestCreature4", withSystem: "Pathfinder", withCreature: original_creature!)
             name = original_creature_model?.name
             original_creature_model = nil
             original_creature = nil
-            original_creature = Creature(system: "Pathfinder", name: "TestCreature4.1", strength: 8, dexterity: 10, constitution: 12, intelligence: 14, wisdom: 16, charisma: 18)
-            original_creature_model = try! controller.createCreature(withSystem: "Pathfinder", withCreature: original_creature!)
+            original_creature = Creature(system: "Pathfinder", strength: 8, dexterity: 10, constitution: 12, intelligence: 14, wisdom: 16, charisma: 18)
+            original_creature_model = try! controller.createCreature("TestCreature4.1", withSystem: "Pathfinder", withCreature: original_creature!)
             
             indexPath = IndexPath(row: 0, section: 0)
             let saved_creature_model = controller.creatureFromIndexPath(indexPath!)
