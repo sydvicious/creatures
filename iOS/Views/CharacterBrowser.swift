@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MainNavigation: View {
+struct CharacterBrowser: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
@@ -63,13 +63,13 @@ struct MainNavigation: View {
     }
 }
 
-struct MainNavigation_Previews: PreviewProvider {
+struct CharacterBrowser_Previews: PreviewProvider {
     static var previews: some View {
         let controller = CreaturesController.sharedCreaturesController(true, "Testing")
         let testCreature = Creature(system: "Pathfinder", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
         let _ = try! controller.createCreature("Pendecar", withCreature: testCreature)
 
-        MainNavigation()
+        CharacterBrowser()
             .environment(\.managedObjectContext, controller.context.managedObjectContext!)
     }
 }
