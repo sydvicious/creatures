@@ -22,9 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
 
-            let creaturesController = CreaturesController.sharedCreaturesController()
-
-            window.rootViewController = UIHostingController(rootView: CharacterBrowser().environment(\.managedObjectContext, creaturesController.context.managedObjectContext!))
+            window.rootViewController = UIHostingController(rootView: CharacterBrowser())
             self.window = window
             window.makeKeyAndVisible()
         }

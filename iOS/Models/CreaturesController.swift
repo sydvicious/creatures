@@ -41,12 +41,14 @@ class CreaturesController {
         self.context.fetchedResultsController?.delegate = delegate
     }
 
-    func getCreature(fromModel model: CreatureModel) -> Creature {
-        let creature = Creature()
-        if let transactions = model.transactions {
-            creature.parse(transactions: transactions)
+    func provideCreatureDetails(_ model: CreatureModel) {
+        if model.creature == nil {
+            let creature = Creature()
+            if let transactions = model.transactions {
+                creature.parse(transactions: transactions)
+            }
+            model.creature = creature
         }
-        return creature
     }
 
     func createCreature(_ name: String, withSystem: String = "Pathfinder", withCreature: Creature? = nil) throws -> CreatureModel {
@@ -57,14 +59,8 @@ class CreaturesController {
         let oid = Prefs.getNewID()
         creatureModel.oid = oid
 
-        var creature: Creature
-        if let givenCreature = withCreature {
-            creature = givenCreature
-        } else {
-            // Assuming Pathfinder
-            creature = getCreature(fromModel: creatureModel)
-        }
-        creatureModel.creature = creature
+        provideCreatureDetails(creatureModel)
+
         try self.save(creatureModel)
 
         return creatureModel
@@ -78,7 +74,7 @@ class CreaturesController {
         let context = self.context.managedObjectContext
         guard let creature = creatureModel.creature else {
             NSLog("Can't save without a creature")
-            abort()
+            throw(CreatureModel.CreatureModelDataError.noCreatureInModel)
         }
         let transactionsController = creature.transactionsController
         let transactions = transactionsController.pendingTransactions()
@@ -100,9 +96,21 @@ class CreaturesController {
         transactionsController.clearPendingTransactions()
     }
     
-    func saveCreature(_ name: String, atIndexPath: IndexPath) throws {
-        let creature = self.creatureFromIndexPath(atIndexPath)
+    func saveCreature(_ name: String, atIndexPath indexPath: IndexPath) throws {
+        let creature = self.getCreature(fromIndexPath: indexPath)
         try self.save(creature)
+    }
+
+    func saveCreature(_ name: String, atIndex index: Int) throws {
+        let creature = self.getCreature(fromIndex: index)
+        try self.save(creature)
+    }
+
+    func saveCreature(fromModel model: CreatureModel) throws {
+        guard model.creature != nil else {
+            return
+        }
+        try self.save(model)
     }
     
     func saveName(_ name: String, forCreature creatureModel: CreatureModel) throws {
@@ -113,7 +121,7 @@ class CreaturesController {
         }
     }
     
-    func deleteCreatureAtIndexPath(_ indexPath: IndexPath) {
+    func deleteCreature(atIndexPath indexPath: IndexPath) {
         self.context.managedObjectContext?.delete(self.context.fetchedResultsController?.object(at: indexPath) as! CreatureModel)
         try! self.context.saveContext()
     }
@@ -141,19 +149,26 @@ class CreaturesController {
         }
     }
     
-    func creatureFromIndexPath(_ indexPath: IndexPath) -> CreatureModel {
+    func getCreature(fromIndexPath indexPath: IndexPath) -> CreatureModel {
         let creatureModel = self.context.fetchedResultsController!.object(at: indexPath) as! CreatureModel
         // Fetch all of the transactions
         
         // Create a creature based off of them.
         // This is where the transactions list must be read.
-        let creature = getCreature(fromModel: creatureModel)
-        creatureModel.creature = creature
+        provideCreatureDetails(creatureModel)
         
         return creatureModel
     }
     
-    func indexPathFromCreature(_ creature: CreatureModel) -> IndexPath? {
+    func getCreature(fromIndex index: Int) -> CreatureModel {
+        let models = self.context.fetchedResultsController!.fetchedObjects as! [CreatureModel]
+        let model = models[index]
+        provideCreatureDetails(model)
+
+        return model
+    }
+    
+    func getIndex(fromCreature creature: CreatureModel) -> IndexPath? {
         let indexPath = self.context.fetchedResultsController?.indexPath(forObject: creature)
         return indexPath
     }
@@ -161,9 +176,14 @@ class CreaturesController {
     func creatures() -> [CreatureModel] {
         let models = self.context.fetchedResultsController!.fetchedObjects as! [CreatureModel]
         for model in models {
-            model.creature = getCreature(fromModel: model)
+            provideCreatureDetails(model)
         }
         return models
+    }
+    
+    func count() -> Int {
+        let models = self.context.fetchedResultsController!.fetchedObjects as! [CreatureModel]
+        return models.count
     }
     
     func deleteAll() {

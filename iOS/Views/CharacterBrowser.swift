@@ -9,25 +9,29 @@
 import SwiftUI
 
 struct CharacterBrowser: View {
-    @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))],
-        animation: .default)
-    public var characters: FetchedResults<CreatureModel>
+    @State private var indeces: [Int] = []
     
-    @State private var selection: CreatureModel?
+    @State private var selection: Int?
     @State private var newCharacterWizardShowing = false
     @State private var welcomeScreenShowing = false
-        
+    let creaturesController = CreaturesController.sharedCreaturesController()
+    
+    init() {
+        let count = creaturesController.count()
+        for i in 0...count-1 {
+            indeces.append(i)
+        }
+    }
+    
     var body: some View {
         NavigationSplitView {
             List(selection: $selection) {
-                ForEach(characters, id: \.oid) { character in
+                ForEach(indeces, id: \.self) { index in
+                    let character = creaturesController.getCreature(fromIndex: index)
                     Text(character.name!).tag(character)
                 }.onDelete(perform:{ selectionSet in
-                    let creaturesController = CreaturesController.sharedCreaturesController()
                     creaturesController.deleteIndexedCreatures(indexSet: selectionSet)
                 })
             }
@@ -43,16 +47,20 @@ struct CharacterBrowser: View {
             }
             .navigationTitle("Characters")
         } detail: {
-            CharacterView(character: selection)
+            if let index = selection {
+                let character = creaturesController.getCreature(fromIndex: index)
+                CharacterView(character: character)
+            }
         }
         .navigationSplitViewStyle(.balanced)
         .onAppear(perform: {
             let defaults = UserDefaults.standard
             welcomeScreenShowing = !defaults.bool(forKey: "WelcomeScreenShown")
-            if self.horizontalSizeClass == .regular && self.selection == nil && self.characters.count > 0 {
-                self.selection = self.characters[0]
+            let count = creaturesController.count()
+            if self.horizontalSizeClass == .regular && self.selection == nil && count > 0 {
+                self.selection = 0
             }
-            if self.characters.count == 0 {
+            if count == 0 {
                 newCharacterWizardShowing = true
             }
         })
@@ -76,6 +84,5 @@ struct CharacterBrowser_Previews: PreviewProvider {
         let _ = try! controller.createCreature("Pendecar", withCreature: testCreature)
 
         CharacterBrowser()
-            .environment(\.managedObjectContext, controller.context.managedObjectContext!)
     }
 }

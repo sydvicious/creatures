@@ -11,27 +11,23 @@ import SwiftUI
 struct CharacterView: View {
     
     var character: CreatureModel?
-    var name: String
-    var strength: Ability?
-    var dexterity: Ability?
-    var constitution: Ability?
-    var intelligence: Ability?
-    var wisdom: Ability?
-    var charisma: Ability?
-    let creaturesController = CreaturesController.sharedCreaturesController()
+    var name: String = "<no selection>"
+    var strength: Ability? = nil
+    var dexterity: Ability? = nil
+    var constitution: Ability? = nil
+    var intelligence: Ability? = nil
+    var wisdom: Ability? = nil
+    var charisma: Ability? = nil
     
     init(character: CreatureModel?) {
-        if let character {
-            character.creature = creaturesController.getCreature(fromModel: character)
+        if let character, let creature = character.creature {
             self.name = character.name!
-            self.strength = character.creature?.abilities[.Strength] ?? nil
-            self.dexterity = character.creature?.abilities[.Dexterity] ?? nil
-            self.constitution = character.creature?.abilities[.Constitution] ?? nil
-            self.intelligence = character.creature?.abilities[.Intelligence] ?? nil
+            self.strength = creature.abilities[.Strength] ?? nil
+            self.dexterity = creature.abilities[.Dexterity] ?? nil
+            self.constitution = creature.abilities[.Constitution] ?? nil
+            self.intelligence = creature.abilities[.Intelligence] ?? nil
             self.wisdom = character.creature?.abilities[.Wisdom] ?? nil
             self.charisma = character.creature?.abilities[.Charisma] ?? nil
-        } else {
-            self.name = "<no selection>"
         }
     }
     
