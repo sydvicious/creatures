@@ -29,7 +29,6 @@ struct CharacterBrowser: View {
                 }.onDelete(perform:{ selectionSet in
                     let creaturesController = CreaturesController.sharedCreaturesController()
                     creaturesController.deleteIndexedCreatures(indexSet: selectionSet)
-                    try! viewContext.save()
                 })
             }
             .toolbar {

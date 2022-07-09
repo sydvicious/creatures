@@ -18,16 +18,18 @@ struct CharacterView: View {
     var intelligence: Ability?
     var wisdom: Ability?
     var charisma: Ability?
+    let creaturesController = CreaturesController.sharedCreaturesController()
     
     init(character: CreatureModel?) {
-        if let character = character, let name = character.name {
-            self.name = name
-            strength = character.creature?.abilities[.Strength] ?? nil
-            dexterity = character.creature?.abilities[.Dexterity] ?? nil
-            constitution = character.creature?.abilities[.Constitution] ?? nil
-            intelligence = character.creature?.abilities[.Intelligence] ?? nil
-            wisdom = character.creature?.abilities[.Wisdom] ?? nil
-            charisma = character.creature?.abilities[.Charisma] ?? nil
+        if let character {
+            character.creature = creaturesController.getCreature(fromModel: character)
+            self.name = character.name!
+            self.strength = character.creature?.abilities[.Strength] ?? nil
+            self.dexterity = character.creature?.abilities[.Dexterity] ?? nil
+            self.constitution = character.creature?.abilities[.Constitution] ?? nil
+            self.intelligence = character.creature?.abilities[.Intelligence] ?? nil
+            self.wisdom = character.creature?.abilities[.Wisdom] ?? nil
+            self.charisma = character.creature?.abilities[.Charisma] ?? nil
         } else {
             self.name = "<no selection>"
         }
