@@ -20,7 +20,7 @@ struct CharacterBrowser: View {
     @State private var selection: CreatureModel?
     @State private var newCharacterWizardShowing = false
     @State private var welcomeScreenShowing = false
-        
+
     var body: some View {
         NavigationSplitView {
             List(selection: $selection) {
@@ -29,6 +29,8 @@ struct CharacterBrowser: View {
                 }.onDelete(perform:{ selectionSet in
                     let creaturesController = CreaturesController.sharedCreaturesController()
                     creaturesController.deleteIndexedCreatures(indexSet: selectionSet)
+                    try! viewContext.save()
+                    selection = nil
                 })
             }
             .toolbar {
@@ -56,11 +58,11 @@ struct CharacterBrowser: View {
                 newCharacterWizardShowing = true
             }
         })
-        .fullScreenCover(isPresented: $welcomeScreenShowing, content:{
+        .sheet(isPresented: $welcomeScreenShowing, content:{
             WelcomeScreen(welcomeScreenShowing: $welcomeScreenShowing)
         })
         .sheet(isPresented: $newCharacterWizardShowing, content:{
-            NewCharacterWizard(newCharacterWizardShowing: $newCharacterWizardShowing)
+            NewCharacterWizard(newCharacterWizardShowing: $newCharacterWizardShowing, selection: $selection)
         })
     }
     

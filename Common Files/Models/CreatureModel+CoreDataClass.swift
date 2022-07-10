@@ -13,6 +13,7 @@ import CoreData
 public class CreatureModel: NSManagedObject, Identifiable {
     enum CreatureModelDataError: Error {
         case nameCannotBeNull
+        case noCreatureInModel
     }
     
     var creature: Creature?
