@@ -50,13 +50,9 @@ class ProtoCharacter {
             .build()
     }
     
-    func modelFrom() -> CreatureModel? {
-        if let creature = creatureFrom() {
-            let controller = CreaturesController.sharedCreaturesController()
-            return try! controller.createCreature(name, withCreature: creature)
-        } else {
-            return nil
-        }
+    func modelFrom() -> CreatureModel {
+        let controller = CreaturesController.sharedCreaturesController()
+        return try! controller.createCreature(name, withCreature: creatureFrom()!)
     }
     
 }

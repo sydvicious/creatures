@@ -20,7 +20,7 @@ struct NewCharacterWizard: View {
     @State private var doneDisabled = true
     @State private var nameValid = false
     @State private var abilitiesValid = false
-    
+        
     var body: some View {
         VStack {
             Text("New Character Wizard")
@@ -31,11 +31,8 @@ struct NewCharacterWizard: View {
                         Text("Please provide a name for your new character:")
                         Spacer()
                         if nameValid {
-                            Image(systemName: "checkmark")
-                                .resizable()
-                                .frame(width: 15, height: 15, alignment: .trailing)
-                                .aspectRatio(contentMode: .fit)
-                                .foregroundColor(.green)
+                            Text("✔️")
+                                .background(.red)
                         }
                     }
                 }
