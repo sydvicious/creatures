@@ -26,7 +26,19 @@ struct NewCharacterWizard: View {
             Text("New Character Wizard")
             Spacer()
             Form {
-                Text("Please provide a name for your new character:")
+                Grid {
+                    GridRow {
+                        Text("Please provide a name for your new character:")
+                        Spacer()
+                        if nameValid {
+                            Image(systemName: "checkmark")
+                                .resizable()
+                                .frame(width: 15, height: 15, alignment: .trailing)
+                                .aspectRatio(contentMode: .fit)
+                                .foregroundColor(.green)
+                        }
+                    }
+                }
                 TextField("<NAME>", text: $protoData.name)
                     .onSubmit {
                         validateName()
@@ -43,7 +55,6 @@ struct NewCharacterWizard: View {
                 Button("Done", action: done)
                     .disabled(doneDisabled)
             }
-            .frame(maxWidth: .infinity)
         }
     }
     
