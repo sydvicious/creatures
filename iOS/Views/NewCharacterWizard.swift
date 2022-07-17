@@ -61,8 +61,7 @@ struct NewCharacterWizard: View {
     
     private func validateAbilities() {
         for key in Abilities.allCases {
-            guard let ability = protoData.abilities[key],
-                    let score = ability?.currentScore,
+            guard let score = protoData.abilities[key],
                     score > 0 else {
                 abilitiesValid = false
                 return

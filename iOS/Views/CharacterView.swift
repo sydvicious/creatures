@@ -12,12 +12,12 @@ struct CharacterView: View {
     
     var character: CreatureModel?
     var name: String = "<no selection>"
-    var strength: Ability? = nil
-    var dexterity: Ability? = nil
-    var constitution: Ability? = nil
-    var intelligence: Ability? = nil
-    var wisdom: Ability? = nil
-    var charisma: Ability? = nil
+    var strength: Int = 0
+    var dexterity: Int = 0
+    var constitution: Int = 0
+    var intelligence: Int = 0
+    var wisdom: Int = 0
+    var charisma: Int = 0
     
     init(character: CreatureModel?) {
         if let character {
@@ -29,12 +29,12 @@ struct CharacterView: View {
             }
             CreaturesController.sharedCreaturesController().provideCreatureDetails(character)
             if let creature = character.creature {
-                self.strength = creature.abilities[.Strength] ?? nil
-                self.dexterity = creature.abilities[.Dexterity] ?? nil
-                self.constitution = creature.abilities[.Constitution] ?? nil
-                self.intelligence = creature.abilities[.Intelligence] ?? nil
-                self.wisdom = character.creature?.abilities[.Wisdom] ?? nil
-                self.charisma = character.creature?.abilities[.Charisma] ?? nil
+                self.strength = creature.baseAbilityScore(for: .Strength)
+                self.dexterity = creature.baseAbilityScore(for: .Dexterity)
+                self.constitution = creature.baseAbilityScore(for: .Constitution)
+                self.intelligence = creature.baseAbilityScore(for: .Intelligence)
+                self.wisdom = creature.baseAbilityScore(for: .Wisdom)
+                self.charisma = creature.baseAbilityScore(for: .Charisma)
             }
         }
     }
@@ -45,12 +45,12 @@ struct CharacterView: View {
                 Text("Select a character or hit + to add a new one")
             } else {
                 Grid(alignment: .trailing) {
-                    AbilityGridRow(.Strength, ability: strength)
-                    AbilityGridRow(.Dexterity, ability: dexterity)
-                    AbilityGridRow(.Constitution, ability: constitution)
-                    AbilityGridRow(.Intelligence, ability: intelligence)
-                    AbilityGridRow(.Wisdom, ability: wisdom)
-                    AbilityGridRow(.Charisma, ability: charisma)
+                    AbilityGridRow(.Strength, score: strength)
+                    AbilityGridRow(.Dexterity, score: dexterity)
+                    AbilityGridRow(.Constitution, score: constitution)
+                    AbilityGridRow(.Intelligence, score: intelligence)
+                    AbilityGridRow(.Wisdom, score: wisdom)
+                    AbilityGridRow(.Charisma, score: charisma)
                 }.padding().border(.black)
             }
         }.navigationTitle(name)

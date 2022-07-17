@@ -14,7 +14,7 @@ class TransactionsController: NSObject {
     override init() {
         super.init()
     }
-
+    
     func add(transaction: Transaction) {
         _pending.append(transaction)
     }

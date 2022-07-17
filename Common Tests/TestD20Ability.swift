@@ -23,72 +23,63 @@ class TestD20Ability: XCTestCase {
     }
     
     func testD20Ability() {
-        var transactionsController = TransactionsController()
-        var ability = d20Ability(key: .Strength, score: 0, transactions: transactionsController)
+        var ability = d20Ability(score: 0)
         XCTAssertEqual(ability.baseScore, 0)
         XCTAssertEqual(ability.currentScore, 0)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         var modifier = ability.modifier
         XCTAssertEqual(modifier, -5)
 
-        transactionsController = TransactionsController()
-        ability = d20Ability(key: .Strength, score: -1, transactions: transactionsController)
+        ability = d20Ability(score: -1)
         XCTAssertEqual(ability.baseScore, 0)
         XCTAssertEqual(ability.currentScore, 0)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, -5)
 
-        transactionsController = TransactionsController()
-        ability = d20Ability(key: .Strength, score: 1, transactions: transactionsController)
+        ability = d20Ability(score: 1)
         XCTAssertEqual(ability.baseScore, 1)
         XCTAssertEqual(ability.currentScore, 1)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, -5)
         
-        transactionsController = TransactionsController()
-        ability = d20Ability(key: .Strength, score: 2, transactions: transactionsController)
+        ability = d20Ability(score: 2)
         XCTAssertEqual(ability.baseScore, 2)
         XCTAssertEqual(ability.currentScore, 2)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, -4)
 
-        transactionsController = TransactionsController()
-        ability = d20Ability(key: .Strength, score: 9, transactions: transactionsController)
+        ability = d20Ability(score: 9)
         XCTAssertEqual(ability.baseScore, 9)
         XCTAssertEqual(ability.currentScore, 9)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, -1)
 
-        transactionsController = TransactionsController()
-        ability = d20Ability(key: .Strength, score: 10, transactions: transactionsController)
+        ability = d20Ability(score: 10)
         XCTAssertEqual(ability.baseScore, 10)
         XCTAssertEqual(ability.currentScore, 10)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, 0)
 
-        transactionsController = TransactionsController()
-        ability = d20Ability(key: .Strength, score: 19, transactions: transactionsController)
+        ability = d20Ability(score: 19)
         XCTAssertEqual(ability.baseScore, 19)
         XCTAssertEqual(ability.currentScore, 19)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, 4)
 
-        transactionsController = TransactionsController()
-        ability = d20Ability(key: .Strength, score: 20, transactions: transactionsController)
+        ability = d20Ability(score: 20)
         XCTAssertEqual(ability.baseScore, 20)
         XCTAssertEqual(ability.currentScore, 20)
         XCTAssertEqual(ability.bonus.netValue(), 0)
         modifier = ability.modifier
         XCTAssertEqual(modifier, 5)
 
-        transactionsController = TransactionsController()
-        ability = d20Ability(key: .Strength, score: 15, transactions: transactionsController)
+        ability = d20Ability(score: 15)
         ability.bonus.addPermanent("race", fromSource: "Character Creation", withValue: 2)
         XCTAssertEqual(ability.baseScore, 15)
         XCTAssertEqual(ability.currentScore, 17)

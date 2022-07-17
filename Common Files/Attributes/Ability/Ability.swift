@@ -9,7 +9,7 @@
 
 import Foundation
 
-class Ability: TransactionsProtocol, Equatable, Hashable {
+class Ability: Equatable, Hashable {
     
     private var _baseScore: Int
 
@@ -25,22 +25,12 @@ class Ability: TransactionsProtocol, Equatable, Hashable {
         }
     }
 
-    init(key: Abilities, score: Int) {
+    init(score: Int) {
         if (score < 0) {
             self._baseScore = 0
         } else {
             self._baseScore = score
         }
-    }
-
-    convenience init(key: Abilities, score: Int, transactions: TransactionsController) {
-        self.init(key: key, score:score)
-        save_transaction(transactions, section: "ability", attribute: key.rawValue, source: "creation", type: "base", value: String(score), duration: -1)
-    }
-    
-    func save_transaction(_ transactions: TransactionsController, section: String, attribute: String, source: String, type: String, value: String, duration: Int) {
-        let trans = Transaction(system: "", section: section, attribute: attribute, source: source, type: type, value: value, duration: duration)
-        transactions.add(transaction: trans)
     }
     
     static func == (lhs: Ability, rhs: Ability) -> Bool {

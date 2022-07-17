@@ -23,11 +23,5 @@ class PathfinderAbility: d20Ability {
         17: 13,
         18: 17
     ]
-
-    override func save_transaction(_ transactions: TransactionsController, section: String, attribute: String, source: String, type: String, value: String, duration: Int) {
-        let trans = Transaction(system: "Pathfinder", section: section, attribute: attribute, source: source, type: type, value: value, duration: duration)
-        transactions.add(transaction: trans)
-    }
-
 }
 

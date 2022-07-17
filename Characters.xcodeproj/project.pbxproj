@@ -27,7 +27,6 @@
 		624C5B911EA9AD6D007BF969 /* TransactionsModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625824861E17B4CA0049DE03 /* TransactionsModel+CoreDataProperties.swift */; };
 		624C5B961EA9AD75007BF969 /* TransactionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1545C1DD9789C00D5DAAC /* TransactionsController.swift */; };
 		624C5B971EA9AD75007BF969 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C1545F1DD978DC00D5DAAC /* Transaction.swift */; };
-		624C5B981EA9AD75007BF969 /* TransactionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62811D4B1DE7B5DC00217C09 /* TransactionsProtocol.swift */; };
 		624C5B991EA9AD7A007BF969 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
 		624C5B9A1EA9AD7F007BF969 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222E0541DB48D7E0031FD74 /* Creature.swift */; };
 		624C5B9B1EA9AD83007BF969 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D02FBE1D7236A100CB6CA6 /* Ability.swift */; };
@@ -46,7 +45,6 @@
 		626E451528693FC100F50B74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E451428693FC100F50B74 /* SceneDelegate.swift */; };
 		626E45182869401200F50B74 /* CharacterBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E45172869401200F50B74 /* CharacterBrowser.swift */; };
 		627426771B733A910051A5E5 /* CharactersContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627426761B733A910051A5E5 /* CharactersContext.swift */; };
-		62811D4C1DE7B5DC00217C09 /* TransactionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62811D4B1DE7B5DC00217C09 /* TransactionsProtocol.swift */; };
 		6288E1D21A4E7A63009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
 		628D61511B2BBCF300D420E1 /* TestCreatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */; };
 		628E4B81220AA41000F58FA8 /* Rolls3d6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628E4B80220AA41000F58FA8 /* Rolls3d6.swift */; };
@@ -57,6 +55,8 @@
 		6296117D1F4023AC00217557 /* d6w1.png in Resources */ = {isa = PBXBuildFile; fileRef = 629611771F4023AB00217557 /* d6w1.png */; };
 		6296117E1F4023AC00217557 /* d6w3.png in Resources */ = {isa = PBXBuildFile; fileRef = 629611781F4023AB00217557 /* d6w3.png */; };
 		629EF2DF286E48D4000D984E /* AbilityGridRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629EF2DE286E48D4000D984E /* AbilityGridRow.swift */; };
+		62A2A1002883C84300B07DCE /* AbilitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A2A0FF2883C84300B07DCE /* AbilitiesController.swift */; };
+		62A2A1012883C84300B07DCE /* AbilitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A2A0FF2883C84300B07DCE /* AbilitiesController.swift */; };
 		62ACB3D01DD457FD00D7BA89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62ACB3CF1DD457FD00D7BA89 /* Images.xcassets */; };
 		62B306BA28752EE20082779F /* NewCharacterWizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B306B928752EE20082779F /* NewCharacterWizard.swift */; };
 		62BEFA621EB2EDE600511D87 /* interactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BEFA611EB2EDE600511D87 /* interactive.swift */; };
@@ -123,7 +123,6 @@
 		626E451428693FC100F50B74 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		626E45172869401200F50B74 /* CharacterBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBrowser.swift; sourceTree = "<group>"; };
 		627426761B733A910051A5E5 /* CharactersContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersContext.swift; sourceTree = "<group>"; };
-		62811D4B1DE7B5DC00217C09 /* TransactionsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsProtocol.swift; sourceTree = "<group>"; };
 		6288E1D11A4E7A63009F7CE2 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prefs.swift; path = Utils/Prefs.swift; sourceTree = "<group>"; };
 		628E4B80220AA41000F58FA8 /* Rolls3d6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Rolls3d6.swift; path = Utils/Rolls3d6.swift; sourceTree = "<group>"; };
 		629611731F4023A800217557 /* d6w6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w6.png; path = ../../design/d6w6.png; sourceTree = "<group>"; };
@@ -133,6 +132,7 @@
 		629611771F4023AB00217557 /* d6w1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w1.png; path = ../../design/d6w1.png; sourceTree = "<group>"; };
 		629611781F4023AB00217557 /* d6w3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w3.png; path = ../../design/d6w3.png; sourceTree = "<group>"; };
 		629EF2DE286E48D4000D984E /* AbilityGridRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityGridRow.swift; sourceTree = "<group>"; };
+		62A2A0FF2883C84300B07DCE /* AbilitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilitiesController.swift; sourceTree = "<group>"; };
 		62ACB3CF1DD457FD00D7BA89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		62B2CB191B2A551E0073B8DC /* iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B2CB1D1B2A551E0073B8DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -361,7 +361,6 @@
 			children = (
 				62C1545C1DD9789C00D5DAAC /* TransactionsController.swift */,
 				62C1545F1DD978DC00D5DAAC /* Transaction.swift */,
-				62811D4B1DE7B5DC00217C09 /* TransactionsProtocol.swift */,
 			);
 			name = Transactions;
 			path = Attributes/Transactions;
@@ -379,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				62D02FBE1D7236A100CB6CA6 /* Ability.swift */,
+				62A2A0FF2883C84300B07DCE /* AbilitiesController.swift */,
 				62EDDC061DD96DEF0027A719 /* d20 */,
 			);
 			path = Ability;
@@ -584,13 +584,13 @@
 				6258B06B248DCD39000A6C9A /* CreatureModel+CoreDataClass.swift in Sources */,
 				625073CF1F2507A3005D1996 /* CreatureBuilder.swift in Sources */,
 				62EDDC031DD96D950027A719 /* Characters.xcdatamodeld in Sources */,
+				62A2A1002883C84300B07DCE /* AbilitiesController.swift in Sources */,
 				625824891E17B4CA0049DE03 /* TransactionsModel+CoreDataClass.swift in Sources */,
 				628E4B81220AA41000F58FA8 /* Rolls3d6.swift in Sources */,
 				62C154601DD978DC00D5DAAC /* Transaction.swift in Sources */,
 				62B306BA28752EE20082779F /* NewCharacterWizard.swift in Sources */,
 				624C5B041EEBB9E900B161F1 /* SwiftPriorityQueue.swift in Sources */,
 				62C6A0261B2B24B8006B50D2 /* CreaturesController.swift in Sources */,
-				62811D4C1DE7B5DC00217C09 /* TransactionsProtocol.swift in Sources */,
 				62BF63DA248DC966008BBD40 /* CreatureModel+CoreDataProperties.swift in Sources */,
 				62D02FC11D72381A00CB6CA6 /* d20Ability.swift in Sources */,
 				62D02FC31D7238A500CB6CA6 /* d20Bonus.swift in Sources */,
@@ -609,9 +609,9 @@
 				624C5AE51EEBB59700B161F1 /* Dice.swift in Sources */,
 				624C5B991EA9AD7A007BF969 /* Prefs.swift in Sources */,
 				6258B06C248DCDAD000A6C9A /* CreatureModel+CoreDataClass.swift in Sources */,
-				624C5B981EA9AD75007BF969 /* TransactionsProtocol.swift in Sources */,
 				624C5B051EEBB9EA00B161F1 /* SwiftPriorityQueue.swift in Sources */,
 				624C5B9E1EA9AD8C007BF969 /* PathfinderAbility.swift in Sources */,
+				62A2A1012883C84300B07DCE /* AbilitiesController.swift in Sources */,
 				624C5BA01EA9ADA4007BF969 /* CreaturesController.swift in Sources */,
 				624C5B971EA9AD75007BF969 /* Transaction.swift in Sources */,
 				624C5BA11EA9ADB7007BF969 /* CharactersContext.swift in Sources */,

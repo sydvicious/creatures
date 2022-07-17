@@ -50,19 +50,9 @@ class d20Ability: Ability {
         return d20Ability.modifier(value: self.currentScore)
     }
     
-    override init(key: Abilities, score: Int) {
+    override init(score: Int) {
         bonus = d20Bonus()
-        super.init(key: key, score: score)
-    }
-
-    convenience init(key: Abilities, score: Int, transactions: TransactionsController) {
-        self.init(key: key, score: score)
-        save_transaction(transactions, section: "ability", attribute: key.rawValue, source: "creation", type: "base", value: String(score), duration: -1)
-    }
-    
-    override func save_transaction(_ transactions: TransactionsController, section: String, attribute: String, source: String, type: String, value: String, duration: Int) {
-        let trans = Transaction(system: "d20", section: section, attribute: attribute, source: source, type: type, value: value, duration: duration)
-        transactions.add(transaction: trans)
+        super.init(score: score)
     }
 }
 

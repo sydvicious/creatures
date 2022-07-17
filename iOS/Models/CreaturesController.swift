@@ -43,10 +43,7 @@ class CreaturesController {
 
     func provideCreatureDetails(_ model: CreatureModel) {
         if model.creature == nil {
-            let creature = Creature()
-            if let transactions = model.transactions {
-                creature.parse(transactions: transactions)
-            }
+            let creature = Creature(fromTransactions: model.transactions!)
             model.creature = creature
         }
     }
@@ -81,7 +78,7 @@ class CreaturesController {
             NSLog("Can't save without a creature")
             throw(CreatureModel.CreatureModelDataError.noCreatureInModel)
         }
-        let transactionsController = creature.transactionsController
+        let transactionsController = creature.transactionsController()
         let transactions = transactionsController.pendingTransactions()
         for trans in transactions {
             let transModel = TransactionsModel(context: context!)
@@ -207,12 +204,9 @@ class CreaturesController {
                 print(model.name!)
                 if let creature = model.creature {
                     print(" Abilities")
-                    print("  Strength - \(creature.abilityScoreFor(.Strength))")
-                    print("  Dexterity - \(creature.abilityScoreFor(.Dexterity))")
-                    print("  Constitution - \(creature.abilityScoreFor(.Constitution))")
-                    print("  Intelligence - \(creature.abilityScoreFor(.Intelligence))")
-                    print("  Wisdom - \(creature.abilityScoreFor(.Wisdom))")
-                    print("  Charisma - \(creature.abilityScoreFor(.Charisma))")
+                    for key in Abilities.allCases {
+                        print("  \(key.rawValue) - \(creature.currentAbilityScore(for: key))")
+                    }
                 } else {
                     print("No creature attached!")
                 }

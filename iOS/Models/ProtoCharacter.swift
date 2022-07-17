@@ -11,12 +11,12 @@ import Foundation
 
 class ProtoCharacter {
     var name: String = ""
-    var abilities : [Abilities:Ability?] = [:]
+    var abilities : [Abilities:Int] = [:]
     
     static func dummyProtoData() -> ProtoCharacter {
-        var abilities = [Abilities: Ability?]()
+        var abilities = [Abilities: Int]()
         for ability_name in Abilities.allCases {
-            abilities[ability_name] = Ability(key: ability_name, score: Rolls4d6().score())
+            abilities[ability_name] = Rolls4d6().score()
         }
         let protoData = ProtoCharacter()
         protoData.name = "Pendecar" + String(Int.random(in: 0...32767))
@@ -42,7 +42,6 @@ class ProtoCharacter {
             return nil
         }
         return CreatureBuilder()
-            .set(system: "Pathfinder")
             .set(abilites: abilities)
             .build()
     }

@@ -103,28 +103,28 @@ class TestCreatures: XCTestCase {
             
             controller.deleteAll()
             var original_creature: Creature?
-            var abilities: [Abilities:Ability?] = [:]
-            abilities[.Strength] = Ability(key: .Strength, score: 18)
-            abilities[.Dexterity] = Ability(key: .Dexterity, score: 16)
-            abilities[.Constitution] = Ability(key: .Constitution, score: 14)
-            abilities[.Intelligence] = Ability(key: .Intelligence, score: 12)
-            abilities[.Wisdom] = Ability(key: .Wisdom, score: 10)
-            abilities[.Charisma] = Ability(key: .Charisma, score: 8)
-            original_creature = Creature(system: "Pathfinder", abilites: abilities)
+            var abilities: [Abilities:Int] = [:]
+            abilities[.Strength] = 18
+            abilities[.Dexterity] = 16
+            abilities[.Constitution] = 14
+            abilities[.Intelligence] = 12
+            abilities[.Wisdom] = 10
+            abilities[.Charisma] = 8
+            original_creature = Creature(abilities: abilities)
             var original_creature_model: CreatureModel?
             original_creature_model = try! controller.createCreature("TestCreature4", withSystem: "Pathfinder", withCreature: original_creature!)
             name = original_creature_model?.name
             original_creature_model = nil
             original_creature = nil
             
-            abilities[.Strength] = Ability(key: .Strength, score: 8)
-            abilities[.Dexterity] = Ability(key: .Dexterity, score: 10)
-            abilities[.Constitution] = Ability(key: .Constitution, score: 12)
-            abilities[.Intelligence] = Ability(key: .Intelligence, score: 14)
-            abilities[.Wisdom] = Ability(key: .Wisdom, score: 16)
-            abilities[.Charisma] = Ability(key: .Charisma, score: 18)
+            abilities[.Strength] = 8
+            abilities[.Dexterity] = 10
+            abilities[.Constitution] = 12
+            abilities[.Intelligence] = 14
+            abilities[.Wisdom] = 16
+            abilities[.Charisma] = 18
 
-            original_creature = Creature(system: "Pathfinder", abilites: abilities)
+            original_creature = Creature(abilities: abilities)
             original_creature_model = try! controller.createCreature("TestCreature4.1", withSystem: "Pathfinder", withCreature: original_creature!)
             
             indexPath = IndexPath(row: 0, section: 0)
@@ -132,12 +132,12 @@ class TestCreatures: XCTestCase {
             let saved_name = saved_creature_model.name
             let saved_creature = saved_creature_model.creature!
             XCTAssertEqual(name, saved_name)
-            XCTAssertEqual(saved_creature.abilityScoreFor(.Strength), 18)
-            XCTAssertEqual(saved_creature.abilityScoreFor(.Dexterity), 16)
-            XCTAssertEqual(saved_creature.abilityScoreFor(.Constitution), 14)
-            XCTAssertEqual(saved_creature.abilityScoreFor(.Intelligence), 12)
-            XCTAssertEqual(saved_creature.abilityScoreFor(.Wisdom), 10)
-            XCTAssertEqual(saved_creature.abilityScoreFor(.Charisma), 8)
+            XCTAssertEqual(saved_creature.currentAbilityScore(for: .Strength), 18)
+            XCTAssertEqual(saved_creature.currentAbilityScore(for: .Dexterity), 16)
+            XCTAssertEqual(saved_creature.currentAbilityScore(for: .Constitution), 14)
+            XCTAssertEqual(saved_creature.currentAbilityScore(for: .Intelligence), 12)
+            XCTAssertEqual(saved_creature.currentAbilityScore(for: .Wisdom), 10)
+            XCTAssertEqual(saved_creature.currentAbilityScore(for: .Charisma), 8)
         } else {
             XCTFail("Could not get CreaturesController")
         }

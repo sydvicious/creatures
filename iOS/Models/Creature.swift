@@ -7,104 +7,91 @@
 //  Copyright © 2022 Syd Polk (reassigned). All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-enum Systems:Hashable {
-    case Pathfinder
-    case DND3
-    case DND35
-    case DND4
-    case DND5
+enum CreaturesTransactionActions: String, CaseIterable {
+    case creation
 }
-
-let SystemsMap: [String:Systems] = [
-    "Pathfinder": .Pathfinder
-]
-
-enum Sections:Hashable {
-    case Ability
-}
-
-func pathfinderAbilityCreation(name: String, value: Int) -> Ability {
-    return PathfinderAbility(key: Abilities(rawValue: name.capitalized)!, score: value)
-}
-
-let SystemsAbilityCreationMap : [String:(String, Int) -> Ability] = [
-    "Pathfinder": pathfinderAbilityCreation
-]
-
-func handleAbilityCreation(system: String, name: String, value: Int) -> Ability {
-    return SystemsAbilityCreationMap[system]!(name, value)
-}
-
-let sourcesAbilityCreationMap : [String:(String,String,Int)->Ability] = [
-    "creation": handleAbilityCreation
-]
-
-func addAbilityFrom(creature: Creature, transaction: TransactionsModel, system: Systems) {
-    let source = transaction.source!
-    let system = transaction.system!
-    let ability_name = transaction.attribute!
-    let value = Int(transaction.value!)
-
-    let ability = sourcesAbilityCreationMap[source]!(system, ability_name, value!)
-    creature.abilities[Abilities(rawValue: ability_name.capitalized)!] = ability
-}
-
-let sectionCommands: [String: (Creature, TransactionsModel, Systems) -> ()] = [
-    "ability": addAbilityFrom
-]
-
-let abilityConstructors: [String:(Abilities,Int,TransactionsController)->Ability] = [
-    "Pathfinder": PathfinderAbility.init,
-    "AD&D": Ability.init,
-    "D&D": Ability.init,
-    "D&D5": d20Ability.init
-]
 
 class Creature {
+    private let abilitiesController = AbilitiesController()
+    private let system = (UIApplication.shared.delegate as! AppDelegate).system
     
-    let system: String
-    
-    let transactionsController = TransactionsController()
-    
-    var abilities: [Abilities:Ability?] = [:]
-    
-    func ability(key: Abilities, fromBaseScore: Int) -> Ability? {
-        if let ability_init:(Abilities, Int, TransactionsController) -> Ability = abilityConstructors[system] {
-            return ability_init(key, fromBaseScore, transactionsController)
+    init(abilities: [Abilities:Int]) {
+        for key in Abilities.allCases {
+            let score = abilities[key] ?? 0
+            abilitiesController.add_ability(forAbility: key, score: score)
         }
-        print("Unknown ability \(system)")
-        abort()
     }
     
-    func abilityScoreFor(_ abilityKey: Abilities) -> Int {
-        if let abilityValue = abilities[abilityKey] {
-            if let currentScore = abilityValue?.currentScore {
-                return currentScore
+    init(fromTransactions transactions: NSOrderedSet) {
+        parse(transactions: transactions)
+    }
+    
+    func transactionsController() -> TransactionsController {
+        return abilitiesController.transactionsController
+    }
+    
+    func currentAbilityScore(for key: Abilities) -> Int {
+        return abilitiesController.currentScore(forAbility: key)
+    }
+    
+    func baseAbilityScore(for key: Abilities) -> Int {
+        return abilitiesController.baseScore(forAbility: key)
+    }
+    
+    private func parse(transactions: NSOrderedSet) {
+        for raw_transaction in transactions {
+            guard let transaction = raw_transaction as? TransactionsModel else {
+                print("Transaction cannot be parsed")
+                return
+            }
+            
+            guard let transSystem = transaction.system else {
+                print("Unknown gaming system for transaction")
+                return
+            }
+
+            if transSystem != system {
+                print("Wrong game system \(system) for this app")
+                return
+            }
+
+            guard let section_string = transaction.section else {
+                print("No section for transaction")
+                return
+            }
+            
+            guard let section = CreaturesTransactionActions(rawValue: section_string) else {
+                print("Unknown section \(section_string) for transaction")
+                return
+            }
+            
+            switch(section) {
+            case .creation:
+                handleAbility(transaction: transaction)
             }
         }
-        return 0
     }
     
-    init() {
-        system = "Pathfinder"
-    }
-    
-    init(system: String) {
-        self.system = system
-    }
-    
-    init(system: String, abilites: [Abilities:Ability?]) {
-        self.system = system
-        self.abilities = abilites
-    }
-
-    func parse(transactions: NSOrderedSet) {
-        for raw_transaction in transactions {
-            let transaction = raw_transaction as! TransactionsModel
-            sectionCommands[transaction.section!]!(self, transaction, SystemsMap[transaction.system!]!)
+    private func handleAbility(transaction: TransactionsModel) {
+        guard let ability_name = transaction.attribute else {
+            print("No ability name found for transaction")
+            return
         }
+        guard let key = Abilities(rawValue: ability_name) else {
+            print("Invalid key \(ability_name) for transaction")
+            return
+        }
+        guard let valueString = transaction.value else {
+            print("No value string found for transaction")
+            return
+        }
+        guard let value = Int(valueString) else {
+            print("value \(valueString) is not an integer for transaction")
+            return
+        }
+        abilitiesController.add_ability(forAbility: key, score: value)
     }
 }
 

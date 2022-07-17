@@ -11,20 +11,14 @@ import Foundation
 
 class CreatureBuilder: NSObject {
 
-    var abilities: [Abilities:Ability?] = [:]
-    var system: String = "Pathfinder"
-    
-    func set(system: String) -> CreatureBuilder {
-        self.system = system
-        return self
-    }
+    var abilities: [Abilities:Int] = [:]
     
     func set(abilityFor key: Abilities, score: Int) -> CreatureBuilder {
-        self.abilities[key] = Ability.init(key: key, score: score)
+        self.abilities[key] = score
         return self
     }
     
-    func set(abilites: [Abilities:Ability?]) -> CreatureBuilder {
+    func set(abilites: [Abilities:Int]) -> CreatureBuilder {
         self.abilities = abilites
         return self
     }
@@ -55,7 +49,7 @@ class CreatureBuilder: NSObject {
         guard isCreatureValid() else {
             return nil
         }
-        return Creature(system: system, abilites: abilities)
+        return Creature(abilities: abilities)
     }
     
 }

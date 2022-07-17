@@ -59,9 +59,6 @@ class CharactersContext: NSObject, NSFetchedResultsControllerDelegate {
                 self.managedObjectContext = container.viewContext
                 self.fetchedResultsController = {
                     let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CreatureModel.fetchRequest()
-                    // Set the batch size to a suitable number.
-
-                    fetchRequest.fetchBatchSize = 20
 
                     // Edit the sort key as appropriate.
                     let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
