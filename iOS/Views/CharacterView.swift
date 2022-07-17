@@ -45,12 +45,12 @@ struct CharacterView: View {
                 Text("Select a character or hit + to add a new one")
             } else {
                 Grid(alignment: .trailing) {
-                    AbilityGridRow(ability: strength)
-                    AbilityGridRow(ability: dexterity)
-                    AbilityGridRow(ability: constitution)
-                    AbilityGridRow(ability: intelligence)
-                    AbilityGridRow(ability: wisdom)
-                    AbilityGridRow(ability: charisma)
+                    AbilityGridRow(.Strength, ability: strength)
+                    AbilityGridRow(.Dexterity, ability: dexterity)
+                    AbilityGridRow(.Constitution, ability: constitution)
+                    AbilityGridRow(.Intelligence, ability: intelligence)
+                    AbilityGridRow(.Wisdom, ability: wisdom)
+                    AbilityGridRow(.Charisma, ability: charisma)
                 }.padding().border(.black)
             }
         }.navigationTitle(name)

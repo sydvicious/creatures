@@ -11,14 +11,8 @@ import Foundation
 
 class Ability: TransactionsProtocol, Equatable, Hashable {
     
-    private var _ability: Abilities
     private var _baseScore: Int
 
-    var name: String {
-        get {
-            return self._ability.rawValue
-        }
-    }
     var baseScore: Int {
         get {
             return self._baseScore
@@ -32,7 +26,6 @@ class Ability: TransactionsProtocol, Equatable, Hashable {
     }
 
     init(key: Abilities, score: Int) {
-        self._ability = key
         if (score < 0) {
             self._baseScore = 0
         } else {
@@ -51,11 +44,10 @@ class Ability: TransactionsProtocol, Equatable, Hashable {
     }
     
     static func == (lhs: Ability, rhs: Ability) -> Bool {
-        return lhs._ability == rhs._ability && lhs._baseScore == rhs._baseScore
+        return lhs._baseScore == rhs._baseScore
     }
 
     func hash(into hasher: inout Hasher) {
-        hasher.combine(_ability)
         hasher.combine(_baseScore)
     }
 }

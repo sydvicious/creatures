@@ -74,8 +74,8 @@ struct CharacterBrowser: View {
 struct CharacterBrowser_Previews: PreviewProvider {
     static var previews: some View {
         let controller = CreaturesController.sharedCreaturesController(true, "Testing")
-        let testCreature = Creature(system: "Pathfinder", strength: 17, dexterity: 17, constitution: 18, intelligence: 21, wisdom: 14, charisma: 14)
-        let _ = try! controller.createCreature("Pendecar", withCreature: testCreature)
+        let testCreature = ProtoCharacter.dummyProtoData()
+        let _ = try! controller.createCreature("Pendecar", withCreature: testCreature.creatureFrom())
 
         CharacterBrowser()
             .environment(\.managedObjectContext, controller.context.managedObjectContext!)

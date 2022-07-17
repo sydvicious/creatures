@@ -103,13 +103,28 @@ class TestCreatures: XCTestCase {
             
             controller.deleteAll()
             var original_creature: Creature?
-            original_creature = Creature(system: "Pathfinder", strength: 18, dexterity: 16, constitution: 14, intelligence: 12, wisdom: 10, charisma: 8)
+            var abilities: [Abilities:Ability?] = [:]
+            abilities[.Strength] = Ability(key: .Strength, score: 18)
+            abilities[.Dexterity] = Ability(key: .Dexterity, score: 16)
+            abilities[.Constitution] = Ability(key: .Constitution, score: 14)
+            abilities[.Intelligence] = Ability(key: .Intelligence, score: 12)
+            abilities[.Wisdom] = Ability(key: .Wisdom, score: 10)
+            abilities[.Charisma] = Ability(key: .Charisma, score: 8)
+            original_creature = Creature(system: "Pathfinder", abilites: abilities)
             var original_creature_model: CreatureModel?
             original_creature_model = try! controller.createCreature("TestCreature4", withSystem: "Pathfinder", withCreature: original_creature!)
             name = original_creature_model?.name
             original_creature_model = nil
             original_creature = nil
-            original_creature = Creature(system: "Pathfinder", strength: 8, dexterity: 10, constitution: 12, intelligence: 14, wisdom: 16, charisma: 18)
+            
+            abilities[.Strength] = Ability(key: .Strength, score: 8)
+            abilities[.Dexterity] = Ability(key: .Dexterity, score: 10)
+            abilities[.Constitution] = Ability(key: .Constitution, score: 12)
+            abilities[.Intelligence] = Ability(key: .Intelligence, score: 14)
+            abilities[.Wisdom] = Ability(key: .Wisdom, score: 16)
+            abilities[.Charisma] = Ability(key: .Charisma, score: 18)
+
+            original_creature = Creature(system: "Pathfinder", abilites: abilities)
             original_creature_model = try! controller.createCreature("TestCreature4.1", withSystem: "Pathfinder", withCreature: original_creature!)
             
             indexPath = IndexPath(row: 0, section: 0)

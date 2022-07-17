@@ -95,14 +95,9 @@ class Creature {
         self.system = system
     }
     
-    init(system: String, strength: Int, dexterity: Int, constitution: Int, intelligence: Int, wisdom: Int, charisma: Int) {
+    init(system: String, abilites: [Abilities:Ability?]) {
         self.system = system
-        abilities[.Strength] = ability(key: .Strength, fromBaseScore: strength)
-        abilities[.Dexterity] = ability(key: .Dexterity, fromBaseScore: dexterity)
-        abilities[.Constitution] = ability(key: .Constitution, fromBaseScore: constitution)
-        abilities[.Intelligence] = ability(key: .Intelligence, fromBaseScore: intelligence)
-        abilities[.Wisdom] = ability(key: .Wisdom, fromBaseScore: wisdom)
-        abilities[.Charisma] = ability(key: .Charisma, fromBaseScore: charisma)
+        self.abilities = abilites
     }
 
     func parse(transactions: NSOrderedSet) {
