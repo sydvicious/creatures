@@ -9,8 +9,8 @@
 
 import UIKit
 
-enum CreaturesTransactionActions: String, CaseIterable {
-    case creation
+enum CreaturesTransactionSections: String, CaseIterable {
+    case ability
 }
 
 class Creature {
@@ -62,13 +62,13 @@ class Creature {
                 return
             }
             
-            guard let section = CreaturesTransactionActions(rawValue: section_string) else {
+            guard let section = CreaturesTransactionSections(rawValue: section_string) else {
                 print("Unknown section \(section_string) for transaction")
                 return
             }
             
             switch(section) {
-            case .creation:
+            case .ability:
                 handleAbility(transaction: transaction)
             }
         }
