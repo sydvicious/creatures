@@ -4,7 +4,7 @@
 //
 //  Created by Syd Polk on 8/6/15.
 //  Copyright (c) 2015-2017 Bone Jarring Games and Software, LLC. All rights reserved.
-//  Copyright © 2022 Syd Polk (reassigned). All rights reserved.
+//  Copyright © 2022-2023 Syd Polk (reassigned). All rights reserved.
 //
 
 
@@ -19,7 +19,7 @@ class CharactersContext: NSObject, NSFetchedResultsControllerDelegate {
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>? = nil
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = Bundle.main.url(forResource: "Characters", withExtension: "momd")!
+        let modelURL = Bundle.main.url(forResource: "Creatures", withExtension: "momd")!
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
 

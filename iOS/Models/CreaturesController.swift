@@ -4,7 +4,7 @@
 //
 //  Created by Syd Polk on 6/11/15.
 //  Copyright (c) 2015-2017 Bone Jarring Games and Software, LLC. All rights reserved.
-//  Copyright © 2022 Syd Polk (reassigned). All rights reserved.
+//  Copyright © 2022-2023 Syd Polk (reassigned). All rights reserved.
 //
 
 
@@ -16,7 +16,7 @@ class CreaturesController {
 
     var context: CharactersContext
     
-    private init (_ forTest: Bool = false, _ name: String = "Characters") {
+    private init (_ forTest: Bool = false, _ name: String = "Creatures") {
         do {
             self.context = CharactersContext(forTest: forTest, name: name)
             try self.context.fetchedResultsController?.performFetch()
@@ -30,7 +30,7 @@ class CreaturesController {
     
     static private var sharedController: CreaturesController? = nil
 
-    static func sharedCreaturesController(_ forTest: Bool = false, _ name: String = "Characters") -> CreaturesController {
+    static func sharedCreaturesController(_ forTest: Bool = false, _ name: String = "Creatures") -> CreaturesController {
         if sharedController == nil {
             sharedController = CreaturesController(forTest, name)
         }
