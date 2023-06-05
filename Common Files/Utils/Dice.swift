@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftPriorityQueue
 
 struct IndexRollPair: Comparable {
     static func < (lhs: IndexRollPair, rhs: IndexRollPair) -> Bool {

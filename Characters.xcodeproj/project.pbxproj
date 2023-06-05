@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		62166FA11D8CB87E003540D4 /* TestAbility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62166FA01D8CB87E003540D4 /* TestAbility.swift */; };
 		62166FA61D8CBA70003540D4 /* TestD20Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62166FA51D8CBA70003540D4 /* TestD20Ability.swift */; };
+		6216862A29D5DE8D003AFDD0 /* SwiftPriorityQueue in Frameworks */ = {isa = PBXBuildFile; productRef = 6216862929D5DE8D003AFDD0 /* SwiftPriorityQueue */; };
+		6216862D29D5DF07003AFDD0 /* SwiftPriorityQueue in Frameworks */ = {isa = PBXBuildFile; productRef = 6216862C29D5DF07003AFDD0 /* SwiftPriorityQueue */; };
 		6222E0551DB48D7E0031FD74 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222E0541DB48D7E0031FD74 /* Creature.swift */; };
 		6228505D1978ECB000DE985E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228505C1978ECB000DE985E /* AppDelegate.swift */; };
 		623ED20D2869477F004AB64D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623ED20C2869477F004AB64D /* LaunchScreen.storyboard */; };
@@ -157,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6216862A29D5DE8D003AFDD0 /* SwiftPriorityQueue in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6216862D29D5DF07003AFDD0 /* SwiftPriorityQueue in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +213,13 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
+		6216862B29D5DF07003AFDD0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6222E0521DB48CE70031FD74 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +239,7 @@
 				62166FA41D8CB8A0003540D4 /* Tests */,
 				624C5B871EA9AC7A007BF969 /* bj_character */,
 				622850581978ECB000DE985E /* Products */,
+				6216862B29D5DF07003AFDD0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -428,6 +440,9 @@
 			dependencies = (
 			);
 			name = iOS;
+			packageProductDependencies = (
+				6216862929D5DE8D003AFDD0 /* SwiftPriorityQueue */,
+			);
 			productName = Characters;
 			productReference = 622850571978ECB000DE985E /* Characters.app */;
 			productType = "com.apple.product-type.application";
@@ -445,6 +460,9 @@
 			dependencies = (
 			);
 			name = bj_character;
+			packageProductDependencies = (
+				6216862C29D5DF07003AFDD0 /* SwiftPriorityQueue */,
+			);
 			productName = bj_character;
 			productReference = 624C5B861EA9AC7A007BF969 /* bj_character */;
 			productType = "com.apple.product-type.tool";
@@ -502,6 +520,9 @@
 				Base,
 			);
 			mainGroup = 6228504C1978EC9600DE985E;
+			packageReferences = (
+				6216862829D5DE8D003AFDD0 /* XCRemoteSwiftPackageReference "SwiftPriorityQueue" */,
+			);
 			productRefGroup = 622850581978ECB000DE985E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -700,7 +721,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 			};
 			name = Release;
@@ -748,7 +770,10 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Bone Jarring Characters";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.role-playing-games";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -802,7 +827,10 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Bone Jarring Characters";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.role-playing-games";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bonejarring.characters;
@@ -811,7 +839,8 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -923,7 +952,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "iOS Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bonejarring.iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -967,12 +1000,17 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "iOS Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bonejarring.iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Characters.app/Characters";
@@ -1020,6 +1058,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6216862829D5DE8D003AFDD0 /* XCRemoteSwiftPackageReference "SwiftPriorityQueue" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:davecom/SwiftPriorityQueue.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6216862929D5DE8D003AFDD0 /* SwiftPriorityQueue */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6216862829D5DE8D003AFDD0 /* XCRemoteSwiftPackageReference "SwiftPriorityQueue" */;
+			productName = SwiftPriorityQueue;
+		};
+		6216862C29D5DF07003AFDD0 /* SwiftPriorityQueue */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6216862829D5DE8D003AFDD0 /* XCRemoteSwiftPackageReference "SwiftPriorityQueue" */;
+			productName = SwiftPriorityQueue;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		62EDDBFE1DD96D950027A719 /* Creatures.xcdatamodeld */ = {
