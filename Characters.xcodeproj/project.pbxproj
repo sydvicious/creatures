@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,12 +48,6 @@
 		6288E1D21A4E7A63009F7CE2 /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6288E1D11A4E7A63009F7CE2 /* Prefs.swift */; };
 		628D61511B2BBCF300D420E1 /* TestCreatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622D72A21B2B54A100B3D8F2 /* TestCreatures.swift */; };
 		628E4B81220AA41000F58FA8 /* Rolls3d6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628E4B80220AA41000F58FA8 /* Rolls3d6.swift */; };
-		629611791F4023AC00217557 /* d6w6.png in Resources */ = {isa = PBXBuildFile; fileRef = 629611731F4023A800217557 /* d6w6.png */; };
-		6296117A1F4023AC00217557 /* d6w5.png in Resources */ = {isa = PBXBuildFile; fileRef = 629611741F4023A900217557 /* d6w5.png */; };
-		6296117B1F4023AC00217557 /* d6w2.png in Resources */ = {isa = PBXBuildFile; fileRef = 629611751F4023AA00217557 /* d6w2.png */; };
-		6296117C1F4023AC00217557 /* d6w4.png in Resources */ = {isa = PBXBuildFile; fileRef = 629611761F4023AA00217557 /* d6w4.png */; };
-		6296117D1F4023AC00217557 /* d6w1.png in Resources */ = {isa = PBXBuildFile; fileRef = 629611771F4023AB00217557 /* d6w1.png */; };
-		6296117E1F4023AC00217557 /* d6w3.png in Resources */ = {isa = PBXBuildFile; fileRef = 629611781F4023AB00217557 /* d6w3.png */; };
 		629EF2DF286E48D4000D984E /* AbilityGridRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629EF2DE286E48D4000D984E /* AbilityGridRow.swift */; };
 		62A2A1002883C84300B07DCE /* AbilitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A2A0FF2883C84300B07DCE /* AbilitiesController.swift */; };
 		62A2A1012883C84300B07DCE /* AbilitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A2A0FF2883C84300B07DCE /* AbilitiesController.swift */; };
@@ -122,12 +116,6 @@
 		627426761B733A910051A5E5 /* CharactersContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersContext.swift; sourceTree = "<group>"; };
 		6288E1D11A4E7A63009F7CE2 /* Prefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Prefs.swift; path = Utils/Prefs.swift; sourceTree = "<group>"; };
 		628E4B80220AA41000F58FA8 /* Rolls3d6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Rolls3d6.swift; path = Utils/Rolls3d6.swift; sourceTree = "<group>"; };
-		629611731F4023A800217557 /* d6w6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w6.png; path = ../../design/d6w6.png; sourceTree = "<group>"; };
-		629611741F4023A900217557 /* d6w5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w5.png; path = ../../design/d6w5.png; sourceTree = "<group>"; };
-		629611751F4023AA00217557 /* d6w2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w2.png; path = ../../design/d6w2.png; sourceTree = "<group>"; };
-		629611761F4023AA00217557 /* d6w4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w4.png; path = ../../design/d6w4.png; sourceTree = "<group>"; };
-		629611771F4023AB00217557 /* d6w1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w1.png; path = ../../design/d6w1.png; sourceTree = "<group>"; };
-		629611781F4023AB00217557 /* d6w3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = d6w3.png; path = ../../design/d6w3.png; sourceTree = "<group>"; };
 		629EF2DE286E48D4000D984E /* AbilityGridRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityGridRow.swift; sourceTree = "<group>"; };
 		62A2A0FF2883C84300B07DCE /* AbilitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilitiesController.swift; sourceTree = "<group>"; };
 		62ACB3CF1DD457FD00D7BA89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -300,12 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				62ACB3CF1DD457FD00D7BA89 /* Images.xcassets */,
-				629611771F4023AB00217557 /* d6w1.png */,
-				629611751F4023AA00217557 /* d6w2.png */,
-				629611781F4023AB00217557 /* d6w3.png */,
-				629611761F4023AA00217557 /* d6w4.png */,
-				629611741F4023A900217557 /* d6w5.png */,
-				629611731F4023A800217557 /* d6w6.png */,
 				623ED20C2869477F004AB64D /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
@@ -540,14 +522,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				623ED20D2869477F004AB64D /* LaunchScreen.storyboard in Resources */,
-				6296117C1F4023AC00217557 /* d6w4.png in Resources */,
-				6296117E1F4023AC00217557 /* d6w3.png in Resources */,
 				62ACB3D01DD457FD00D7BA89 /* Images.xcassets in Resources */,
-				6296117D1F4023AC00217557 /* d6w1.png in Resources */,
-				629611791F4023AC00217557 /* d6w6.png in Resources */,
 				624AE9D21E17528C00DD9782 /* (null) in Resources */,
-				6296117B1F4023AC00217557 /* d6w2.png in Resources */,
-				6296117A1F4023AC00217557 /* d6w5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
